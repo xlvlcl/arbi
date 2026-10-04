@@ -203,7 +203,7 @@ async def scan_once() -> dict:
                 "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "playwright-auto-sports-all-event-markets-v12",
+                "scanner": "playwright-auto-sports-all-event-markets-v13",
             },
             "errors": errors[-40:],
             "source": "DobryBuk public comparison",
