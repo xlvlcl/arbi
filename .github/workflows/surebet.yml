@@ -119,14 +119,12 @@ jobs:
             echo "Brak zmian danych do zapisania."
           fi
 
-      # Strona sama czyta świeże latest.json z gałęzi main co 3 sekundy.
-      # Dzięki temu kolejne skany nie muszą czekać na deployment Pages.
+      # Publikuj Pages po KAŻDYM poprawnym skanie. Dzięki temu local data/latest.json
+      # na stronie również zawsze jest świeży, nawet jeśli raw.githubusercontent.com cache'uje.
       - name: Skonfiguruj GitHub Pages
-        if: github.event_name == 'workflow_dispatch'
         uses: actions/configure-pages@v5
 
       - name: Przygotuj stronę
-        if: github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
@@ -134,7 +132,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: scan
-    if: github.event_name == 'workflow_dispatch' && needs.scan.result == 'success'
+    if: needs.scan.result == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
