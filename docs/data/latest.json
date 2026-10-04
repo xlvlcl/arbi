@@ -1,8 +1,133 @@
 {
-  "generated_at": 1791127011.7316346,
-  "last_scan": 1791127011.7316346,
+  "generated_at": 1791127135.6541896,
+  "last_scan": 1791127135.6541896,
   "latest": [],
   "scan_preview": [
+    {
+      "event": "Azerbejdżan 1:0 Litwa",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "BetSport",
+          "odds": 2.66,
+          "bookmaker_url": "https://www.betsport.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 2.6,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.6,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.55,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.55,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Forbet",
+          "odds": 2.95,
+          "bookmaker_url": "https://www.iforbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "STS",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.93,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 3.04,
+          "bookmaker_url": "https://www.betsport.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.0,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.0,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.98,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
     {
       "event": "Kosowo - Austria",
       "sport": "PIŁKA NOŻNA",
@@ -119,131 +244,6 @@
               "odds": 1.97,
               "bookmaker_url": "https://www.etoto.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Malta - Andora",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "BetSport",
-          "odds": 1.65,
-          "bookmaker_url": "https://www.betsport.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.63,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.62,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.62,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.61,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "STS",
-          "odds": 3.5,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.45,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.41,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "STS",
-          "odds": 8.4,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 6.8,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 6.75,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 6.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 6.5,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
@@ -504,131 +504,6 @@
       ]
     },
     {
-      "event": "Azerbejdżan 1:0 Litwa",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "BetSport",
-          "odds": 2.66,
-          "bookmaker_url": "https://www.betsport.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.6,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.55,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.55,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Forbet",
-          "odds": 2.95,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.93,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "BetSport",
-          "odds": 3.04,
-          "bookmaker_url": "https://www.betsport.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 3.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.98,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
       "event": "Irlandia - Izrael",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
@@ -754,246 +629,121 @@
       ]
     },
     {
-      "event": "Portugalia - Norwegia",
+      "event": "Malta - Andora",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 1.75,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+          "bookmaker": "BetSport",
+          "odds": 1.65,
+          "bookmaker_url": "https://www.betsport.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "BetSport",
-              "odds": 1.71,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "Forbet",
+              "odds": 1.63,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Forbet",
-              "odds": 1.69,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "LVBet",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 1.69,
+              "odds": 1.62,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.67,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "Betclic",
+              "odds": 1.61,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 4.75,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+          "bookmaker": "STS",
+          "odds": 3.5,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "BetSport",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "Forbet",
-              "odds": 4.6,
+              "odds": 3.45,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "BetSport",
+              "odds": 3.41,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "STS",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "Betfan",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "bookmaker": "Forbet",
-          "odds": 4.9,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+          "bookmaker": "STS",
+          "odds": 8.4,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
           "source_name": "DobryBuk",
           "alternatives": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
             {
               "bookmaker": "Betfan",
-              "odds": 4.7,
+              "odds": 6.8,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.7,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "ETOTO",
+              "odds": 6.75,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "CSM Slatina - Universitatea Craiova",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Fuksiarz",
-          "odds": 5.3,
-          "bookmaker_url": "https://fuksiarz.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Betfan",
-          "odds": 4.25,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.2,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Betfan",
-          "odds": 1.55,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-          "source_name": "DobryBuk",
-          "alternatives": [
             {
               "bookmaker": "BetSport",
-              "odds": 1.55,
+              "odds": 6.6,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "LVBet",
-              "odds": 1.55,
+              "odds": 6.5,
               "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
@@ -1077,131 +827,6 @@
               "odds": 5.4,
               "bookmaker_url": "https://www.betclic.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Holandia - Serbia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 1.2,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 7.8,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 7.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 7.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 14.2,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 14.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 13.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
@@ -1462,45 +1087,170 @@
       ]
     },
     {
-      "event": "USA - Meksyk",
+      "event": "CSM Slatina - Universitatea Craiova",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 2.85,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+          "bookmaker": "Fuksiarz",
+          "odds": 5.3,
+          "bookmaker_url": "https://fuksiarz.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "Betfan",
-              "odds": 2.8,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Fortuna",
+              "odds": 5.1,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "BetSport",
-              "odds": 2.8,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Betfan",
+              "odds": 5.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.8,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Betfan",
+          "odds": 4.25,
+          "bookmaker_url": "https://www.betfan.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Fortuna",
+              "odds": 4.25,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
-              "odds": 2.8,
+              "odds": 4.25,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 4.2,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.15,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Betfan",
+          "odds": 1.55,
+          "bookmaker_url": "https://www.betfan.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.55,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.55,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.54,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 2.77,
+              "odds": 1.54,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
+      "event": "Portugalia - Norwegia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 1.75,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.71,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.69,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.69,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.67,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
               "source_name": "DobryBuk"
             }
           ]
@@ -1508,78 +1258,241 @@
         {
           "selection": "X",
           "bookmaker": "LVBet",
-          "odds": 3.75,
+          "odds": 4.75,
           "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
           "source_name": "DobryBuk",
           "alternatives": [
             {
               "bookmaker": "BetSport",
-              "odds": 3.7,
+              "odds": 4.6,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fortuna",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Forbet",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Betfan",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Fuksiarz",
+              "odds": 4.6,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "ETOTO",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "STS",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "bookmaker": "Superbet",
-          "odds": 2.5,
-          "bookmaker_url": "https://www.superbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+          "bookmaker": "Forbet",
+          "odds": 4.9,
+          "bookmaker_url": "https://www.iforbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "Betfan",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Fortuna",
+              "odds": 4.75,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
               "source_name": "DobryBuk"
             },
+            {
+              "bookmaker": "Betfan",
+              "odds": 4.7,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 4.7,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.7,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
+      "event": "Holandia - Serbia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Betfan",
+          "odds": 1.2,
+          "bookmaker_url": "https://www.betfan.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+          "source_name": "DobryBuk",
+          "alternatives": [
             {
               "bookmaker": "STS",
-              "odds": 2.45,
+              "odds": 1.2,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Forbet",
-              "odds": 2.41,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Superbet",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "ETOTO",
-              "odds": 2.4,
+              "odds": 1.19,
               "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Fortuna",
+          "odds": 7.8,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 7.5,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 7.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 14.2,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 14.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 13.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
+      "event": "Komory - Senegal",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "STS",
+          "odds": 11.0,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+          "source_name": "DobryBuk",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "STS",
+          "odds": 6.0,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+          "source_name": "DobryBuk",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "STS",
+          "odds": 1.22,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+          "source_name": "DobryBuk",
+          "alternatives": []
         }
       ],
       "sources": [
@@ -1839,6 +1752,249 @@
   ],
   "coupon_catalog": [
     {
+      "id": "0b5137fa732a55",
+      "event": "Azerbejdżan 1:0 Litwa",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 2.66,
+          "best_bookmaker": "BetSport",
+          "offers": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 2.66,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 2.6,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.6,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.55,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.55,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.54,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.53,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.5,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 2.47,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.47,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 2.95,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.93,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 2.9,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 2.89,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.87,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.86,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.85,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 3.04,
+          "best_bookmaker": "BetSport",
+          "offers": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.04,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.0,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.0,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.98,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 2.95,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "2249cc5df3a8b6",
       "event": "Kosowo - Austria",
       "sport": "PIŁKA NOŻNA",
@@ -2096,270 +2252,6 @@
               "odds": 1.9,
               "bookmaker_url": "https://www.betfan.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "302f74060a4922",
-      "event": "Malta - Andora",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 1.65,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.65,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.63,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.62,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.62,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.61,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.61,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.58,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.58,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.57,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 3.5,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 3.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.45,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.41,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.3,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.23,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 8.4,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 8.4,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 6.8,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 6.75,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 6.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 6.5,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 6.4,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 6.4,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 6.4,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 6.3,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 6.1,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 5.9,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
@@ -2895,249 +2787,6 @@
       ]
     },
     {
-      "id": "0b5137fa732a55",
-      "event": "Azerbejdżan 1:0 Litwa",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 2.66,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 2.66,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.6,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.55,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.55,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.54,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.53,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.5,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.47,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.47,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 2.95,
-          "best_bookmaker": "Forbet",
-          "offers": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.93,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.9,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 2.89,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.87,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.86,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.85,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 3.04,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.04,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 3.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.98,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.95,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "4976c85e20bcf3",
       "event": "Irlandia - Izrael",
       "sport": "PIŁKA NOŻNA",
@@ -3402,527 +3051,263 @@
       ]
     },
     {
-      "id": "4504d5da9fa98e",
-      "event": "Portugalia - Norwegia",
+      "id": "302f74060a4922",
+      "event": "Malta - Andora",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
       "sources": [
         "DobryBuk"
       ],
       "selections": [
         {
           "selection": "1",
-          "best_odds": 1.75,
-          "best_bookmaker": "LVBet",
+          "best_odds": 1.65,
+          "best_bookmaker": "BetSport",
           "offers": [
             {
-              "bookmaker": "LVBet",
-              "odds": 1.75,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "BetSport",
-              "odds": 1.71,
+              "odds": 1.65,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Forbet",
-              "odds": 1.69,
+              "odds": 1.63,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 1.69,
+              "odds": 1.62,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.67,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.67,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.64,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.63,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.62,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.62,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
               "odds": 1.61,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.61,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.6,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.58,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.58,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.57,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.55,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "best_odds": 4.75,
-          "best_bookmaker": "LVBet",
+          "best_odds": 3.5,
+          "best_bookmaker": "STS",
           "offers": [
             {
-              "bookmaker": "LVBet",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "STS",
+              "odds": 3.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Forbet",
-              "odds": 4.6,
+              "odds": 3.45,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.45,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "BetSport",
+              "odds": 3.41,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betfan",
-              "odds": 4.4,
+              "odds": 3.4,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "TotalBet",
-              "odds": 4.35,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.3,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.3,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "Fortuna",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 4.2,
+              "odds": 3.4,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.35,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.35,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.3,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 3.3,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.23,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "best_odds": 4.9,
-          "best_bookmaker": "Forbet",
+          "best_odds": 8.4,
+          "best_bookmaker": "STS",
           "offers": [
             {
-              "bookmaker": "Forbet",
-              "odds": 4.9,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "STS",
+              "odds": 8.4,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betfan",
-              "odds": 4.7,
+              "odds": 6.8,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.7,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.65,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "ETOTO",
-              "odds": 4.6,
+              "odds": 6.75,
               "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "BetSport",
-              "odds": 4.5,
+              "odds": 6.6,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "STS",
-              "odds": 4.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "bookmaker": "LVBet",
+              "odds": 6.5,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Superbet",
-              "odds": 4.35,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "9617290cd3df18",
-      "event": "CSM Slatina - Universitatea Craiova",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 5.3,
-          "best_bookmaker": "Fuksiarz",
-          "offers": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 5.3,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "bookmaker": "Betclic",
+              "odds": 6.4,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Forbet",
-              "odds": 4.8,
+              "odds": 6.4,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 4.25,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fuksiarz",
-              "odds": 4.2,
+              "odds": 6.4,
               "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.83,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 1.55,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.52,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.51,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.51,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fortuna",
-              "odds": 1.49,
+              "odds": 6.3,
               "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Betclic",
-              "odds": 1.44,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "bookmaker": "TotalBet",
+              "odds": 6.1,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 5.9,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/malta-vs-andora-2026-10-04-50610",
               "source_name": "DobryBuk"
             }
           ]
@@ -4019,270 +3404,6 @@
               "odds": 5.4,
               "bookmaker_url": "https://www.betclic.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4f0e976b2633fc",
-      "event": "Holandia - Serbia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 1.2,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.19,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 7.8,
-          "best_bookmaker": "Fortuna",
-          "offers": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 7.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 7.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 7.4,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 7.25,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 7.2,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 7.2,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 7.2,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 7.1,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 14.2,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 14.2,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 14.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 13.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 11.75,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
@@ -4797,221 +3918,845 @@
       ]
     },
     {
-      "id": "f9019e870fe025",
-      "event": "USA - Meksyk",
+      "id": "9617290cd3df18",
+      "event": "CSM Slatina - Universitatea Craiova",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
       "sources": [
         "DobryBuk"
       ],
       "selections": [
         {
           "selection": "1",
-          "best_odds": 2.85,
-          "best_bookmaker": "LVBet",
+          "best_odds": 5.3,
+          "best_bookmaker": "Fuksiarz",
           "offers": [
             {
-              "bookmaker": "LVBet",
-              "odds": 2.85,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.8,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 2.8,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.8,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.77,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.75,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.75,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.69,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Fuksiarz",
+              "odds": 5.3,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fortuna",
-              "odds": 2.61,
+              "odds": 5.1,
               "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 5.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.8,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 4.75,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 4.75,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 4.7,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 4.7,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 4.4,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "best_odds": 3.75,
-          "best_bookmaker": "LVBet",
+          "best_odds": 4.25,
+          "best_bookmaker": "Betfan",
           "offers": [
             {
-              "bookmaker": "LVBet",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "bookmaker": "Betfan",
+              "odds": 4.25,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fortuna",
-              "odds": 3.55,
+              "odds": 4.25,
               "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
-              "odds": 3.2,
+              "odds": 4.25,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 4.2,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.15,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 4.1,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.1,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 4.1,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 3.2,
+              "odds": 4.1,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 4.0,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.83,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "best_odds": 2.5,
-          "best_bookmaker": "Superbet",
+          "best_odds": 1.55,
+          "best_bookmaker": "Betfan",
           "offers": [
             {
-              "bookmaker": "Superbet",
-              "odds": 2.5,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "Betfan",
-              "odds": 2.45,
+              "odds": 1.55,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.41,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.4,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.37,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.35,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.3,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "BetSport",
-              "odds": 2.26,
+              "odds": 1.55,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.55,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.54,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.54,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.52,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.51,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.51,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.5,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.49,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.44,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4504d5da9fa98e",
+      "event": "Portugalia - Norwegia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.75,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.75,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.71,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.69,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.69,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.67,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.67,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.64,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.63,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.61,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 4.75,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.75,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 4.6,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 4.45,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 4.4,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 4.35,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 4.3,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 4.3,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 4.2,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 4.9,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.9,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 4.75,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 4.7,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 4.7,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.7,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 4.65,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 4.6,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 4.5,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 4.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 4.35,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f0e976b2633fc",
+      "event": "Holandia - Serbia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.2,
+          "best_bookmaker": "Betfan",
+          "offers": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.19,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.17,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 7.8,
+          "best_bookmaker": "Fortuna",
+          "offers": [
+            {
+              "bookmaker": "Fortuna",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 7.5,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 7.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 7.4,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 7.25,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 7.2,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 7.2,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 7.2,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 7.1,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 14.2,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 14.2,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 14.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 13.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 11.75,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 11.0,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a429a3bc80bed8",
+      "event": "Komory - Senegal",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 11.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 11.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 6.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 6.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 1.22,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 1.22,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
               "source_name": "DobryBuk"
             }
           ]
@@ -5531,7 +5276,7 @@
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 31.99,
+    "elapsed_seconds": 34.14,
     "scanner": "multi-source-v17-resilient-coupon",
     "scan_mode": "detail",
     "sources": {
@@ -5588,10 +5333,10 @@
     }
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Enosis Neon Paralimni - Anorthosis Famagusta: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Enosis Neon Paralimni - Anorthosis Famagusta: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: STS: https://www.sts.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
