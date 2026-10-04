@@ -168,7 +168,19 @@ jobs:
       - name: Uruchom skaner wszystkich sportów, zdarzeń i rynków
         id: scanner
         continue-on-error: true
-        run: python scanner.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python -u scanner.py 2>&1 | tee scanner.log
+
+      - name: Zapisz pełny log skanera
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scanner-log
+          path: scanner.log
+          if-no-files-found: ignore
+          retention-days: 3
 
       - name: Zapisz diagnostykę jeśli źródło zwróci 0 wydarzeń
         if: always()
@@ -181,8 +193,16 @@ jobs:
 
       - name: Przerwij jeśli skaner nie zadziałał
         if: steps.scanner.outcome != 'success'
+        shell: bash
         run: |
-          echo "Skaner nie zakończył się poprawnie. Jeśli powstał artefakt surebet-debug, zawiera screenshot i HTML."
+          echo "================ OSTATNIE 180 LINII SCANNER.LOG ================"
+          if [ -f scanner.log ]; then
+            tail -n 180 scanner.log
+          else
+            echo "Brak scanner.log"
+          fi
+          echo "================================================================"
+          echo "Skaner nie zakończył się poprawnie. Artefakt scanner-log zawiera pełny log."
           exit 1
 
       - name: Sprawdź wynik
