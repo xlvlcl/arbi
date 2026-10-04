@@ -1,8 +1,30 @@
 {
-  "generated_at": 1791120768.2470303,
-  "last_scan": 1791120768.2470303,
+  "generated_at": 1791120892.136104,
+  "last_scan": 1791120892.136104,
   "latest": [],
   "scan_preview": [
+    {
+      "event": "Grecja - Niemcy",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "BetSport",
+          "odds": 4.3
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Fortuna",
+          "odds": 4.05
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 1.86
+        }
+      ]
+    },
     {
       "event": "Azerbejdżan 1:0 Litwa",
       "sport": "PIŁKA NOŻNA",
@@ -22,6 +44,28 @@
           "selection": "2",
           "bookmaker": "BetSport",
           "odds": 3.04
+        }
+      ]
+    },
+    {
+      "event": "Malta - Andora",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "STS",
+          "odds": 1.6
+        },
+        {
+          "selection": "X",
+          "bookmaker": "BetSport",
+          "odds": 3.53
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 7.7
         }
       ]
     },
@@ -48,24 +92,46 @@
       ]
     },
     {
-      "event": "Irlandia - Izrael",
+      "event": "FK Dinamo Moscow - Rodina Moscow",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "Superbet",
-          "odds": 2.2
+          "bookmaker": "Forbet",
+          "odds": 1.33
         },
         {
           "selection": "X",
-          "bookmaker": "STS",
-          "odds": 3.5
+          "bookmaker": "Forbet",
+          "odds": 5.2
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Forbet",
+          "odds": 6.0
+        }
+      ]
+    },
+    {
+      "event": "Hamburger 0:0 FC Kopenhaga",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Betfan",
+          "odds": 2.15
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.95
         },
         {
           "selection": "2",
           "bookmaker": "LVBet",
-          "odds": 3.55
+          "odds": 3.25
         }
       ]
     },
@@ -92,28 +158,6 @@
       ]
     },
     {
-      "event": "Hamburger - FC Kopenhaga",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 2.15
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 3.95
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 3.25
-        }
-      ]
-    },
-    {
       "event": "Enosis Neon Paralimni - Anorthosis Famagusta",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
@@ -132,6 +176,72 @@
           "selection": "2",
           "bookmaker": "LVBet",
           "odds": 1.7
+        }
+      ]
+    },
+    {
+      "event": "Irlandia - Izrael",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Superbet",
+          "odds": 2.2
+        },
+        {
+          "selection": "X",
+          "bookmaker": "STS",
+          "odds": 3.5
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 3.55
+        }
+      ]
+    },
+    {
+      "event": "Molde - Kristiansund",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Fuksiarz",
+          "odds": 1.48
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Fuksiarz",
+          "odds": 4.3
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Fuksiarz",
+          "odds": 5.6
+        }
+      ]
+    },
+    {
+      "event": "Ludogorets - Cherno More Varna",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Betfan",
+          "odds": 1.65
+        },
+        {
+          "selection": "X",
+          "bookmaker": "BetSport",
+          "odds": 4.1
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Betfan",
+          "odds": 4.5
         }
       ]
     },
@@ -176,24 +286,19 @@
     ],
     "detail_events_scanned": 19,
     "detail_events_total": 19,
-    "markets": 7,
-    "markets_scanned": 7,
+    "markets": 12,
+    "markets_scanned": 12,
     "exhaustive_complete": true,
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 31.06,
+    "elapsed_seconds": 33.34,
     "scanner": "playwright-auto-sports-all-event-markets-v14"
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Malta - Andora: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Portugalia - Norwegia: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Grecja - Niemcy: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / FK Dinamo Moscow - Rodina Moscow: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Ludogorets - Cherno More Varna: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
