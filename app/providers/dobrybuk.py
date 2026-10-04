@@ -854,6 +854,45 @@ class DobryBukProvider:
 
         return list(unique.values()), errors
 
+    async def _open_odds_tab(self, page: Page) -> bool:
+        """Otwórz zakładkę `Kursy` przed szukaniem rynków.
+
+        Na DobryBuk przyciski rynków bywają obecne w DOM, ale ukryte dopóki
+        użytkownik nie przejdzie ze `Szczegóły` do `Kursy`. Stary skaner
+        filtrował tylko widoczne przyciski, więc kończył z samym 1X2.
+        """
+        candidates = [
+            page.get_by_role("button", name=re.compile(r"^\s*Kursy\s*$", re.I)),
+            page.locator('button:has-text("Kursy")'),
+            page.locator('[role="button"]:has-text("Kursy")'),
+        ]
+        for locator in candidates:
+            try:
+                count = min(await locator.count(), 8)
+            except Exception:
+                count = 0
+            for i in range(count):
+                item = locator.nth(i)
+                try:
+                    if not await item.is_visible():
+                        continue
+                    await item.scroll_into_view_if_needed(timeout=1500)
+                    await item.click(timeout=3500)
+                    await page.wait_for_timeout(900)
+                    return True
+                except Exception:
+                    continue
+
+        # Jeśli zakładka jest już aktywna, widoczny przycisk 1x2 wystarczy
+        # jako potwierdzenie, że jesteśmy w sekcji kursów.
+        try:
+            visible_1x2 = page.locator('button:visible').filter(has_text=re.compile(r"^\s*1x2\s*$", re.I))
+            if await visible_1x2.count():
+                return True
+        except Exception:
+            pass
+        return False
+
     def _looks_like_market_label(self, label: str) -> bool:
         low = normalize_label(label).lower()
         if not low or low in NAV_SKIP or len(low) > 80:
@@ -870,50 +909,112 @@ class DobryBukProvider:
     async def _market_buttons_on(self, page: Page) -> list[str]:
         names: list[str] = []
         seen: set[str] = set()
-        try:
-            buttons = await page.get_by_role("button").all()
-        except Exception:
-            buttons = []
 
-        for button in buttons:
+        # Nie ograniczamy się już tylko do get_by_role("button").
+        # DobryBuk renderuje część kontrolek responsywnie / warunkowo.
+        locators = [
+            page.locator("button"),
+            page.locator('[role="button"]'),
+            page.locator("[data-market]"),
+        ]
+
+        for locator in locators:
             try:
-                if not await button.is_visible():
-                    continue
-                text = normalize_label(await button.inner_text())
+                count = min(await locator.count(), 300)
             except Exception:
-                continue
-            key = text.lower()
-            if key in seen or not self._looks_like_market_label(text):
-                continue
-            seen.add(key)
-            names.append(text)
+                count = 0
+            for i in range(count):
+                item = locator.nth(i)
+                try:
+                    if not await item.is_visible():
+                        continue
+                    text = normalize_label(await item.inner_text(timeout=1200))
+                except Exception:
+                    continue
 
-        # 1x2 is the default market and can sometimes be rendered as selected text, not a button.
+                key = text.lower()
+                if key in seen or not self._looks_like_market_label(text):
+                    continue
+                seen.add(key)
+                names.append(text)
+
+        # Awaryjnie odczytaj krótkie etykiety z widocznego tekstu sekcji.
+        # To nie klika "w ciemno" - później _click_market_on i tak wymaga
+        # rzeczywistej, widocznej kontrolki o dokładnie tej nazwie.
+        try:
+            body = await page.locator("body").inner_text(timeout=2500)
+            for line in body.splitlines():
+                text = normalize_label(line)
+                key = text.lower()
+                if key in seen or not self._looks_like_market_label(text):
+                    continue
+                if len(text) <= 80:
+                    seen.add(key)
+                    names.append(text)
+        except Exception:
+            pass
+
         if not any(x.lower() == "1x2" for x in names):
             names.insert(0, "1x2")
         return names
 
     async def _click_market_on(self, page: Page, market: str) -> bool:
         target = normalize_label(market).lower().replace(" ", "")
-        try:
-            buttons = await page.get_by_role("button").all()
-        except Exception:
-            buttons = []
 
-        for button in buttons:
+        if target == "1x2":
+            # Rynek domyślny; jeżeli kontrolka jest widoczna, kliknij ją.
+            # Gdy jest już aktywny, parsowanie bieżącej tabeli też jest poprawne.
+            default_ok = True
+        else:
+            default_ok = False
+
+        locators = [
+            page.locator("button"),
+            page.locator('[role="button"]'),
+            page.locator("[data-market]"),
+        ]
+        for locator in locators:
             try:
-                if not await button.is_visible():
-                    continue
-                text = normalize_label(await button.inner_text())
-                if text.lower().replace(" ", "") != target:
-                    continue
-                await button.scroll_into_view_if_needed(timeout=1000)
-                await button.click(timeout=2500)
-                await page.wait_for_timeout(650)
-                return True
+                count = min(await locator.count(), 300)
             except Exception:
-                continue
-        return market.strip().lower() == "1x2"
+                count = 0
+
+            for i in range(count):
+                item = locator.nth(i)
+                try:
+                    if not await item.is_visible():
+                        continue
+                    text = normalize_label(await item.inner_text(timeout=1000))
+                    if text.lower().replace(" ", "") != target:
+                        continue
+
+                    # Zapamiętaj fragment tabeli, aby dać SPA czas na podmianę kursów.
+                    try:
+                        before = clean(await page.locator("table").last.inner_text(timeout=1200))
+                    except Exception:
+                        before = ""
+
+                    await item.scroll_into_view_if_needed(timeout=1500)
+                    await item.click(timeout=3500)
+
+                    changed = False
+                    for _ in range(12):
+                        await page.wait_for_timeout(180)
+                        try:
+                            after = clean(await page.locator("table").last.inner_text(timeout=800))
+                        except Exception:
+                            after = ""
+                        if after and after != before:
+                            changed = True
+                            break
+
+                    if not changed:
+                        await page.wait_for_timeout(650)
+                    return True
+                except Exception:
+                    continue
+
+        return default_ok
 
     async def _scan_event_markets(self, page: Page, event: dict) -> tuple[list[dict], list[str]]:
         event_url = event.get("event_url", "")
@@ -922,15 +1023,32 @@ class DobryBukProvider:
 
         errors: list[str] = []
         try:
-            await page.goto(event_url, wait_until="domcontentloaded", timeout=25000)
-            await page.wait_for_timeout(850)
+            await page.goto(event_url, wait_until="domcontentloaded", timeout=30000)
+            try:
+                await page.wait_for_load_state("networkidle", timeout=6500)
+            except Exception:
+                pass
+            await page.wait_for_timeout(1200)
             await self._dismiss_cookie_banner(page)
+            await self._open_odds_tab(page)
+
+            # Poczekaj, aż sekcja kursów rzeczywiście się pojawi.
+            try:
+                await page.wait_for_selector("table", timeout=5000)
+            except Exception:
+                pass
+            await page.wait_for_timeout(550)
         except Exception as exc:
             return [], [f"ładowanie wydarzenia: {type(exc).__name__}: {exc}"]
 
         market_names = await self._market_buttons_on(page)
         max_markets = max(1, int(getattr(self.settings, "max_markets_per_event", 40)))
         market_names = market_names[:max_markets]
+        if len(market_names) <= 1:
+            errors.append(
+                "wykryto tylko 1 rynek na stronie wydarzenia; "
+                "prawdopodobnie sekcja kursów nie została w pełni załadowana"
+            )
 
         results: list[dict] = []
         seen_market_keys: set[str] = set()

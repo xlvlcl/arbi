@@ -14,7 +14,8 @@ from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
 from app.surebet import detect
 from app.telegram import send
-from app.onesignal_push import send_push
+from app.valuebets import detect_valuebets
+from app.onesignal_push import send_push, send_value_push
 
 DOCS_DATA = ROOT / "docs" / "data"
 ALERT_STATE = ROOT / "data" / "state.json"
@@ -247,6 +248,122 @@ def _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows: list[dict]) -
     return targets
 
 
+KNOWN_COMPARISON_BOOKS = [
+    "Superbet", "STS", "Fortuna", "Betclic", "Forbet", "LVBet", "ETOTO",
+    "Betfan", "Fuksiarz", "TotalBet", "Betters", "LeBull", "AdmiralBet",
+    "BetSport", "ComeOn", "PZBuk",
+]
+
+
+def find_confirmation_targets_from_values(values: list[dict], dobrybuk_rows: list[dict]) -> list[dict]:
+    index = {}
+    for row in dobrybuk_rows:
+        key = (event_key(row.get("event", "")), market_key(row.get("market", "")))
+        if row.get("event_url"):
+            index[key] = row
+
+    targets = []
+    seen = set()
+    for value in values:
+        key = (event_key(value.get("event", "")), market_key(value.get("market", "")))
+        row = index.get(key)
+        if not row:
+            continue
+        target_key = (row.get("event_url", ""), row.get("market", ""))
+        if target_key in seen:
+            continue
+        seen.add(target_key)
+        targets.append(
+            {
+                "event": row.get("event", value.get("event", "")),
+                "sport": row.get("sport", value.get("sport", "")),
+                "market": row.get("market", value.get("market", "")),
+                "event_url": row.get("event_url", ""),
+            }
+        )
+    return targets
+
+
+def build_coverage(markets: list[dict], direct_stats: dict, discovered_events: int, scanned_events: int) -> dict:
+    per_book: dict[str, dict] = {
+        book: {"events": set(), "markets": set(), "offers": 0, "direct_status": "not-configured"}
+        for book in KNOWN_COMPARISON_BOOKS
+    }
+
+    for market in markets:
+        ekey = event_key(str(market.get("event", "")))
+        mkey = market_key(str(market.get("market", "")))
+        for _, quotes in (market.get("quotes") or {}).items():
+            for quote in quotes:
+                book = str(quote.get("bookmaker", "")).strip()
+                if not book:
+                    continue
+                canonical = {
+                    "eFortuna": "Fortuna",
+                    "eToto": "ETOTO",
+                    "Etoto": "ETOTO",
+                    "BETFAN": "Betfan",
+                    "Betsport": "BetSport",
+                    "Total Bet": "TotalBet",
+                    "Totalbet": "TotalBet",
+                }.get(book, book)
+                if canonical not in per_book:
+                    per_book[canonical] = {
+                        "events": set(),
+                        "markets": set(),
+                        "offers": 0,
+                        "direct_status": "unknown",
+                    }
+                if ekey:
+                    per_book[canonical]["events"].add(ekey)
+                if ekey and mkey:
+                    per_book[canonical]["markets"].add(f"{ekey}|{mkey}")
+                per_book[canonical]["offers"] += 1
+
+    direct_sources = (
+        direct_stats.get("sources", {})
+        if isinstance(direct_stats, dict)
+        else {}
+    )
+    for book, info in per_book.items():
+        direct = direct_sources.get(book, {})
+        if direct:
+            if int(direct.get("markets", 0) or 0) > 0:
+                info["direct_status"] = "working"
+            elif direct.get("ok"):
+                info["direct_status"] = "reachable-no-markets"
+            else:
+                info["direct_status"] = "blocked-or-failed"
+
+    result = {}
+    for book, info in sorted(per_book.items()):
+        result[book] = {
+            "events": len(info["events"]),
+            "markets": len(info["markets"]),
+            "offers": int(info["offers"]),
+            "direct_status": info["direct_status"],
+        }
+
+    completion = (
+        round(scanned_events / discovered_events * 100.0, 1)
+        if discovered_events
+        else 0.0
+    )
+    return {
+        "full_bookmaker_inventory_guaranteed": False,
+        "scope": (
+            "Kursy i zdarzenia widoczne w aktualnie skanowanym zakresie DobryBuk "
+            "+ konserwatywne dane bezpośrednie. To nie jest gwarancja 100% pełnej "
+            "oferty każdego bukmachera."
+        ),
+        "comparison_bookmakers": 16,
+        "discovered_events": int(discovered_events),
+        "detail_events_scanned": int(scanned_events),
+        "detail_completion_pct": completion,
+        "books": result,
+    }
+
+
 async def scan_once() -> dict:
     started = time.time()
     provider = DobryBukProvider(settings)
@@ -327,32 +444,87 @@ async def scan_once() -> dict:
             )
 
         candidates = detect_from_markets(merged_rows)
+        value_candidates = (
+            detect_valuebets(
+                merged_rows,
+                payout_factors(),
+                min_edge_pct=settings.value_min_edge_pct,
+                min_reference_books=settings.value_min_reference_books,
+                max_dispersion=settings.value_max_dispersion,
+                max_price_gap=settings.value_max_price_gap,
+                min_odds=settings.value_min_odds,
+                max_odds=settings.value_max_odds,
+                max_age_seconds=settings.max_quote_age_seconds,
+            )
+            if settings.value_bets_enabled
+            else []
+        )
 
         confirmed = []
-        if candidates:
+        confirmed_values = []
+        if candidates or value_candidates:
             await asyncio.sleep(max(0.5, min(2.0, float(settings.recheck_delay_seconds))))
             targets = _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows)
+            value_targets = find_confirmation_targets_from_values(
+                value_candidates, dobrybuk_rows
+            )
+            target_map = {
+                (x.get("event_url", ""), x.get("market", "")): x
+                for x in (targets + value_targets)
+                if x.get("event_url")
+            }
+
             confirm_rows = []
-            if targets:
+            if target_map:
                 confirm_rows, confirm_errors = await provider.scan_specific_markets(
-                    targets,
+                    list(target_map.values()),
                     concurrency=settings.confirm_concurrency,
-                    max_seconds=90,
+                    max_seconds=120,
                 )
                 errors.extend([f"Potwierdzenie: {x}" for x in confirm_errors])
 
-            # Re-fetch direct pages too so a multi-source candidate is never confirmed
-            # using stale direct odds from the start of the scan.
+            # Re-fetch direct pages too so no alert is based solely on stale direct data.
             direct_confirm_rows, direct_confirm_errors, _ = await scan_direct_books(
                 enabled=bool(getattr(settings, "direct_sources_enabled", True)),
                 timeout=float(getattr(settings, "direct_sources_timeout", 12)),
                 concurrency=int(getattr(settings, "direct_sources_concurrency", 5)),
             )
             errors.extend([f"Potwierdzenie direct: {x}" for x in direct_confirm_errors])
-            confirmed = detect_from_markets(merge_markets(confirm_rows + direct_confirm_rows))
+            confirmation_merged = merge_markets(
+                confirm_rows + direct_confirm_rows
+            )
+
+            confirmed = detect_from_markets(confirmation_merged)
+            confirmed_values = (
+                detect_valuebets(
+                    confirmation_merged,
+                    payout_factors(),
+                    min_edge_pct=settings.value_min_edge_pct,
+                    min_reference_books=settings.value_min_reference_books,
+                    max_dispersion=settings.value_max_dispersion,
+                    max_price_gap=settings.value_max_price_gap,
+                    min_odds=settings.value_min_odds,
+                    max_odds=settings.value_max_odds,
+                    max_age_seconds=settings.max_quote_age_seconds,
+                )
+                if settings.value_bets_enabled
+                else []
+            )
+
+            # If a market is already a strict surebet, show it as surebet rather than value bet.
+            arb_markets = {
+                (event_key(x.event), market_key(x.market))
+                for x in confirmed
+            }
+            confirmed_values = [
+                x for x in confirmed_values
+                if (event_key(x.get("event", "")), market_key(x.get("market", "")))
+                not in arb_markets
+            ]
 
         alerts_sent = 0
         push_alerts_sent = 0
+        value_push_alerts_sent = 0
         telegram_alerts_sent = 0
         push_configured = bool(settings.onesignal_app_id and settings.onesignal_api_key)
         telegram_configured = bool(settings.telegram_token and settings.telegram_chat_id)
@@ -404,7 +576,41 @@ async def scan_once() -> dict:
             if delivered:
                 alerts_sent += 1
 
+        # Value bets are intentionally push-only and clearly separated from surebets.
+        # They are NOT guaranteed wins; they are high-confidence consensus mispricings.
+        if push_configured:
+            for value in confirmed_values:
+                should_send_value = await state.should_alert(
+                    "value|" + str(value.get("key", "")),
+                    float(value.get("edge_pct", 0) or 0),
+                    settings.value_alert_cooldown_minutes,
+                    reappear_minutes=15,
+                    improvement_pct=0.75,
+                )
+                if not should_send_value:
+                    continue
+                try:
+                    result = await send_value_push(
+                        settings.onesignal_app_id,
+                        settings.onesignal_api_key,
+                        value,
+                        settings.app_public_url,
+                    )
+                    value_push_alerts_sent += 1
+                    if isinstance(result, dict) and result.get("errors"):
+                        errors.append(
+                            f"OneSignal value odpowiedź: {result.get('errors')}"
+                        )
+                except Exception as exc:
+                    errors.append(f"OneSignal value: {exc}")
+
         now = time.time()
+        coverage = build_coverage(
+            merged_rows,
+            direct_stats,
+            len(events),
+            int(market_stats.get("detail_events_scanned", 0) or 0),
+        )
         sources = {
             "DobryBuk": {
                 "markets": len(dobrybuk_rows),
@@ -421,7 +627,8 @@ async def scan_once() -> dict:
             "generated_at": now,
             "last_scan": now,
             "latest": [arb.to_dict() for arb in confirmed[:200]],
-            "scan_preview": build_scan_preview(merged_rows, 120),
+            "valuebets": confirmed_values[:150],
+            "scan_preview": build_scan_preview(merged_rows, 160),
             "coupon_catalog": coupon_catalog,
             "stats": {
                 "events": len(events),
@@ -436,25 +643,32 @@ async def scan_once() -> dict:
                 "exhaustive_complete": market_stats.get("exhaustive_complete", False),
                 "candidates": len(candidates),
                 "surebets": len(confirmed),
+                "value_candidates": len(value_candidates),
+                "valuebets": len(confirmed_values),
                 "alerts_sent": alerts_sent,
                 "push_alerts_sent": push_alerts_sent,
+                "value_push_alerts_sent": value_push_alerts_sent,
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v17-resilient-coupon",
+                "scanner": "multi-source-v19-arb-value-coverage",
                 "scan_mode": scan_mode,
                 "sources": sources,
             },
-            "errors": errors[-80:],
-            "source": "DobryBuk + direct bookmaker pages",
+            "coverage": coverage,
+            "errors": errors[-100:],
+            "source": "DobryBuk comparison + best-effort direct bookmaker pages",
             "coupon_catalog_info": {
                 "items": len(coupon_catalog),
                 "mode": "bookmaker-first",
             },
             "market_scan_note": (
-                "DobryBuk pozostaje głównym źródłem pełnych tabel rynków. Dodatkowo skaner "
-                "pobiera konserwatywnie rozpoznane kursy bezpośrednio z publicznych stron bukmacherów "
-                "i łączy je tylko przy zgodnym zdarzeniu oraz rynku. Niepewne fragmenty są pomijane."
+                "Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków "
+                "i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej "
+                f"{settings.value_min_reference_books} innych kompletnych bukmacherów, "
+                f"edge >= {settings.value_min_edge_pct:.1f}% po uwzględnieniu współczynnika wypłaty "
+                "oraz niskiej rozbieżności konsensusu. Pokrycie nie oznacza 100% pełnej oferty "
+                "każdego bukmachera."
             ),
         }
 

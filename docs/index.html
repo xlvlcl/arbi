@@ -51,6 +51,7 @@
 
 <nav class="tabs glass">
   <button class="tab-btn active" data-view="surebets"><span>⚡</span> Surebety</button>
+  <button class="tab-btn" data-view="value"><span>💎</span> Value <span class="tab-count" id="valueCount">0</span></button>
   <button class="tab-btn" data-view="coupon"><span>🎯</span> Kupon <span class="tab-count" id="couponCount">0</span></button>
   <button class="tab-btn" data-view="app"><span>📱</span> Aplikacja</button>
 </nav>
@@ -88,6 +89,41 @@
   </section>
 
   <main id="list" class="list"></main>
+</section>
+
+
+<section id="valueView" class="view" hidden>
+  <section class="value-hero glass">
+    <div>
+      <div class="eyebrow">High-confidence value</div>
+      <h2>Tylko <strong>mocne value bety</strong></h2>
+      <p>Pokazujemy tylko kursy potwierdzone ponownym skanem, z konsensusem minimum 5 innych bukmacherów i przewagą co najmniej 5% po uwzględnieniu współczynnika wypłaty. To nie jest gwarancja wygranej.</p>
+    </div>
+    <div class="value-kpis">
+      <div><span>Potwierdzone</span><strong id="valueKpiCount">0</strong></div>
+      <div><span>Najlepszy edge</span><strong id="valueKpiBest">—</strong></div>
+    </div>
+  </section>
+
+  <section class="controls glass value-controls">
+    <div class="input-wrap"><label>Sport</label><select id="valueSport"><option value="">Wszystkie sporty</option></select></div>
+    <div class="input-wrap"><label>Min. edge</label><input id="valueMinEdge" type="number" value="5" min="1" step="0.5"><span>%</span></div>
+    <div class="control-note"><strong>HIGH confidence</strong> • bez przypadkowych outlierów</div>
+  </section>
+
+  <div id="valueList" class="value-list"></div>
+
+  <section class="coverage-panel glass">
+    <div class="section-title-row">
+      <div>
+        <div class="eyebrow">Rzeczywiste pokrycie</div>
+        <h3>Co skaner naprawdę widzi</h3>
+      </div>
+      <div id="coverageCompletion" class="coverage-completion">—</div>
+    </div>
+    <p class="coverage-warning">Nie oznaczamy tego jako 100% oferty bukmacherów. Poniżej są realne liczby znalezionych zdarzeń/rynków oraz stan połączenia bezpośredniego.</p>
+    <div id="coverageGrid" class="coverage-grid"></div>
+  </section>
 </section>
 
 <section id="couponView" class="view" hidden>
@@ -169,7 +205,7 @@
     <div class="mobile-app-copy">
       <div class="eyebrow">Surebet Alert na telefonie</div>
       <h2>Zainstaluj jak aplikację i dostawaj <strong>powiadomienia push</strong></h2>
-      <p>Nie potrzebujesz Telegrama. Po instalacji alerty o nowych potwierdzonych surebetach mogą pojawiać się na ekranie blokady Androida i iPhone'a.</p>
+      <p>Nie potrzebujesz Telegrama. Po instalacji alerty o nowych potwierdzonych surebetach i mocnych value betach mogą pojawiać się na ekranie blokady Androida i iPhone'a.</p>
     </div>
     <div class="phone-visual" aria-hidden="true">
       <div class="phone-notch"></div>
@@ -192,7 +228,7 @@
       <div class="setup-step">2</div>
       <div class="setup-icon">🔔</div>
       <h3>Włącz alerty</h3>
-      <p>Po zezwoleniu będziesz dostawać powiadomienie, gdy skaner potwierdzi nowego surebeta.</p>
+      <p>Po zezwoleniu będziesz dostawać powiadomienie, gdy skaner potwierdzi nowego surebeta albo mocny value bet.</p>
       <button class="btn btn-push setup-action" id="enablePushBtn">🔔 Włącz powiadomienia</button>
       <div class="setup-status"><span>Status</span><strong id="pushStatus">Sprawdzam…</strong></div>
     </article>

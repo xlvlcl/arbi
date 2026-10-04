@@ -68,6 +68,14 @@ DEFAULT = {
     "direct_sources_timeout": 12,
     "direct_sources_concurrency": 5,
     "coupon_catalog_limit": 1600,
+    "value_bets_enabled": True,
+    "value_min_edge_pct": 5.0,
+    "value_min_reference_books": 5,
+    "value_max_dispersion": 0.08,
+    "value_max_price_gap": 0.30,
+    "value_min_odds": 1.35,
+    "value_max_odds": 8.0,
+    "value_alert_cooldown_minutes": 240,
     "host": "0.0.0.0",
     "port": 8080,
     "headless": True,
@@ -106,6 +114,13 @@ class Settings:
             "direct_sources_timeout": ("DIRECT_SOURCES_TIMEOUT", int),
             "direct_sources_concurrency": ("DIRECT_SOURCES_CONCURRENCY", int),
             "coupon_catalog_limit": ("COUPON_CATALOG_LIMIT", int),
+            "value_min_edge_pct": ("VALUE_MIN_EDGE_PCT", float),
+            "value_min_reference_books": ("VALUE_MIN_REFERENCE_BOOKS", int),
+            "value_max_dispersion": ("VALUE_MAX_DISPERSION", float),
+            "value_max_price_gap": ("VALUE_MAX_PRICE_GAP", float),
+            "value_min_odds": ("VALUE_MIN_ODDS", float),
+            "value_max_odds": ("VALUE_MAX_ODDS", float),
+            "value_alert_cooldown_minutes": ("VALUE_ALERT_COOLDOWN_MINUTES", int),
         }
         for key, (env, caster) in numeric_env.items():
             if os.getenv(env):
@@ -124,6 +139,13 @@ class Settings:
         self.data["direct_sources_timeout"] = min(30, max(5, int(self.data["direct_sources_timeout"])))
         self.data["direct_sources_concurrency"] = min(8, max(1, int(self.data["direct_sources_concurrency"])))
         self.data["coupon_catalog_limit"] = min(2500, max(100, int(self.data["coupon_catalog_limit"])))
+        self.data["value_min_edge_pct"] = max(1.0, float(self.data["value_min_edge_pct"]))
+        self.data["value_min_reference_books"] = min(12, max(3, int(self.data["value_min_reference_books"])))
+        self.data["value_max_dispersion"] = min(0.25, max(0.01, float(self.data["value_max_dispersion"])))
+        self.data["value_max_price_gap"] = min(1.0, max(0.05, float(self.data["value_max_price_gap"])))
+        self.data["value_min_odds"] = max(1.05, float(self.data["value_min_odds"]))
+        self.data["value_max_odds"] = max(self.data["value_min_odds"], float(self.data["value_max_odds"]))
+        self.data["value_alert_cooldown_minutes"] = max(30, int(self.data["value_alert_cooldown_minutes"]))
 
     def load_file(self):
         if SETTINGS.exists():

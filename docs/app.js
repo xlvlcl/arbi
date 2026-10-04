@@ -18,7 +18,7 @@ const meta=b=>BOOK_META[b]||{abbr:String(b||"?").slice(0,3).toUpperCase(),url:"#
 const linkFor=o=>o?.bookmaker_url||o?.source_url||meta(o?.bookmaker).url||"#";
 const safeId=s=>String(s||"").replace(/[^a-z0-9_-]+/gi,"-");
 
-let data={latest:[],stats:{},scan_preview:[],coupon_catalog:[]};
+let data={latest:[],valuebets:[],coverage:{},stats:{},scan_preview:[],coupon_catalog:[]};
 let budget=50;
 let coupon=loadCoupon();
 let selectedBook=localStorage.getItem("arbi_coupon_book_v16")||"";
@@ -32,6 +32,8 @@ const DATA_ENDPOINTS=[
 
 function normalizePayload(payload){
   payload.latest=Array.isArray(payload.latest)?payload.latest:[];
+  payload.valuebets=Array.isArray(payload.valuebets)?payload.valuebets:[];
+  payload.coverage=payload.coverage&&typeof payload.coverage==="object"?payload.coverage:{};
   payload.scan_preview=Array.isArray(payload.scan_preview)?payload.scan_preview:[];
   payload.coupon_catalog=Array.isArray(payload.coupon_catalog)?payload.coupon_catalog:[];
   payload.stats=payload.stats&&typeof payload.stats==="object"?payload.stats:{};
@@ -214,6 +216,76 @@ function repaintSurebets(){
       :`Skaner odczytał ${ev} zdarzeń i ${mk} rynków. Poniżej widać część zeskanowanych rynków.`}</p>
   </div>`;
   document.getElementById("list").innerHTML=(items.length?items.slice(0,200).map(a=>card(a,budget)).join(""):empty)+previewHtml();
+}
+
+
+// ---------- HIGH-CONFIDENCE VALUE BETS ----------
+function valueLink(v){return v.bookmaker_url||v.event_url||v.source_url||meta(v.bookmaker).url||"#"}
+function valueCard(v){
+  const link=valueLink(v),p=(Number(v.fair_probability||0)*100);
+  return `<article class="value-card glass">
+    <div class="value-card-head">
+      <div>
+        <div class="arb-line"><span class="sport-tag">${esc(v.sport)}</span><span class="value-edge">+${Number(v.edge_pct||0).toFixed(1)}% edge</span><span class="market">${esc(v.market)}</span></div>
+        <h3>${esc(v.event)}</h3>
+      </div>
+      <div class="value-confidence">HIGH</div>
+    </div>
+    <div class="value-card-grid">
+      <div class="value-main-pick">
+        <span>Typ</span><strong>${esc(v.selection)}</strong>
+        <small>${esc(v.bookmaker)}</small>
+      </div>
+      <div class="value-number"><span>Kurs</span><strong>${Number(v.odds||0).toFixed(2)}</strong></div>
+      <div class="value-number"><span>Fair kurs</span><strong>${Number(v.fair_odds||0).toFixed(2)}</strong></div>
+      <div class="value-number"><span>Fair szansa</span><strong>${p.toFixed(1)}%</strong></div>
+    </div>
+    <div class="value-evidence">
+      <span>✓ ${Number(v.reference_books||0)} buków referencyjnych</span>
+      <span>✓ rozbieżność ${Number(v.dispersion_pct||0).toFixed(1)}%</span>
+      <span>✓ ponownie potwierdzony</span>
+      ${link&&link!=="#"?`<a class="btn btn-small value-open" href="${esc(link)}" target="_blank" rel="noopener">Otwórz u buka ↗</a>`:""}
+    </div>
+  </article>`;
+}
+function renderCoverage(){
+  const cov=data.coverage||{},books=cov.books||{};
+  const completion=Number(cov.detail_completion_pct||0);
+  const c=document.getElementById("coverageCompletion");
+  if(c)c.innerHTML=`<b>${completion.toFixed(1)}%</b><span>odkrytych zdarzeń przeszło detail scan</span>`;
+  const grid=document.getElementById("coverageGrid");
+  if(!grid)return;
+  const statusLabel=s=>({
+    "working":"direct ✓",
+    "reachable-no-markets":"direct: brak rynków",
+    "blocked-or-failed":"direct: blokada/błąd",
+    "not-configured":"tylko porównywarka",
+    "unknown":"status nieznany"
+  }[s]||s);
+  const rows=Object.entries(books).sort((a,b)=>(Number(b[1].markets||0)-Number(a[1].markets||0))||a[0].localeCompare(b[0],"pl"));
+  grid.innerHTML=rows.length?rows.map(([book,x])=>`<div class="coverage-book">
+    <div class="coverage-book-top"><b>${esc(book)}</b><span class="${x.direct_status==="working"?"ok":"warn"}">${esc(statusLabel(x.direct_status))}</span></div>
+    <div class="coverage-book-stats"><span>${Number(x.events||0)} zdarzeń</span><span>${Number(x.markets||0)} rynków</span><span>${Number(x.offers||0)} kursów</span></div>
+  </div>`).join(""):`<div class="coupon-empty">Brak danych o pokryciu w tym skanie.</div>`;
+}
+function renderValuebets(){
+  const sport=document.getElementById("valueSport")?.value||"";
+  const min=Number(document.getElementById("valueMinEdge")?.value||5);
+  const all=(data.valuebets||[]).slice().sort((a,b)=>Number(b.edge_pct||0)-Number(a.edge_pct||0));
+  const sports=[...new Set(all.map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
+  const sel=document.getElementById("valueSport");
+  if(sel){
+    const prev=sel.value;
+    sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
+    sel.value=sports.includes(prev)?prev:"";
+  }
+  const items=all.filter(v=>(!sport||v.sport===sport)&&Number(v.edge_pct||0)>=min);
+  document.getElementById("valueCount").textContent=all.length;
+  document.getElementById("valueKpiCount").textContent=items.length;
+  document.getElementById("valueKpiBest").textContent=items.length?`+${Number(items[0].edge_pct).toFixed(1)}%`:"—";
+  const list=document.getElementById("valueList");
+  if(list)list.innerHTML=items.length?items.map(valueCard).join(""):`<div class="empty glass"><div class="icon">💎</div><h3>Brak mocnych value betów</h3><p>To dobrze — filtr jest celowo restrykcyjny i nie pokazuje słabych ani niepewnych sygnałów.</p></div>`;
+  renderCoverage();
 }
 
 // ---------- COUPON DATA MODEL ----------
@@ -482,13 +554,16 @@ function switchView(name){
     v.classList.toggle("active",on);
     v.hidden=!on;
   });
+  if(name==="value")renderValuebets();
   if(name==="coupon")renderCoupon();
   try{history.replaceState(null,"",`#${name}`)}catch{}
 }
 function repaint(){
   repaintSurebets();
+  if(currentView==="value")renderValuebets();
   if(currentView==="coupon")renderCoupon();
   document.getElementById("couponCount").textContent=coupon.length;
+  document.getElementById("valueCount").textContent=(data.valuebets||[]).length;
 }
 
 // ---------- EVENTS ----------
@@ -497,6 +572,8 @@ const initialView=(location.hash||"").replace("#","");
 if(["coupon","app"].includes(initialView))switchView(initialView);
 document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaintSurebets()});
 document.getElementById("sportFilter").addEventListener("change",repaintSurebets);
+document.getElementById("valueSport")?.addEventListener("change",renderValuebets);
+document.getElementById("valueMinEdge")?.addEventListener("input",renderValuebets);
 document.getElementById("minFilter").addEventListener("input",repaintSurebets);
 document.getElementById("couponSearch").addEventListener("input",renderEventCatalog);
 document.getElementById("couponSport").addEventListener("change",()=>{openEventKey="";renderEventCatalog()});
