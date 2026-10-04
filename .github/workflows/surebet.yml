@@ -102,7 +102,14 @@ jobs:
           if stats.get("events", 0) <= 0:
               raise SystemExit("STOP: 0 wydarzeń")
           if stats.get("markets_scanned", 0) <= 0:
-              raise SystemExit("STOP: 0 rynków szczegółowych")
+              raise SystemExit("STOP: 0 rynków")
+          if not data.get("scan_preview"):
+              raise SystemExit("STOP: brak scan_preview")
+          if not data.get("coupon_catalog"):
+              raise SystemExit("STOP: brak coupon_catalog")
+          print("SCANNER:", stats.get("scanner"))
+          print("SCAN MODE:", stats.get("scan_mode"))
+          print("COUPON ITEMS:", len(data.get("coupon_catalog", [])))
           PY
 
       - name: Zapisz najnowsze dane od razu do repozytorium
