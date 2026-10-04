@@ -76,6 +76,14 @@ DEFAULT = {
     "value_min_odds": 1.35,
     "value_max_odds": 8.0,
     "value_alert_cooldown_minutes": 240,
+    "deep_scan_every": 4,
+    "fast_scan_max_events": 70,
+    "fast_scan_budget_seconds": 105,
+    "watch_scan_limit": 50,
+    "watch_scan_seconds": 60,
+    "near_arb_gap_pct": 1.50,
+    "value_stability_scans": 2,
+    "value_elite_edge_pct": 9.0,
     "host": "0.0.0.0",
     "port": 8080,
     "headless": True,
@@ -121,6 +129,14 @@ class Settings:
             "value_min_odds": ("VALUE_MIN_ODDS", float),
             "value_max_odds": ("VALUE_MAX_ODDS", float),
             "value_alert_cooldown_minutes": ("VALUE_ALERT_COOLDOWN_MINUTES", int),
+            "deep_scan_every": ("DEEP_SCAN_EVERY", int),
+            "fast_scan_max_events": ("FAST_SCAN_MAX_EVENTS", int),
+            "fast_scan_budget_seconds": ("FAST_SCAN_BUDGET_SECONDS", int),
+            "watch_scan_limit": ("WATCH_SCAN_LIMIT", int),
+            "watch_scan_seconds": ("WATCH_SCAN_SECONDS", int),
+            "near_arb_gap_pct": ("NEAR_ARB_GAP_PCT", float),
+            "value_stability_scans": ("VALUE_STABILITY_SCANS", int),
+            "value_elite_edge_pct": ("VALUE_ELITE_EDGE_PCT", float),
         }
         for key, (env, caster) in numeric_env.items():
             if os.getenv(env):
@@ -146,6 +162,14 @@ class Settings:
         self.data["value_min_odds"] = max(1.05, float(self.data["value_min_odds"]))
         self.data["value_max_odds"] = max(self.data["value_min_odds"], float(self.data["value_max_odds"]))
         self.data["value_alert_cooldown_minutes"] = max(30, int(self.data["value_alert_cooldown_minutes"]))
+        self.data["deep_scan_every"] = min(10, max(2, int(self.data["deep_scan_every"])))
+        self.data["fast_scan_max_events"] = min(200, max(15, int(self.data["fast_scan_max_events"])))
+        self.data["fast_scan_budget_seconds"] = min(180, max(45, int(self.data["fast_scan_budget_seconds"])))
+        self.data["watch_scan_limit"] = min(120, max(10, int(self.data["watch_scan_limit"])))
+        self.data["watch_scan_seconds"] = min(120, max(30, int(self.data["watch_scan_seconds"])))
+        self.data["near_arb_gap_pct"] = min(5.0, max(0.20, float(self.data["near_arb_gap_pct"])))
+        self.data["value_stability_scans"] = min(5, max(1, int(self.data["value_stability_scans"])))
+        self.data["value_elite_edge_pct"] = min(25.0, max(5.0, float(self.data["value_elite_edge_pct"])))
 
     def load_file(self):
         if SETTINGS.exists():

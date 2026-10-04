@@ -31,6 +31,19 @@ def market_key(value: str) -> str:
     return value
 
 
+
+DRAWLESS_SPORTS = {
+    "tenis", "tenis stolowy", "siatkowka", "mma", "boks", "baseball",
+}
+
+
+def market_key_for_item(item: dict) -> str:
+    mkey = market_key(item.get("market", ""))
+    sport = _ascii(item.get("sport", "")).strip()
+    if sport in DRAWLESS_SPORTS and mkey in {"1x2", "winner"}:
+        return "winner"
+    return mkey
+
 def selection_key(value: str) -> str:
     value = _ascii(value).strip()
     if value in {"remis", "draw", "x"}:
@@ -65,7 +78,7 @@ def merge_markets(rows: list[dict]) -> list[dict]:
 
     for item in rows:
         ekey = event_key(item.get("event", ""))
-        mkey = market_key(item.get("market", ""))
+        mkey = market_key_for_item(item)
         if not ekey or not mkey:
             passthrough.append(item)
             continue

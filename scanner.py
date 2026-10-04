@@ -9,6 +9,7 @@ from pathlib import Path
 from app.config import ROOT, settings
 from app.merge import event_key, market_key, merge_markets
 from app.models import Quote
+from app.intelligence import detect_near_arbs, scan_quality
 from app.providers.direct_books import scan_direct_books
 from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
@@ -248,6 +249,20 @@ def _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows: list[dict]) -
     return targets
 
 
+def _merge_event_priorities(*groups: list[dict]) -> list[dict]:
+    out = []
+    seen = set()
+    for group in groups:
+        for item in group or []:
+            url = str(item.get("event_url", "")).split("#")[0]
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            out.append(item)
+    return out
+
+
+
 KNOWN_COMPARISON_BOOKS = [
     "Superbet", "STS", "Fortuna", "Betclic", "Forbet", "LVBet", "ETOTO",
     "Betfan", "Fuksiarz", "TotalBet", "Betters", "LeBull", "AdmiralBet",
@@ -368,7 +383,10 @@ async def scan_once() -> dict:
     started = time.time()
     provider = DobryBukProvider(settings)
     state = State(ALERT_STATE)
+    plan = state.next_scan_plan(settings.deep_scan_every)
+    scan_mode = f"adaptive-{plan['mode']}"
     errors: list[str] = []
+    watch_targets = state.priority_targets(settings.watch_scan_limit)
 
     # Direct bookmaker pages are lightweight HTTP requests, so run them in parallel
     # with the browser-based comparison scan instead of adding minutes to each cycle.
@@ -382,17 +400,28 @@ async def scan_once() -> dict:
 
     await provider.start()
     try:
-        scan_mode = "detail"
-
         # v20: two lightweight discovery jobs run in parallel:
         # - DobryBuk value/stat pages -> prioritize likely interesting events,
         # - broad main-listing sweep -> hunt candidate arbs across ALL visible dates.
         priority_task = asyncio.create_task(provider.discover_priority_events())
-        broad_task = asyncio.create_task(
-            provider.scan_broad_listing_markets(
-                max_seconds=min(120, max(45, int(settings.market_scan_budget_seconds * 0.35)))
-            )
+        signal_task = asyncio.create_task(provider.discover_signal_events())
+        broad_budget = (
+            min(120, max(55, int(settings.market_scan_budget_seconds * 0.35)))
+            if plan["mode"] == "deep"
+            else min(80, max(45, int(settings.fast_scan_budget_seconds * 0.55)))
         )
+        broad_task = asyncio.create_task(
+            provider.scan_broad_listing_markets(max_seconds=broad_budget)
+        )
+        watch_task = None
+        if watch_targets:
+            watch_task = asyncio.create_task(
+                provider.scan_specific_markets(
+                    watch_targets,
+                    concurrency=settings.confirm_concurrency,
+                    max_seconds=settings.watch_scan_seconds,
+                )
+            )
 
         events, discover_errors = await provider.discover_events(settings.sports)
         errors.extend(discover_errors)
@@ -403,24 +432,31 @@ async def scan_once() -> dict:
             priority_events, priority_errors = [], [f"priority: {exc}"]
         errors.extend([f"Priority: {x}" for x in priority_errors])
 
-        # Put value/statistical candidates FIRST, but preserve the more accurate sport/name
-        # from normal discovery when the same URL exists there.
-        normal_by_url = {e.get("event_url", "").split("#")[0]: e for e in events if e.get("event_url")}
-        combined = []
-        seen_urls = set()
-        for p in priority_events:
-            key = p.get("event_url", "").split("#")[0]
-            if not key or key in seen_urls:
-                continue
-            combined.append(normal_by_url.get(key, p))
-            seen_urls.add(key)
-        for e in events:
-            key = e.get("event_url", "").split("#")[0]
-            if not key or key in seen_urls:
-                continue
-            combined.append(e)
-            seen_urls.add(key)
-        events = combined
+        try:
+            signal_events, signal_errors = await signal_task
+        except Exception as exc:
+            signal_events, signal_errors = [], [f"signals: {exc}"]
+        errors.extend([f"Signals: {x}" for x in signal_errors])
+
+        # Preserve accurate names/sports from normal discovery, while putting:
+        # persistent near-arbs -> market movements -> value/stat pages -> normal events.
+        normal_by_url = {
+            e.get("event_url", "").split("#")[0]: e
+            for e in events
+            if e.get("event_url")
+        }
+        watch_events = []
+        for w in watch_targets:
+            url = str(w.get("event_url", "")).split("#")[0]
+            watch_events.append(normal_by_url.get(url, w))
+
+        prioritized = _merge_event_priorities(
+            watch_events,
+            signal_events,
+            priority_events,
+            events,
+        )
+        events = [normal_by_url.get(str(e.get("event_url", "")).split("#")[0], e) for e in prioritized]
 
         dobrybuk_rows = []
         market_errors = []
@@ -431,16 +467,26 @@ async def scan_once() -> dict:
         }
 
         if events:
+            detail_max_events = (
+                settings.market_scan_max_events
+                if plan["mode"] == "deep"
+                else settings.fast_scan_max_events
+            )
+            detail_budget = (
+                settings.market_scan_budget_seconds
+                if plan["mode"] == "deep"
+                else settings.fast_scan_budget_seconds
+            )
             dobrybuk_rows, market_errors, market_stats = await provider.scan_all_markets(
                 events,
-                max_events=settings.market_scan_max_events,
-                max_seconds=settings.market_scan_budget_seconds,
+                max_events=detail_max_events,
+                max_seconds=detail_budget,
                 concurrency=settings.market_scan_concurrency,
             )
             errors.extend([f"Markety: {x}" for x in market_errors])
 
         if not dobrybuk_rows:
-            scan_mode = "listing-fallback"
+            scan_mode += "+fallback"
             fallback_rows, fallback_errors = await provider.scan_listing_fallback(
                 list(getattr(provider, "discovered_sports", []) or settings.sports)
             )
@@ -467,6 +513,14 @@ async def scan_once() -> dict:
                     "exhaustive_complete": False,
                 }
 
+        watch_rows = []
+        if watch_task is not None:
+            try:
+                watch_rows, watch_errors = await watch_task
+                errors.extend([f"Watch: {x}" for x in watch_errors])
+            except Exception as exc:
+                errors.append(f"Watch: {type(exc).__name__}: {exc}")
+
         try:
             broad_rows, broad_errors, broad_stats = await broad_task
         except Exception as exc:
@@ -483,7 +537,7 @@ async def scan_once() -> dict:
             direct_rows, direct_errors, direct_stats = [], [f"direct: {exc}"], {"enabled": True, "sources": {}}
         errors.extend([f"Direct: {x}" for x in direct_errors])
 
-        merged_rows = merge_markets(dobrybuk_rows + broad_rows + direct_rows)
+        merged_rows = merge_markets(watch_rows + dobrybuk_rows + broad_rows + direct_rows)
         if not merged_rows:
             raise RuntimeError(
                 "Żadne źródło nie zwróciło kursów. Nie nadpisuję poprawnych danych pustym skanem."
@@ -504,6 +558,12 @@ async def scan_once() -> dict:
             )
             if settings.value_bets_enabled
             else []
+        )
+        near_arbs = detect_near_arbs(
+            merged_rows,
+            payout_factors(),
+            max_gap_pct=settings.near_arb_gap_pct,
+            max_age_seconds=settings.max_quote_age_seconds,
         )
 
         confirmed = []
@@ -568,6 +628,14 @@ async def scan_once() -> dict:
                 not in arb_markets
             ]
 
+        confirmed_values = state.decorate_values(
+            confirmed_values,
+            required_scans=settings.value_stability_scans,
+            elite_edge_pct=settings.value_elite_edge_pct,
+        )
+        stable_values = [v for v in confirmed_values if v.get("push_ready")]
+        near_arbs = state.update_watchlist(near_arbs, confirmed_values)
+
         alerts_sent = 0
         push_alerts_sent = 0
         value_push_alerts_sent = 0
@@ -625,7 +693,7 @@ async def scan_once() -> dict:
         # Value bets are intentionally push-only and clearly separated from surebets.
         # They are NOT guaranteed wins; they are high-confidence consensus mispricings.
         if push_configured:
-            for value in confirmed_values:
+            for value in stable_values:
                 should_send_value = await state.should_alert(
                     "value|" + str(value.get("key", "")),
                     float(value.get("edge_pct", 0) or 0),
@@ -651,6 +719,11 @@ async def scan_once() -> dict:
                     errors.append(f"OneSignal value: {exc}")
 
         now = time.time()
+        quality = scan_quality(merged_rows)
+        source_health = state.update_source_health(
+            direct_stats,
+            dobrybuk_ok=bool(dobrybuk_rows or broad_rows),
+        )
         coverage = build_coverage(
             merged_rows,
             direct_stats,
@@ -674,8 +747,9 @@ async def scan_once() -> dict:
             "generated_at": now,
             "last_scan": now,
             "latest": [arb.to_dict() for arb in confirmed[:200]],
-            "valuebets": confirmed_values[:150],
-            "scan_preview": build_scan_preview(merged_rows, 160),
+            "valuebets": stable_values[:150],
+            "near_arbs": near_arbs[:120],
+            "scan_preview": build_scan_preview(merged_rows, 180),
             "coupon_catalog": coupon_catalog,
             "stats": {
                 "events": len(events),
@@ -690,22 +764,40 @@ async def scan_once() -> dict:
                 "broad_candidate_markets": len(broad_rows),
                 "broad_listing_pairs": broad_stats.get("broad_listing_pairs", 0),
                 "priority_events": len(priority_events),
+                "signal_events": len(signal_events),
+                "watch_targets": len(watch_targets),
+                "watch_rows": len(watch_rows),
+                "near_arbs": len(near_arbs),
                 "exhaustive_complete": market_stats.get("exhaustive_complete", False),
                 "candidates": len(candidates),
                 "surebets": len(confirmed),
                 "value_candidates": len(value_candidates),
-                "valuebets": len(confirmed_values),
+                "value_confirmed": len(confirmed_values),
+                "valuebets": len(stable_values),
                 "alerts_sent": alerts_sent,
                 "push_alerts_sent": push_alerts_sent,
                 "value_push_alerts_sent": value_push_alerts_sent,
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v20-max-markets-value",
+                "scanner": "multi-source-v21-adaptive-radar",
                 "scan_mode": scan_mode,
+                "scan_sequence": plan["sequence"],
+                "deep_every": plan["deep_every"],
+                "next_deep_in": plan["next_deep_in"],
+                "quality": quality,
                 "sources": sources,
             },
             "coverage": coverage,
+            "intelligence": {
+                "scan_plan": plan,
+                "quality": quality,
+                "source_health": source_health,
+                "watchlist_size": len(state.watchlist),
+                "stable_valuebets": len(stable_values),
+                "confirmed_value_candidates": len(confirmed_values),
+                "near_arb_limit_pct": settings.near_arb_gap_pct,
+            },
             "errors": errors[-100:],
             "source": "DobryBuk comparison + best-effort direct bookmaker pages",
             "coupon_catalog_info": {
@@ -713,7 +805,8 @@ async def scan_once() -> dict:
                 "mode": "bookmaker-first",
             },
             "market_scan_note": (
-                "Skan obejmuje detail markets + szeroki all-date candidate sweep + strony value/statystyczne. "
+                "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, "
+                "a co kilka cykli wykonywany jest pełny deep scan. "
                 "Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków "
                 "bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej "
                 f"{settings.value_min_reference_books} innych kompletnych bukmacherów, "
@@ -722,6 +815,8 @@ async def scan_once() -> dict:
                 "każdego bukmachera."
             ),
         }
+
+        await state.save()
 
         DOCS_DATA.mkdir(parents=True, exist_ok=True)
         (DOCS_DATA / "latest.json").write_text(

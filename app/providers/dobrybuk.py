@@ -1170,6 +1170,66 @@ class DobryBukProvider:
 
         return list(found.values()), errors
 
+    async def discover_signal_events(self) -> tuple[list[dict], list[str]]:
+        """Use public market-movement pages only as a PRIORITY signal.
+
+        A movement is never treated as a bet by itself. We merely scan those event pages sooner.
+        """
+        assert self.context
+        page = await self.context.new_page()
+        errors: list[str] = []
+        found: dict[str, dict] = {}
+
+        pages = [
+            ("https://dobrybuk.pl/kursy/spadki-kursow", "Spadki kursów"),
+            ("https://dobrybuk.pl/kursy/spadki-kursow?tab=rises", "Wzrosty kursów"),
+        ]
+
+        try:
+            for url, label in pages:
+                try:
+                    await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                    try:
+                        await page.wait_for_load_state("networkidle", timeout=5000)
+                    except Exception:
+                        pass
+                    await page.wait_for_timeout(850)
+                    await self._dismiss_cookie_banner(page)
+
+                    loc = page.locator('a[href*="/kursy/mecz/"]')
+                    count = min(await loc.count(), 600)
+                    for i in range(count):
+                        a = loc.nth(i)
+                        try:
+                            href = await a.get_attribute("href")
+                            if not href:
+                                continue
+                            event_url = _absolute(href, self.settings.source_url)
+                            if not event_url:
+                                continue
+                            text = clean(await a.inner_text(timeout=700))
+                            if len(text) < 3:
+                                slug = event_url.split("?")[0].rstrip("/").split("/")[-1]
+                                slug = re.sub(r"-\d{4}-\d{2}-\d{2}-\d+$", "", slug)
+                                text = clean(slug.replace("-vs-", " – ").replace("-", " ")).title()
+                            found.setdefault(
+                                event_url.split("#")[0],
+                                {
+                                    "event": text,
+                                    "sport": "Inne",
+                                    "event_url": event_url,
+                                    "priority_source": label,
+                                },
+                            )
+                        except Exception:
+                            continue
+                except Exception as exc:
+                    errors.append(f"{label}: {type(exc).__name__}: {exc}")
+        finally:
+            await page.close()
+
+        return list(found.values()), errors
+
     async def scan_broad_listing_markets(
         self,
         max_seconds: int = 105,

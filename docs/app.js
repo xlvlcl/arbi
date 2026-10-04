@@ -18,7 +18,7 @@ const meta=b=>BOOK_META[b]||{abbr:String(b||"?").slice(0,3).toUpperCase(),url:"#
 const linkFor=o=>o?.bookmaker_url||o?.source_url||meta(o?.bookmaker).url||"#";
 const safeId=s=>String(s||"").replace(/[^a-z0-9_-]+/gi,"-");
 
-let data={latest:[],valuebets:[],coverage:{},stats:{},scan_preview:[],coupon_catalog:[]};
+let data={latest:[],valuebets:[],near_arbs:[],coverage:{},intelligence:{},stats:{},scan_preview:[],coupon_catalog:[]};
 let budget=50;
 let coupon=loadCoupon();
 let selectedBook=localStorage.getItem("arbi_coupon_book_v16")||"";
@@ -33,6 +33,8 @@ const DATA_ENDPOINTS=[
 function normalizePayload(payload){
   payload.latest=Array.isArray(payload.latest)?payload.latest:[];
   payload.valuebets=Array.isArray(payload.valuebets)?payload.valuebets:[];
+  payload.near_arbs=Array.isArray(payload.near_arbs)?payload.near_arbs:[];
+  payload.intelligence=payload.intelligence&&typeof payload.intelligence==="object"?payload.intelligence:{};
   payload.coverage=payload.coverage&&typeof payload.coverage==="object"?payload.coverage:{};
   payload.scan_preview=Array.isArray(payload.scan_preview)?payload.scan_preview:[];
   payload.coupon_catalog=Array.isArray(payload.coupon_catalog)?payload.coupon_catalog:[];
@@ -222,6 +224,62 @@ function repaintSurebets(){
 }
 
 
+// ---------- OPPORTUNITY RADAR ----------
+function radarLink(x){
+  return x.event_url||(x.legs||[]).map(l=>l.bookmaker_url||l.source_url).find(Boolean)||"#";
+}
+function radarCard(x){
+  const link=radarLink(x);
+  return `<article class="radar-card glass">
+    <div class="radar-card-head">
+      <div>
+        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">brakuje ${Number(x.gap_pct||0).toFixed(2)}%</span><span class="market">${esc(x.market)}</span></div>
+        <h3>${esc(x.event)}</h3>
+      </div>
+      <div class="radar-seen">${Number(x.seen_scans||1)}× obserwowany</div>
+    </div>
+    <div class="radar-legs">${(x.legs||[]).map(l=>`<div class="radar-leg"><span>${esc(l.selection)}</span><b>${Number(l.odds||0).toFixed(2)}</b><small>${esc(l.bookmaker)}</small></div>`).join("")}</div>
+    <div class="radar-foot">
+      <span>${Number(x.bookmakers||0)} buków • najlepszy historyczny brak ${Number(x.best_gap_pct??x.gap_pct??0).toFixed(2)}%</span>
+      ${link&&link!=="#"?`<a class="btn btn-small" href="${esc(link)}" target="_blank" rel="noopener">Otwórz rynek ↗</a>`:""}
+    </div>
+  </article>`;
+}
+function renderSourceHealth(){
+  const grid=document.getElementById("sourceHealthGrid");
+  if(!grid)return;
+  const health=data.intelligence?.source_health||{};
+  const rows=Object.entries(health);
+  grid.innerHTML=rows.length?rows.map(([name,x])=>{
+    const ok=Boolean(x.ok),fail=Number(x.consecutive_failures||0),succ=Number(x.consecutive_success||0);
+    return `<div class="source-health ${ok?"ok":"bad"}"><div><b>${esc(name)}</b><span>${ok?"działa":"problem"}</span></div><small>${ok?`${succ} udanych z rzędu`:`${fail} błędów z rzędu`}</small></div>`;
+  }).join(""):'<div class="coupon-empty">Brak historii źródeł.</div>';
+}
+function renderRadar(){
+  const all=(data.near_arbs||[]).slice().sort((a,b)=>Number(a.gap_pct||99)-Number(b.gap_pct||99));
+  const sports=[...new Set(all.map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
+  const sel=document.getElementById("radarSport");
+  const prev=sel?.value||"";
+  if(sel){
+    sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
+    sel.value=sports.includes(prev)?prev:"";
+  }
+  const sport=sel?.value||"";
+  const maxGap=Number(document.getElementById("radarGap")?.value||1.5);
+  const items=all.filter(x=>(!sport||x.sport===sport)&&Number(x.gap_pct||99)<=maxGap);
+  document.getElementById("radarCount").textContent=all.length;
+  const plan=data.intelligence?.scan_plan||{};
+  document.getElementById("radarMode").textContent=(plan.mode||data.stats?.scan_mode||"—").toString().toUpperCase();
+  document.getElementById("radarWatch").textContent=Number(data.intelligence?.watchlist_size||0);
+  document.getElementById("radarBest").textContent=items.length?`${Number(items[0].gap_pct).toFixed(2)}%`:"—";
+  const list=document.getElementById("radarList");
+  if(list)list.innerHTML=items.length?items.map(radarCard).join(""):`<div class="empty glass"><div class="icon">📡</div><h3>Brak rynków bardzo blisko arbitrażu</h3><p>Radar nadal je śledzi. Zwiększ próg, jeśli chcesz zobaczyć dalsze kandydaty.</p></div>`;
+  const q=data.intelligence?.quality||data.stats?.quality||{};
+  const quality=document.getElementById("intelQuality");
+  if(quality)quality.innerHTML=`<b>${Number(q.markets||0)} rynków</b><span>${Number(q.bookmakers||0)} buków • ${Number(q.offers_per_market||0).toFixed(1)} kursów/rynek</span>`;
+  renderSourceHealth();
+}
+
 // ---------- HIGH-CONFIDENCE VALUE BETS ----------
 function valueLink(v){return v.bookmaker_url||v.event_url||v.source_url||meta(v.bookmaker).url||"#"}
 function valueCard(v){
@@ -232,7 +290,7 @@ function valueCard(v){
         <div class="arb-line"><span class="sport-tag">${esc(v.sport)}</span><span class="value-edge">+${Number(v.edge_pct||0).toFixed(1)}% edge</span><span class="market">${esc(v.market)}</span></div>
         <h3>${esc(v.event)}</h3>
       </div>
-      <div class="value-confidence">HIGH</div>
+      <div class="value-confidence">${v.elite_signal?"ELITE":`HIGH · ${Number(v.stability_scans||1)}×`}</div>
     </div>
     <div class="value-card-grid">
       <div class="value-main-pick">
@@ -549,7 +607,7 @@ function renderCoupon(){
 
 // ---------- VIEWS ----------
 function switchView(name){
-  if(!["surebets","value","coupon","app"].includes(name))name="surebets";
+  if(!["surebets","radar","value","coupon","app"].includes(name))name="surebets";
   currentView=name;
   document.querySelectorAll(".tab-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
   document.querySelectorAll(".view").forEach(v=>{
@@ -557,22 +615,25 @@ function switchView(name){
     v.classList.toggle("active",on);
     v.hidden=!on;
   });
+  if(name==="radar")renderRadar();
   if(name==="value")renderValuebets();
   if(name==="coupon")renderCoupon();
   try{history.replaceState(null,"",`#${name}`)}catch{}
 }
 function repaint(){
   repaintSurebets();
+  if(currentView==="radar")renderRadar();
   if(currentView==="value")renderValuebets();
   if(currentView==="coupon")renderCoupon();
   document.getElementById("couponCount").textContent=coupon.length;
+  document.getElementById("radarCount").textContent=(data.near_arbs||[]).length;
   document.getElementById("valueCount").textContent=(data.valuebets||[]).length;
 }
 
 // ---------- EVENTS ----------
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
 const initialView=(location.hash||"").replace("#","");
-if(["surebets","value","coupon","app"].includes(initialView))switchView(initialView);
+if(["surebets","radar","value","coupon","app"].includes(initialView))switchView(initialView);
 document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaintSurebets()});
 document.getElementById("sportFilter").addEventListener("change",repaintSurebets);
 document.getElementById("valueSport")?.addEventListener("change",renderValuebets);
