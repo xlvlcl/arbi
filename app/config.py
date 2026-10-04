@@ -59,6 +59,10 @@ DEFAULT = {
     "market_scan_concurrency": 4,
     "max_markets_per_event": 40,
     "confirm_concurrency": 2,
+    "direct_sources_enabled": True,
+    "direct_sources_timeout": 12,
+    "direct_sources_concurrency": 5,
+    "coupon_catalog_limit": 350,
     "host": "0.0.0.0",
     "port": 8080,
     "headless": True,
@@ -88,6 +92,9 @@ class Settings:
             "market_scan_concurrency": ("MARKET_SCAN_CONCURRENCY", int),
             "max_markets_per_event": ("MAX_MARKETS_PER_EVENT", int),
             "confirm_concurrency": ("CONFIRM_CONCURRENCY", int),
+            "direct_sources_timeout": ("DIRECT_SOURCES_TIMEOUT", int),
+            "direct_sources_concurrency": ("DIRECT_SOURCES_CONCURRENCY", int),
+            "coupon_catalog_limit": ("COUPON_CATALOG_LIMIT", int),
         }
         for key, (env, caster) in numeric_env.items():
             if os.getenv(env):
@@ -100,6 +107,9 @@ class Settings:
         self.data["market_scan_concurrency"] = min(8, max(1, int(self.data["market_scan_concurrency"])))
         self.data["max_markets_per_event"] = min(80, max(1, int(self.data["max_markets_per_event"])))
         self.data["confirm_concurrency"] = min(4, max(1, int(self.data["confirm_concurrency"])))
+        self.data["direct_sources_timeout"] = min(30, max(5, int(self.data["direct_sources_timeout"])))
+        self.data["direct_sources_concurrency"] = min(8, max(1, int(self.data["direct_sources_concurrency"])))
+        self.data["coupon_catalog_limit"] = min(800, max(50, int(self.data["coupon_catalog_limit"])))
 
     def load_file(self):
         if SETTINGS.exists():

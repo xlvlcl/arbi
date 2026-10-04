@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import time
 from pathlib import Path
 
 from app.config import ROOT, settings
+from app.merge import event_key, market_key, merge_markets
 from app.models import Quote
+from app.providers.direct_books import scan_direct_books
 from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
 from app.surebet import detect
@@ -15,8 +18,6 @@ from app.telegram import render, send
 DOCS_DATA = ROOT / "docs" / "data"
 ALERT_STATE = ROOT / "data" / "state.json"
 
-# Keep the tax/payout assumptions from the current project. They can be overridden
-# in data/settings.json through bookmaker_payout_factors.
 DEFAULT_FACTORS = {
     "Betclic": 1.0,
     "Fortuna": 1.0,
@@ -111,16 +112,23 @@ def dedupe_surebets(items):
     return sorted(unique.values(), key=lambda x: x.profit_pct, reverse=True)
 
 
+def _public_offer(item: dict) -> dict:
+    return {
+        "bookmaker": str(item.get("bookmaker", "")),
+        "odds": round(float(item.get("odds", 0) or 0), 3),
+        "bookmaker_url": item.get("bookmaker_url", "") or item.get("source_url", ""),
+        "source_url": item.get("source_url", ""),
+        "source_name": item.get("source_name", "DobryBuk"),
+    }
 
-def build_scan_preview(markets: list[dict], limit: int = 80) -> list[dict]:
-    """Small read-only preview for the UI so a scan with 0 surebets does not look empty."""
+
+def build_scan_preview(markets: list[dict], limit: int = 100) -> list[dict]:
     preview = []
     seen = set()
     for item in markets:
         key = (
-            str(item.get("event", "")).strip().lower(),
-            str(item.get("sport", "")).strip().lower(),
-            str(item.get("market", "")).strip().lower(),
+            event_key(str(item.get("event", ""))),
+            market_key(str(item.get("market", ""))),
         )
         if key in seen:
             continue
@@ -131,12 +139,13 @@ def build_scan_preview(markets: list[dict], limit: int = 80) -> list[dict]:
             valid = [q for q in quotes if q.get("bookmaker") and q.get("odds")]
             if not valid:
                 continue
-            q = max(valid, key=lambda x: float(x.get("odds", 0)))
+            valid = sorted(valid, key=lambda x: float(x.get("odds", 0)), reverse=True)
+            q = valid[0]
             best.append(
                 {
                     "selection": str(selection),
-                    "bookmaker": str(q.get("bookmaker", "")),
-                    "odds": float(q.get("odds", 0)),
+                    **_public_offer(q),
+                    "alternatives": [_public_offer(x) for x in valid[1:5]],
                 }
             )
 
@@ -145,12 +154,97 @@ def build_scan_preview(markets: list[dict], limit: int = 80) -> list[dict]:
                 "event": item.get("event", ""),
                 "sport": item.get("sport", ""),
                 "market": item.get("market", ""),
-                "best": best[:4],
+                "event_url": item.get("event_url", ""),
+                "best": best[:8],
+                "sources": item.get("source_names", [item.get("source_name", "DobryBuk")]),
             }
         )
         if len(preview) >= limit:
             break
     return preview
+
+
+def build_coupon_catalog(markets: list[dict], limit: int = 350) -> list[dict]:
+    catalog = []
+    seen = set()
+    for item in markets:
+        ekey = event_key(str(item.get("event", "")))
+        mkey = market_key(str(item.get("market", "")))
+        key = (ekey, mkey)
+        if not ekey or not mkey or key in seen:
+            continue
+        seen.add(key)
+
+        selections = []
+        for label, quotes in (item.get("quotes") or {}).items():
+            per_book = {}
+            for quote in quotes:
+                book = str(quote.get("bookmaker", "")).strip()
+                odd = float(quote.get("odds", 0) or 0)
+                if not book or odd <= 1:
+                    continue
+                old = per_book.get(book)
+                if old is None or odd > float(old.get("odds", 0)):
+                    per_book[book] = quote
+            offers = [_public_offer(q) for q in per_book.values()]
+            offers.sort(key=lambda x: x["odds"], reverse=True)
+            if offers:
+                selections.append(
+                    {
+                        "selection": str(label),
+                        "best_odds": offers[0]["odds"],
+                        "best_bookmaker": offers[0]["bookmaker"],
+                        "offers": offers,
+                    }
+                )
+
+        if not selections:
+            continue
+        digest = hashlib.sha1(f"{ekey}|{mkey}".encode("utf-8")).hexdigest()[:14]
+        catalog.append(
+            {
+                "id": digest,
+                "event": item.get("event", ""),
+                "sport": item.get("sport", ""),
+                "market": item.get("market", ""),
+                "event_url": item.get("event_url", ""),
+                "sources": item.get("source_names", [item.get("source_name", "DobryBuk")]),
+                "selections": selections,
+            }
+        )
+        if len(catalog) >= limit:
+            break
+    return catalog
+
+
+def _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows: list[dict]) -> list[dict]:
+    index = {}
+    for row in dobrybuk_rows:
+        key = (event_key(row.get("event", "")), market_key(row.get("market", "")))
+        if row.get("event_url"):
+            index[key] = row
+
+    targets = []
+    seen = set()
+    for arb in candidates:
+        key = (event_key(arb.event), market_key(arb.market))
+        row = index.get(key)
+        if not row:
+            continue
+        target_key = (row.get("event_url", ""), row.get("market", ""))
+        if target_key in seen:
+            continue
+        seen.add(target_key)
+        targets.append(
+            {
+                "event": row.get("event", arb.event),
+                "sport": row.get("sport", arb.sport),
+                "market": row.get("market", arb.market),
+                "event_url": row.get("event_url", ""),
+            }
+        )
+    return targets
+
 
 async def scan_once() -> dict:
     started = time.time()
@@ -158,9 +252,18 @@ async def scan_once() -> dict:
     state = State(ALERT_STATE)
     errors: list[str] = []
 
+    # Direct bookmaker pages are lightweight HTTP requests, so run them in parallel
+    # with the browser-based comparison scan instead of adding minutes to each cycle.
+    direct_task = asyncio.create_task(
+        scan_direct_books(
+            enabled=bool(getattr(settings, "direct_sources_enabled", True)),
+            timeout=float(getattr(settings, "direct_sources_timeout", 12)),
+            concurrency=int(getattr(settings, "direct_sources_concurrency", 5)),
+        )
+    )
+
     await provider.start()
     try:
-        # 1) Discover every event link from every supported sport visible on the source.
         events, discover_errors = await provider.discover_events(settings.sports)
         errors.extend(discover_errors)
         if not events:
@@ -168,44 +271,50 @@ async def scan_once() -> dict:
                 "Skaner nie odczytał żadnych wydarzeń. Nie publikuję pustego wyniku."
             )
 
-        # 2) Visit event detail pages and scan every visible market button.
-        market_rows, market_errors, market_stats = await provider.scan_all_markets(
+        dobrybuk_rows, market_errors, market_stats = await provider.scan_all_markets(
             events,
             max_events=settings.market_scan_max_events,
             max_seconds=settings.market_scan_budget_seconds,
             concurrency=settings.market_scan_concurrency,
         )
         errors.extend([f"Markety: {x}" for x in market_errors])
-        if not market_rows:
+        if not dobrybuk_rows:
             raise RuntimeError(
                 "Znaleziono wydarzenia, ale nie odczytano pełnych tabel kursów. "
                 "Nie publikuję pustego wyniku."
             )
 
-        # 3) Detect only mathematically complete outcome sets.
-        candidates = detect_from_markets(market_rows)
+        try:
+            direct_rows, direct_errors, direct_stats = await direct_task
+        except Exception as exc:
+            direct_rows, direct_errors, direct_stats = [], [f"direct: {exc}"], {"enabled": True, "sources": {}}
+        errors.extend([f"Direct: {x}" for x in direct_errors])
 
-        # 4) Recheck exact candidate event+market combinations before showing/sending them.
+        merged_rows = merge_markets(dobrybuk_rows + direct_rows)
+        candidates = detect_from_markets(merged_rows)
+
         confirmed = []
         if candidates:
             await asyncio.sleep(max(0.5, min(2.0, float(settings.recheck_delay_seconds))))
-            targets = [
-                {
-                    "event": arb.event,
-                    "sport": arb.sport,
-                    "market": arb.market,
-                    "event_url": arb.event_url,
-                }
-                for arb in candidates
-                if arb.event_url
-            ]
-            confirm_rows, confirm_errors = await provider.scan_specific_markets(
-                targets,
-                concurrency=settings.confirm_concurrency,
-                max_seconds=90,
+            targets = _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows)
+            confirm_rows = []
+            if targets:
+                confirm_rows, confirm_errors = await provider.scan_specific_markets(
+                    targets,
+                    concurrency=settings.confirm_concurrency,
+                    max_seconds=90,
+                )
+                errors.extend([f"Potwierdzenie: {x}" for x in confirm_errors])
+
+            # Re-fetch direct pages too so a multi-source candidate is never confirmed
+            # using stale direct odds from the start of the scan.
+            direct_confirm_rows, direct_confirm_errors, _ = await scan_direct_books(
+                enabled=bool(getattr(settings, "direct_sources_enabled", True)),
+                timeout=float(getattr(settings, "direct_sources_timeout", 12)),
+                concurrency=int(getattr(settings, "direct_sources_concurrency", 5)),
             )
-            errors.extend([f"Potwierdzenie: {x}" for x in confirm_errors])
-            confirmed = detect_from_markets(confirm_rows)
+            errors.extend([f"Potwierdzenie direct: {x}" for x in direct_confirm_errors])
+            confirmed = detect_from_markets(merge_markets(confirm_rows + direct_confirm_rows))
 
         alerts_sent = 0
         for arb in confirmed:
@@ -227,32 +336,47 @@ async def scan_once() -> dict:
                     errors.append(f"Telegram: {exc}")
 
         now = time.time()
+        sources = {
+            "DobryBuk": {
+                "markets": len(dobrybuk_rows),
+                "events": len(events),
+                "mode": "comparison",
+            },
+            **(direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}),
+        }
         payload = {
             "generated_at": now,
             "last_scan": now,
             "latest": [arb.to_dict() for arb in confirmed[:200]],
-            "scan_preview": build_scan_preview(market_rows),
+            "scan_preview": build_scan_preview(merged_rows, 120),
+            "coupon_catalog": build_coupon_catalog(
+                merged_rows,
+                int(getattr(settings, "coupon_catalog_limit", 350)),
+            ),
             "stats": {
                 "events": len(events),
                 "sports_scanned": len(getattr(provider, "discovered_sports", []) or []),
                 "sports": list(getattr(provider, "discovered_sports", []) or []),
                 "detail_events_scanned": market_stats.get("detail_events_scanned", 0),
                 "detail_events_total": market_stats.get("detail_events_total", len(events)),
-                "markets": market_stats.get("markets_scanned", len(market_rows)),
-                "markets_scanned": market_stats.get("markets_scanned", len(market_rows)),
+                "markets": len(merged_rows),
+                "markets_scanned": len(merged_rows),
+                "dobrybuk_markets": len(dobrybuk_rows),
+                "direct_markets": len(direct_rows),
                 "exhaustive_complete": market_stats.get("exhaustive_complete", False),
                 "candidates": len(candidates),
                 "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "playwright-auto-sports-all-event-markets-v14",
+                "scanner": "multi-source-v15",
+                "sources": sources,
             },
-            "errors": errors[-40:],
-            "source": "DobryBuk public comparison",
+            "errors": errors[-80:],
+            "source": "DobryBuk + direct bookmaker pages",
             "market_scan_note": (
-                "Skan automatycznie wykrywa wszystkie sporty wystawione w porównywarce, "
-                "a następnie odwiedza wydarzenia i widoczne na ich stronach rynki w ramach budżetu czasu. "
-                "Niepełne/niejednoznaczne rynki są odrzucane."
+                "DobryBuk pozostaje głównym źródłem pełnych tabel rynków. Dodatkowo skaner "
+                "pobiera konserwatywnie rozpoznane kursy bezpośrednio z publicznych stron bukmacherów "
+                "i łączy je tylko przy zgodnym zdarzeniu oraz rynku. Niepewne fragmenty są pomijane."
             ),
         }
 
@@ -266,7 +390,7 @@ async def scan_once() -> dict:
             json.dumps(
                 {
                     "stats": payload["stats"],
-                    "errors": payload["errors"][-10:],
+                    "errors": payload["errors"][-12:],
                 },
                 ensure_ascii=False,
                 indent=2,
@@ -274,6 +398,8 @@ async def scan_once() -> dict:
         )
         return payload
     finally:
+        if not direct_task.done():
+            direct_task.cancel()
         await provider.stop()
 
 
