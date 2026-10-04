@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import asyncio
 import html as htmlmod
+import json
 import re
 import shutil
 import time
+from pathlib import Path
 from collections import defaultdict
 from urllib.parse import urljoin
 
@@ -99,6 +101,10 @@ NAV_SKIP = {
     "zakończone",
     "wszystkie",
 }
+
+
+ROOT = Path(__file__).resolve().parents[2]
+DEBUG_DIR = ROOT / "debug"
 
 MARKET_HINTS = (
     "1x2",
@@ -504,6 +510,116 @@ class DobryBukProvider:
                 continue
         return False
 
+    async def _save_discovery_debug(self, label: str):
+        """Save what GitHub's browser actually sees without changing page output."""
+        assert self.page
+        DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+        try:
+            html = await self.page.content()
+        except Exception:
+            html = ""
+        try:
+            text = await self.page.locator("body").inner_text(timeout=4000)
+        except Exception:
+            text = ""
+        try:
+            title = await self.page.title()
+        except Exception:
+            title = ""
+        try:
+            hrefs = await self.page.locator('a[href*="/kursy/mecz/"]').count()
+        except Exception:
+            hrefs = -1
+        info = {
+            "url": self.page.url,
+            "title": title,
+            "html_bytes": len(html.encode("utf-8", errors="ignore")),
+            "body_chars": len(text),
+            "event_link_count": hrefs,
+            "discovered_sports": self.discovered_sports,
+        }
+        try:
+            await self.page.screenshot(path=str(DEBUG_DIR / f"{label}.png"), full_page=True)
+        except Exception as exc:
+            info["screenshot_error"] = str(exc)
+        (DEBUG_DIR / f"{label}.html").write_text(html, encoding="utf-8", errors="ignore")
+        (DEBUG_DIR / f"{label}.txt").write_text(text, encoding="utf-8", errors="ignore")
+        (DEBUG_DIR / "discovery.json").write_text(
+            json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
+    async def _collect_event_links(self, sport: str) -> list[dict]:
+        """Collect event links directly from the live DOM, with HTML fallback.
+
+        The previous v12 only parsed page.content() immediately after a sport click.
+        On GitHub Actions the table often updates asynchronously, so that snapshot could
+        contain zero event links even though the rendered page later had them.
+        """
+        assert self.page
+        events: list[dict] = []
+        seen: set[str] = set()
+
+        # Wait for either event anchors or table rows to appear. No hard failure: the
+        # source can legitimately have no matches for one sport on a given day.
+        try:
+            await self.page.wait_for_selector(
+                'a[href*="/kursy/mecz/"], table tr', timeout=9000
+            )
+        except Exception:
+            pass
+        await self.page.wait_for_timeout(1300)
+
+        # Most reliable path: read hrefs from the browser DOM, not from a too-early HTML snapshot.
+        loc = self.page.locator('a[href*="/kursy/mecz/"]')
+        try:
+            count = min(await loc.count(), 1200)
+        except Exception:
+            count = 0
+
+        for i in range(count):
+            a = loc.nth(i)
+            try:
+                href = await a.get_attribute("href")
+                if not href:
+                    continue
+                url = _absolute(href, self.settings.source_url)
+                if not url or url in seen:
+                    continue
+                text = clean(await a.inner_text(timeout=1000))
+                if len(text) < 3:
+                    # Some links wrap images/teams and expose poor innerText; use parent row text.
+                    try:
+                        row = a.locator("xpath=ancestor::tr[1]")
+                        row_text = clean(await row.inner_text(timeout=1000))
+                        # Remove leading time; leave the event label reasonably readable.
+                        row_text = re.sub(r"^\\d{1,2}:\\d{2}\\s+", "", row_text)
+                        text = row_text[:180]
+                    except Exception:
+                        pass
+                if len(text) < 3:
+                    # Last resort: derive readable name from slug.
+                    slug = url.rstrip("/").split("/")[-1]
+                    slug = re.sub(r"-\\d{4}-\\d{2}-\\d{2}-\\d+$", "", slug)
+                    text = clean(slug.replace("-vs-", " – ").replace("-", " ")).title()
+                seen.add(url)
+                events.append({"event": text, "sport": sport, "event_url": url})
+            except Exception:
+                continue
+
+        # Fallback to BeautifulSoup if the DOM locator path unexpectedly returns nothing.
+        if not events:
+            try:
+                html = await self.page.content()
+                for item in discover_events_from_html(html, sport, self.settings.source_url):
+                    url = item.get("event_url", "")
+                    if url and url not in seen:
+                        seen.add(url)
+                        events.append(item)
+            except Exception:
+                pass
+
+        return events
+
     async def discover_events(self, sports: list[str]) -> tuple[list[dict], list[str]]:
         assert self.page
         errors: list[str] = []
@@ -516,16 +632,18 @@ class DobryBukProvider:
                 timeout=60000,
             )
             try:
-                await self.page.wait_for_load_state("networkidle", timeout=9000)
+                await self.page.wait_for_load_state("networkidle", timeout=12000)
             except Exception:
                 pass
-            await self.page.wait_for_timeout(1200)
+            # The known-good diagnostic version needed a longer settle time on GitHub CI.
+            await self.page.wait_for_timeout(4200)
             await self._dismiss_cookie_banner(self.page)
+            await self.page.wait_for_timeout(900)
         except Exception as exc:
             return [], [f"Ładowanie DobryBuk: {type(exc).__name__}: {exc}"]
 
         try:
-            body_text = await self.page.locator("body").inner_text(timeout=5000)
+            body_text = await self.page.locator("body").inner_text(timeout=6000)
         except Exception:
             body_text = ""
 
@@ -533,28 +651,44 @@ class DobryBukProvider:
         if auto_sports:
             sports_to_scan = auto_sports
         else:
-            # Only fall back to configured names if automatic discovery fails.
-            # This avoids a growing list of false errors when a sport is not
-            # currently exposed by the comparison source.
             sports_to_scan = list(dict.fromkeys((sports or []) + SPORTS_FALLBACK))
 
         self.discovered_sports = sports_to_scan
 
         for sport in sports_to_scan:
             try:
-                if not await self._click_sport(sport):
+                clicked = await self._click_sport(sport)
+                if not clicked:
+                    # If the current default sport is already selected, its text can be
+                    # non-clickable. Still try collecting the currently visible table.
+                    current = await self._collect_event_links(sport)
+                    if current:
+                        for event in current:
+                            discovered[event["event_url"]] = event
+                        continue
                     errors.append(f"{sport}: nie znaleziono filtra sportu")
                     continue
-                await self.page.wait_for_timeout(250)
-                html = await self.page.content()
-                events = discover_events_from_html(html, sport, self.settings.source_url)
+
+                try:
+                    await self.page.wait_for_load_state("networkidle", timeout=6500)
+                except Exception:
+                    pass
+                # v12 used 250 ms here; on GitHub this was too short and caused 0 events.
+                await self.page.wait_for_timeout(1600)
+
+                events = await self._collect_event_links(sport)
                 if not events:
-                    errors.append(f"{sport}: 0 linków wydarzeń")
+                    errors.append(f"{sport}: 0 linków wydarzeń po odczekaniu")
                 for event in events:
-                    # URL is the strongest dedupe key; same event can be duplicated in mobile markup.
                     discovered[event["event_url"]] = event
             except Exception as exc:
                 errors.append(f"{sport}: {type(exc).__name__}: {exc}")
+
+        if not discovered:
+            try:
+                await self._save_discovery_debug("zero_events")
+            except Exception as exc:
+                errors.append(f"Debug: {type(exc).__name__}: {exc}")
 
         return list(discovered.values()), errors
 
