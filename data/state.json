@@ -1,88 +1,120 @@
 {
-  "sent": {},
-  "scan_seq": 1,
-  "watchlist": {},
-  "value_memory": {},
+  "sent": {
+    "value|10a03be98e0cf7baab3e": {
+      "alerted_at": 1791139580.192147,
+      "last_seen": 1791139580.192147,
+      "alert_profit": 6.395,
+      "last_profit": 6.395
+    }
+  },
+  "scan_seq": 2,
+  "watchlist": {
+    "value:10a03be98e0cf7baab3e": {
+      "event": "Ekwador vs Panama",
+      "sport": "Inne",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
+      "gap_pct": 99.0,
+      "best_gap_pct": 99.0,
+      "score": 69.185,
+      "first_seen": 1791139580.1921368,
+      "last_seen": 1791139580.1921368,
+      "consecutive": 1
+    }
+  },
+  "value_memory": {
+    "10a03be98e0cf7baab3e": {
+      "event": "Ekwador vs Panama",
+      "market": "1X2",
+      "selection": "2",
+      "bookmaker": "Betclic",
+      "first_seen": 1791139580.1921222,
+      "last_seen": 1791139580.1921222,
+      "last_scan_seq": 2,
+      "consecutive": 1,
+      "best_edge_pct": 6.395
+    }
+  },
   "source_health": {
     "DobryBuk": {
       "ok": true,
       "markets": 1,
-      "last_checked": 1791139287.4998488,
-      "consecutive_success": 1,
+      "last_checked": 1791139580.4302025,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791139287.4998488
+      "last_success": 1791139580.4302025
     },
     "Betclic": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
+      "last_checked": 1791139580.4302025,
       "consecutive_success": 0,
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_success": 0.0
     },
     "Superbet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
-      "consecutive_success": 1,
+      "last_checked": 1791139580.4302025,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791139287.4998488
+      "last_success": 1791139580.4302025
     },
     "Fortuna": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
+      "last_checked": 1791139580.4302025,
       "consecutive_success": 0,
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_success": 0.0
     },
     "STS": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
+      "last_checked": 1791139580.4302025,
       "consecutive_success": 0,
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_success": 0.0
     },
     "Betfan": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
-      "consecutive_success": 1,
+      "last_checked": 1791139580.4302025,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791139287.4998488
+      "last_success": 1791139580.4302025
     },
     "Forbet": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
+      "last_checked": 1791139580.4302025,
       "consecutive_success": 0,
-      "consecutive_failures": 1,
+      "consecutive_failures": 2,
       "last_success": 0.0
     },
     "LVBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
-      "consecutive_success": 1,
+      "last_checked": 1791139580.4302025,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791139287.4998488
+      "last_success": 1791139580.4302025
     },
     "ETOTO": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
-      "consecutive_success": 1,
+      "last_checked": 1791139580.4302025,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791139287.4998488
+      "last_success": 1791139580.4302025
     },
     "Fuksiarz": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791139287.4998488,
-      "consecutive_success": 1,
+      "last_checked": 1791139580.4302025,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791139287.4998488
+      "last_success": 1791139580.4302025
     }
   }
 }
