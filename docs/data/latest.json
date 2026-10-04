@@ -1,49 +1,27 @@
 {
-  "generated_at": 1791120892.136104,
-  "last_scan": 1791120892.136104,
+  "generated_at": 1791121021.7616224,
+  "last_scan": 1791121021.7616224,
   "latest": [],
   "scan_preview": [
     {
-      "event": "Grecja - Niemcy",
+      "event": "Kosowo - Austria",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "BetSport",
-          "odds": 4.3
+          "bookmaker": "LVBet",
+          "odds": 3.95
         },
         {
           "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 4.05
+          "bookmaker": "STS",
+          "odds": 3.5
         },
         {
           "selection": "2",
-          "bookmaker": "BetSport",
-          "odds": 1.86
-        }
-      ]
-    },
-    {
-      "event": "Azerbejdżan 1:0 Litwa",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "BetSport",
-          "odds": 2.66
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Forbet",
-          "odds": 2.95
-        },
-        {
-          "selection": "2",
-          "bookmaker": "BetSport",
-          "odds": 3.04
+          "bookmaker": "ETOTO",
+          "odds": 2.05
         }
       ]
     },
@@ -70,6 +48,94 @@
       ]
     },
     {
+      "event": "Azerbejdżan 1:0 Litwa",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "BetSport",
+          "odds": 2.66
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Forbet",
+          "odds": 2.95
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 3.04
+        }
+      ]
+    },
+    {
+      "event": "Walia - Dania",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 4.1
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.75
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 2.05
+        }
+      ]
+    },
+    {
+      "event": "Portugalia - Norwegia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 1.7
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 4.75
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 5.05
+        }
+      ]
+    },
+    {
+      "event": "Grecja - Niemcy",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "BetSport",
+          "odds": 4.3
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Fortuna",
+          "odds": 4.05
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 1.86
+        }
+      ]
+    },
+    {
       "event": "CSM Slatina - Universitatea Craiova",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
@@ -88,50 +154,6 @@
           "selection": "2",
           "bookmaker": "Betfan",
           "odds": 1.55
-        }
-      ]
-    },
-    {
-      "event": "FK Dinamo Moscow - Rodina Moscow",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Forbet",
-          "odds": 1.33
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Forbet",
-          "odds": 5.2
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Forbet",
-          "odds": 6.0
-        }
-      ]
-    },
-    {
-      "event": "Hamburger 0:0 FC Kopenhaga",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 2.15
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 3.95
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 3.25
         }
       ]
     },
@@ -158,24 +180,24 @@
       ]
     },
     {
-      "event": "Enosis Neon Paralimni - Anorthosis Famagusta",
+      "event": "FK Dinamo Moscow - Rodina Moscow",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 4.35
+          "bookmaker": "Forbet",
+          "odds": 1.33
         },
         {
           "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 3.7
+          "bookmaker": "Forbet",
+          "odds": 5.2
         },
         {
           "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 1.7
+          "bookmaker": "Forbet",
+          "odds": 6.0
         }
       ]
     },
@@ -202,46 +224,46 @@
       ]
     },
     {
-      "event": "Molde - Kristiansund",
+      "event": "Hamburger 0:0 FC Kopenhaga",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "Fuksiarz",
-          "odds": 1.48
+          "bookmaker": "Betfan",
+          "odds": 2.15
         },
         {
           "selection": "X",
-          "bookmaker": "Fuksiarz",
-          "odds": 4.3
+          "bookmaker": "LVBet",
+          "odds": 3.95
         },
         {
           "selection": "2",
-          "bookmaker": "Fuksiarz",
-          "odds": 5.6
+          "bookmaker": "LVBet",
+          "odds": 3.25
         }
       ]
     },
     {
-      "event": "Ludogorets - Cherno More Varna",
+      "event": "Enosis Neon Paralimni - Anorthosis Famagusta",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 1.65
+          "bookmaker": "LVBet",
+          "odds": 4.35
         },
         {
           "selection": "X",
-          "bookmaker": "BetSport",
-          "odds": 4.1
+          "bookmaker": "LVBet",
+          "odds": 3.7
         },
         {
           "selection": "2",
-          "bookmaker": "Betfan",
-          "odds": 4.5
+          "bookmaker": "LVBet",
+          "odds": 1.7
         }
       ]
     },
@@ -286,22 +308,21 @@
     ],
     "detail_events_scanned": 19,
     "detail_events_total": 19,
-    "markets": 12,
-    "markets_scanned": 12,
+    "markets": 13,
+    "markets_scanned": 13,
     "exhaustive_complete": true,
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 33.34,
+    "elapsed_seconds": 39.06,
     "scanner": "playwright-auto-sports-all-event-markets-v14"
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Portugalia - Norwegia: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Ludogorets - Cherno More Varna: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Maroko - Mali: 1x2: brak pełnej tabeli bukmacherów"
   ],
   "source": "DobryBuk public comparison",
