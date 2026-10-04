@@ -40,7 +40,7 @@ class Surebet:
     guaranteed_profit: float
     legs: list[ArbLeg]
     detected_at: float
-    source: str = "Multi-source odds monitor"
+    source: str = "DobryBuk public comparison"
     confidence: str = "strict"
     event_url: str = ""
 
