@@ -1,27 +1,17 @@
-name: Surebet Scanner
+name: Surebet Scanner Diagnostic
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [surebet_scan]
-  schedule:
-    # GitHub Actions ma minimalny interwał cron około 5 minut.
-    # Używamy przesunięcia od pełnej minuty, żeby zmniejszyć ryzyko kolejek.
-    - cron: "3-58/5 * * * *"
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
-
-concurrency:
-  group: surebet-scan
-  cancel-in-progress: false
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
 
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -33,8 +23,6 @@ jobs:
     steps:
       - name: Pobierz kod
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Ustaw Python
         uses: actions/setup-python@v5
@@ -47,55 +35,59 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Sprawdź przeglądarkę
-        shell: bash
+      - name: Przygotuj Chromium
         run: |
           if command -v google-chrome >/dev/null 2>&1; then
-            echo "Systemowy Google Chrome jest dostępny."
+            echo "Google Chrome:"
             google-chrome --version
           else
-            echo "Brak systemowego Chrome - instaluję Chromium dla Playwright."
             python -m playwright install --with-deps chromium
           fi
 
       - name: Uruchom skaner
+        id: scanner
+        continue-on-error: true
         run: python scanner.py
 
-      - name: Sprawdź wynik
+      - name: Pokaż diagnostykę
+        if: always()
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          p = Path("docs/data/latest.json")
-          data = json.loads(p.read_text(encoding="utf-8"))
-          stats = data.get("stats", {})
-          print("STATS:", stats)
-          print("ERRORS:", data.get("errors", [])[-10:])
-
-          if stats.get("events", 0) <= 0:
-              raise SystemExit("STOP: 0 wydarzeń")
-          if stats.get("markets", 0) <= 0:
-              raise SystemExit("STOP: 0 rynków")
-          PY
-
-      - name: Zachowaj stan alertów
-        shell: bash
-        run: |
-          if [ -f data/state.json ]; then
-            git config user.name "surebet-bot"
-            git config user.email "surebet-bot@users.noreply.github.com"
-            git add data/state.json
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: update alert state [skip ci]"
-              git push
-            fi
+          echo "===== diagnostics.json ====="
+          if [ -f debug/diagnostics.json ]; then
+            cat debug/diagnostics.json
+          else
+            echo "Brak debug/diagnostics.json"
           fi
 
+          echo
+          echo "===== landing.txt - pierwsze 120 linii ====="
+          if [ -f debug/landing.txt ]; then
+            sed -n '1,120p' debug/landing.txt
+          else
+            echo "Brak debug/landing.txt"
+          fi
+
+      - name: Zapisz screenshot i HTML jako artefakt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dobrybuk-debug
+          path: debug/
+          if-no-files-found: warn
+          retention-days: 3
+
+      - name: Zatrzymaj workflow, jeśli skaner nie zadziałał
+        if: steps.scanner.outcome != 'success'
+        run: |
+          echo "Skaner nie odczytał wydarzeń. Diagnostyka została zapisana w artefakcie dobrybuk-debug."
+          exit 1
+
       - name: Skonfiguruj GitHub Pages
+        if: steps.scanner.outcome == 'success'
         uses: actions/configure-pages@v5
 
       - name: Przygotuj stronę
+        if: steps.scanner.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
@@ -103,6 +95,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: scan
+    if: needs.scan.result == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
