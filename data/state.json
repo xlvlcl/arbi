@@ -5,9 +5,15 @@
       "last_seen": 1791137593.4444091,
       "alert_profit": 5.057,
       "last_profit": 5.057
+    },
+    "value|10a03be98e0cf7baab3e": {
+      "alerted_at": 1791138578.2875888,
+      "last_seen": 1791138578.2875888,
+      "alert_profit": 6.395,
+      "last_profit": 6.395
     }
   },
-  "scan_seq": 2,
+  "scan_seq": 3,
   "watchlist": {
     "value:10a03be98e0cf7baab3e": {
       "event": "Ekwador vs Panama",
@@ -18,8 +24,8 @@
       "best_gap_pct": 99.0,
       "score": 69.185,
       "first_seen": 1791138277.9855056,
-      "last_seen": 1791138277.9855056,
-      "consecutive": 1
+      "last_seen": 1791138578.2875743,
+      "consecutive": 2
     }
   },
   "value_memory": {
@@ -29,9 +35,9 @@
       "selection": "2",
       "bookmaker": "Betclic",
       "first_seen": 1791138277.985489,
-      "last_seen": 1791138277.985489,
-      "last_scan_seq": 2,
-      "consecutive": 1,
+      "last_seen": 1791138578.2875566,
+      "last_scan_seq": 3,
+      "consecutive": 2,
       "best_edge_pct": 6.395
     }
   },
@@ -39,82 +45,82 @@
     "DobryBuk": {
       "ok": true,
       "markets": 1,
-      "last_checked": 1791138277.9886892,
-      "consecutive_success": 2,
+      "last_checked": 1791138578.4741983,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791138277.9886892
+      "last_success": 1791138578.4741983
     },
     "Betclic": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
+      "last_checked": 1791138578.4741983,
       "consecutive_success": 0,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_success": 0.0
     },
     "Superbet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
-      "consecutive_success": 2,
+      "last_checked": 1791138578.4741983,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791138277.9886892
+      "last_success": 1791138578.4741983
     },
     "Fortuna": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
+      "last_checked": 1791138578.4741983,
       "consecutive_success": 0,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_success": 0.0
     },
     "STS": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
+      "last_checked": 1791138578.4741983,
       "consecutive_success": 0,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_success": 0.0
     },
     "Betfan": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
-      "consecutive_success": 2,
+      "last_checked": 1791138578.4741983,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791138277.9886892
+      "last_success": 1791138578.4741983
     },
     "Forbet": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
+      "last_checked": 1791138578.4741983,
       "consecutive_success": 0,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_success": 0.0
     },
     "LVBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
-      "consecutive_success": 2,
+      "last_checked": 1791138578.4741983,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791138277.9886892
+      "last_success": 1791138578.4741983
     },
     "ETOTO": {
-      "ok": false,
+      "ok": true,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
-      "consecutive_success": 0,
-      "consecutive_failures": 1,
-      "last_success": 1791137975.8219671
+      "last_checked": 1791138578.4741983,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791138578.4741983
     },
     "Fuksiarz": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138277.9886892,
-      "consecutive_success": 2,
+      "last_checked": 1791138578.4741983,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791138277.9886892
+      "last_success": 1791138578.4741983
     }
   }
 }
