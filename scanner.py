@@ -111,6 +111,47 @@ def dedupe_surebets(items):
     return sorted(unique.values(), key=lambda x: x.profit_pct, reverse=True)
 
 
+
+def build_scan_preview(markets: list[dict], limit: int = 80) -> list[dict]:
+    """Small read-only preview for the UI so a scan with 0 surebets does not look empty."""
+    preview = []
+    seen = set()
+    for item in markets:
+        key = (
+            str(item.get("event", "")).strip().lower(),
+            str(item.get("sport", "")).strip().lower(),
+            str(item.get("market", "")).strip().lower(),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+
+        best = []
+        for selection, quotes in (item.get("quotes") or {}).items():
+            valid = [q for q in quotes if q.get("bookmaker") and q.get("odds")]
+            if not valid:
+                continue
+            q = max(valid, key=lambda x: float(x.get("odds", 0)))
+            best.append(
+                {
+                    "selection": str(selection),
+                    "bookmaker": str(q.get("bookmaker", "")),
+                    "odds": float(q.get("odds", 0)),
+                }
+            )
+
+        preview.append(
+            {
+                "event": item.get("event", ""),
+                "sport": item.get("sport", ""),
+                "market": item.get("market", ""),
+                "best": best[:4],
+            }
+        )
+        if len(preview) >= limit:
+            break
+    return preview
+
 async def scan_once() -> dict:
     started = time.time()
     provider = DobryBukProvider(settings)
@@ -190,6 +231,7 @@ async def scan_once() -> dict:
             "generated_at": now,
             "last_scan": now,
             "latest": [arb.to_dict() for arb in confirmed[:200]],
+            "scan_preview": build_scan_preview(market_rows),
             "stats": {
                 "events": len(events),
                 "sports_scanned": len(getattr(provider, "discovered_sports", []) or []),
@@ -203,7 +245,7 @@ async def scan_once() -> dict:
                 "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "playwright-auto-sports-all-event-markets-v13",
+                "scanner": "playwright-auto-sports-all-event-markets-v14",
             },
             "errors": errors[-40:],
             "source": "DobryBuk public comparison",

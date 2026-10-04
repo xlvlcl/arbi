@@ -77,11 +77,30 @@ function card(a,budget){
   </article>`;
 }
 
-let data={latest:[],stats:{}}, budget=50;
+function previewHtml(){
+  const sport=document.getElementById("sportFilter").value;
+  const rows=(data.scan_preview||[]).filter(x=>!sport||x.sport===sport).slice(0,24);
+  if(!rows.length)return "";
+  return `<section class="scan-preview">
+    <div class="scan-preview-head">
+      <div><strong>Ostatnio zeskanowane zdarzenia</strong><span>To jest podgląd skanera — nie surebety.</span></div>
+      <span>${rows.length} pokazanych</span>
+    </div>
+    <div class="scan-preview-grid">${rows.map(x=>`
+      <div class="scan-row glass">
+        <div class="scan-row-top"><span class="sport-tag">${esc(x.sport||"Sport")}</span><span class="market">${esc(x.market||"Rynek")}</span></div>
+        <div class="scan-event">${esc(x.event||"Zdarzenie")}</div>
+        <div class="scan-best">${(x.best||[]).slice(0,4).map(q=>`<span><b>${esc(q.selection)}</b> ${Number(q.odds||0).toFixed(2)} <small>${esc(q.bookmaker)}</small></span>`).join("")}</div>
+      </div>`).join("")}
+    </div>
+  </section>`;
+}
+
+let data={latest:[],stats:{},scan_preview:[]}, budget=50;
 
 const DATA_ENDPOINTS=[
-  "https://raw.githubusercontent.com/xlvlcl/arbi/main/docs/data/latest.json",
-  "data/latest.json"
+  "data/latest.json",
+  "https://raw.githubusercontent.com/xlvlcl/arbi/main/docs/data/latest.json"
 ];
 
 async function load(){
@@ -110,7 +129,8 @@ function repaint(){
 
   document.getElementById("count").textContent=items.length;
   document.getElementById("best").textContent=items.length?`+${Number(items[0].profit_pct).toFixed(2)}%`:"—";
-  document.getElementById("markets").textContent=data.stats?.markets_scanned??data.stats?.markets??0;
+  const ev=Number(data.stats?.events||0), mk=Number(data.stats?.markets_scanned??data.stats?.markets??0);
+  document.getElementById("markets").textContent=`${ev} / ${mk}`;
   const ts=data.last_scan||data.generated_at;
   document.getElementById("last").textContent=ts?new Date(Number(ts)*1000).toLocaleString("pl-PL"):"—";
 
@@ -119,18 +139,23 @@ function repaint(){
   const complete=data.stats?.exhaustive_complete;
   let status="monitoring aktywny", dot="var(--green)";
   if(age>15*60){status="skan opóźniony";dot="#fb7185";}
-  else if(age>8*60){status="czekam na nowy skan";dot="#fbbf24";}
+  else if(age>7*60){status="czekam na nowy skan";dot="#fbbf24";}
   else if(complete===false){status="skan częściowy";dot="#fbbf24";}
   else if(errs.length){status="uwaga";dot="#fbbf24";}
   document.getElementById("statusText").textContent=status;
   document.getElementById("statusDot").style.background=dot;
 
-  const sports=[...new Set((data.latest||[]).map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
+  const sports=[...new Set([
+    ...(data.stats?.sports||[]),
+    ...(data.latest||[]).map(x=>x.sport),
+    ...(data.scan_preview||[]).map(x=>x.sport)
+  ].filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
   const sel=document.getElementById("sportFilter"), current=sel.value;
   sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
   sel.value=sports.includes(current)?current:"";
 
-  document.getElementById("list").innerHTML=items.length?items.slice(0,200).map(a=>card(a,budget)).join(""):`<div class="empty glass"><div class="icon">⌁</div><h3>Brak potwierdzonych surebetów</h3><p>System pokaże tylko kompletne rynki, gdzie wszystkie możliwe wyniki są pokryte.</p></div>`;
+  const empty=`<div class="empty glass"><div class="icon">⌁</div><h3>Brak potwierdzonych surebetów w tym skanie</h3><p>Skaner odczytał ${ev} zdarzeń i ${mk} rynków. Poniżej możesz zobaczyć, co faktycznie zostało zeskanowane.</p></div>`;
+  document.getElementById("list").innerHTML=(items.length?items.slice(0,200).map(a=>card(a,budget)).join(""):empty)+previewHtml();
 }
 
 document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaint()});

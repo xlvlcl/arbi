@@ -1,42 +1,21 @@
 {
-  "generated_at": 1791115904.5940003,
-  "last_scan": 1791115904.5940003,
+  "generated_at": 0,
+  "last_scan": 0,
   "latest": [],
   "stats": {
-    "events": 18,
-    "sports_scanned": 11,
-    "sports": [
-      "PIŁKA NOŻNA",
-      "TENIS",
-      "KOSZYKÓWKA",
-      "HOKEJ",
-      "PIŁKA RĘCZNA",
-      "MMA",
-      "BOKS",
-      "ŻUŻEL",
-      "BASEBALL",
-      "FUTBOL AMERYKAŃSKI",
-      "TENIS STOŁOWY"
-    ],
-    "detail_events_scanned": 18,
-    "detail_events_total": 18,
-    "markets": 12,
-    "markets_scanned": 12,
-    "exhaustive_complete": true,
+    "events": 0,
+    "detail_events_scanned": 0,
+    "detail_events_total": 0,
+    "markets": 0,
+    "markets_scanned": 0,
+    "exhaustive_complete": false,
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 36.75,
-    "scanner": "playwright-auto-sports-all-event-markets-v13"
+    "elapsed_seconds": 0,
+    "scanner": "playwright-all-event-markets-v11"
   },
-  "errors": [
-    "Markety: TENIS STOŁOWY / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: TENIS STOŁOWY / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: TENIS STOŁOWY / Maroko - Mali: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: TENIS STOŁOWY / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: TENIS STOŁOWY / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: TENIS STOŁOWY / Egipt - RPA: 1x2: brak pełnej tabeli bukmacherów"
-  ],
+  "errors": [],
   "source": "DobryBuk public comparison",
-  "market_scan_note": "Skan automatycznie wykrywa wszystkie sporty wystawione w porównywarce, a następnie odwiedza wydarzenia i widoczne na ich stronach rynki w ramach budżetu czasu. Niepełne/niejednoznaczne rynki są odrzucane."
+  "market_scan_note": "Oczekiwanie na pierwszy skan v11."
 }
