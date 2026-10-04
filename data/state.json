@@ -13,7 +13,7 @@
       "last_profit": 6.395
     }
   },
-  "scan_seq": 3,
+  "scan_seq": 4,
   "watchlist": {
     "value:10a03be98e0cf7baab3e": {
       "event": "Ekwador vs Panama",
@@ -22,10 +22,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 99.0,
       "best_gap_pct": 99.0,
-      "score": 69.185,
+      "score": 55.348000000000006,
       "first_seen": 1791138277.9855056,
       "last_seen": 1791138578.2875743,
-      "consecutive": 2
+      "consecutive": 0
     }
   },
   "value_memory": {
@@ -45,82 +45,82 @@
     "DobryBuk": {
       "ok": true,
       "markets": 1,
-      "last_checked": 1791138578.4741983,
-      "consecutive_success": 3,
+      "last_checked": 1791138931.0137224,
+      "consecutive_success": 4,
       "consecutive_failures": 0,
-      "last_success": 1791138578.4741983
+      "last_success": 1791138931.0137224
     },
     "Betclic": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
+      "last_checked": 1791138931.0137224,
       "consecutive_success": 0,
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "last_success": 0.0
     },
     "Superbet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
-      "consecutive_success": 3,
+      "last_checked": 1791138931.0137224,
+      "consecutive_success": 4,
       "consecutive_failures": 0,
-      "last_success": 1791138578.4741983
+      "last_success": 1791138931.0137224
     },
     "Fortuna": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
+      "last_checked": 1791138931.0137224,
       "consecutive_success": 0,
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "last_success": 0.0
     },
     "STS": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
+      "last_checked": 1791138931.0137224,
       "consecutive_success": 0,
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "last_success": 0.0
     },
     "Betfan": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
-      "consecutive_success": 3,
+      "last_checked": 1791138931.0137224,
+      "consecutive_success": 4,
       "consecutive_failures": 0,
-      "last_success": 1791138578.4741983
+      "last_success": 1791138931.0137224
     },
     "Forbet": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
+      "last_checked": 1791138931.0137224,
       "consecutive_success": 0,
-      "consecutive_failures": 3,
+      "consecutive_failures": 4,
       "last_success": 0.0
     },
     "LVBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
-      "consecutive_success": 3,
+      "last_checked": 1791138931.0137224,
+      "consecutive_success": 4,
       "consecutive_failures": 0,
-      "last_success": 1791138578.4741983
+      "last_success": 1791138931.0137224
     },
     "ETOTO": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
-      "consecutive_success": 1,
+      "last_checked": 1791138931.0137224,
+      "consecutive_success": 2,
       "consecutive_failures": 0,
-      "last_success": 1791138578.4741983
+      "last_success": 1791138931.0137224
     },
     "Fuksiarz": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791138578.4741983,
-      "consecutive_success": 3,
+      "last_checked": 1791138931.0137224,
+      "consecutive_success": 4,
       "consecutive_failures": 0,
-      "last_success": 1791138578.4741983
+      "last_success": 1791138931.0137224
     }
   }
 }
