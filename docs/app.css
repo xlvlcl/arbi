@@ -318,3 +318,52 @@ body{
 .intel-panel{border-radius:21px;padding:14px}.intel-quality{display:flex;flex-direction:column;align-items:flex-end}.intel-quality b{font-size:14px}.intel-quality span{font-size:7.5px;color:var(--muted)}
 .source-health-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px;margin-top:9px}.source-health{padding:8px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.018)}.source-health>div{display:flex;align-items:center;justify-content:space-between;gap:7px}.source-health b{font-size:8.5px}.source-health span{font-size:6.5px;padding:3px 5px;border-radius:999px}.source-health small{display:block;margin-top:5px;font-size:6.8px;color:var(--muted)}.source-health.ok span{color:#a8f3d1;background:rgba(73,224,161,.05)}.source-health.bad span{color:#ffd19b;background:rgba(255,107,139,.05)}
 @media(max-width:720px){.radar-hero{align-items:flex-start;flex-direction:column}.radar-plan{width:100%}.radar-plan>div{min-width:0;flex:1}.intel-quality{align-items:flex-start}}
+
+
+/* v21.1 grouped event preview */
+.scan-event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.scan-event-card{border-radius:16px;overflow:hidden;transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.scan-event-card:hover{transform:translateY(-1px);border-color:rgba(99,133,255,.18);box-shadow:0 16px 42px rgba(0,0,0,.22)}
+.scan-event-card>summary{list-style:none;cursor:pointer;padding:11px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.scan-event-card>summary::-webkit-details-marker{display:none}
+.scan-event-summary{min-width:0}
+.scan-event-summary-top{display:flex;align-items:center;gap:6px}
+.scan-market-count{font-size:8px;color:var(--muted);padding:4px 7px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.022)}
+.scan-event-title{font-size:13px;font-weight:900;line-height:1.25;margin-top:7px;color:#f3f6ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scan-market-chips{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:7px}
+.scan-market-chips span{font-size:7px;color:#aab8d7;padding:3px 6px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.scan-market-chips .scan-more{color:#c9d4ff;border-color:rgba(99,133,255,.18);background:rgba(99,133,255,.06)}
+.scan-expand{width:27px;height:27px;display:grid;place-items:center;flex:none;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:16px;transition:transform .18s ease}
+.scan-event-card[open] .scan-expand{transform:rotate(45deg)}
+.scan-event-markets{padding:0 10px 10px;border-top:1px solid var(--line);background:rgba(0,0,0,.08)}
+.scan-market-row{padding:9px 2px;border-bottom:1px solid rgba(255,255,255,.045)}
+.scan-market-row:last-of-type{border-bottom:0}
+.scan-market-name{font-size:9px;font-weight:900;color:#dce4ff;margin-bottom:6px}
+.scan-event-open{display:inline-flex;margin-top:9px}
+@media(max-width:720px){
+  .scan-event-grid{grid-template-columns:1fr}
+  .scan-event-title{white-space:normal}
+}
+
+/* v22 clarity / risk / info / links */
+.info-i{width:16px;height:16px;display:inline-grid;place-items:center;border:1px solid rgba(130,155,255,.24);border-radius:50%;background:rgba(99,133,255,.07);color:#c7d3ff;font-size:9px;font-weight:950;line-height:1;cursor:pointer;padding:0;vertical-align:middle;margin-left:3px}
+.info-i:hover{border-color:rgba(73,220,255,.38);color:#dffaff;background:rgba(73,220,255,.09)}
+.bet-instruction{margin-top:10px;padding:11px 12px;border-radius:14px;border:1px solid rgba(73,220,255,.16);background:linear-gradient(135deg,rgba(73,220,255,.05),rgba(99,133,255,.07),rgba(154,98,255,.04));display:flex;gap:10px;align-items:center}
+.bet-instruction-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(73,220,255,.07);border:1px solid rgba(73,220,255,.14);flex:none}
+.bet-instruction-main>span{display:block;font-size:7px;color:#85a3c7;letter-spacing:.12em;font-weight:950}
+.bet-instruction-main>strong{display:block;font-size:16px;color:#f7fbff;margin-top:3px;line-height:1.2}
+.bet-instruction-main>small{display:block;font-size:8px;color:var(--muted);margin-top:4px}
+.value-card-grid-v22{grid-template-columns:repeat(4,1fr)}
+.risk-tile{border:1px solid var(--line);border-radius:12px;padding:8px;background:rgba(0,0,0,.11)}
+.risk-tile>span{display:block;font-size:7.5px;color:var(--muted)}.risk-tile>strong{display:block;font-size:16px;margin-top:3px}.risk-tile>small{display:block;font-size:7px;margin-top:2px}
+.risk-low{border-color:rgba(73,224,161,.18);background:rgba(73,224,161,.035)}.risk-low strong,.risk-low small{color:#9bf0c8}
+.risk-medium{border-color:rgba(255,209,102,.18);background:rgba(255,209,102,.03)}.risk-medium strong,.risk-medium small{color:#f1d58d}
+.risk-high{border-color:rgba(255,107,139,.18);background:rgba(255,107,139,.03)}.risk-high strong,.risk-high small{color:#ff9eb3}
+.value-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.value-actions .value-open{flex:1;justify-content:center;text-align:center}.value-home{font-size:8px}
+.link-warning{margin-top:7px;padding:7px 8px;border-radius:10px;border:1px solid rgba(255,209,102,.12);background:rgba(255,209,102,.025);color:#a99d7a;font-size:7.5px;line-height:1.5}
+.info-modal{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:18px}.info-modal[hidden]{display:none}
+.info-modal-backdrop{position:absolute;inset:0;border:0;background:rgba(3,5,12,.73);backdrop-filter:blur(8px);cursor:pointer}
+.info-modal-card{position:relative;width:min(480px,100%);border-radius:20px;padding:20px;z-index:1}.info-modal-card h3{margin:6px 34px 8px 0;font-size:20px}
+.info-modal-body{color:#b5c0da;font-size:11px;line-height:1.65}.info-modal-close{position:absolute;right:11px;top:11px;width:30px;height:30px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.035);color:#fff;font-size:18px;cursor:pointer}
+body.modal-open{overflow:hidden}.push-last-scan{margin-top:8px;font-size:7.5px;color:var(--muted);text-align:center}
+@media(max-width:720px){.value-card-grid-v22{grid-template-columns:1fr 1fr}.bet-instruction{align-items:flex-start}.value-actions{display:grid;grid-template-columns:1fr}}

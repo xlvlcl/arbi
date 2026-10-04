@@ -67,6 +67,11 @@ def event_to_quotes(event: dict) -> dict[str, list[Quote]]:
                     observed_at=float(item["observed_at"]),
                     source_url=item.get("source_url", event.get("event_url", "")),
                     bookmaker_url=item.get("bookmaker_url", ""),
+                    source_name=item.get("source_name", ""),
+                    link_exact=bool(
+                        item.get("bookmaker_url")
+                        and "direct" in str(item.get("source_name", "")).lower()
+                    ),
                 )
             )
     return out
@@ -116,13 +121,25 @@ def dedupe_surebets(items):
 
 
 def _public_offer(item: dict) -> dict:
+    source_name = str(item.get("source_name", "DobryBuk"))
+    bookmaker_url = item.get("bookmaker_url", "") or ""
+    exact_url = bookmaker_url if bookmaker_url and "direct" in source_name.lower() else ""
     return {
         "bookmaker": str(item.get("bookmaker", "")),
         "odds": round(float(item.get("odds", 0) or 0), 3),
-        "bookmaker_url": item.get("bookmaker_url", "") or item.get("source_url", ""),
+        "bookmaker_url": bookmaker_url or item.get("source_url", ""),
+        "exact_bookmaker_url": exact_url,
+        "bookmaker_link_exact": bool(exact_url),
         "source_url": item.get("source_url", ""),
-        "source_name": item.get("source_name", "DobryBuk"),
+        "source_name": source_name,
     }
+
+
+def _event_identity(item: dict) -> str:
+    url = str(item.get("event_url", "") or "").strip()
+    if url:
+        return url.split("#", 1)[0].split("?", 1)[0].rstrip("/").lower()
+    return event_key(str(item.get("event", "")))
 
 
 def build_scan_preview(markets: list[dict], limit: int = 100) -> list[dict]:
@@ -130,7 +147,7 @@ def build_scan_preview(markets: list[dict], limit: int = 100) -> list[dict]:
     seen = set()
     for item in markets:
         key = (
-            event_key(str(item.get("event", ""))),
+            _event_identity(item),
             market_key(str(item.get("market", ""))),
         )
         if key in seen:
@@ -171,7 +188,7 @@ def build_coupon_catalog(markets: list[dict], limit: int = 350) -> list[dict]:
     catalog = []
     seen = set()
     for item in markets:
-        ekey = event_key(str(item.get("event", "")))
+        ekey = _event_identity(item)
         mkey = market_key(str(item.get("market", "")))
         key = (ekey, mkey)
         if not ekey or not mkey or key in seen:
@@ -247,6 +264,37 @@ def _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows: list[dict]) -
             }
         )
     return targets
+
+
+def _enrich_market_metadata(markets: list[dict], events: list[dict]) -> list[dict]:
+    by_url = {}
+    by_key = {}
+    for event in events or []:
+        url = str(event.get("event_url", "") or "").split("#", 1)[0].split("?", 1)[0].rstrip("/")
+        if url:
+            by_url[url] = event
+        key = event_key(str(event.get("event", "")))
+        if key and event.get("sport") not in (None, "", "Inne"):
+            by_key[key] = event
+
+    out = []
+    for row in markets:
+        row = dict(row)
+        url = str(row.get("event_url", "") or "").split("#", 1)[0].split("?", 1)[0].rstrip("/")
+        meta = by_url.get(url) or by_key.get(event_key(str(row.get("event", ""))))
+        if meta:
+            if row.get("sport") in (None, "", "Inne") and meta.get("sport"):
+                row["sport"] = meta.get("sport")
+            discovered_name = str(meta.get("event", "") or "").strip()
+            current_name = str(row.get("event", "") or "").strip()
+            if discovered_name and (
+                not current_name
+                or " RYNEK " in current_name.upper()
+                or len(discovered_name) < len(current_name)
+            ):
+                row["event"] = discovered_name
+        out.append(row)
+    return out
 
 
 def _merge_event_priorities(*groups: list[dict]) -> list[dict]:
@@ -538,6 +586,7 @@ async def scan_once() -> dict:
         errors.extend([f"Direct: {x}" for x in direct_errors])
 
         merged_rows = merge_markets(watch_rows + dobrybuk_rows + broad_rows + direct_rows)
+        merged_rows = _enrich_market_metadata(merged_rows, events)
         if not merged_rows:
             raise RuntimeError(
                 "Żadne źródło nie zwróciło kursów. Nie nadpisuję poprawnych danych pustym skanem."
@@ -780,7 +829,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v21-adaptive-radar",
+                "scanner": "multi-source-v22-clarity-push-links",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],

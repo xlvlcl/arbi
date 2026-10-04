@@ -197,6 +197,19 @@ def clean(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+EVENT_NOISE_RE = re.compile(
+    r"\s+(?:RYNEK|KURS|ŚREDNIA|SREDNIA|DO\s+KUPONU|IDŹ\s+DO|IDZ\s+DO)\b.*$",
+    re.I,
+)
+
+
+def clean_event_name(value: str) -> str:
+    """Remove promo/value text accidentally captured inside an event anchor."""
+    value = clean(value)
+    value = EVENT_NOISE_RE.sub("", value).strip(" ·|-")
+    return clean(value)
+
+
 def _strip_leading_icon(value: str) -> str:
     # Sport labels on DobryBuk are usually prefixed by an emoji/icon.
     value = clean(value)
@@ -322,11 +335,11 @@ def discover_events_from_html(page_html: str, sport: str, source_url: str) -> li
         url = _absolute(a.get("href", ""), source_url)
         if not url or url in seen:
             continue
-        event = clean(a.get_text(" ", strip=True))
+        event = clean_event_name(a.get_text(" ", strip=True))
         if not event:
             cells = row.find_all(["td", "th"])
             if len(cells) >= 2:
-                event = clean(cells[1].get_text(" ", strip=True))
+                event = clean_event_name(cells[1].get_text(" ", strip=True))
         if len(event) < 3:
             continue
         seen.add(url)
@@ -340,7 +353,7 @@ def discover_events_from_html(page_html: str, sport: str, source_url: str) -> li
         url = _absolute(href, source_url)
         if not url or url in seen:
             continue
-        event = clean(a.get_text(" ", strip=True))
+        event = clean_event_name(a.get_text(" ", strip=True))
         if len(event) < 3:
             continue
         seen.add(url)
@@ -610,12 +623,12 @@ def extract_listing_market(
             # Event URL/name
             event_cell = cells[event_idx]
             event_url = ""
-            event = clean(event_cell.get_text(" ", strip=True))
+            event = clean_event_name(event_cell.get_text(" ", strip=True))
             for a in event_cell.find_all("a", href=True):
                 href = a.get("href", "")
                 if EVENT_PATH_RE.search(href):
                     event_url = _absolute(href, source_url)
-                    event = clean(a.get_text(" ", strip=True)) or event
+                    event = clean_event_name(a.get_text(" ", strip=True)) or event
                     break
 
             if not event_url or len(event) < 3:
@@ -1144,7 +1157,7 @@ class DobryBukProvider:
                             event_url = _absolute(href, self.settings.source_url)
                             if not event_url:
                                 continue
-                            text = clean(await a.inner_text(timeout=700))
+                            text = clean_event_name(await a.inner_text(timeout=700))
                             if len(text) < 3:
                                 slug = event_url.split("?")[0].rstrip("/").split("/")[-1]
                                 slug = re.sub(r"-\d{4}-\d{2}-\d{2}-\d+$", "", slug)
@@ -1207,7 +1220,7 @@ class DobryBukProvider:
                             event_url = _absolute(href, self.settings.source_url)
                             if not event_url:
                                 continue
-                            text = clean(await a.inner_text(timeout=700))
+                            text = clean_event_name(await a.inner_text(timeout=700))
                             if len(text) < 3:
                                 slug = event_url.split("?")[0].rstrip("/").split("/")[-1]
                                 slug = re.sub(r"-\d{4}-\d{2}-\d{2}-\d+$", "", slug)

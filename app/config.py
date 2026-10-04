@@ -82,7 +82,7 @@ DEFAULT = {
     "watch_scan_limit": 50,
     "watch_scan_seconds": 60,
     "near_arb_gap_pct": 1.50,
-    "value_stability_scans": 2,
+    "value_stability_scans": 1,
     "value_elite_edge_pct": 9.0,
     "host": "0.0.0.0",
     "port": 8080,

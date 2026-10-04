@@ -19,7 +19,7 @@ const linkFor=o=>o?.bookmaker_url||o?.source_url||meta(o?.bookmaker).url||"#";
 const safeId=s=>String(s||"").replace(/[^a-z0-9_-]+/gi,"-");
 
 let data={latest:[],valuebets:[],near_arbs:[],coverage:{},intelligence:{},stats:{},scan_preview:[],coupon_catalog:[]};
-let budget=50;
+let budget=Math.max(1,Number(pref("globalBudget",50))||50);
 let coupon=loadCoupon();
 let selectedBook=localStorage.getItem("arbi_coupon_book_v16")||"";
 let openEventKey="";
@@ -29,6 +29,53 @@ const DATA_ENDPOINTS=[
   "data/latest.json",
   "https://raw.githubusercontent.com/xlvlcl/arbi/main/docs/data/latest.json"
 ];
+
+const UI_PREF_KEY="arbi_ui_prefs_v22";
+const INFO_COPY={
+  edge:{title:"Edge — przewaga kursu",body:"Edge to szacowana przewaga kursu bukmachera nad kursem fair wyliczonym z konsensusu innych bukmacherów po zdjęciu marży. +5% edge nie oznacza 5% szansy na wygraną ani gwarantowanego zysku."},
+  fairOdds:{title:"Fair kurs",body:"Fair kurs to kurs bez marży oszacowany na podstawie wielu innych bukmacherów."},
+  fairChance:{title:"Fair szansa",body:"Fair szansa to oszacowane prawdopodobieństwo wyniku po usunięciu marży z kursów bukmacherów referencyjnych."},
+  outcomeRisk:{title:"Ryzyko wyniku",body:"To 100% minus fair szansa. Pokazuje szacowaną szansę, że ten konkretny typ nie wejdzie. Value bet może mieć duże ryzyko pojedynczego wyniku i nadal dodatnią oczekiwaną wartość."},
+  signalRisk:{title:"Ryzyko sygnału",body:"Wewnętrzna heurystyka niepewności samego value: liczba bukmacherów, ich zgodność, odstęp kursu, edge i kolejne potwierdzenia. To nie jest prawdopodobieństwo przegranej."},
+  referenceBooks:{title:"Bukmacherzy referencyjni",body:"Inni bukmacherzy z kompletnym tym samym rynkiem, których kursy służą do oszacowania ceny fair."},
+  dispersion:{title:"Rozbieżność",body:"Pokazuje jak bardzo bukmacherzy referencyjni różnią się w ocenie prawdopodobieństwa. Im mniej, tym stabilniejszy konsensus."},
+  radarGap:{title:"Brak do arbitrażu",body:"Pokazuje jak blisko rynek jest matematycznego surebeta. Sam Radar nie jest jeszcze rekomendacją zakładu."},
+  surebetProfit:{title:"Minimalny zysk surebeta",body:"Filtr pokazuje tylko arbitraże o matematycznej marży co najmniej tej wartości, przy założeniu że kursy są nadal dostępne i rynki są rozliczane identycznie."},
+  confidence:{title:"HIGH / ELITE",body:"HIGH przeszedł restrykcyjny filtr oraz pełny recheck. ELITE ma jeszcze mocniejszy edge, więcej bukmacherów referencyjnych i niski rozrzut. Żaden poziom nie gwarantuje wygranej."}
+};
+function readPrefs(){try{return JSON.parse(localStorage.getItem(UI_PREF_KEY)||"{}")||{}}catch{return {}}}
+let uiPrefs=readPrefs();
+function pref(id,fallback=""){return Object.prototype.hasOwnProperty.call(uiPrefs,id)?uiPrefs[id]:fallback}
+function savePref(id,value){uiPrefs[id]=value;localStorage.setItem(UI_PREF_KEY,JSON.stringify(uiPrefs))}
+function restoreStaticPrefs(){
+  for(const id of ["globalBudget","minFilter","radarGap","valueMinEdge","couponStake","couponSearch"]){
+    const el=document.getElementById(id);
+    if(el&&Object.prototype.hasOwnProperty.call(uiPrefs,id))el.value=uiPrefs[id];
+  }
+}
+function infoIcon(key){return `<button type="button" class="info-i" data-info="${esc(key)}" aria-label="Wyjaśnij">i</button>`}
+function openInfo(key){
+  const info=INFO_COPY[key]; if(!info)return;
+  document.getElementById("infoModalTitle").textContent=info.title;
+  document.getElementById("infoModalBody").textContent=info.body;
+  document.getElementById("infoModal").hidden=false;
+  document.body.classList.add("modal-open");
+}
+function closeInfo(){const m=document.getElementById("infoModal");if(m)m.hidden=true;document.body.classList.remove("modal-open")}
+function riskLabel(level){return ({low:"małe",medium:"średnie",high:"duże"}[String(level||"").toLowerCase()]||"—")}
+function humanPick(selection,market){
+  const s=String(selection||"").trim();
+  let m=s.match(/^(?:O|Over)\s*([0-9.,]+)/i); if(m)return `Powyżej ${m[1].replace(",",".")}`;
+  m=s.match(/^(?:U|Under)\s*([0-9.,]+)/i); if(m)return `Poniżej ${m[1].replace(",",".")}`;
+  if(/^BTS\+$/i.test(s)||(/^(tak|yes)$/i.test(s)&&/bts/i.test(String(market))))return "Obie drużyny strzelą — TAK";
+  if(/^BTS-$/i.test(s)||(/^(nie|no)$/i.test(s)&&/bts/i.test(String(market))))return "Obie drużyny strzelą — NIE";
+  if(s==="1")return "Wygrana pierwszej drużyny / zawodnika (1)";
+  if(/^x$/i.test(s))return "Remis (X)";
+  if(s==="2")return "Wygrana drugiej drużyny / zawodnika (2)";
+  return s;
+}
+function exactBookUrl(v){return String(v?.exact_bookmaker_url||"").trim()}
+function comparisonUrl(v){const u=String(v?.event_url||v?.source_url||"").trim();return u.includes("dobrybuk.pl")?u:""}
 
 function normalizePayload(payload){
   payload.latest=Array.isArray(payload.latest)?payload.latest:[];
@@ -163,11 +210,11 @@ function alternativesHtml(l){
 function legsHtml(a,bankroll){
   const s=scale(a,bankroll);
   return s.legs.map(l=>{
-    const m=meta(l.bookmaker),link=linkFor(l);
+    const m=meta(l.bookmaker),link=linkFor(l),exact=Boolean(l.link_exact||l.bookmaker_link_exact);
     return `<div class="leg"><div class="leg-main">
       <div class="book"><div class="book-logo">${esc(m.abbr)}</div><div class="book-info"><div class="book-name">${esc(l.bookmaker)}</div><div class="book-sub">najlepszy kurs</div></div></div>
       <div class="pick"><div class="pick-label">Wybór</div><div class="pick-value">${esc(l.selection)}</div></div>
-      <div class="odds-badge"><div class="odds-stack"><div class="odds">${Number(l.odds).toFixed(2)}</div><div class="stake">${fmt(l.stake)} zł</div></div>${link&&link!=="#"?`<a class="btn btn-small open-btn" href="${esc(link)}" target="_blank" rel="noopener">Otwórz ↗</a>`:""}</div>
+      <div class="odds-badge"><div class="odds-stack"><div class="odds">${Number(l.odds).toFixed(2)}</div><div class="stake">${fmt(l.stake)} zł</div></div>${exact&&link&&link!=="#"?`<a class="btn btn-small open-btn" href="${esc(link)}" target="_blank" rel="noopener">Otwórz wydarzenie ↗</a>`:""}</div>
       </div>${alternativesHtml(l)}</div>`;
   }).join("");
 }
@@ -176,11 +223,108 @@ function card(a,bankroll){
   return `<article class="arb glass"><div class="arb-top"><div class="arb-left"><div class="arb-line"><span class="sport-tag">${esc(a.sport)}</span><span class="profit">+${Number(a.profit_pct||0).toFixed(2)}%</span><span class="market">${esc(a.market||"Rynek")}</span></div><h2 class="event">${esc(a.event)}</h2></div><div class="status-pill status-compact"><span class="dot"></span> potwierdzony</div></div>
   <div class="arb-body"><div class="legs">${legsHtml(a,bankroll)}</div><aside class="calc"><div class="calc-title">Budżet</div><div class="calc-input"><input class="budget" type="number" min="1" step="1" value="${Number(bankroll)}"><span>PLN</span></div><div class="calc-grid"><div class="calc-stat"><span>Wkład</span><strong>${fmt(bankroll)} zł</strong></div><div class="calc-stat"><span>Wypłata min.</span><strong>${fmt(s.payout)} zł</strong></div><div class="calc-stat full"><span>Zysk min.</span><strong class="green">+${fmt(s.profit)} zł</strong></div></div>${s.legs.map(l=>`<div class="leg-mini"><span>${esc(l.bookmaker)} · ${esc(l.selection)}</span><strong>${fmt(l.stake)} zł</strong></div>`).join("")}<div class="warning">Sprawdź kursy bezpośrednio przed postawieniem obu stron.</div></aside></div></article>`;
 }
+function cleanPreviewEvent(value){
+  return String(value||"")
+    .replace(/\s+(?:RYNEK|KURS|ŚREDNIA|SREDNIA|DO\s+KUPONU|IDŹ\s+DO|IDZ\s+DO)\b.*$/i,"")
+    .replace(/\s+/g," ")
+    .trim()
+    .replace(/[·|\-\s]+$/,"");
+}
+function previewEventKey(row){
+  const url=String(row?.event_url||"").split("#")[0].split("?")[0].replace(/\/+$/,"");
+  if(url)return url.toLowerCase();
+  return `${String(row?.sport||"").toLowerCase()}|${cleanPreviewEvent(row?.event).toLowerCase()}`;
+}
+function groupPreviewEvents(rows){
+  const groups=new Map();
+  for(const row of rows||[]){
+    const key=previewEventKey(row);
+    if(!key)continue;
+
+    if(!groups.has(key)){
+      groups.set(key,{
+        key,
+        event:cleanPreviewEvent(row.event)||"Zdarzenie",
+        sport:row.sport||"Inne",
+        event_url:row.event_url||"",
+        markets:new Map(),
+        sources:new Set()
+      });
+    }
+
+    const g=groups.get(key);
+    const cleaned=cleanPreviewEvent(row.event);
+    if(cleaned && cleaned.length<g.event.length)g.event=cleaned;
+    if((!g.sport||g.sport==="Inne")&&row.sport&&row.sport!=="Inne")g.sport=row.sport;
+    if(!g.event_url&&row.event_url)g.event_url=row.event_url;
+    for(const src of row.sources||[])g.sources.add(src);
+
+    const market=String(row.market||"Rynek").trim();
+    const mkey=market.toLowerCase().replace(/\s+/g," ");
+    const best=(row.best||[]).slice().sort((a,b)=>Number(b.odds||0)-Number(a.odds||0));
+    const old=g.markets.get(mkey);
+
+    // Same event+market can come from detail scan and broad scan.
+    // Keep only one copy, preferring the row with more useful quotes.
+    if(!old||best.length>(old.best||[]).length){
+      g.markets.set(mkey,{market,best,sources:row.sources||[]});
+    }
+  }
+
+  return [...groups.values()].map(g=>({
+    ...g,
+    markets:[...g.markets.values()],
+    sources:[...g.sources]
+  }));
+}
 function previewHtml(){
   const sport=document.getElementById("sportFilter").value;
-  const rows=(data.scan_preview||[]).filter(x=>!sport||x.sport===sport).slice(0,24);
-  if(!rows.length)return "";
-  return `<section class="scan-preview"><div class="scan-preview-head"><div><strong>Ostatnio zeskanowane rynki</strong><span>Podgląd danych — nie są to surebety.</span></div><span>${rows.length} pokazanych</span></div><div class="scan-preview-grid">${rows.map(x=>`<div class="scan-row glass"><div class="scan-row-top"><span class="sport-tag">${esc(x.sport||"Sport")}</span><span class="market">${esc(x.market||"Rynek")}</span></div><div class="scan-event">${esc(x.event||"Zdarzenie")}</div><div class="scan-best">${(x.best||[]).slice(0,4).map(q=>`<span><b>${esc(q.selection)}</b> ${Number(q.odds||0).toFixed(2)} <small>${esc(q.bookmaker)}</small></span>`).join("")}</div></div>`).join("")}</div></section>`;
+  const filtered=(data.scan_preview||[]).filter(x=>!sport||x.sport===sport);
+  const events=groupPreviewEvents(filtered).slice(0,24);
+  if(!events.length)return "";
+
+  return `<section class="scan-preview">
+    <div class="scan-preview-head">
+      <div>
+        <strong>Ostatnio zeskanowane zdarzenia</strong>
+        <span>Jedno wydarzenie = jeden kafelek. Kliknij, aby rozwinąć jego rynki.</span>
+      </div>
+      <span>${events.length} zdarzeń</span>
+    </div>
+
+    <div class="scan-event-grid">
+      ${events.map(g=>{
+        const markets=g.markets||[];
+        const chips=markets.slice(0,6).map(m=>`<span>${esc(m.market)}</span>`).join("");
+        const more=markets.length>6?`<span class="scan-more">+${markets.length-6}</span>`:"";
+        const link=g.event_url?String(g.event_url).split("#")[0]:"";
+
+        return `<details class="scan-event-card glass">
+          <summary>
+            <div class="scan-event-summary">
+              <div class="scan-event-summary-top">
+                <span class="sport-tag">${esc(g.sport||"Sport")}</span>
+                <span class="scan-market-count">${markets.length} ${markets.length===1?"rynek":"rynków"}</span>
+              </div>
+              <div class="scan-event-title">${esc(g.event||"Zdarzenie")}</div>
+              <div class="scan-market-chips">${chips}${more}</div>
+            </div>
+            <span class="scan-expand">+</span>
+          </summary>
+
+          <div class="scan-event-markets">
+            ${markets.map(m=>`<div class="scan-market-row">
+              <div class="scan-market-name">${esc(m.market)}</div>
+              <div class="scan-best">
+                ${(m.best||[]).slice(0,6).map(q=>`<span><b>${esc(q.selection)}</b> ${Number(q.odds||0).toFixed(2)} <small>${esc(q.bookmaker)}</small></span>`).join("")}
+              </div>
+            </div>`).join("")}
+            ${link?`<a class="btn btn-small scan-event-open" href="${esc(link)}" target="_blank" rel="noopener">Otwórz wydarzenie ↗</a>`:""}
+          </div>
+        </details>`;
+      }).join("")}
+    </div>
+  </section>`;
 }
 function renderSources(){
   const sources=data.stats?.sources||{};
@@ -209,7 +353,7 @@ function repaintSurebets(){
   document.getElementById("statusDot").style.background=dot;
   renderSources();
   const sports=[...new Set([...(data.stats?.sports||[]),...(data.latest||[]).map(x=>x.sport),...(data.scan_preview||[]).map(x=>x.sport),...(data.coupon_catalog||[]).map(x=>x.sport)].filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
-  const sel=document.getElementById("sportFilter"),current=sel.value;
+  const sel=document.getElementById("sportFilter"),current=sel.value||String(pref("sportFilter",""));
   sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
   sel.value=sports.includes(current)?current:"";
   const oldPayload=!data.scan_preview?.length&&!data.coupon_catalog?.length&&ev>0;
@@ -259,7 +403,7 @@ function renderRadar(){
   const all=(data.near_arbs||[]).slice().sort((a,b)=>Number(a.gap_pct||99)-Number(b.gap_pct||99));
   const sports=[...new Set(all.map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
   const sel=document.getElementById("radarSport");
-  const prev=sel?.value||"";
+  const prev=sel?.value||String(pref("radarSport",""));
   if(sel){
     sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
     sel.value=sports.includes(prev)?prev:"";
@@ -281,32 +425,60 @@ function renderRadar(){
 }
 
 // ---------- HIGH-CONFIDENCE VALUE BETS ----------
-function valueLink(v){return v.bookmaker_url||v.event_url||v.source_url||meta(v.bookmaker).url||"#"}
 function valueCard(v){
-  const link=valueLink(v),p=(Number(v.fair_probability||0)*100);
+  const p=Number(v.fair_probability||0)*100;
+  const outcomeRisk=Number(v.outcome_risk_pct ?? (100-p));
+  const signalRisk=Number(v.signal_risk_pct||0);
+  const exact=exactBookUrl(v);
+  const compare=comparisonUrl(v);
+  const home=meta(v.bookmaker).url||"#";
+  const event=cleanPreviewEvent(v.event)||String(v.event||"Zdarzenie");
+  const pick=humanPick(v.selection,v.market);
+  const outcomeLevel=String(v.outcome_risk_level||(outcomeRisk<=40?"low":outcomeRisk<=65?"medium":"high"));
+  const signalLevel=String(v.signal_risk_level||(signalRisk<=40?"low":signalRisk<=65?"medium":"high"));
+
   return `<article class="value-card glass">
     <div class="value-card-head">
       <div>
-        <div class="arb-line"><span class="sport-tag">${esc(v.sport)}</span><span class="value-edge">+${Number(v.edge_pct||0).toFixed(1)}% edge</span><span class="market">${esc(v.market)}</span></div>
-        <h3>${esc(v.event)}</h3>
+        <div class="arb-line">
+          <span class="sport-tag">${esc(v.sport||"Sport")}</span>
+          <span class="value-edge">+${Number(v.edge_pct||0).toFixed(1)}% edge ${infoIcon("edge")}</span>
+          <span class="market">${esc(v.market||"Rynek")}</span>
+        </div>
+        <h3>${esc(event)}</h3>
       </div>
-      <div class="value-confidence">${v.elite_signal?"ELITE":`HIGH · ${Number(v.stability_scans||1)}×`}</div>
+      <div class="value-confidence">${v.elite_signal?"ELITE":"HIGH"} ${infoIcon("confidence")}</div>
     </div>
-    <div class="value-card-grid">
-      <div class="value-main-pick">
-        <span>Typ</span><strong>${esc(v.selection)}</strong>
-        <small>${esc(v.bookmaker)}</small>
+
+    <div class="bet-instruction">
+      <div class="bet-instruction-icon">🎯</div>
+      <div class="bet-instruction-main">
+        <span>CO DOKŁADNIE POSTAWIĆ</span>
+        <strong>${esc(pick)}</strong>
+        <small>${esc(v.bookmaker)} • kurs <b>${Number(v.odds||0).toFixed(2)}</b> • rynek: ${esc(v.market||"Rynek")}</small>
       </div>
-      <div class="value-number"><span>Kurs</span><strong>${Number(v.odds||0).toFixed(2)}</strong></div>
-      <div class="value-number"><span>Fair kurs</span><strong>${Number(v.fair_odds||0).toFixed(2)}</strong></div>
-      <div class="value-number"><span>Fair szansa</span><strong>${p.toFixed(1)}%</strong></div>
     </div>
+
+    <div class="value-card-grid value-card-grid-v22">
+      <div class="value-number"><span>Fair kurs ${infoIcon("fairOdds")}</span><strong>${Number(v.fair_odds||0).toFixed(2)}</strong></div>
+      <div class="value-number"><span>Fair szansa ${infoIcon("fairChance")}</span><strong>${p.toFixed(1)}%</strong></div>
+      <div class="risk-tile risk-${esc(outcomeLevel)}"><span>Ryzyko wyniku ${infoIcon("outcomeRisk")}</span><strong>${outcomeRisk.toFixed(1)}%</strong><small>${riskLabel(outcomeLevel)} ryzyko</small></div>
+      <div class="risk-tile risk-${esc(signalLevel)}"><span>Ryzyko sygnału ${infoIcon("signalRisk")}</span><strong>${signalRisk.toFixed(1)}%</strong><small>${riskLabel(signalLevel)} ryzyko danych</small></div>
+    </div>
+
     <div class="value-evidence">
-      <span>✓ ${Number(v.reference_books||0)} buków referencyjnych</span>
-      <span>✓ rozbieżność ${Number(v.dispersion_pct||0).toFixed(1)}%</span>
-      <span>✓ ponownie potwierdzony</span>
-      ${link&&link!=="#"?`<a class="btn btn-small value-open" href="${esc(link)}" target="_blank" rel="noopener">Otwórz u buka ↗</a>`:""}
+      <span>✓ ${Number(v.reference_books||0)} buków referencyjnych ${infoIcon("referenceBooks")}</span>
+      <span>✓ rozbieżność ${Number(v.dispersion_pct||0).toFixed(2)}% ${infoIcon("dispersion")}</span>
+      <span>✓ pełny recheck</span>
+      <span>✓ ${Number(v.stability_scans||1)}× potwierdzenie</span>
     </div>
+
+    <div class="value-actions">
+      ${exact?`<a class="btn btn-primary value-open" href="${esc(exact)}" target="_blank" rel="noopener">🎯 Otwórz dokładnie wydarzenie w ${esc(v.bookmaker)} ↗</a>`:""}
+      ${!exact&&compare?`<a class="btn value-open" href="${esc(compare)}" target="_blank" rel="noopener">📊 Otwórz wydarzenie w porównywarce ↗</a>`:""}
+      ${!exact&&home&&home!=="#"?`<a class="btn value-home" href="${esc(home)}" target="_blank" rel="noopener">Strona ${esc(v.bookmaker)} ↗</a>`:""}
+    </div>
+    ${!exact?`<div class="link-warning">Brak potwierdzonego deep-linku do tego wydarzenia u ${esc(v.bookmaker)}. Nie oznaczam strony głównej jako „Otwórz wydarzenie”. Gdy direct-source zwróci prawdziwy link do meczu/rynku, pojawi się dokładny przycisk.</div>`:""}
   </article>`;
 }
 function renderCoverage(){
@@ -336,7 +508,7 @@ function renderValuebets(){
   const sports=[...new Set(all.map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
   const sel=document.getElementById("valueSport");
   if(sel){
-    const prev=sel.value;
+    const prev=sel.value||String(pref("valueSport",""));
     sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
     sel.value=sports.includes(prev)?prev:"";
   }
@@ -443,10 +615,12 @@ function selectedBookEvents(){
     const hay=`${item.event} ${item.market} ${item.sport} ${marketSelections.map(x=>x.selection).join(" ")}`.toLowerCase();
     if(q&&!hay.includes(q))continue;
 
-    const key=`${item.sport}|${item.event}`;
+    const baseUrl=String(item.event_url||"").split("#")[0].split("?")[0].replace(/\/+$/,"");
+    const cleanEvent=cleanPreviewEvent(item.event);
+    const key=baseUrl.toLowerCase()||`${item.sport}|${cleanEvent}`;
     if(!groups.has(key)){
       groups.set(key,{
-        key,event:item.event,sport:item.sport,markets:[],eventLink:"",
+        key,event:cleanEvent,sport:item.sport,markets:[],eventLink:"",
         sources:new Set()
       });
     }
@@ -489,7 +663,7 @@ function renderBookmakerPicker(){
 }
 function renderSportSelect(){
   const sports=selectedBook?couponSportsForBook(selectedBook):[];
-  const sel=document.getElementById("couponSport"),prev=sel.value;
+  const sel=document.getElementById("couponSport"),prev=sel.value||String(pref("couponSport",""));
   sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
   sel.value=sports.includes(prev)?prev:"";
 }
@@ -628,20 +802,27 @@ function repaint(){
   document.getElementById("couponCount").textContent=coupon.length;
   document.getElementById("radarCount").textContent=(data.near_arbs||[]).length;
   document.getElementById("valueCount").textContent=(data.valuebets||[]).length;
+  const lastPush=document.getElementById("lastPushStats");
+  if(lastPush){
+    const s=data.stats||{};
+    lastPush.textContent=`Ostatni skan: ${Number(s.push_alerts_sent||0)} push surebet • ${Number(s.value_push_alerts_sent||0)} push value`;
+  }
 }
 
 // ---------- EVENTS ----------
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
 const initialView=(location.hash||"").replace("#","");
 if(["surebets","radar","value","coupon","app"].includes(initialView))switchView(initialView);
-document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaintSurebets()});
-document.getElementById("sportFilter").addEventListener("change",repaintSurebets);
-document.getElementById("valueSport")?.addEventListener("change",renderValuebets);
-document.getElementById("valueMinEdge")?.addEventListener("input",renderValuebets);
-document.getElementById("minFilter").addEventListener("input",repaintSurebets);
-document.getElementById("couponSearch").addEventListener("input",renderEventCatalog);
-document.getElementById("couponSport").addEventListener("change",()=>{openEventKey="";renderEventCatalog()});
-document.getElementById("couponStake").addEventListener("input",()=>{const legs=currentLegs();renderCouponTotal(legs);renderCouponRanking(legs)});
+document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);savePref("globalBudget",e.target.value);repaintSurebets()});
+document.getElementById("sportFilter").addEventListener("change",e=>{savePref("sportFilter",e.target.value);repaintSurebets()});
+document.getElementById("radarSport")?.addEventListener("change",e=>{savePref("radarSport",e.target.value);renderRadar()});
+document.getElementById("radarGap")?.addEventListener("input",e=>{savePref("radarGap",e.target.value);renderRadar()});
+document.getElementById("valueSport")?.addEventListener("change",e=>{savePref("valueSport",e.target.value);renderValuebets()});
+document.getElementById("valueMinEdge")?.addEventListener("input",e=>{savePref("valueMinEdge",e.target.value);renderValuebets()});
+document.getElementById("minFilter").addEventListener("input",e=>{savePref("minFilter",e.target.value);repaintSurebets()});
+document.getElementById("couponSearch").addEventListener("input",e=>{savePref("couponSearch",e.target.value);renderEventCatalog()});
+document.getElementById("couponSport").addEventListener("change",e=>{savePref("couponSport",e.target.value);openEventKey="";renderEventCatalog()});
+document.getElementById("couponStake").addEventListener("input",e=>{savePref("couponStake",e.target.value);const legs=currentLegs();renderCouponTotal(legs);renderCouponRanking(legs)});
 document.getElementById("clearCouponBtn").addEventListener("click",clearCoupon);
 document.getElementById("refreshBtn").addEventListener("click",async()=>{
   const b=document.getElementById("refreshBtn");b.disabled=true;b.textContent="↻ odświeżam…";
@@ -652,15 +833,26 @@ document.addEventListener("input",e=>{
   if(e.target.classList.contains("budget")){
     budget=Math.max(1,Number(e.target.value)||1);
     document.getElementById("globalBudget").value=budget;
+    savePref("globalBudget",budget);
     repaintSurebets();
   }
 });
+
+document.addEventListener("click",e=>{
+  const btn=e.target.closest?.("[data-info]");
+  if(btn){e.preventDefault();e.stopPropagation();openInfo(btn.dataset.info);}
+});
+document.getElementById("infoModalClose")?.addEventListener("click",closeInfo);
+document.getElementById("infoModalBackdrop")?.addEventListener("click",closeInfo);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeInfo()});
 
 window.selectBook=selectBook;
 window.toggleEvent=toggleEvent;
 window.addCoupon=addCoupon;
 window.removeCoupon=removeCoupon;
 
+restoreStaticPrefs();
+budget=Math.max(1,Number(document.getElementById("globalBudget")?.value||budget)||budget);
 initAuth();saveCoupon();
 load().catch(()=>{
   document.getElementById("statusText").textContent="brak danych";

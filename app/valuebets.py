@@ -29,6 +29,38 @@ def _mad_ratio(values: list[float]) -> float:
     return mad / med
 
 
+
+def _risk_level(percent: float) -> str:
+    if percent <= 40.0:
+        return "low"
+    if percent <= 65.0:
+        return "medium"
+    return "high"
+
+
+def _signal_risk_pct(
+    *,
+    edge_pct: float,
+    reference_books: int,
+    dispersion_pct: float,
+    price_gap_pct: float,
+    odds: float,
+) -> float:
+    """Heuristic uncertainty of the value signal itself, not loss probability."""
+    risk = 34.0
+    risk += min(22.0, max(0.0, dispersion_pct) * 3.0)
+    risk += min(18.0, max(0.0, price_gap_pct - 2.0) * 0.75)
+    risk += min(18.0, max(0.0, odds - 2.0) * 4.0)
+    risk -= min(16.0, max(0.0, edge_pct - 5.0) * 1.8)
+    risk -= min(14.0, max(0, reference_books - 5) * 3.0)
+    return round(min(95.0, max(5.0, risk)), 1)
+
+
+def _is_exact_direct_quote(quote: dict) -> bool:
+    source_name = str(quote.get("source_name", "")).lower()
+    url = str(quote.get("bookmaker_url", "") or "").strip()
+    return bool(url and "direct" in source_name)
+
 def _fresh_best_quotes(
     market: dict,
     max_age_seconds: int,
@@ -199,6 +231,22 @@ def detect_valuebets(
                         ]
                     )
 
+                    dispersion_pct = dispersion * 100.0
+                    price_gap_pct = price_gap * 100.0
+                    outcome_risk_pct = max(0.0, min(100.0, (1.0 - fair_prob) * 100.0))
+                    signal_risk_pct = _signal_risk_pct(
+                        edge_pct=edge_pct,
+                        reference_books=len(ref_probs),
+                        dispersion_pct=dispersion_pct,
+                        price_gap_pct=price_gap_pct,
+                        odds=target_odds,
+                    )
+                    exact_bookmaker_url = (
+                        str(target.get("bookmaker_url", "") or "")
+                        if _is_exact_direct_quote(target)
+                        else ""
+                    )
+
                     candidates.append(
                         {
                             "event": event,
@@ -213,10 +261,17 @@ def detect_valuebets(
                             "reference_odds": round(reference_odds, 3),
                             "edge_pct": round(edge_pct, 3),
                             "reference_books": len(ref_probs),
-                            "dispersion_pct": round(dispersion * 100.0, 3),
-                            "price_gap_pct": round(price_gap * 100.0, 3),
+                            "dispersion_pct": round(dispersion_pct, 3),
+                            "price_gap_pct": round(price_gap_pct, 3),
+                            "outcome_risk_pct": round(outcome_risk_pct, 1),
+                            "outcome_risk_level": _risk_level(outcome_risk_pct),
+                            "signal_risk_pct": signal_risk_pct,
+                            "signal_risk_level": _risk_level(signal_risk_pct),
                             "bookmaker_url": target.get("bookmaker_url", "")
                             or target.get("source_url", ""),
+                            "exact_bookmaker_url": exact_bookmaker_url,
+                            "bookmaker_link_exact": bool(exact_bookmaker_url),
+                            "source_name": target.get("source_name", ""),
                             "source_url": target.get("source_url", "")
                             or market.get("event_url", ""),
                             "event_url": market.get("event_url", "")

@@ -210,6 +210,20 @@ class State:
             item["elite_signal"] = elite
             item["push_ready"] = push_ready
             item["best_edge_pct"] = round(memory["best_edge_pct"], 3)
+
+            base_signal_risk = float(item.get("signal_risk_pct", 35) or 35)
+            adjusted_signal_risk = max(
+                5.0,
+                base_signal_risk
+                - max(0, consecutive - 1) * 5.0
+                - (8.0 if elite else 0.0),
+            )
+            item["signal_risk_pct"] = round(adjusted_signal_risk, 1)
+            item["signal_risk_level"] = (
+                "low" if adjusted_signal_risk <= 40
+                else "medium" if adjusted_signal_risk <= 65
+                else "high"
+            )
             out.append(item)
 
         self.value_memory = {

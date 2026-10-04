@@ -318,6 +318,8 @@ def allocation(
                         "odds": round(alt.odds, 2),
                         "bookmaker_url": alt.bookmaker_url,
                         "source_url": alt.source_url,
+                        "source_name": alt.source_name,
+                        "link_exact": bool(alt.link_exact),
                     }
                 )
 

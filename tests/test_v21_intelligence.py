@@ -44,7 +44,7 @@ def test_state_scan_plan_cycles(tmp_path: Path):
     assert modes == ["deep", "fast", "fast", "deep", "fast"]
 
 
-def test_value_stability_requires_two_scans(tmp_path: Path):
+def test_value_can_push_after_first_confirmed_scan(tmp_path: Path):
     state = State(tmp_path / "state.json")
     state.next_scan_plan(4)
     value = {
@@ -56,14 +56,12 @@ def test_value_stability_requires_two_scans(tmp_path: Path):
         "edge_pct": 6.0,
         "reference_books": 6,
         "dispersion_pct": 3.0,
+        "signal_risk_pct": 30.0,
         "event_url": "https://example.test/e",
     }
-    first = state.decorate_values([value], required_scans=2, elite_edge_pct=9.0)
-    assert first[0]["push_ready"] is False
-    state.next_scan_plan(4)
-    second = state.decorate_values([value], required_scans=2, elite_edge_pct=9.0)
-    assert second[0]["push_ready"] is True
-    assert second[0]["stability_scans"] == 2
+    first = state.decorate_values([value], required_scans=1, elite_edge_pct=9.0)
+    assert first[0]["push_ready"] is True
+    assert first[0]["stability_scans"] == 1
 
 
 def test_drawless_winner_merges_with_1x2():

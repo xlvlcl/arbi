@@ -44,7 +44,10 @@ def build_payload(app_id: str, arb, app_url: str) -> dict:
     web_buttons = []
     seen = set()
     for leg in legs:
-        url = getattr(leg, "bookmaker_url", "") or getattr(leg, "source_url", "")
+        exact_flag = getattr(leg, "link_exact", None)
+        if exact_flag is False:
+            continue
+        url = getattr(leg, "bookmaker_url", "")
         if not url or url in seen:
             continue
         seen.add(url)
@@ -83,31 +86,30 @@ async def send_push(app_id: str, api_key: str, arb, app_url: str) -> dict:
 
 
 def build_value_payload(app_id: str, value: dict, app_url: str) -> dict:
-    event = _short(value.get("event", "Value bet"), 90)
-    market = _short(value.get("market", "Rynek"), 48)
+    event = _short(value.get("event", "Value bet"), 95)
+    market = _short(value.get("market", "Rynek"), 50)
     selection = _short(value.get("selection", ""), 45)
     bookmaker = _short(value.get("bookmaker", ""), 35)
     odds = float(value.get("odds", 0) or 0)
     edge = float(value.get("edge_pct", 0) or 0)
-    refs = int(value.get("reference_books", 0) or 0)
+    risk = float(value.get("outcome_risk_pct", 0) or 0)
 
     content = _short(
-        f"{event} • {market} → {selection} | {bookmaker} @{odds:.2f} • "
-        f"potwierdzone przez {refs} buków",
+        f"POSTAW: {selection} • {bookmaker} @{odds:.2f} | "
+        f"{event} • {market} • edge +{edge:.1f}% • ryzyko wyniku {risk:.0f}%",
         220,
     )
-    target_url = value.get("bookmaker_url") or value.get("event_url") or app_url
 
-    return {
+    payload = {
         "app_id": app_id,
         "target_channel": "push",
         "included_segments": ["Subscribed Users"],
         "headings": {
-            "en": f"💎 Mocny value bet +{edge:.1f}%",
-            "pl": f"💎 Mocny value bet +{edge:.1f}%",
+            "en": f"💎 Value +{edge:.1f}% • {bookmaker}",
+            "pl": f"💎 Value +{edge:.1f}% • {bookmaker}",
         },
         "contents": {"en": content, "pl": content},
-        "url": target_url,
+        "url": app_url.rstrip("/") + "/#value",
         "data": {
             "type": "valuebet",
             "event": str(value.get("event", "")),
@@ -117,10 +119,18 @@ def build_value_payload(app_id: str, value: dict, app_url: str) -> dict:
             "bookmaker": str(value.get("bookmaker", "")),
             "odds": odds,
             "edge_pct": edge,
+            "outcome_risk_pct": risk,
         },
         "ttl": 300,
         "priority": 10,
     }
+
+    exact_url = str(value.get("exact_bookmaker_url", "") or "")
+    if exact_url:
+        payload["web_buttons"] = [
+            {"id": "open-book-event", "text": f"Otwórz {bookmaker}", "url": exact_url}
+        ]
+    return payload
 
 
 async def send_value_push(app_id: str, api_key: str, value: dict, app_url: str) -> dict:

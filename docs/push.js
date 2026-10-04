@@ -50,10 +50,18 @@
       return;
     }
     const permission = Notification.permission;
-    if(permission === "granted"){
-      setText("pushStatus", "Powiadomienia włączone");
+    const optedIn = Boolean(OneSignal?.User?.PushSubscription?.optedIn);
+    const subscriptionId = String(OneSignal?.User?.PushSubscription?.id || "");
+    if(permission === "granted" && optedIn){
+      setText("pushStatus", subscriptionId ? "Aktywne • urządzenie zapisane" : "Powiadomienia aktywne");
       const b=$("enablePushBtn"); if(b){b.disabled=false;b.textContent="✓ Powiadomienia włączone";}
       document.body.classList.add("push-enabled");
+      return;
+    }
+    if(permission === "granted" && !optedIn){
+      setText("pushStatus", "Zgoda jest • subskrypcja nieaktywna");
+      const b=$("enablePushBtn"); if(b){b.disabled=false;b.textContent="Dokończ włączanie push";}
+      document.body.classList.remove("push-enabled");
       return;
     }
     if(permission === "denied"){
@@ -79,6 +87,10 @@
     window.OneSignalDeferred.push(async OneSignal => {
       try{
         await OneSignal.Notifications.requestPermission();
+        if(Notification.permission === "granted"){
+          try{ await OneSignal.User.PushSubscription.optIn?.(); }
+          catch(err){ console.warn("OneSignal optIn warning", err); }
+        }
         await refreshPushState(OneSignal);
       }catch(err){
         console.error("Push permission error", err);

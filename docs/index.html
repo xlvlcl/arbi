@@ -85,7 +85,7 @@
 
   <section class="controls glass">
     <div class="input-wrap"><label>Sport</label><select id="sportFilter"><option value="">Wszystkie sporty</option></select></div>
-    <div class="input-wrap"><label>Min. zysk</label><input id="minFilter" type="number" value="0.35" min="0" step="0.05"><span>%</span></div>
+    <div class="input-wrap"><label>Min. zysk <button type="button" class="info-i" data-info="surebetProfit">i</button></label><input id="minFilter" type="number" value="0.35" min="0" step="0.05"><span>%</span></div>
     <div class="control-note">Sortowanie: <strong>największy zysk</strong></div>
   </section>
 
@@ -110,7 +110,7 @@
 
   <section class="controls glass radar-controls">
     <div class="input-wrap"><label>Sport</label><select id="radarSport"><option value="">Wszystkie sporty</option></select></div>
-    <div class="input-wrap"><label>Maks. brak do arbu</label><input id="radarGap" type="number" value="1.50" min="0.1" max="5" step="0.1"><span>%</span></div>
+    <div class="input-wrap"><label>Maks. brak do arbu <button type="button" class="info-i" data-info="radarGap">i</button></label><input id="radarGap" type="number" value="1.50" min="0.1" max="5" step="0.1"><span>%</span></div>
     <div class="control-note">Im niższy brak %, tym bliżej matematycznego surebeta.</div>
   </section>
 
@@ -140,7 +140,7 @@
 
   <section class="controls glass value-controls">
     <div class="input-wrap"><label>Sport</label><select id="valueSport"><option value="">Wszystkie sporty</option></select></div>
-    <div class="input-wrap"><label>Min. edge</label><input id="valueMinEdge" type="number" value="5" min="1" step="0.5"><span>%</span></div>
+    <div class="input-wrap"><label>Min. edge <button type="button" class="info-i" data-info="edge">i</button></label><input id="valueMinEdge" type="number" value="5" min="1" step="0.5"><span>%</span></div>
     <div class="control-note"><strong>HIGH confidence</strong> • bez przypadkowych outlierów</div>
   </section>
 
@@ -261,9 +261,9 @@
       <div class="setup-step">2</div>
       <div class="setup-icon">🔔</div>
       <h3>Włącz alerty</h3>
-      <p>Po zezwoleniu będziesz dostawać powiadomienie, gdy skaner potwierdzi nowego surebeta albo mocny value bet.</p>
+      <p>Po zezwoleniu urządzenie musi mieć też aktywną subskrypcję OneSignal. Każdy potwierdzony HIGH value i każdy nowy surebet może wtedy wysłać push.</p>
       <button class="btn btn-push setup-action" id="enablePushBtn">🔔 Włącz powiadomienia</button>
-      <div class="setup-status"><span>Status</span><strong id="pushStatus">Sprawdzam…</strong></div>
+      <div class="setup-status"><span>Status</span><strong id="pushStatus">Sprawdzam…</strong></div><div class="push-last-scan" id="lastPushStats">Ostatni skan: —</div>
     </article>
   </section>
 
@@ -288,6 +288,17 @@
     <div><span class="info-dot"></span><b>Antyspam</b><p>Ten sam niezmieniony surebet nie wysyła powiadomienia co każde odświeżenie.</p></div>
   </section>
 </section>
+
+
+<div class="info-modal" id="infoModal" hidden>
+  <button class="info-modal-backdrop" id="infoModalBackdrop" aria-label="Zamknij"></button>
+  <div class="info-modal-card glass" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+    <button class="info-modal-close" id="infoModalClose" aria-label="Zamknij">×</button>
+    <div class="eyebrow">Wyjaśnienie</div>
+    <h3 id="infoModalTitle">Informacja</h3>
+    <div id="infoModalBody" class="info-modal-body"></div>
+  </div>
+</div>
 
 <footer class="footer">
   <span>Surebet Alert • publicznie prezentowane kursy</span>

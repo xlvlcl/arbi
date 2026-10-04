@@ -11,6 +11,8 @@ class Quote:
     observed_at: float
     source_url: str
     bookmaker_url: str = ""
+    source_name: str = ""
+    link_exact: bool = False
 
 
 @dataclass
@@ -22,6 +24,8 @@ class ArbLeg:
     payout: float
     source_url: str
     bookmaker_url: str = ""
+    source_name: str = ""
+    link_exact: bool = False
     alternatives: list[dict] = field(default_factory=list)
 
 
