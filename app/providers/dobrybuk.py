@@ -481,7 +481,7 @@ class DobryBukProvider:
                 loc = page.get_by_text(label, exact=True)
                 if await loc.count() and await loc.first.is_visible():
                     await loc.first.click(timeout=1600)
-                    await page.wait_for_timeout(120)
+                    await page.wait_for_timeout(650)
                     return
             except Exception:
                 pass
@@ -502,7 +502,7 @@ class DobryBukProvider:
                             continue
                         await item.scroll_into_view_if_needed(timeout=1200)
                         await item.click(timeout=3500)
-                        await self.page.wait_for_timeout(350)
+                        await self.page.wait_for_timeout(700)
                         return True
                     except Exception:
                         continue
@@ -664,7 +664,7 @@ class DobryBukProvider:
                     current = await self._collect_event_links(sport)
                     if current:
                         for event in current:
-                            discovered[event["event_url"]] = event
+                            discovered.setdefault(event["event_url"], event)
                         continue
                     errors.append(f"{sport}: nie znaleziono filtra sportu")
                     continue
@@ -674,13 +674,13 @@ class DobryBukProvider:
                 except Exception:
                     pass
                 # v12 used 250 ms here; on GitHub this was too short and caused 0 events.
-                await self.page.wait_for_timeout(1600)
+                await self.page.wait_for_timeout(2400)
 
                 events = await self._collect_event_links(sport)
                 if not events:
                     errors.append(f"{sport}: 0 linków wydarzeń po odczekaniu")
                 for event in events:
-                    discovered[event["event_url"]] = event
+                    discovered.setdefault(event["event_url"], event)
             except Exception as exc:
                 errors.append(f"{sport}: {type(exc).__name__}: {exc}")
 
@@ -747,7 +747,7 @@ class DobryBukProvider:
                     continue
                 await button.scroll_into_view_if_needed(timeout=1000)
                 await button.click(timeout=2500)
-                await page.wait_for_timeout(120)
+                await page.wait_for_timeout(650)
                 return True
             except Exception:
                 continue
@@ -761,7 +761,7 @@ class DobryBukProvider:
         errors: list[str] = []
         try:
             await page.goto(event_url, wait_until="domcontentloaded", timeout=25000)
-            await page.wait_for_timeout(180)
+            await page.wait_for_timeout(850)
             await self._dismiss_cookie_banner(page)
         except Exception as exc:
             return [], [f"ładowanie wydarzenia: {type(exc).__name__}: {exc}"]
@@ -916,7 +916,7 @@ class DobryBukProvider:
             url = target["event_url"]
             try:
                 await page.goto(url, wait_until="domcontentloaded", timeout=25000)
-                await page.wait_for_timeout(160)
+                await page.wait_for_timeout(700)
                 await self._dismiss_cookie_banner(page)
                 if not await self._click_market_on(page, target["market"]):
                     return None, "nie znaleziono rynku przy potwierdzeniu"
