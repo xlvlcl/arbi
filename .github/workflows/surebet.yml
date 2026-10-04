@@ -98,7 +98,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.should_run == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 9
 
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -112,7 +112,7 @@ jobs:
       MARKET_SCAN_MAX_EVENTS: "500"
       MARKET_SCAN_BUDGET_SECONDS: "300"
       MARKET_SCAN_CONCURRENCY: "6"
-      MAX_MARKETS_PER_EVENT: "80"
+      MAX_MARKETS_PER_EVENT: "120"
       CONFIRM_CONCURRENCY: "3"
       DIRECT_SOURCES_TIMEOUT: "12"
       DIRECT_SOURCES_CONCURRENCY: "5"
