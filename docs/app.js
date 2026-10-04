@@ -474,6 +474,7 @@ function renderCoupon(){
 
 // ---------- VIEWS ----------
 function switchView(name){
+  if(!["surebets","coupon","app"].includes(name))name="surebets";
   currentView=name;
   document.querySelectorAll(".tab-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
   document.querySelectorAll(".view").forEach(v=>{
@@ -482,6 +483,7 @@ function switchView(name){
     v.hidden=!on;
   });
   if(name==="coupon")renderCoupon();
+  try{history.replaceState(null,"",`#${name}`)}catch{}
 }
 function repaint(){
   repaintSurebets();
@@ -491,6 +493,8 @@ function repaint(){
 
 // ---------- EVENTS ----------
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
+const initialView=(location.hash||"").replace("#","");
+if(["coupon","app"].includes(initialView))switchView(initialView);
 document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaintSurebets()});
 document.getElementById("sportFilter").addEventListener("change",repaintSurebets);
 document.getElementById("minFilter").addEventListener("input",repaintSurebets);

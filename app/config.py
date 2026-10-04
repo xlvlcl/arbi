@@ -17,7 +17,9 @@ DEFAULT = {
     "min_profit_pct": 0.35,
     "scan_interval_seconds": 300,
     "max_quote_age_seconds": 300,
-    "dedupe_minutes": 30,
+    "dedupe_minutes": 120,
+    "alert_reappear_minutes": 6,
+    "alert_improvement_pct": 0.15,
     "recheck_delay_seconds": 1,
     "sports": [
         "Piłka nożna",
@@ -53,6 +55,9 @@ DEFAULT = {
     "source_url": "https://dobrybuk.pl/kursy",
     "telegram_token": "",
     "telegram_chat_id": "",
+    "onesignal_app_id": "",
+    "onesignal_api_key": "",
+    "app_public_url": "https://xlvlcl.github.io/arbi/",
     "bookmaker_payout_factors": {},
     "market_scan_max_events": 250,
     "market_scan_budget_seconds": 330,
@@ -71,6 +76,9 @@ DEFAULT = {
 ENV_MAP = {
     "telegram_token": "TELEGRAM_BOT_TOKEN",
     "telegram_chat_id": "TELEGRAM_CHAT_ID",
+    "onesignal_app_id": "ONESIGNAL_APP_ID",
+    "onesignal_api_key": "ONESIGNAL_API_KEY",
+    "app_public_url": "APP_PUBLIC_URL",
 }
 
 
@@ -92,6 +100,9 @@ class Settings:
             "market_scan_concurrency": ("MARKET_SCAN_CONCURRENCY", int),
             "max_markets_per_event": ("MAX_MARKETS_PER_EVENT", int),
             "confirm_concurrency": ("CONFIRM_CONCURRENCY", int),
+            "dedupe_minutes": ("DEDUPE_MINUTES", int),
+            "alert_reappear_minutes": ("ALERT_REAPPEAR_MINUTES", int),
+            "alert_improvement_pct": ("ALERT_IMPROVEMENT_PCT", float),
             "direct_sources_timeout": ("DIRECT_SOURCES_TIMEOUT", int),
             "direct_sources_concurrency": ("DIRECT_SOURCES_CONCURRENCY", int),
             "coupon_catalog_limit": ("COUPON_CATALOG_LIMIT", int),
@@ -107,6 +118,9 @@ class Settings:
         self.data["market_scan_concurrency"] = min(8, max(1, int(self.data["market_scan_concurrency"])))
         self.data["max_markets_per_event"] = min(80, max(1, int(self.data["max_markets_per_event"])))
         self.data["confirm_concurrency"] = min(4, max(1, int(self.data["confirm_concurrency"])))
+        self.data["dedupe_minutes"] = max(5, int(self.data["dedupe_minutes"]))
+        self.data["alert_reappear_minutes"] = max(3, int(self.data["alert_reappear_minutes"]))
+        self.data["alert_improvement_pct"] = max(0.01, float(self.data["alert_improvement_pct"]))
         self.data["direct_sources_timeout"] = min(30, max(5, int(self.data["direct_sources_timeout"])))
         self.data["direct_sources_concurrency"] = min(8, max(1, int(self.data["direct_sources_concurrency"])))
         self.data["coupon_catalog_limit"] = min(2500, max(100, int(self.data["coupon_catalog_limit"])))
@@ -138,6 +152,9 @@ class Settings:
         data["telegram_token_configured"] = bool(token)
         data["telegram_token"] = ("***" + token[-4:]) if len(token) > 4 else ("***" if token else "")
         data["telegram_chat_configured"] = bool(data.get("telegram_chat_id"))
+        api_key = str(data.get("onesignal_api_key", ""))
+        data["onesignal_configured"] = bool(data.get("onesignal_app_id") and api_key)
+        data["onesignal_api_key"] = ("***" + api_key[-4:]) if len(api_key) > 4 else ("***" if api_key else "")
         return data
 
 

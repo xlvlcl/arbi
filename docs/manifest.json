@@ -1,9 +1,34 @@
 {
+  "id": "/arbi/",
   "name": "Surebet Alert",
   "short_name": "Surebet",
-  "start_url": "./",
+  "description": "Monitor surebetów i porównywarka kursów z powiadomieniami push.",
+  "start_url": "./?source=pwa",
+  "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "background_color": "#070914",
   "theme_color": "#070914",
-  "lang": "pl"
+  "lang": "pl",
+  "orientation": "any",
+  "categories": [
+    "sports",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Surebety",
+      "short_name": "Surebety",
+      "url": "./#surebets"
+    },
+    {
+      "name": "Kupon",
+      "short_name": "Kupon",
+      "url": "./#coupon"
+    }
+  ]
 }

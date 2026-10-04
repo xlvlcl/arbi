@@ -13,7 +13,8 @@ from app.providers.direct_books import scan_direct_books
 from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
 from app.surebet import detect
-from app.telegram import render, send
+from app.telegram import send
+from app.onesignal_push import send_push
 
 DOCS_DATA = ROOT / "docs" / "data"
 ALERT_STATE = ROOT / "data" / "state.json"
@@ -351,23 +352,57 @@ async def scan_once() -> dict:
             confirmed = detect_from_markets(merge_markets(confirm_rows + direct_confirm_rows))
 
         alerts_sent = 0
+        push_alerts_sent = 0
+        telegram_alerts_sent = 0
+        push_configured = bool(settings.onesignal_app_id and settings.onesignal_api_key)
+        telegram_configured = bool(settings.telegram_token and settings.telegram_chat_id)
+
         for arb in confirmed:
-            if (
-                settings.telegram_token
-                and settings.telegram_chat_id
-                and await state.should_alert(
-                    arb.key(), arb.profit_pct, settings.dedupe_minutes
-                )
-            ):
+            if not (push_configured or telegram_configured):
+                continue
+
+            should_send = await state.should_alert(
+                arb.key(),
+                arb.profit_pct,
+                settings.dedupe_minutes,
+                reappear_minutes=settings.alert_reappear_minutes,
+                improvement_pct=settings.alert_improvement_pct,
+            )
+            if not should_send:
+                continue
+
+            delivered = False
+            if push_configured:
+                try:
+                    result = await send_push(
+                        settings.onesignal_app_id,
+                        settings.onesignal_api_key,
+                        arb,
+                        settings.app_public_url,
+                    )
+                    push_alerts_sent += 1
+                    delivered = True
+                    if isinstance(result, dict) and result.get("errors"):
+                        errors.append(f"OneSignal odpowiedź: {result.get('errors')}")
+                except Exception as exc:
+                    errors.append(f"OneSignal: {exc}")
+
+            # Telegram zostaje opcjonalnym backupem. Możesz usunąć jego sekrety,
+            # jeśli chcesz dostawać wyłącznie powiadomienia z aplikacji.
+            if telegram_configured:
                 try:
                     await send(
                         settings.telegram_token,
                         settings.telegram_chat_id,
-                        render(arb),
+                        arb,
                     )
-                    alerts_sent += 1
+                    telegram_alerts_sent += 1
+                    delivered = True
                 except Exception as exc:
                     errors.append(f"Telegram: {exc}")
+
+            if delivered:
+                alerts_sent += 1
 
         now = time.time()
         sources = {
@@ -402,6 +437,9 @@ async def scan_once() -> dict:
                 "candidates": len(candidates),
                 "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
+                "push_alerts_sent": push_alerts_sent,
+                "telegram_alerts_sent": telegram_alerts_sent,
+                "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
                 "scanner": "multi-source-v17-resilient-coupon",
                 "scan_mode": scan_mode,
