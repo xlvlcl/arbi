@@ -9,6 +9,7 @@ from urllib.parse import urljoin, urlparse
 
 import httpx
 from bs4 import BeautifulSoup
+from playwright.async_api import BrowserContext
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,13 @@ DIRECT_SOURCES: tuple[DirectSource, ...] = (
     DirectSource("LVBet", ("https://lvbet.pl/",), "https://lvbet.pl/"),
     DirectSource("ETOTO", ("https://www.etoto.pl/",), "https://www.etoto.pl/"),
     DirectSource("Fuksiarz", ("https://fuksiarz.pl/",), "https://fuksiarz.pl/"),
+    DirectSource("TotalBet", ("https://totalbet.pl/",), "https://totalbet.pl/"),
+    DirectSource("Betters", ("https://betters.pl/",), "https://betters.pl/"),
+    DirectSource("LeBull", ("https://lebull.pl/",), "https://lebull.pl/"),
+    DirectSource("AdmiralBet", ("https://admiralbet.pl/",), "https://admiralbet.pl/"),
+    DirectSource("BetSport", ("https://betsport.pl/",), "https://betsport.pl/"),
+    DirectSource("ComeOn", ("https://comeon.pl/",), "https://comeon.pl/"),
+    DirectSource("PZBuk", ("https://pzbuk.pl/",), "https://pzbuk.pl/"),
 )
 
 # Deliberately conservative. Direct parsers only emit rows that look complete enough
@@ -230,6 +238,112 @@ def parse_direct_listing(html: str, source: DirectSource) -> list[dict]:
         )
 
     return rows
+
+
+async def scan_direct_books_browser(
+    context: BrowserContext,
+    *,
+    enabled: bool = True,
+    max_seconds: int = 55,
+    concurrency: int = 3,
+) -> tuple[list[dict], list[str], dict]:
+    """Read only bookmaker pages that render normally in a standard browser.
+
+    No CAPTCHA solving, fingerprint masking, login bypass, or anti-bot evasion.
+    """
+    if not enabled:
+        return [], [], {"enabled": False, "sources": {}, "markets": 0}
+
+    started = time.monotonic()
+    sem = asyncio.Semaphore(max(1, int(concurrency)))
+    errors: list[str] = []
+    all_rows: list[dict] = []
+    stats: dict[str, dict] = {}
+
+    async def one(source: DirectSource):
+        page = None
+        rows: list[dict] = []
+        local_errors: list[str] = []
+        loaded = False
+        try:
+            async with sem:
+                if time.monotonic() - started >= max_seconds:
+                    return source, [], ["budget exhausted"], False
+                page = await context.new_page()
+                for url in source.urls:
+                    if time.monotonic() - started >= max_seconds:
+                        break
+                    try:
+                        response = await page.goto(
+                            url,
+                            wait_until="domcontentloaded",
+                            timeout=18000,
+                        )
+                        status = response.status if response else 0
+                        if status and status >= 400:
+                            local_errors.append(f"{url}: HTTP {status}")
+                            continue
+                        loaded = True
+
+                        try:
+                            await page.wait_for_load_state("networkidle", timeout=3500)
+                        except Exception:
+                            pass
+                        await page.wait_for_timeout(800)
+
+                        # Ordinary cookie consent only.
+                        for label in ("Akceptuj", "Akceptuj wszystkie", "Zgadzam się", "Accept"):
+                            try:
+                                btn = page.get_by_role("button", name=re.compile(label, re.I))
+                                if await btn.count():
+                                    await btn.first.click(timeout=1200)
+                                    await page.wait_for_timeout(200)
+                                    break
+                            except Exception:
+                                pass
+
+                        for _ in range(4):
+                            try:
+                                await page.evaluate(
+                                    "() => window.scrollBy(0, Math.max(innerHeight*1.8,1000))"
+                                )
+                            except Exception:
+                                pass
+                            await page.wait_for_timeout(260)
+
+                        rows.extend(parse_direct_listing(await page.content(), source))
+                    except Exception as exc:
+                        local_errors.append(f"{url}: {type(exc).__name__}: {exc}")
+        finally:
+            if page is not None:
+                try:
+                    await page.close()
+                except Exception:
+                    pass
+
+        unique = {}
+        for row in rows:
+            unique[(row.get("event_url", ""), row.get("market", ""))] = row
+        return source, list(unique.values()), local_errors, loaded
+
+    results = await asyncio.gather(*(one(source) for source in DIRECT_SOURCES))
+
+    for source, rows, local_errors, loaded in results:
+        all_rows.extend(rows)
+        errors.extend(f"{source.bookmaker}: {msg}" for msg in local_errors)
+        stats[source.bookmaker] = {
+            "markets": len(rows),
+            "loaded": bool(loaded),
+            "ok": bool(rows) or (loaded and not local_errors),
+            "mode": "public-browser",
+        }
+
+    return all_rows, errors, {
+        "enabled": True,
+        "sources": stats,
+        "markets": len(all_rows),
+        "elapsed_seconds": round(time.monotonic() - started, 2),
+    }
 
 
 async def scan_direct_books(

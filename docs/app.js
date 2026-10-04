@@ -174,21 +174,27 @@ document.getElementById("lockBtn").addEventListener("click",lockNow);
 
 // ---------- DATA ----------
 async function load(){
-  let lastError=null;
-  for(const endpoint of DATA_ENDPOINTS){
+  const attempts=await Promise.all(DATA_ENDPOINTS.map(async endpoint=>{
     try{
       const sep=endpoint.includes("?")?"&":"?";
       const r=await fetch(`${endpoint}${sep}t=${Date.now()}`,{cache:"no-store",mode:"cors"});
       if(!r.ok)throw new Error(`HTTP ${r.status}`);
-      const next=await r.json();
-      if(!next||typeof next!=="object")throw new Error("invalid data");
-      data=normalizePayload(next);
-      ensureSelectedBook();
-      repaint();
-      return;
-    }catch(err){lastError=err}
-  }
-  throw lastError||new Error("data");
+      const payload=await r.json();
+      if(!payload||typeof payload!=="object")throw new Error("invalid data");
+      return {endpoint,payload:normalizePayload(payload),ok:true};
+    }catch(error){
+      return {endpoint,error,ok:false};
+    }
+  }));
+
+  const good=attempts.filter(x=>x.ok);
+  if(!good.length)throw attempts.find(x=>x.error)?.error||new Error("data");
+
+  good.sort((a,b)=>Number(b.payload.last_scan||0)-Number(a.payload.last_scan||0));
+  data=good[0].payload;
+  data._loaded_from=good[0].endpoint.includes("raw.githubusercontent")?"repo RAW":"GitHub Pages";
+  ensureSelectedBook();
+  repaint();
 }
 
 // ---------- SUREBETS ----------
@@ -280,7 +286,7 @@ function groupPreviewEvents(rows){
 function previewHtml(){
   const sport=document.getElementById("sportFilter").value;
   const filtered=(data.scan_preview||[]).filter(x=>!sport||x.sport===sport);
-  const events=groupPreviewEvents(filtered).slice(0,24);
+  const events=groupPreviewEvents(filtered).slice(0,100);
   if(!events.length)return "";
 
   return `<section class="scan-preview">
@@ -377,7 +383,7 @@ function radarCard(x){
   return `<article class="radar-card glass">
     <div class="radar-card-head">
       <div>
-        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">brakuje ${Number(x.gap_pct||0).toFixed(2)}%</span><span class="market">${esc(x.market)}</span></div>
+        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">${x.radar_tier==="near"?"BLISKO ARBU":"OBSERWUJ"} · brakuje ${Number(x.gap_pct||0).toFixed(2)}%</span><span class="market">${esc(x.market)}</span></div>
         <h3>${esc(x.event)}</h3>
       </div>
       <div class="radar-seen">${Number(x.seen_scans||1)}× obserwowany</div>
@@ -409,8 +415,12 @@ function renderRadar(){
     sel.value=sports.includes(prev)?prev:"";
   }
   const sport=sel?.value||"";
-  const maxGap=Number(document.getElementById("radarGap")?.value||1.5);
-  const items=all.filter(x=>(!sport||x.sport===sport)&&Number(x.gap_pct||99)<=maxGap);
+  const maxGap=Number(document.getElementById("radarGap")?.value||8);
+  let items=all.filter(x=>(!sport||x.sport===sport)&&Number(x.gap_pct||99)<=maxGap);
+  const fallbackUsed=!items.length&&all.length>0;
+  if(fallbackUsed){
+    items=all.filter(x=>!sport||x.sport===sport).slice(0,24);
+  }
   document.getElementById("radarCount").textContent=all.length;
   const plan=data.intelligence?.scan_plan||{};
   document.getElementById("radarMode").textContent=(plan.mode||data.stats?.scan_mode||"—").toString().toUpperCase();

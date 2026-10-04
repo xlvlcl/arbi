@@ -10,7 +10,7 @@ from app.config import ROOT, settings
 from app.merge import event_key, market_key, merge_markets
 from app.models import Quote
 from app.intelligence import detect_near_arbs, scan_quality
-from app.providers.direct_books import scan_direct_books
+from app.providers.direct_books import scan_direct_books, scan_direct_books_browser
 from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
 from app.surebet import detect
@@ -311,6 +311,33 @@ def _merge_event_priorities(*groups: list[dict]) -> list[dict]:
 
 
 
+def _rotate_event_catalog(
+    events: list[dict],
+    *,
+    priority_urls: set[str],
+    sequence: int,
+    batch_size: int,
+) -> tuple[list[dict], int]:
+    """Priorities first, then rotate the remaining catalog between scans."""
+    priority = []
+    normal = []
+    seen = set()
+
+    for event in events:
+        url = str(event.get("event_url", "") or "").split("#")[0]
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        (priority if url in priority_urls else normal).append(event)
+
+    if not normal:
+        return priority, 0
+
+    offset = ((max(1, int(sequence)) - 1) * max(1, int(batch_size))) % len(normal)
+    return priority + normal[offset:] + normal[:offset], offset
+
+
+
 KNOWN_COMPARISON_BOOKS = [
     "Superbet", "STS", "Fortuna", "Betclic", "Forbet", "LVBet", "ETOTO",
     "Betfan", "Fuksiarz", "TotalBet", "Betters", "LeBull", "AdmiralBet",
@@ -447,8 +474,22 @@ async def scan_once() -> dict:
     )
 
     await provider.start()
+    browser_direct_task = None
+    if plan["mode"] == "deep":
+        try:
+            browser_direct_task = asyncio.create_task(
+                scan_direct_books_browser(
+                    provider.context,
+                    enabled=bool(getattr(settings, "direct_sources_enabled", True)),
+                    max_seconds=55,
+                    concurrency=3,
+                )
+            )
+        except Exception as exc:
+            errors.append(f"Direct browser init: {type(exc).__name__}: {exc}")
+
     try:
-        # v20: two lightweight discovery jobs run in parallel:
+        # Discovery jobs run in parallel:
         # - DobryBuk value/stat pages -> prioritize likely interesting events,
         # - broad main-listing sweep -> hunt candidate arbs across ALL visible dates.
         priority_task = asyncio.create_task(provider.discover_priority_events())
@@ -506,6 +547,23 @@ async def scan_once() -> dict:
         )
         events = [normal_by_url.get(str(e.get("event_url", "")).split("#")[0], e) for e in prioritized]
 
+        priority_urls = {
+            str(e.get("event_url", "") or "").split("#")[0]
+            for e in (watch_events + signal_events + priority_events)
+            if e.get("event_url")
+        }
+        planned_batch = (
+            settings.market_scan_max_events
+            if plan["mode"] == "deep"
+            else settings.fast_scan_max_events
+        )
+        events_for_scan, rotation_offset = _rotate_event_catalog(
+            events,
+            priority_urls=priority_urls,
+            sequence=plan["sequence"],
+            batch_size=planned_batch,
+        )
+
         dobrybuk_rows = []
         market_errors = []
         market_stats = {
@@ -526,7 +584,7 @@ async def scan_once() -> dict:
                 else settings.fast_scan_budget_seconds
             )
             dobrybuk_rows, market_errors, market_stats = await provider.scan_all_markets(
-                events,
+                events_for_scan,
                 max_events=detail_max_events,
                 max_seconds=detail_budget,
                 concurrency=settings.market_scan_concurrency,
@@ -585,7 +643,19 @@ async def scan_once() -> dict:
             direct_rows, direct_errors, direct_stats = [], [f"direct: {exc}"], {"enabled": True, "sources": {}}
         errors.extend([f"Direct: {x}" for x in direct_errors])
 
-        merged_rows = merge_markets(watch_rows + dobrybuk_rows + broad_rows + direct_rows)
+        browser_direct_rows = []
+        browser_direct_stats = {"enabled": False, "sources": {}, "markets": 0}
+        if browser_direct_task is not None:
+            try:
+                browser_direct_rows, browser_direct_errors, browser_direct_stats = await browser_direct_task
+                errors.extend([f"Direct browser: {x}" for x in browser_direct_errors])
+            except Exception as exc:
+                errors.append(f"Direct browser: {type(exc).__name__}: {exc}")
+
+        all_direct_rows = direct_rows + browser_direct_rows
+        merged_rows = merge_markets(
+            watch_rows + dobrybuk_rows + broad_rows + all_direct_rows
+        )
         merged_rows = _enrich_market_metadata(merged_rows, events)
         if not merged_rows:
             raise RuntimeError(
@@ -612,6 +682,8 @@ async def scan_once() -> dict:
             merged_rows,
             payout_factors(),
             max_gap_pct=settings.near_arb_gap_pct,
+            fallback_gap_pct=max(15.0, settings.near_arb_gap_pct),
+            min_results=24,
             max_age_seconds=settings.max_quote_age_seconds,
         )
 
@@ -769,13 +841,35 @@ async def scan_once() -> dict:
 
         now = time.time()
         quality = scan_quality(merged_rows)
+
+        direct_source_summary = {}
+        http_sources = direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}
+        browser_sources = browser_direct_stats.get("sources", {}) if isinstance(browser_direct_stats, dict) else {}
+        for name in set(http_sources) | set(browser_sources):
+            http_info = http_sources.get(name, {})
+            browser_info = browser_sources.get(name, {})
+            direct_source_summary[name] = {
+                "markets": int(http_info.get("markets", 0) or 0)
+                + int(browser_info.get("markets", 0) or 0),
+                "http_markets": int(http_info.get("markets", 0) or 0),
+                "browser_markets": int(browser_info.get("markets", 0) or 0),
+                "ok": bool(http_info.get("ok") or browser_info.get("ok")),
+                "mode": "http + public-browser",
+            }
+
+        merged_direct_stats = {
+            "enabled": True,
+            "sources": direct_source_summary,
+            "markets": len(all_direct_rows),
+        }
+
         source_health = state.update_source_health(
-            direct_stats,
+            merged_direct_stats,
             dobrybuk_ok=bool(dobrybuk_rows or broad_rows),
         )
         coverage = build_coverage(
             merged_rows,
-            direct_stats,
+            merged_direct_stats,
             len(events),
             int(market_stats.get("detail_events_scanned", 0) or 0),
         )
@@ -783,10 +877,13 @@ async def scan_once() -> dict:
             "DobryBuk": {
                 "markets": len(dobrybuk_rows),
                 "broad_candidate_markets": len(broad_rows),
-                "events": len({(event_key(str(r.get("event", ""))), str(r.get("sport", "")).lower()) for r in merged_rows}),
+                "events": len({
+                    (event_key(str(r.get("event", ""))), str(r.get("sport", "")).lower())
+                    for r in merged_rows
+                }),
                 "mode": "detail + all-date candidate sweep",
             },
-            **(direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}),
+            **direct_source_summary,
         }
         coupon_catalog = build_coupon_catalog(
             merged_rows,
@@ -798,7 +895,7 @@ async def scan_once() -> dict:
             "latest": [arb.to_dict() for arb in confirmed[:200]],
             "valuebets": stable_values[:150],
             "near_arbs": near_arbs[:120],
-            "scan_preview": build_scan_preview(merged_rows, 180),
+            "scan_preview": build_scan_preview(merged_rows, 700),
             "coupon_catalog": coupon_catalog,
             "stats": {
                 "events": len(events),
@@ -809,13 +906,17 @@ async def scan_once() -> dict:
                 "markets": len(merged_rows),
                 "markets_scanned": len(merged_rows),
                 "dobrybuk_markets": len(dobrybuk_rows),
-                "direct_markets": len(direct_rows),
+                "direct_markets": len(all_direct_rows),
+                "direct_http_markets": len(direct_rows),
+                "direct_browser_markets": len(browser_direct_rows),
                 "broad_candidate_markets": len(broad_rows),
                 "broad_listing_pairs": broad_stats.get("broad_listing_pairs", 0),
                 "priority_events": len(priority_events),
                 "signal_events": len(signal_events),
                 "watch_targets": len(watch_targets),
                 "watch_rows": len(watch_rows),
+                "catalog_events": len(events),
+                "rotation_offset": rotation_offset,
                 "near_arbs": len(near_arbs),
                 "exhaustive_complete": market_stats.get("exhaustive_complete", False),
                 "candidates": len(candidates),
@@ -829,7 +930,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v22-clarity-push-links",
+                "scanner": "multi-source-v23-full-catalog-radar-refresh",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],
@@ -887,6 +988,8 @@ async def scan_once() -> dict:
     finally:
         if not direct_task.done():
             direct_task.cancel()
+        if browser_direct_task is not None and not browser_direct_task.done():
+            browser_direct_task.cancel()
         await provider.stop()
 
 

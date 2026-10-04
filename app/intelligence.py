@@ -38,14 +38,12 @@ def detect_near_arbs(
     payout_factors: dict[str, float],
     *,
     max_gap_pct: float = 1.50,
+    fallback_gap_pct: float = 15.0,
+    min_results: int = 24,
     max_age_seconds: int = 300,
 ) -> list[dict]:
-    """Find markets that are close to becoming a strict surebet.
-
-    gap_pct is the extra effective price improvement needed (approximately)
-    before inverse-sum crosses below 1. These are WATCH signals, not bets.
-    """
-    results: list[dict] = []
+    """Return strict near-arbs plus nearest complete markets as a WATCH tier."""
+    candidates: list[dict] = []
 
     for market in markets:
         quotes = _fresh_best(market.get("quotes") or {}, max_age_seconds)
@@ -67,7 +65,7 @@ def detect_near_arbs(
             complete = True
 
             for selection in group:
-                candidates = []
+                choices = []
                 for q in (market.get("quotes") or {}).get(selection, []):
                     book = str(q.get("bookmaker", "")).strip()
                     odds = float(q.get("odds", 0) or 0)
@@ -77,15 +75,14 @@ def detect_near_arbs(
                     if observed and time.time() - observed > max_age_seconds:
                         continue
                     effective = odds * _factor(book, payout_factors)
-                    if effective <= 1.0:
-                        continue
-                    candidates.append((effective, q))
+                    if effective > 1.0:
+                        choices.append((effective, q))
 
-                if not candidates:
+                if not choices:
                     complete = False
                     break
 
-                effective, best = max(candidates, key=lambda x: x[0])
+                effective, best = max(choices, key=lambda x: x[0])
                 inv_sum += 1.0 / effective
                 books.add(str(best.get("bookmaker", "")))
                 legs.append(
@@ -104,7 +101,7 @@ def detect_near_arbs(
                 continue
 
             gap_pct = (inv_sum - 1.0) * 100.0
-            if gap_pct > max_gap_pct:
+            if gap_pct > max(fallback_gap_pct, max_gap_pct):
                 continue
 
             event = str(market.get("event", ""))
@@ -116,13 +113,16 @@ def detect_near_arbs(
             key = hashlib.sha1(raw_key.encode("utf-8")).hexdigest()[:20]
             source_count = len(set(market.get("source_names") or []))
             diversity = len(books)
+            tier = "near" if gap_pct <= max_gap_pct else "watch"
 
-            # Higher = more urgent. Gap dominates; book/source diversity breaks ties.
-            score = max(0.0, (max_gap_pct - gap_pct) / max_gap_pct) * 100.0
+            score = max(
+                0.0,
+                (fallback_gap_pct - gap_pct) / max(fallback_gap_pct, 0.01),
+            ) * 100.0
             score += min(20.0, diversity * 2.0)
             score += min(10.0, source_count * 2.0)
 
-            results.append(
+            candidates.append(
                 {
                     "key": key,
                     "event": event,
@@ -135,19 +135,24 @@ def detect_near_arbs(
                     "bookmakers": diversity,
                     "sources": market.get("source_names", []),
                     "legs": legs,
+                    "radar_tier": tier,
                 }
             )
 
     unique = {}
-    for item in results:
+    for item in candidates:
         old = unique.get(item["key"])
         if old is None or item["gap_pct"] < old["gap_pct"]:
             unique[item["key"]] = item
 
-    return sorted(
+    ordered = sorted(
         unique.values(),
         key=lambda x: (x["gap_pct"], -x["bookmakers"], -x["score"]),
     )
+    strict = [x for x in ordered if x["radar_tier"] == "near"]
+    if len(strict) >= min_results:
+        return strict[:160]
+    return ordered[:160]
 
 
 def scan_quality(markets: list[dict]) -> dict:

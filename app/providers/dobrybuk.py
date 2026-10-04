@@ -892,6 +892,46 @@ class DobryBukProvider:
 
         return events
 
+    async def _lazy_load_listing(self, page: Page, max_rounds: int = 12) -> int:
+        """Normal browser scrolling until event-link count stops growing."""
+        previous = -1
+        stable = 0
+        count = 0
+        for _ in range(max(1, int(max_rounds))):
+            try:
+                count = await page.locator('a[href*="/kursy/mecz/"]').count()
+            except Exception:
+                count = 0
+
+            if count == previous:
+                stable += 1
+            else:
+                stable = 0
+            previous = count
+
+            if stable >= 2:
+                break
+
+            try:
+                await page.evaluate(
+                    """() => window.scrollBy(0, Math.max(window.innerHeight * 2.5, 1400))"""
+                )
+            except Exception:
+                pass
+            await page.wait_for_timeout(320)
+
+        try:
+            await page.evaluate("window.scrollTo(0, 0)")
+        except Exception:
+            pass
+        return count
+
+    async def _prepare_all_upcoming(self, page: Page) -> None:
+        """Switch to upcoming + All dates and materialize lazy event rows."""
+        await self._activate_upcoming_all_dates(page)
+        await page.wait_for_timeout(500)
+        await self._lazy_load_listing(page, max_rounds=14)
+
     async def discover_events(self, sports: list[str]) -> tuple[list[dict], list[str]]:
         assert self.page
         errors: list[str] = []
@@ -911,6 +951,7 @@ class DobryBukProvider:
             await self.page.wait_for_timeout(4200)
             await self._dismiss_cookie_banner(self.page)
             await self.page.wait_for_timeout(900)
+            await self._prepare_all_upcoming(self.page)
         except Exception as exc:
             return [], [f"Ładowanie DobryBuk: {type(exc).__name__}: {exc}"]
 
@@ -933,6 +974,7 @@ class DobryBukProvider:
                 if not clicked:
                     # If the current default sport is already selected, its text can be
                     # non-clickable. Still try collecting the currently visible table.
+                    await self._prepare_all_upcoming(self.page)
                     current = await self._collect_event_links(sport)
                     if current:
                         for event in current:
@@ -945,8 +987,9 @@ class DobryBukProvider:
                     await self.page.wait_for_load_state("networkidle", timeout=6500)
                 except Exception:
                     pass
-                # v12 used 250 ms here; on GitHub this was too short and caused 0 events.
-                await self.page.wait_for_timeout(2400)
+                await self.page.wait_for_timeout(700)
+                await self._prepare_all_upcoming(self.page)
+                await self.page.wait_for_timeout(400)
 
                 events = await self._collect_event_links(sport)
                 if not events:
@@ -1295,8 +1338,8 @@ class DobryBukProvider:
                 if time.monotonic() - started >= max_seconds:
                     break
                 await self._click_sport_on(page, sport)
-                await page.wait_for_timeout(450)
-                await self._activate_upcoming_all_dates(page)
+                await page.wait_for_timeout(250)
+                await self._prepare_all_upcoming(page)
 
                 for market in market_labels:
                     if time.monotonic() - started >= max_seconds:
