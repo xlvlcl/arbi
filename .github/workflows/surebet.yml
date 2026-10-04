@@ -1,3 +1,35 @@
+name: Surebet Scanner
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [surebet_scan]
+  schedule:
+    # GitHub Actions ma minimalny interwał cron około 5 minut.
+    # Używamy przesunięcia od pełnej minuty, żeby zmniejszyć ryzyko kolejek.
+    - cron: "3-58/5 * * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: surebet-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      BANKROLL_PLN: "50"
+      MIN_PROFIT_PCT: "0.35"
+      MAX_QUOTE_AGE_SECONDS: "180"
+
     steps:
       - name: Pobierz kod
         uses: actions/checkout@v4
