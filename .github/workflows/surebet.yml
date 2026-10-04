@@ -28,6 +28,9 @@ jobs:
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       BANKROLL_PLN: "50"
       MIN_PROFIT_PCT: "0.35"
+      DEDUPE_MINUTES: "120"
+      ALERT_REAPPEAR_MINUTES: "6"
+      ALERT_IMPROVEMENT_PCT: "0.15"
       MAX_QUOTE_AGE_SECONDS: "300"
       MARKET_SCAN_MAX_EVENTS: "500"
       MARKET_SCAN_BUDGET_SECONDS: "240"
@@ -38,6 +41,9 @@ jobs:
       DIRECT_SOURCES_CONCURRENCY: "5"
       COUPON_CATALOG_LIMIT: "1600"
       SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+      ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+      ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+      APP_PUBLIC_URL: "https://xlvlcl.github.io/arbi/"
 
     steps:
       - name: Pobierz kod
@@ -149,6 +155,26 @@ jobs:
               encoding="utf-8",
           )
           print("Blokada hasłem: włączona")
+          PY
+
+      - name: Wygeneruj konfigurację aplikacji push
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          app_id = os.getenv("ONESIGNAL_APP_ID", "").strip()
+          public_url = os.getenv("APP_PUBLIC_URL", "https://xlvlcl.github.io/arbi/").strip()
+          Path("docs/push-config.js").write_text(
+              "window.ARBI_ONESIGNAL_APP_ID = " + json.dumps(app_id) + ";\n"
+              "window.ARBI_PUBLIC_URL = " + json.dumps(public_url) + ";\n",
+              encoding="utf-8",
+          )
+          print("OneSignal Web Push:", "włączony" if app_id else "nie skonfigurowany")
+          if not app_id:
+              print("Dodaj sekret ONESIGNAL_APP_ID, aby włączyć powiadomienia z aplikacji.")
           PY
 
       - name: Skonfiguruj GitHub Pages
