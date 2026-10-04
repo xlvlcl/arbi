@@ -1,6 +1,6 @@
 {
-  "generated_at": 1791131248.401623,
-  "last_scan": 1791131248.401623,
+  "generated_at": 1791131353.5509493,
+  "last_scan": 1791131353.5509493,
   "latest": [],
   "scan_preview": [
     {
@@ -1093,7 +1093,7 @@
     "push_alerts_sent": 0,
     "telegram_alerts_sent": 0,
     "push_configured": true,
-    "elapsed_seconds": 60.6,
+    "elapsed_seconds": 54.32,
     "scanner": "multi-source-v17-resilient-coupon",
     "scan_mode": "listing-fallback",
     "sources": {
@@ -1150,23 +1150,23 @@
     }
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Malta 0:0 Andora: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Kosowo 0:0 Austria: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Irlandia - Izrael: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Grecja - Niemcy: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Azerbejdżan 1:0 Litwa: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Malta 0:0 Andora: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Grecja - Niemcy: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Holandia - Serbia: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Portugalia - Norwegia: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Holandia - Serbia: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / CSM Slatina - Universitatea Craiova: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / FK Dinamo Moscow - Rodina Moscow: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Hamburger 2:0 FC Kopenhaga: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Ludogorets - Cherno More Varna: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / FK Dinamo Moscow - Rodina Moscow: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Enosis Neon Paralimni - Anorthosis Famagusta: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Egipt - RPA: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Maroko - Mali: 1x2: brak pełnej tabeli bukmacherów",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
