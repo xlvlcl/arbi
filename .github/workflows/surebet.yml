@@ -36,7 +36,7 @@ jobs:
       CONFIRM_CONCURRENCY: "3"
       DIRECT_SOURCES_TIMEOUT: "12"
       DIRECT_SOURCES_CONCURRENCY: "5"
-      COUPON_CATALOG_LIMIT: "350"
+      COUPON_CATALOG_LIMIT: "1600"
       SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
 
     steps:
@@ -134,12 +134,14 @@ jobs:
           from pathlib import Path
 
           password = os.getenv("SITE_PASSWORD", "")
-          digest = hashlib.sha256(password.encode("utf-8")).hexdigest() if password else ""
+          if not password:
+              raise SystemExit("STOP: brak sekretu SITE_PASSWORD. Strona nie zostanie opublikowana bez hasła.")
+          digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
           Path("docs/auth-config.js").write_text(
               f'window.ARBI_AUTH_HASH = "{digest}";\n',
               encoding="utf-8",
           )
-          print("Blokada hasłem:", "włączona" if digest else "wyłączona - brak sekretu SITE_PASSWORD")
+          print("Blokada hasłem: włączona")
           PY
 
       - name: Skonfiguruj GitHub Pages
