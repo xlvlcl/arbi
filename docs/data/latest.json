@@ -1,6 +1,6 @@
 {
-  "generated_at": 1791120673.9190822,
-  "last_scan": 1791120673.9190822,
+  "generated_at": 1791120768.2470303,
+  "last_scan": 1791120768.2470303,
   "latest": [],
   "scan_preview": [
     {
@@ -22,6 +22,28 @@
           "selection": "2",
           "bookmaker": "BetSport",
           "odds": 3.04
+        }
+      ]
+    },
+    {
+      "event": "CSM Slatina - Universitatea Craiova",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Fuksiarz",
+          "odds": 5.3
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Betfan",
+          "odds": 4.25
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Betfan",
+          "odds": 1.55
         }
       ]
     },
@@ -48,24 +70,24 @@
       ]
     },
     {
-      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "event": "Holandia - Serbia",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "Forbet",
-          "odds": 1.33
+          "bookmaker": "Betfan",
+          "odds": 1.18
         },
         {
           "selection": "X",
-          "bookmaker": "Forbet",
-          "odds": 5.2
+          "bookmaker": "STS",
+          "odds": 9.0
         },
         {
           "selection": "2",
-          "bookmaker": "Forbet",
-          "odds": 6.0
+          "bookmaker": "STS",
+          "odds": 19.0
         }
       ]
     },
@@ -114,28 +136,6 @@
       ]
     },
     {
-      "event": "USA - Meksyk",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 2.85
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 3.75
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Superbet",
-          "odds": 2.5
-        }
-      ]
-    },
-    {
       "event": "Egipt - RPA",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
@@ -143,7 +143,7 @@
         {
           "selection": "1",
           "bookmaker": "Betfan",
-          "odds": 1.75
+          "odds": 1.68
         },
         {
           "selection": "X",
@@ -182,22 +182,22 @@
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 31.44,
+    "elapsed_seconds": 31.06,
     "scanner": "playwright-auto-sports-all-event-markets-v14"
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Malta - Andora: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Malta - Andora: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Portugalia - Norwegia: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Grecja - Niemcy: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Holandia - Serbia: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / CSM Slatina - Universitatea Craiova: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / FK Dinamo Moscow - Rodina Moscow: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Ludogorets - Cherno More Varna: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Maroko - Mali: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów"
+    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Maroko - Mali: 1x2: brak pełnej tabeli bukmacherów"
   ],
   "source": "DobryBuk public comparison",
   "market_scan_note": "Skan automatycznie wykrywa wszystkie sporty wystawione w porównywarce, a następnie odwiedza wydarzenia i widoczne na ich stronach rynki w ramach budżetu czasu. Niepełne/niejednoznaczne rynki są odrzucane."
