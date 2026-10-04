@@ -219,3 +219,58 @@ button,input,select{font:inherit}
   .market-selections{grid-template-columns:1fr}
   .coupon-total-card{grid-template-columns:1fr 1fr}
 }
+
+
+/* v17 - polished dark aurora */
+:root{
+  --cyan-soft:#7cecff;
+  --violet-soft:#b496ff;
+}
+body{
+  background:
+    radial-gradient(circle at 12% -8%,rgba(72,219,255,.15),transparent 29%),
+    radial-gradient(circle at 88% 0%,rgba(169,95,255,.18),transparent 31%),
+    radial-gradient(circle at 58% 108%,rgba(79,111,255,.10),transparent 36%),
+    linear-gradient(155deg,#05070f 0%,#070b16 44%,#080914 100%);
+}
+.topbar{
+  margin-bottom:3px;
+  border-bottom:1px solid rgba(255,255,255,.045);
+}
+.hero-card,.side-card,.coupon-dashboard,.bookmaker-zone,.coupon-toolbar,.coupon-panel{
+  box-shadow:0 22px 72px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.04);
+}
+.hero-card:before,.coupon-dashboard:before{
+  content:"";position:absolute;left:0;top:17%;bottom:17%;width:2px;border-radius:3px;
+  background:linear-gradient(to bottom,var(--cyan),var(--blue),var(--violet));
+  box-shadow:0 0 22px rgba(73,220,255,.34);
+}
+.kpi,.bookmaker-card,.event-card,.market-pick,.scan-row,.arb{
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.kpi:hover,.bookmaker-card:hover,.event-card:hover,.scan-row:hover,.arb:hover{
+  transform:translateY(-2px);
+  border-color:rgba(117,143,255,.20);
+}
+.bookmaker-card.active{
+  box-shadow:inset 0 0 0 1px rgba(76,225,255,.08),0 12px 32px rgba(58,105,255,.10);
+}
+.bookmaker-card.active .bookmaker-card-name{color:#dffaff}
+.event-card.open{
+  box-shadow:0 16px 44px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.025);
+}
+.market-pick:hover{
+  box-shadow:0 9px 24px rgba(0,0,0,.18);
+}
+.market-pick-main strong,.odds,.coupon-total-card strong{
+  font-variant-numeric:tabular-nums;
+}
+.data-warning{
+  border-color:rgba(255,209,102,.20)!important;
+  background:linear-gradient(145deg,rgba(255,209,102,.04),rgba(99,133,255,.04))!important;
+}
+.data-warning .icon{color:var(--yellow)}
+.footer{
+  border-top:1px solid rgba(255,255,255,.04);
+  margin-top:18px;
+}

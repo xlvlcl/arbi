@@ -401,6 +401,114 @@ def extract_detail_market(
     return None
 
 
+def _listing_cell_data(td):
+    txt = clean(td.get_text(" ", strip=True))
+    odds = odds_from_text(txt)
+    books: list[str] = []
+
+    candidates = [clean(img.get("alt", "")) for img in td.find_all("img")]
+    candidates.append(txt)
+    for candidate in candidates:
+        found = _known_book(candidate)
+        if found and found not in books:
+            books.append(found)
+
+    return txt, odds, books
+
+
+def extract_listing_tables(page_html: str, sport: str, source_url: str) -> list[dict]:
+    """Awaryjny parser tabeli głównej oparty o pierwszą działającą wersję."""
+    soup = BeautifulSoup(page_html, "html.parser")
+    out: list[dict] = []
+    now = time.time()
+
+    for table in soup.find_all("table"):
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+
+        header: list[str] = []
+        for tr in rows[:5]:
+            cells = [
+                normalize_label(x.get_text(" ", strip=True))
+                for x in tr.find_all(["th", "td"])
+            ]
+            low = [x.lower() for x in cells]
+            if any(x in {"1", "x", "2"} for x in low) or any("1x2" in x for x in low):
+                header = cells
+                break
+
+        if not header:
+            continue
+
+        for tr in rows:
+            tds = tr.find_all(["td", "th"])
+            if len(tds) < 4:
+                continue
+
+            cells = [_listing_cell_data(td) for td in tds]
+            if not TIME_RE.match(cells[0][0]):
+                continue
+
+            event = clean(cells[1][0])
+            if not event or len(event) < 5:
+                continue
+
+            event_url = ""
+            for a in tds[1].find_all("a", href=True):
+                href = a.get("href", "")
+                if EVENT_PATH_RE.search(href):
+                    event_url = _absolute(href, source_url)
+                    break
+
+            start = 3
+            row_cells = cells[start:]
+            labels = header[start:] if len(header) > start else []
+            quotes: dict[str, list[dict]] = defaultdict(list)
+
+            for idx, cell in enumerate(row_cells):
+                _, values, books = cell
+                if not values:
+                    continue
+
+                label = normalize_label(labels[idx]) if idx < len(labels) else str(idx + 1)
+                if not label or label.lower() in {"bonus", "bonusy"}:
+                    continue
+
+                book = books[0] if books else None
+                if not book:
+                    continue
+
+                quotes[label].append(
+                    {
+                        "selection": label,
+                        "odds": max(values),
+                        "bookmaker": book,
+                        "observed_at": now,
+                        "source_url": source_url,
+                        "bookmaker_url": "",
+                        "source_name": "DobryBuk listing fallback",
+                    }
+                )
+
+            if len(quotes) >= 2:
+                out.append(
+                    {
+                        "event": event,
+                        "sport": sport,
+                        "market": "1X2",
+                        "quotes": dict(quotes),
+                        "observed_at": now,
+                        "source_url": source_url,
+                        "event_url": event_url,
+                        "source_name": "DobryBuk listing fallback",
+                        "source_names": ["DobryBuk listing fallback"],
+                    }
+                )
+
+    return out
+
+
 class DobryBukProvider:
     def __init__(self, settings):
         self.settings = settings
@@ -691,6 +799,60 @@ class DobryBukProvider:
                 errors.append(f"Debug: {type(exc).__name__}: {exc}")
 
         return list(discovered.values()), errors
+
+    async def scan_listing_fallback(
+        self,
+        sports: list[str] | None = None,
+    ) -> tuple[list[dict], list[str]]:
+        """Fallback tabeli głównej, żeby chwilowy błąd detail-pages nie wyczyścił strony."""
+        assert self.page
+        errors: list[str] = []
+        rows: list[dict] = []
+
+        try:
+            await self.page.goto(
+                self.settings.source_url,
+                wait_until="domcontentloaded",
+                timeout=60000,
+            )
+            try:
+                await self.page.wait_for_load_state("networkidle", timeout=10000)
+            except Exception:
+                pass
+            await self.page.wait_for_timeout(2800)
+            await self._dismiss_cookie_banner(self.page)
+        except Exception as exc:
+            return [], [f"Fallback listing - ładowanie: {type(exc).__name__}: {exc}"]
+
+        try:
+            body_text = await self.page.locator("body").inner_text(timeout=5000)
+        except Exception:
+            body_text = ""
+
+        auto = discover_sports_from_text(body_text)
+        sports_to_scan = auto or list(dict.fromkeys((sports or []) + SPORTS_FALLBACK))
+        if not self.discovered_sports:
+            self.discovered_sports = sports_to_scan
+
+        for sport in sports_to_scan:
+            try:
+                await self._click_sport(sport)
+                await self.page.wait_for_timeout(1400)
+                html = await self.page.content()
+                rows.extend(extract_listing_tables(html, sport, self.settings.source_url))
+            except Exception as exc:
+                errors.append(f"Fallback {sport}: {type(exc).__name__}: {exc}")
+
+        unique: dict[tuple[str, str, str], dict] = {}
+        for row in rows:
+            key = (
+                clean(row.get("sport", "")).lower(),
+                clean(row.get("event", "")).lower(),
+                clean(row.get("market", "")).lower(),
+            )
+            unique.setdefault(key, row)
+
+        return list(unique.values()), errors
 
     def _looks_like_market_label(self, label: str) -> bool:
         low = normalize_label(label).lower()

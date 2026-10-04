@@ -30,6 +30,46 @@ const DATA_ENDPOINTS=[
   "https://raw.githubusercontent.com/xlvlcl/arbi/main/docs/data/latest.json"
 ];
 
+function normalizePayload(payload){
+  payload.latest=Array.isArray(payload.latest)?payload.latest:[];
+  payload.scan_preview=Array.isArray(payload.scan_preview)?payload.scan_preview:[];
+  payload.coupon_catalog=Array.isArray(payload.coupon_catalog)?payload.coupon_catalog:[];
+  payload.stats=payload.stats&&typeof payload.stats==="object"?payload.stats:{};
+
+  if(!payload.coupon_catalog.length&&payload.scan_preview.length){
+    payload.coupon_catalog=payload.scan_preview.map((row,i)=>({
+      id:`compat-${i}-${safeId(row.event)}-${safeId(row.market)}`,
+      event:row.event||"",
+      sport:row.sport||"",
+      market:row.market||"Rynek",
+      event_url:row.event_url||"",
+      sources:row.sources||["starszy skan"],
+      selections:(row.best||[]).map(q=>({
+        selection:q.selection||"",
+        best_odds:Number(q.odds||0),
+        best_bookmaker:q.bookmaker||"",
+        offers:[
+          {
+            bookmaker:q.bookmaker||"",
+            odds:Number(q.odds||0),
+            bookmaker_url:q.bookmaker_url||q.source_url||"",
+            source_url:q.source_url||"",
+            source_name:"compat"
+          },
+          ...((q.alternatives||[]).map(a=>({
+            bookmaker:a.bookmaker||"",
+            odds:Number(a.odds||0),
+            bookmaker_url:a.bookmaker_url||a.source_url||"",
+            source_url:a.source_url||"",
+            source_name:"compat"
+          })))
+        ].filter(x=>x.bookmaker&&x.odds>1)
+      })).filter(x=>x.offers.length)
+    })).filter(x=>x.selections.length);
+  }
+  return payload;
+}
+
 // ---------- ACCESS GATE ----------
 const AUTH_KEY="arbi_access_v1";
 async function sha256(value){
@@ -91,7 +131,7 @@ async function load(){
       if(!r.ok)throw new Error(`HTTP ${r.status}`);
       const next=await r.json();
       if(!next||typeof next!=="object")throw new Error("invalid data");
-      data=next;
+      data=normalizePayload(next);
       ensureSelectedBook();
       repaint();
       return;
@@ -165,7 +205,14 @@ function repaintSurebets(){
   const sel=document.getElementById("sportFilter"),current=sel.value;
   sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
   sel.value=sports.includes(current)?current:"";
-  const empty=`<div class="empty glass"><div class="icon">⌁</div><h3>Brak potwierdzonych surebetów w tym skanie</h3><p>Skaner odczytał ${ev} zdarzeń i ${mk} rynków. Poniżej widać część zeskanowanych rynków.</p></div>`;
+  const oldPayload=!data.scan_preview?.length&&!data.coupon_catalog?.length&&ev>0;
+  const empty=`<div class="empty glass ${oldPayload?"data-warning":""}">
+    <div class="icon">${oldPayload?"↻":"⌁"}</div>
+    <h3>${oldPayload?"Czekam na świeży katalog zdarzeń":"Brak potwierdzonych surebetów w tym skanie"}</h3>
+    <p>${oldPayload
+      ?`Aktualny plik ma jeszcze starszy format (${ev} zdarzeń / ${mk} rynków). V17 uzupełni katalog po następnym poprawnym skanie.`
+      :`Skaner odczytał ${ev} zdarzeń i ${mk} rynków. Poniżej widać część zeskanowanych rynków.`}</p>
+  </div>`;
   document.getElementById("list").innerHTML=(items.length?items.slice(0,200).map(a=>card(a,budget)).join(""):empty)+previewHtml();
 }
 

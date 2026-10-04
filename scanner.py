@@ -264,25 +264,54 @@ async def scan_once() -> dict:
 
     await provider.start()
     try:
+        scan_mode = "detail"
         events, discover_errors = await provider.discover_events(settings.sports)
         errors.extend(discover_errors)
-        if not events:
-            raise RuntimeError(
-                "Skaner nie odczytał żadnych wydarzeń. Nie publikuję pustego wyniku."
-            )
 
-        dobrybuk_rows, market_errors, market_stats = await provider.scan_all_markets(
-            events,
-            max_events=settings.market_scan_max_events,
-            max_seconds=settings.market_scan_budget_seconds,
-            concurrency=settings.market_scan_concurrency,
-        )
-        errors.extend([f"Markety: {x}" for x in market_errors])
-        if not dobrybuk_rows:
-            raise RuntimeError(
-                "Znaleziono wydarzenia, ale nie odczytano pełnych tabel kursów. "
-                "Nie publikuję pustego wyniku."
+        dobrybuk_rows = []
+        market_errors = []
+        market_stats = {
+            "detail_events_scanned": 0,
+            "detail_events_total": len(events),
+            "exhaustive_complete": False,
+        }
+
+        if events:
+            dobrybuk_rows, market_errors, market_stats = await provider.scan_all_markets(
+                events,
+                max_events=settings.market_scan_max_events,
+                max_seconds=settings.market_scan_budget_seconds,
+                concurrency=settings.market_scan_concurrency,
             )
+            errors.extend([f"Markety: {x}" for x in market_errors])
+
+        if not dobrybuk_rows:
+            scan_mode = "listing-fallback"
+            fallback_rows, fallback_errors = await provider.scan_listing_fallback(
+                list(getattr(provider, "discovered_sports", []) or settings.sports)
+            )
+            errors.extend([f"Fallback: {x}" for x in fallback_errors])
+            dobrybuk_rows = fallback_rows
+
+            if fallback_rows:
+                if not events:
+                    events = [
+                        {
+                            "event": row.get("event", ""),
+                            "sport": row.get("sport", ""),
+                            "event_url": row.get("event_url", ""),
+                        }
+                        for row in fallback_rows
+                    ]
+                unique_events = {
+                    (str(r.get("sport", "")).lower(), event_key(str(r.get("event", ""))))
+                    for r in fallback_rows
+                }
+                market_stats = {
+                    "detail_events_scanned": len(unique_events),
+                    "detail_events_total": len(unique_events),
+                    "exhaustive_complete": False,
+                }
 
         try:
             direct_rows, direct_errors, direct_stats = await direct_task
@@ -291,6 +320,11 @@ async def scan_once() -> dict:
         errors.extend([f"Direct: {x}" for x in direct_errors])
 
         merged_rows = merge_markets(dobrybuk_rows + direct_rows)
+        if not merged_rows:
+            raise RuntimeError(
+                "Żadne źródło nie zwróciło kursów. Nie nadpisuję poprawnych danych pustym skanem."
+            )
+
         candidates = detect_from_markets(merged_rows)
 
         confirmed = []
@@ -339,7 +373,7 @@ async def scan_once() -> dict:
         sources = {
             "DobryBuk": {
                 "markets": len(dobrybuk_rows),
-                "events": len(events),
+                "events": len({(event_key(str(r.get("event", ""))), str(r.get("sport", "")).lower()) for r in merged_rows}),
                 "mode": "comparison",
             },
             **(direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}),
@@ -369,7 +403,8 @@ async def scan_once() -> dict:
                 "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v16-bookmaker-coupon",
+                "scanner": "multi-source-v17-resilient-coupon",
+                "scan_mode": scan_mode,
                 "sources": sources,
             },
             "errors": errors[-80:],
