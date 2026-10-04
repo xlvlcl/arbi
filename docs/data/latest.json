@@ -1,6 +1,6 @@
 {
-  "generated_at": 1791124498.7808852,
-  "last_scan": 1791124498.7808852,
+  "generated_at": 1791124624.5773752,
+  "last_scan": 1791124624.5773752,
   "latest": [],
   "scan_preview": [
     {
@@ -254,6 +254,89 @@
       ]
     },
     {
+      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Forbet",
+          "odds": 1.33,
+          "bookmaker_url": "https://www.iforbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.32,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.27,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Forbet",
+          "odds": 5.2,
+          "bookmaker_url": "https://www.iforbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 5.2,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 4.8,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Forbet",
+          "odds": 6.0,
+          "bookmaker_url": "https://www.iforbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 5.8,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 5.4,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
       "event": "CSM Slatina - Universitatea Craiova",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
@@ -379,79 +462,121 @@
       ]
     },
     {
-      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "event": "Holandia - Serbia",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "Forbet",
-          "odds": 1.33,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+          "bookmaker": "Betfan",
+          "odds": 1.2,
+          "bookmaker_url": "https://www.betfan.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "TotalBet",
-              "odds": 1.32,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "STS",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Betclic",
-              "odds": 1.27,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "Superbet",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "bookmaker": "Forbet",
-          "odds": 5.2,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+          "bookmaker": "Fortuna",
+          "odds": 7.8,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "TotalBet",
-              "odds": 5.2,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "LVBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Betclic",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "BetSport",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 7.5,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 7.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "bookmaker": "Forbet",
-          "odds": 6.0,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+          "bookmaker": "LVBet",
+          "odds": 14.2,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "TotalBet",
-              "odds": 5.8,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "Fuksiarz",
+              "odds": 14.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Betclic",
-              "odds": 5.4,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "STS",
+              "odds": 13.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
@@ -577,131 +702,6 @@
               "odds": 4.7,
               "bookmaker_url": "https://www.betfan.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Holandia - Serbia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 1.2,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 7.8,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 7.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 7.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 14.2,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 14.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 13.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
@@ -1596,6 +1596,102 @@
       ]
     },
     {
+      "id": "c94bd70c22372e",
+      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.33,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.33,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.32,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.27,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 5.2,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 5.2,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 5.2,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 4.8,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 6.0,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 6.0,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 5.8,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 5.4,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "9617290cd3df18",
       "event": "CSM Slatina - Universitatea Craiova",
       "sport": "PIŁKA NOŻNA",
@@ -1860,95 +1956,263 @@
       ]
     },
     {
-      "id": "c94bd70c22372e",
-      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "id": "4f0e976b2633fc",
+      "event": "Holandia - Serbia",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
       "sources": [
         "DobryBuk"
       ],
       "selections": [
         {
           "selection": "1",
-          "best_odds": 1.33,
-          "best_bookmaker": "Forbet",
+          "best_odds": 1.2,
+          "best_bookmaker": "Betfan",
           "offers": [
             {
+              "bookmaker": "Betfan",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.2,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
               "bookmaker": "Forbet",
-              "odds": 1.33,
+              "odds": 1.19,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.19,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 1.32,
+              "odds": 1.19,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 1.27,
+              "odds": 1.18,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.17,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "best_odds": 5.2,
-          "best_bookmaker": "Forbet",
+          "best_odds": 7.8,
+          "best_bookmaker": "Fortuna",
           "offers": [
             {
-              "bookmaker": "Forbet",
-              "odds": 5.2,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "bookmaker": "Fortuna",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 7.5,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 7.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 5.2,
+              "odds": 7.4,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 7.2,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 7.2,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 7.2,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 7.1,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 4.8,
+              "odds": 5.9,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "best_odds": 6.0,
-          "best_bookmaker": "Forbet",
+          "best_odds": 14.2,
+          "best_bookmaker": "LVBet",
           "offers": [
             {
+              "bookmaker": "LVBet",
+              "odds": 14.2,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 14.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 13.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
               "bookmaker": "Forbet",
-              "odds": 6.0,
+              "odds": 12.0,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 5.8,
+              "odds": 12.0,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 5.4,
+              "odds": 11.75,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 11.0,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
@@ -2213,270 +2477,6 @@
               "odds": 4.35,
               "bookmaker_url": "https://www.superbet.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4f0e976b2633fc",
-      "event": "Holandia - Serbia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 1.2,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.2,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.19,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 7.8,
-          "best_bookmaker": "Fortuna",
-          "offers": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 7.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 7.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 7.4,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 7.2,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 7.2,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 7.2,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 7.1,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 5.9,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 14.2,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 14.2,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 14.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 13.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 11.75,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
               "source_name": "DobryBuk"
             }
           ]
@@ -3260,7 +3260,7 @@
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 35.66,
+    "elapsed_seconds": 40.52,
     "scanner": "multi-source-v17-resilient-coupon",
     "scan_mode": "detail",
     "sources": {
@@ -3317,15 +3317,15 @@
     }
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Malta - Andora: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Kosowo - Austria: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Grecja - Niemcy: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Enosis Neon Paralimni - Anorthosis Famagusta: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Egipt - RPA: 1x2: brak pełnej tabeli bukmacherów",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
