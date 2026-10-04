@@ -18,55 +18,262 @@ const meta=b=>BOOK_META[b]||{abbr:String(b||"?").slice(0,3).toUpperCase(),url:"#
 const linkFor=o=>o?.bookmaker_url||o?.source_url||meta(o?.bookmaker).url||"#";
 const safeId=s=>String(s||"").replace(/[^a-z0-9_-]+/gi,"-");
 
-let data={latest:[],valuebets:[],near_arbs:[],coverage:{},intelligence:{},stats:{},scan_preview:[],coupon_catalog:[]};
-let budget=Math.max(1,Number(pref("globalBudget",50))||50);
-let coupon=loadCoupon();
-let selectedBook=localStorage.getItem("arbi_coupon_book_v16")||"";
-let openEventKey="";
-let currentView="surebets";
-
 const DATA_ENDPOINTS=[
   "data/latest.json",
   "https://raw.githubusercontent.com/xlvlcl/arbi/main/docs/data/latest.json"
 ];
 
-const UI_PREF_KEY="arbi_ui_prefs_v22";
+const UI_PREF_KEY="arbi_ui_prefs_v24";
+
 const INFO_COPY={
-  edge:{title:"Edge — przewaga kursu",body:"Edge to szacowana przewaga kursu bukmachera nad kursem fair wyliczonym z konsensusu innych bukmacherów po zdjęciu marży. +5% edge nie oznacza 5% szansy na wygraną ani gwarantowanego zysku."},
-  fairOdds:{title:"Fair kurs",body:"Fair kurs to kurs bez marży oszacowany na podstawie wielu innych bukmacherów."},
-  fairChance:{title:"Fair szansa",body:"Fair szansa to oszacowane prawdopodobieństwo wyniku po usunięciu marży z kursów bukmacherów referencyjnych."},
-  outcomeRisk:{title:"Ryzyko wyniku",body:"To 100% minus fair szansa. Pokazuje szacowaną szansę, że ten konkretny typ nie wejdzie. Value bet może mieć duże ryzyko pojedynczego wyniku i nadal dodatnią oczekiwaną wartość."},
-  signalRisk:{title:"Ryzyko sygnału",body:"Wewnętrzna heurystyka niepewności samego value: liczba bukmacherów, ich zgodność, odstęp kursu, edge i kolejne potwierdzenia. To nie jest prawdopodobieństwo przegranej."},
-  referenceBooks:{title:"Bukmacherzy referencyjni",body:"Inni bukmacherzy z kompletnym tym samym rynkiem, których kursy służą do oszacowania ceny fair."},
-  dispersion:{title:"Rozbieżność",body:"Pokazuje jak bardzo bukmacherzy referencyjni różnią się w ocenie prawdopodobieństwa. Im mniej, tym stabilniejszy konsensus."},
-  radarGap:{title:"Brak do arbitrażu",body:"Pokazuje jak blisko rynek jest matematycznego surebeta. Sam Radar nie jest jeszcze rekomendacją zakładu."},
-  surebetProfit:{title:"Minimalny zysk surebeta",body:"Filtr pokazuje tylko arbitraże o matematycznej marży co najmniej tej wartości, przy założeniu że kursy są nadal dostępne i rynki są rozliczane identycznie."},
-  confidence:{title:"HIGH / ELITE",body:"HIGH przeszedł restrykcyjny filtr oraz pełny recheck. ELITE ma jeszcze mocniejszy edge, więcej bukmacherów referencyjnych i niski rozrzut. Żaden poziom nie gwarantuje wygranej."}
+  scanner:{
+    title:"Skaner — co właściwie robi?",
+    body:"Skaner cyklicznie zbiera publicznie dostępne kursy, grupuje je po tym samym wydarzeniu i rynku, sprawdza kompletność wyników, a potem liczy arbitraże, value bety i pozycje do obserwacji.",
+    example:"Jeżeli dla rynku 1X2 mamy komplet kursów na 1, X i 2, dopiero wtedy można uczciwie sprawdzić, czy powstał surebet.",
+    note:"Liczba zeskanowanych wydarzeń nie oznacza pełnej oferty każdego bukmachera."
+  },
+  surebet:{
+    title:"Surebet / arbitraż",
+    body:"Surebet to zestaw zakładów na wszystkie wzajemnie wykluczające się wyniki tego samego rynku, w którym suma odwrotności efektywnych kursów jest mniejsza niż 1.",
+    formula:"1/kurs₁ + 1/kurs₂ + … < 1",
+    example:"Dla rynku dwudrogowego kursy 2.10 i 2.10 dają 1/2.10 + 1/2.10 ≈ 0.952, czyli matematyczną przestrzeń na arbitraż.",
+    note:"W praktyce kurs może się zmienić, buk może ograniczyć stawkę albo inaczej rozliczyć rynek."
+  },
+  bestFound:{
+    title:"Najlepszy znaleziony",
+    body:"Największy procentowy zysk spośród potwierdzonych surebetów w najnowszym skanie.",
+    note:"To nie jest prognoza meczu — dotyczy wyłącznie matematyki kursów."
+  },
+  surebetCount:{
+    title:"Liczba surebetów",
+    body:"Ile potwierdzonych arbitraży przeszło aktualny filtr i ponowny recheck w ostatnim skanie."
+  },
+  eventMarkets:{
+    title:"Zdarzenia / rynki",
+    body:"Pierwsza liczba to liczba znalezionych wydarzeń, druga to liczba zeskanowanych rynków. Jedno wydarzenie może mieć wiele rynków.",
+    example:"Jeden mecz może zawierać 1X2, over/under, BTS, handicapy, kartki, rożne i inne rynki."
+  },
+  lastScan:{
+    title:"Ostatni skan",
+    body:"Moment, z którego pochodzą najnowsze dane. Aplikacja porównuje dane z GitHub Pages i RAW repozytorium i wybiera nowsze."
+  },
+  bankroll:{
+    title:"Budżet surebeta",
+    body:"Łączna kwota, którą chcesz rozdzielić pomiędzy wszystkie nogi arbitrażu.",
+    example:"Przy budżecie 100 zł aplikacja dobiera stawki tak, aby wypłata była możliwie równa niezależnie od wyniku."
+  },
+  surebetProfit:{
+    title:"Minimalny zysk surebeta",
+    body:"Filtr pokazuje tylko arbitraże o matematycznej marży co najmniej tej wartości.",
+    formula:"zysk % ≈ (1 / suma odwrotności efektywnych kursów − 1) × 100%",
+    note:"To jest wartość modelowa przy założeniu, że kursy są nadal dostępne i rynki mają zgodne zasady rozliczenia."
+  },
+  sportFilter:{
+    title:"Filtr sportu",
+    body:"Ogranicza widok do wybranego sportu. Nie zmienia działania samego skanera — tylko to, co widzisz na ekranie."
+  },
+  market:{
+    title:"Rynek",
+    body:"Dokładny rodzaj zakładu, którego dotyczą kursy.",
+    example:"1X2, U/O 2.5, BTS, wynik setów, kartki albo strzały to różne rynki i nie wolno mieszać ich kursów."
+  },
+  selection:{
+    title:"Typ / wybór",
+    body:"Konkretny wynik w obrębie danego rynku, który trzeba postawić.",
+    example:"W U/O 2.5 wyborem może być „Powyżej 2.5” albo „Poniżej 2.5”."
+  },
+  odds:{
+    title:"Kurs",
+    body:"Mnożnik wypłaty oferowany przez bukmachera przed uwzględnieniem szczegółowych zasad, podatków lub limitów.",
+    example:"Kurs 2.00 oznacza nominalnie 200 zł wypłaty z 100 zł stawki."
+  },
+  stake:{
+    title:"Stawka",
+    body:"Kwota przypisana do konkretnej nogi arbitrażu. Skaner rozdziela budżet proporcjonalnie do odwrotności efektywnych kursów."
+  },
+  guaranteedPayout:{
+    title:"Minimalna wypłata",
+    body:"Najniższa modelowa wypłata spośród wszystkich możliwych wyników po rozdzieleniu stawek."
+  },
+  guaranteedProfit:{
+    title:"Minimalny zysk",
+    body:"Różnica pomiędzy minimalną modelową wypłatą a całym budżetem surebeta."
+  },
+  recheck:{
+    title:"Ponownie potwierdzony",
+    body:"Po znalezieniu kandydata skaner otwiera ten rynek jeszcze raz i dopiero na świeżych danych decyduje, czy nadal spełnia warunki.",
+    note:"Recheck zmniejsza ryzyko użycia starego kursu, ale nie zatrzymuje zmian kursów po zakończeniu skanu."
+  },
+  radar:{
+    title:"Radar",
+    body:"Radar pokazuje kompletne rynki, które są najbliżej matematycznego arbitrażu. To watchlista, a nie gotowe surebety.",
+    note:"Pozycja w Radarze nie oznacza, że należy ją obstawić."
+  },
+  radarGap:{
+    title:"Brak do arbitrażu",
+    body:"Pokazuje, jak daleko aktualna suma odwrotności kursów znajduje się od granicy surebeta.",
+    formula:"brak % ≈ (suma odwrotności efektywnych kursów − 1) × 100%",
+    example:"0.25% oznacza dużo bliższy rynek niż 6%."
+  },
+  scanMode:{
+    title:"Tryb skanu FAST / DEEP",
+    body:"FAST priorytetowo sprawdza watchlistę i część katalogu, żeby szybciej reagować. DEEP okresowo robi szersze przejście po katalogu i źródłach."
+  },
+  watchlist:{
+    title:"Watchlista",
+    body:"Rynki, które poprzednio były blisko arbitrażu albo miały interesujący sygnał value. Są sprawdzane wcześniej w kolejnych cyklach."
+  },
+  nearestArb:{
+    title:"Najbliższy arb",
+    body:"Najmniejszy aktualny procent brakujący do granicy matematycznego surebeta w Radarze."
+  },
+  value:{
+    title:"Value bet",
+    body:"Zakład, którego oferowany kurs jest wyższy niż oszacowany kurs fair. Value nie gwarantuje wygranej — chodzi o dodatnią oczekiwaną wartość w długim okresie.",
+    example:"Jeżeli fair kurs to 2.00, a buk oferuje 2.15, cena może być korzystna mimo że pojedynczy zakład nadal może przegrać."
+  },
+  edge:{
+    title:"Edge — przewaga kursu",
+    body:"Edge mówi, o ile korzystniejszy jest efektywny kurs buka względem ceny fair wyliczonej z konsensusu innych bukmacherów.",
+    formula:"edge ≈ efektywny kurs × fair prawdopodobieństwo − 1",
+    example:"+6% edge nie oznacza 6% szansy na wygraną. Oznacza około 6% przewagi ceny względem modelowej ceny fair.",
+    note:"To estymacja oparta na rynku, nie gwarancja dodatniego wyniku."
+  },
+  fairOdds:{
+    title:"Fair kurs",
+    body:"Modelowy kurs bez marży, oszacowany z wielu innych kompletnych ofert na ten sam rynek.",
+    formula:"fair kurs = 1 / fair prawdopodobieństwo",
+    example:"Fair kurs 5.08 odpowiada około 19.7% prawdopodobieństwa."
+  },
+  fairChance:{
+    title:"Fair szansa",
+    body:"Oszacowane prawdopodobieństwo wyniku po usunięciu marży z kursów bukmacherów referencyjnych.",
+    formula:"fair szansa = 1 / fair kurs",
+    example:"1 / 5.08 ≈ 19.7%."
+  },
+  outcomeRisk:{
+    title:"Ryzyko wyniku",
+    body:"Przybliżone ryzyko, że konkretny typ nie wejdzie, liczone jako 100% minus fair szansa.",
+    formula:"ryzyko wyniku ≈ 100% − fair szansa",
+    example:"Fair szansa 19.7% daje około 80.3% ryzyka niewejścia pojedynczego typu.",
+    note:"Wysokie ryzyko wyniku może występować jednocześnie z dobrym value."
+  },
+  signalRisk:{
+    title:"Ryzyko sygnału",
+    body:"Wewnętrzny wskaźnik niepewności jakości samego sygnału value. Bierze pod uwagę zgodność bukmacherów, liczbę źródeł, odstęp kursu, edge i ponowne potwierdzenia.",
+    note:"To NIE jest prawdopodobieństwo przegrania meczu."
+  },
+  referenceBooks:{
+    title:"Bukmacherzy referencyjni",
+    body:"Inni bukmacherzy z kompletnym tym samym rynkiem, których kursy służą do zbudowania konsensusu ceny fair."
+  },
+  dispersion:{
+    title:"Rozbieżność rynku",
+    body:"Mierzy, jak mocno bukmacherzy referencyjni różnią się w ocenie prawdopodobieństwa. Niższa wartość oznacza bardziej zgodny rynek."
+  },
+  confidence:{
+    title:"HIGH / ELITE",
+    body:"HIGH oznacza, że sygnał przeszedł restrykcyjne filtry i pełny recheck. ELITE wymaga jeszcze mocniejszego edge, większej liczby referencji i niskiej rozbieżności.",
+    note:"Ani HIGH, ani ELITE nie gwarantuje wygranej."
+  },
+  coverage:{
+    title:"Rzeczywiste pokrycie",
+    body:"Pokazuje ile zdarzeń, rynków i kursów skaner naprawdę znalazł dla poszczególnych źródeł. Nie jest to deklaracja 100% całej oferty bukmachera."
+  },
+  directSource:{
+    title:"Direct source",
+    body:"Próba odczytania publicznej strony bukmachera bezpośrednio. Jeżeli źródło blokuje automatyczny dostęp, aplikacja pokazuje błąd zamiast udawać, że dane zostały pobrane."
+  },
+  coupon:{
+    title:"Kupon",
+    body:"Narzędzie do zebrania własnych typów i porównania, u którego bukmachera cały zestaw ma najwyższy łączny kurs."
+  },
+  couponStake:{
+    title:"Stawka kuponu",
+    body:"Kwota, którą chcesz postawić na cały kupon. Służy do wyliczenia potencjalnej wypłaty."
+  },
+  totalOdds:{
+    title:"Łączny kurs",
+    body:"Iloczyn kursów wszystkich typów w kuponie.",
+    formula:"łączny kurs = kurs₁ × kurs₂ × …"
+  },
+  payout:{
+    title:"Potencjalna wypłata",
+    body:"Stawka pomnożona przez łączny kurs. To wartość nominalna przed ewentualnymi różnicami w rozliczeniu.",
+    formula:"wypłata = stawka × łączny kurs"
+  },
+  bestBook:{
+    title:"Najlepszy buk dla kuponu",
+    body:"Bukmacher, u którego skaner znalazł wszystkie zaznaczone typy i najwyższy iloczyn ich aktualnie widzianych kursów."
+  },
+  push:{
+    title:"Powiadomienia Push",
+    body:"Po aktywnej subskrypcji OneSignal urządzenie może dostać alert po potwierdzeniu nowego surebeta lub mocnego value betu.",
+    note:"Sama zgoda Android/iOS nie wystarczy — status w zakładce Aplikacja powinien pokazywać aktywną subskrypcję."
+  },
+  sourceHealth:{
+    title:"Zdrowie źródeł",
+    body:"Pokazuje czy dane źródło odpowiadało w ostatnich skanach oraz ile razy z rzędu działało lub zgłaszało problem."
+  },
+  scanQuality:{
+    title:"Jakość skanu",
+    body:"Podsumowanie liczby rynków, bukmacherów i średniej liczby ofert przypadających na rynek. Im bogatszy rynek, tym więcej danych do porównania."
+  }
 };
-function readPrefs(){try{return JSON.parse(localStorage.getItem(UI_PREF_KEY)||"{}")||{}}catch{return {}}}
+
+function readPrefs(){
+  try{return JSON.parse(localStorage.getItem(UI_PREF_KEY)||"{}")||{}}
+  catch{return {}}
+}
 let uiPrefs=readPrefs();
-function pref(id,fallback=""){return Object.prototype.hasOwnProperty.call(uiPrefs,id)?uiPrefs[id]:fallback}
-function savePref(id,value){uiPrefs[id]=value;localStorage.setItem(UI_PREF_KEY,JSON.stringify(uiPrefs))}
+function pref(id,fallback=""){
+  return Object.prototype.hasOwnProperty.call(uiPrefs,id)?uiPrefs[id]:fallback;
+}
+function savePref(id,value){
+  uiPrefs[id]=value;
+  try{localStorage.setItem(UI_PREF_KEY,JSON.stringify(uiPrefs))}catch{}
+}
 function restoreStaticPrefs(){
   for(const id of ["globalBudget","minFilter","radarGap","valueMinEdge","couponStake","couponSearch"]){
     const el=document.getElementById(id);
     if(el&&Object.prototype.hasOwnProperty.call(uiPrefs,id))el.value=uiPrefs[id];
   }
 }
-function infoIcon(key){return `<button type="button" class="info-i" data-info="${esc(key)}" aria-label="Wyjaśnij">i</button>`}
+function infoIcon(key){
+  return `<button type="button" class="info-i" data-info="${esc(key)}" aria-label="Wyjaśnij pojęcie" title="Kliknij, żeby wyjaśnić">i</button>`;
+}
+function setOptionalText(id,value){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const text=String(value||"").trim();
+  el.textContent=text;
+  el.parentElement.hidden=!text;
+}
 function openInfo(key){
-  const info=INFO_COPY[key]; if(!info)return;
+  const info=INFO_COPY[key];
+  if(!info)return;
   document.getElementById("infoModalTitle").textContent=info.title;
-  document.getElementById("infoModalBody").textContent=info.body;
+  document.getElementById("infoModalBody").textContent=info.body||"";
+  setOptionalText("infoModalFormula",info.formula);
+  setOptionalText("infoModalExample",info.example);
+  setOptionalText("infoModalNote",info.note);
   document.getElementById("infoModal").hidden=false;
   document.body.classList.add("modal-open");
 }
-function closeInfo(){const m=document.getElementById("infoModal");if(m)m.hidden=true;document.body.classList.remove("modal-open")}
-function riskLabel(level){return ({low:"małe",medium:"średnie",high:"duże"}[String(level||"").toLowerCase()]||"—")}
+function closeInfo(){
+  const modal=document.getElementById("infoModal");
+  if(modal)modal.hidden=true;
+  document.body.classList.remove("modal-open");
+}
+function riskLabel(level){
+  return ({low:"małe",medium:"średnie",high:"duże"}[String(level||"").toLowerCase()]||"—");
+}
 function humanPick(selection,market){
   const s=String(selection||"").trim();
-  let m=s.match(/^(?:O|Over)\s*([0-9.,]+)/i); if(m)return `Powyżej ${m[1].replace(",",".")}`;
-  m=s.match(/^(?:U|Under)\s*([0-9.,]+)/i); if(m)return `Poniżej ${m[1].replace(",",".")}`;
+  let m=s.match(/^(?:O|Over)\s*([0-9.,]+)/i);
+  if(m)return `Powyżej ${m[1].replace(",",".")}`;
+  m=s.match(/^(?:U|Under)\s*([0-9.,]+)/i);
+  if(m)return `Poniżej ${m[1].replace(",",".")}`;
   if(/^BTS\+$/i.test(s)||(/^(tak|yes)$/i.test(s)&&/bts/i.test(String(market))))return "Obie drużyny strzelą — TAK";
   if(/^BTS-$/i.test(s)||(/^(nie|no)$/i.test(s)&&/bts/i.test(String(market))))return "Obie drużyny strzelą — NIE";
   if(s==="1")return "Wygrana pierwszej drużyny / zawodnika (1)";
@@ -75,7 +282,17 @@ function humanPick(selection,market){
   return s;
 }
 function exactBookUrl(v){return String(v?.exact_bookmaker_url||"").trim()}
-function comparisonUrl(v){const u=String(v?.event_url||v?.source_url||"").trim();return u.includes("dobrybuk.pl")?u:""}
+function comparisonUrl(v){
+  const u=String(v?.event_url||v?.source_url||"").trim();
+  return u.includes("dobrybuk.pl")?u:"";
+}
+
+let data={latest:[],valuebets:[],near_arbs:[],coverage:{},intelligence:{},stats:{},scan_preview:[],coupon_catalog:[]};
+let budget=Math.max(1,Number(pref("globalBudget",50))||50);
+let coupon=loadCoupon();
+let selectedBook=localStorage.getItem("arbi_coupon_book_v16")||"";
+let openEventKey="";
+let currentView="surebets";
 
 function normalizePayload(payload){
   payload.latest=Array.isArray(payload.latest)?payload.latest:[];
@@ -123,54 +340,148 @@ function normalizePayload(payload){
 
 // ---------- ACCESS GATE ----------
 const AUTH_KEY="arbi_access_v1";
+const AUTH_COOKIE="arbi_access_forever";
+
 async function sha256(value){
   const bytes=new TextEncoder().encode(value);
   const digest=await crypto.subtle.digest("SHA-256",bytes);
   return [...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
 }
-function authHash(){return String(window.ARBI_AUTH_HASH||"").trim().toLowerCase()}
+function authHash(){
+  return String(window.ARBI_AUTH_HASH||"").trim().toLowerCase();
+}
+function authCookieValue(){
+  const row=document.cookie.split("; ").find(x=>x.startsWith(`${AUTH_COOKIE}=`));
+  return row?decodeURIComponent(row.split("=").slice(1).join("=")):"";
+}
+function rememberAccess(expected){
+  try{
+    localStorage.setItem(AUTH_KEY,JSON.stringify({
+      hash:expected,
+      forever:true,
+      savedAt:Date.now()
+    }));
+  }catch{}
+  try{
+    document.cookie=`${AUTH_COOKIE}=${encodeURIComponent(expected)}; Max-Age=315360000; Path=/; SameSite=Lax; Secure`;
+  }catch{}
+}
+function clearRememberedAccess(){
+  try{localStorage.removeItem(AUTH_KEY)}catch{}
+  try{document.cookie=`${AUTH_COOKIE}=; Max-Age=0; Path=/; SameSite=Lax; Secure`}catch{}
+}
 function rememberedAccessValid(){
   const expected=authHash();
   if(!expected)return false;
   try{
     const saved=JSON.parse(localStorage.getItem(AUTH_KEY)||"null");
-    return Boolean(saved&&saved.hash===expected&&saved.forever===true);
-  }catch{return false}
+    if(saved&&saved.hash===expected&&saved.forever===true)return true;
+  }catch{}
+  return authCookieValue()===expected;
+}
+async function refreshAuthConfig(){
+  return new Promise(resolve=>{
+    const script=document.createElement("script");
+    script.src=`./auth-config.js?t=${Date.now()}`;
+    script.async=true;
+    script.onload=()=>{script.remove();resolve(true)};
+    script.onerror=()=>{script.remove();resolve(false)};
+    document.head.appendChild(script);
+  });
 }
 function showGate(message=""){
   const gate=document.getElementById("authGate");
+  if(!gate)return;
   gate.hidden=false;
   document.body.classList.add("locked");
   const error=document.getElementById("authError");
-  if(error&&message)error.textContent=message;
+  if(error)error.textContent=message;
   setTimeout(()=>document.getElementById("authPassword")?.focus(),80);
 }
 function hideGate(){
-  document.getElementById("authGate").hidden=true;
+  const gate=document.getElementById("authGate");
+  if(gate)gate.hidden=true;
   document.body.classList.remove("locked");
 }
-function lockNow(){localStorage.removeItem(AUTH_KEY);showGate()}
+function lockNow(){
+  clearRememberedAccess();
+  showGate("Dostęp został zablokowany na tym urządzeniu.");
+}
 async function initAuth(){
+  const status=document.getElementById("authStatus");
+  if(status)status.textContent="Sprawdzam aktualną konfigurację…";
+  await refreshAuthConfig();
+
   const expected=authHash();
   if(!expected){
-    showGate("Blokada nie jest skonfigurowana. Dodaj sekret SITE_PASSWORD i uruchom workflow ponownie.");
+    if(status)status.textContent="Brak konfiguracji hasła";
+    showGate("Brak aktualnego hasha SITE_PASSWORD w opublikowanej stronie. Uruchom workflow po zapisaniu sekretu SITE_PASSWORD.");
+    return false;
+  }
+
+  if(rememberedAccessValid()){
+    if(status)status.textContent="Dostęp zapamiętany";
+    hideGate();
+    return true;
+  }
+
+  if(status)status.textContent="Wymagane hasło";
+  showGate();
+  return false;
+}
+
+document.getElementById("authForm")?.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const error=document.getElementById("authError");
+  const input=document.getElementById("authPassword");
+  const submit=e.submitter||e.currentTarget.querySelector('button[type="submit"]');
+
+  if(submit){submit.disabled=true;submit.textContent="Sprawdzam…"}
+  if(error)error.textContent="";
+
+  await refreshAuthConfig();
+  const expected=authHash();
+  if(!expected){
+    if(error)error.textContent="Nie udało się pobrać aktualnej konfiguracji hasła. Odśwież stronę lub uruchom workflow.";
+    if(submit){submit.disabled=false;submit.textContent="Wejdź"}
     return;
   }
-  if(rememberedAccessValid()){hideGate();return}
-  showGate();
-}
-document.getElementById("authForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const expected=authHash(),error=document.getElementById("authError");
-  if(!expected){error.textContent="Brak skonfigurowanego hasła SITE_PASSWORD.";return}
-  const actual=await sha256(document.getElementById("authPassword").value);
-  if(actual!==expected){error.textContent="Nieprawidłowe hasło.";return}
-  error.textContent="";
-  localStorage.setItem(AUTH_KEY,JSON.stringify({hash:expected,forever:true}));
-  document.getElementById("authPassword").value="";
+
+  const raw=String(input?.value||"");
+  if(!raw){
+    if(error)error.textContent="Wpisz hasło.";
+    if(submit){submit.disabled=false;submit.textContent="Wejdź"}
+    return;
+  }
+
+  const exact=await sha256(raw);
+  const trimmed=raw.trim()!==raw?await sha256(raw.trim()):exact;
+  if(exact!==expected&&trimmed!==expected){
+    if(error)error.textContent="To hasło nie pasuje do aktualnej konfiguracji strony. Jeśli SITE_PASSWORD było zmieniane, zapisz właściwą wartość w GitHub Secrets i uruchom workflow.";
+    if(submit){submit.disabled=false;submit.textContent="Wejdź"}
+    return;
+  }
+
+  rememberAccess(expected);
+  if(error)error.textContent="";
+  if(input)input.value="";
+  if(submit){submit.disabled=false;submit.textContent="Wejdź"}
+  const status=document.getElementById("authStatus");
+  if(status)status.textContent="Zapamiętane na tym urządzeniu";
   hideGate();
 });
-document.getElementById("lockBtn").addEventListener("click",lockNow);
+
+document.getElementById("authToggle")?.addEventListener("click",()=>{
+  const input=document.getElementById("authPassword");
+  const btn=document.getElementById("authToggle");
+  if(!input||!btn)return;
+  const show=input.type==="password";
+  input.type=show?"text":"password";
+  btn.textContent=show?"Ukryj":"Pokaż";
+  btn.setAttribute("aria-pressed",show?"true":"false");
+});
+
+document.getElementById("lockBtn")?.addEventListener("click",lockNow);
 
 // ---------- DATA ----------
 async function load(){
@@ -219,15 +530,15 @@ function legsHtml(a,bankroll){
     const m=meta(l.bookmaker),link=linkFor(l),exact=Boolean(l.link_exact||l.bookmaker_link_exact);
     return `<div class="leg"><div class="leg-main">
       <div class="book"><div class="book-logo">${esc(m.abbr)}</div><div class="book-info"><div class="book-name">${esc(l.bookmaker)}</div><div class="book-sub">najlepszy kurs</div></div></div>
-      <div class="pick"><div class="pick-label">Wybór</div><div class="pick-value">${esc(l.selection)}</div></div>
+      <div class="pick"><div class="pick-label">Wybór ${infoIcon("selection")}</div><div class="pick-value">${esc(l.selection)}</div></div>
       <div class="odds-badge"><div class="odds-stack"><div class="odds">${Number(l.odds).toFixed(2)}</div><div class="stake">${fmt(l.stake)} zł</div></div>${exact&&link&&link!=="#"?`<a class="btn btn-small open-btn" href="${esc(link)}" target="_blank" rel="noopener">Otwórz wydarzenie ↗</a>`:""}</div>
       </div>${alternativesHtml(l)}</div>`;
   }).join("");
 }
 function card(a,bankroll){
   const s=scale(a,bankroll);
-  return `<article class="arb glass"><div class="arb-top"><div class="arb-left"><div class="arb-line"><span class="sport-tag">${esc(a.sport)}</span><span class="profit">+${Number(a.profit_pct||0).toFixed(2)}%</span><span class="market">${esc(a.market||"Rynek")}</span></div><h2 class="event">${esc(a.event)}</h2></div><div class="status-pill status-compact"><span class="dot"></span> potwierdzony</div></div>
-  <div class="arb-body"><div class="legs">${legsHtml(a,bankroll)}</div><aside class="calc"><div class="calc-title">Budżet</div><div class="calc-input"><input class="budget" type="number" min="1" step="1" value="${Number(bankroll)}"><span>PLN</span></div><div class="calc-grid"><div class="calc-stat"><span>Wkład</span><strong>${fmt(bankroll)} zł</strong></div><div class="calc-stat"><span>Wypłata min.</span><strong>${fmt(s.payout)} zł</strong></div><div class="calc-stat full"><span>Zysk min.</span><strong class="green">+${fmt(s.profit)} zł</strong></div></div>${s.legs.map(l=>`<div class="leg-mini"><span>${esc(l.bookmaker)} · ${esc(l.selection)}</span><strong>${fmt(l.stake)} zł</strong></div>`).join("")}<div class="warning">Sprawdź kursy bezpośrednio przed postawieniem obu stron.</div></aside></div></article>`;
+  return `<article class="arb glass"><div class="arb-top"><div class="arb-left"><div class="arb-line"><span class="sport-tag">${esc(a.sport)}</span><span class="profit">+${Number(a.profit_pct||0).toFixed(2)}% ${infoIcon("surebetProfit")}</span><span class="market">${esc(a.market||"Rynek")} ${infoIcon("market")}</span></div><h2 class="event">${esc(a.event)}</h2></div><div class="status-pill status-compact"><span class="dot"></span> potwierdzony ${infoIcon("recheck")}</div></div>
+  <div class="arb-body"><div class="legs">${legsHtml(a,bankroll)}</div><aside class="calc"><div class="calc-title">Budżet ${infoIcon("bankroll")}</div><div class="calc-input"><input class="budget" type="number" min="1" step="1" value="${Number(bankroll)}"><span>PLN</span></div><div class="calc-grid"><div class="calc-stat"><span>Wkład ${infoIcon("bankroll")}</span><strong>${fmt(bankroll)} zł</strong></div><div class="calc-stat"><span>Wypłata min. ${infoIcon("guaranteedPayout")}</span><strong>${fmt(s.payout)} zł</strong></div><div class="calc-stat full"><span>Zysk min. ${infoIcon("guaranteedProfit")}</span><strong class="green">+${fmt(s.profit)} zł</strong></div></div>${s.legs.map(l=>`<div class="leg-mini"><span>${esc(l.bookmaker)} · ${esc(l.selection)}</span><strong>${fmt(l.stake)} zł</strong></div>`).join("")}<div class="warning">Sprawdź kursy bezpośrednio przed postawieniem obu stron.</div></aside></div></article>`;
 }
 function cleanPreviewEvent(value){
   return String(value||"")
@@ -383,10 +694,10 @@ function radarCard(x){
   return `<article class="radar-card glass">
     <div class="radar-card-head">
       <div>
-        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">${x.radar_tier==="near"?"BLISKO ARBU":"OBSERWUJ"} · brakuje ${Number(x.gap_pct||0).toFixed(2)}%</span><span class="market">${esc(x.market)}</span></div>
+        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">${x.radar_tier==="near"?"BLISKO ARBU":"OBSERWUJ"} · brakuje ${Number(x.gap_pct||0).toFixed(2)}% ${infoIcon("radarGap")}</span><span class="market">${esc(x.market)}</span></div>
         <h3>${esc(x.event)}</h3>
       </div>
-      <div class="radar-seen">${Number(x.seen_scans||1)}× obserwowany</div>
+      <div class="radar-seen">${Number(x.seen_scans||1)}× obserwowany ${infoIcon("watchlist")}</div>
     </div>
     <div class="radar-legs">${(x.legs||[]).map(l=>`<div class="radar-leg"><span>${esc(l.selection)}</span><b>${Number(l.odds||0).toFixed(2)}</b><small>${esc(l.bookmaker)}</small></div>`).join("")}</div>
     <div class="radar-foot">
@@ -402,7 +713,7 @@ function renderSourceHealth(){
   const rows=Object.entries(health);
   grid.innerHTML=rows.length?rows.map(([name,x])=>{
     const ok=Boolean(x.ok),fail=Number(x.consecutive_failures||0),succ=Number(x.consecutive_success||0);
-    return `<div class="source-health ${ok?"ok":"bad"}"><div><b>${esc(name)}</b><span>${ok?"działa":"problem"}</span></div><small>${ok?`${succ} udanych z rzędu`:`${fail} błędów z rzędu`}</small></div>`;
+    return `<div class="source-health ${ok?"ok":"bad"}"><div><b>${esc(name)}</b><span>${ok?"działa":"problem"}</span>${infoIcon("sourceHealth")}</div><small>${ok?`${succ} udanych z rzędu`:`${fail} błędów z rzędu`}</small></div>`;
   }).join(""):'<div class="coupon-empty">Brak historii źródeł.</div>';
 }
 function renderRadar(){
@@ -453,7 +764,7 @@ function valueCard(v){
         <div class="arb-line">
           <span class="sport-tag">${esc(v.sport||"Sport")}</span>
           <span class="value-edge">+${Number(v.edge_pct||0).toFixed(1)}% edge ${infoIcon("edge")}</span>
-          <span class="market">${esc(v.market||"Rynek")}</span>
+          <span class="market">${esc(v.market||"Rynek")} ${infoIcon("market")}</span>
         </div>
         <h3>${esc(event)}</h3>
       </div>
@@ -465,7 +776,7 @@ function valueCard(v){
       <div class="bet-instruction-main">
         <span>CO DOKŁADNIE POSTAWIĆ</span>
         <strong>${esc(pick)}</strong>
-        <small>${esc(v.bookmaker)} • kurs <b>${Number(v.odds||0).toFixed(2)}</b> • rynek: ${esc(v.market||"Rynek")}</small>
+        <small>${esc(v.bookmaker)} • kurs <b>${Number(v.odds||0).toFixed(2)}</b> ${infoIcon("odds")} • rynek: ${esc(v.market||"Rynek")}</small>
       </div>
     </div>
 
@@ -479,7 +790,7 @@ function valueCard(v){
     <div class="value-evidence">
       <span>✓ ${Number(v.reference_books||0)} buków referencyjnych ${infoIcon("referenceBooks")}</span>
       <span>✓ rozbieżność ${Number(v.dispersion_pct||0).toFixed(2)}% ${infoIcon("dispersion")}</span>
-      <span>✓ pełny recheck</span>
+      <span>✓ pełny recheck ${infoIcon("recheck")}</span>
       <span>✓ ${Number(v.stability_scans||1)}× potwierdzenie</span>
     </div>
 
@@ -683,7 +994,7 @@ function toggleEvent(key){
 }
 function marketHtml(market,event){
   return `<div class="event-market">
-    <div class="event-market-title"><span>${esc(market.market)}</span><small>${market.selections.length} typów</small></div>
+    <div class="event-market-title"><span>${esc(market.market)} ${infoIcon("market")}</span><small>${market.selections.length} typów</small></div>
     <div class="market-selections">
       ${market.selections.map(s=>{
         const o=s.offer,u=linkFor(o),inCoupon=coupon.some(x=>x.key===`${market.id}|${s.selection}`);
@@ -765,7 +1076,7 @@ function renderCouponRanking(legs){
   const wrap=document.getElementById("couponRanking");
   if(!legs.length){wrap.innerHTML="";return}
   const rankings=commonBookRanking(legs),current=rankings.find(r=>r.book===selectedBook),best=rankings[0];
-  let html='<div class="compare-title">Porównanie tego samego kuponu</div>';
+  let html='<div class="compare-title">Porównanie tego samego kuponu ${infoIcon("bestBook")}</div>';
   if(current){
     html+=`<div class="compare-row current"><span>${esc(selectedBook)}</span><strong>${current.total.toFixed(2)}</strong><small>Twój wybrany buk</small></div>`;
   }
@@ -819,6 +1130,40 @@ function repaint(){
   }
 }
 
+function addInfoTo(selector,key){
+  document.querySelectorAll(selector).forEach(el=>{
+    if(el.querySelector?.(`[data-info="${key}"]`))return;
+    el.insertAdjacentHTML("beforeend",` ${infoIcon(key)}`);
+  });
+}
+function decorateStaticHelp(){
+  addInfoTo(".hero-card .eyebrow","scanner");
+  addInfoTo(".kpi:nth-child(1) .kpi-label","bestFound");
+  addInfoTo(".kpi:nth-child(2) .kpi-label","surebetCount");
+  addInfoTo(".kpi:nth-child(3) .kpi-label","eventMarkets");
+  addInfoTo(".kpi:nth-child(4) .kpi-label","lastScan");
+  addInfoTo(".budget-wrap label","bankroll");
+  addInfoTo("#surebetsView .controls .input-wrap:first-child label","sportFilter");
+
+  addInfoTo("#radarView .radar-hero .eyebrow","radar");
+  addInfoTo("#radarView .radar-plan>div:nth-child(1) span","scanMode");
+  addInfoTo("#radarView .radar-plan>div:nth-child(2) span","watchlist");
+  addInfoTo("#radarView .radar-plan>div:nth-child(3) span","nearestArb");
+  addInfoTo("#radarView .intel-panel h3","scanQuality");
+
+  addInfoTo("#valueView .value-hero .eyebrow","value");
+  addInfoTo("#valueView .value-kpis>div:nth-child(1) span","confidence");
+  addInfoTo("#valueView .value-kpis>div:nth-child(2) span","edge");
+  addInfoTo("#valueView .coverage-panel h3","coverage");
+
+  addInfoTo("#couponView .coupon-dashboard .eyebrow","coupon");
+  addInfoTo("#couponView label[for='couponStake'], #couponView .compact-input label","couponStake");
+  addInfoTo("#couponTotalOddsLabel","totalOdds");
+  addInfoTo("#couponPayoutLabel","payout");
+
+  addInfoTo("#appView .app-hero .eyebrow, #appView .push-panel .eyebrow","push");
+}
+
 // ---------- EVENTS ----------
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
 const initialView=(location.hash||"").replace("#","");
@@ -849,9 +1194,14 @@ document.addEventListener("input",e=>{
 });
 
 document.addEventListener("click",e=>{
-  const btn=e.target.closest?.("[data-info]");
-  if(btn){e.preventDefault();e.stopPropagation();openInfo(btn.dataset.info);}
-});
+  const target=e.target instanceof Element?e.target:null;
+  const btn=target?.closest("[data-info]");
+  if(!btn)return;
+  e.preventDefault();
+  e.stopPropagation();
+  e.stopImmediatePropagation?.();
+  openInfo(btn.dataset.info);
+},true);
 document.getElementById("infoModalClose")?.addEventListener("click",closeInfo);
 document.getElementById("infoModalBackdrop")?.addEventListener("click",closeInfo);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeInfo()});
@@ -862,8 +1212,10 @@ window.addCoupon=addCoupon;
 window.removeCoupon=removeCoupon;
 
 restoreStaticPrefs();
+decorateStaticHelp();
 budget=Math.max(1,Number(document.getElementById("globalBudget")?.value||budget)||budget);
-initAuth();saveCoupon();
+initAuth();
+saveCoupon();
 load().catch(()=>{
   document.getElementById("statusText").textContent="brak danych";
   document.getElementById("statusDot").style.background="#ff6b8b";
