@@ -1,8 +1,133 @@
 {
-  "generated_at": 1791124024.1061966,
-  "last_scan": 1791124024.1061966,
+  "generated_at": 1791124134.0356286,
+  "last_scan": 1791124134.0356286,
   "latest": [],
   "scan_preview": [
+    {
+      "event": "Kosowo - Austria",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 3.95,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.94,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.9,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "STS",
+          "odds": 3.5,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.45,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.45,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.4,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "ETOTO",
+          "odds": 2.05,
+          "bookmaker_url": "https://www.etoto.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.05,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.05,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.02,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.02,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
     {
       "event": "Azerbejdżan 1:0 Litwa",
       "sport": "PIŁKA NOŻNA",
@@ -254,246 +379,121 @@
       ]
     },
     {
-      "event": "Kosowo - Austria",
+      "event": "Grecja - Niemcy",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 3.95,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+          "bookmaker": "BetSport",
+          "odds": 4.3,
+          "bookmaker_url": "https://www.betsport.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "BetSport",
-              "odds": 3.94,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "bookmaker": "LVBet",
+              "odds": 4.25,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 4.15,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 4.15,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.1,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Fortuna",
+          "odds": 4.05,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 4.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.0,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
+              "odds": 4.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
               "odds": 3.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "STS",
-          "odds": 3.5,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.45,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.45,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.4,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.4,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "bookmaker": "ETOTO",
-          "odds": 2.05,
-          "bookmaker_url": "https://www.etoto.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+          "bookmaker": "BetSport",
+          "odds": 1.86,
+          "bookmaker_url": "https://www.betsport.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "Fortuna",
-              "odds": 2.05,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "bookmaker": "LVBet",
+              "odds": 1.85,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.85,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 2.05,
+              "odds": 1.83,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Betclic",
-              "odds": 2.02,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.02,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Walia - Dania",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 4.1,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.88,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.85,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.8,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 3.75,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 2.05,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 2.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.97,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.96,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.96,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "bookmaker": "ETOTO",
+              "odds": 1.82,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             }
           ]
@@ -629,371 +629,121 @@
       ]
     },
     {
-      "event": "Grecja - Niemcy",
+      "event": "Walia - Dania",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "BetSport",
-          "odds": 4.3,
-          "bookmaker_url": "https://www.betsport.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+          "bookmaker": "LVBet",
+          "odds": 4.1,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
           "source_name": "DobryBuk",
           "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 4.05,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
             {
               "bookmaker": "BetSport",
-              "odds": 3.9,
+              "odds": 3.88,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "BetSport",
-          "odds": 1.86,
-          "bookmaker_url": "https://www.betsport.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
-            {
-              "bookmaker": "STS",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.82,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Holandia - Serbia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "BetSport",
-          "odds": 1.19,
-          "bookmaker_url": "https://www.betsport.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
             {
               "bookmaker": "Betfan",
-              "odds": 1.18,
+              "odds": 3.85,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "STS",
-          "odds": 9.0,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 8.1,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 7.8,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 7.8,
+              "odds": 3.8,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "STS",
-          "odds": 17.0,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 15.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "LVBet",
-              "odds": 14.2,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 13.5,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "CSM Slatina - Universitatea Craiova",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Fuksiarz",
-          "odds": 5.3,
-          "bookmaker_url": "https://fuksiarz.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "bookmaker": "Betclic",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "bookmaker": "Betfan",
-          "odds": 4.25,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+          "bookmaker": "LVBet",
+          "odds": 3.75,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "Fortuna",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "STS",
-              "odds": 4.25,
+              "odds": 3.7,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.2,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "bookmaker": "Betfan",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "LVBet",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "bookmaker": "TotalBet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "bookmaker": "Betfan",
-          "odds": 1.55,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+          "bookmaker": "LVBet",
+          "odds": 2.05,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
           "source_name": "DobryBuk",
           "alternatives": [
             {
-              "bookmaker": "BetSport",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "STS",
-              "odds": 1.54,
+              "odds": 2.0,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 1.54,
+              "odds": 1.97,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.96,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.96,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             }
           ]
@@ -1077,131 +827,6 @@
               "odds": 5.4,
               "bookmaker_url": "https://www.betclic.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Hamburger 0:0 FC Kopenhaga",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-      "best": [
-        {
-          "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 2.15,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 2.1,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.08,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.08,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.08,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 3.95,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.91,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.75,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 3.25,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.21,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
               "source_name": "DobryBuk"
             }
           ]
@@ -1337,6 +962,256 @@
       ]
     },
     {
+      "event": "Hamburger 0:0 FC Kopenhaga",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Betfan",
+          "odds": 2.15,
+          "bookmaker_url": "https://www.betfan.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "STS",
+              "odds": 2.1,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 2.08,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.08,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 2.08,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.95,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.91,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.75,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.7,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 3.25,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.21,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
+      "event": "Holandia - Serbia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "BetSport",
+          "odds": 1.19,
+          "bookmaker_url": "https://www.betsport.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "STS",
+          "odds": 9.0,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Fortuna",
+              "odds": 8.1,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 7.8,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "STS",
+          "odds": 17.0,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 15.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 14.2,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 13.5,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
       "event": "Portugalia - Norwegia",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
@@ -1455,6 +1330,169 @@
               "source_name": "DobryBuk"
             }
           ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
+      "event": "Egipt - RPA",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Betfan",
+          "odds": 1.65,
+          "bookmaker_url": "https://www.betfan.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.64,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.8,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.74,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 5.8,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+          "source_name": "DobryBuk",
+          "alternatives": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 5.7,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 5.4,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 5.25,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 5.2,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "DobryBuk"
+      ]
+    },
+    {
+      "event": "Komory - Senegal",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "STS",
+          "odds": 11.0,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+          "source_name": "DobryBuk",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "STS",
+          "odds": 6.0,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+          "source_name": "DobryBuk",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "STS",
+          "odds": 1.22,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+          "source_name": "DobryBuk",
+          "alternatives": []
         }
       ],
       "sources": [
@@ -1588,6 +1626,270 @@
     }
   ],
   "coupon_catalog": [
+    {
+      "id": "2249cc5df3a8b6",
+      "event": "Kosowo - Austria",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 3.95,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.95,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.94,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.9,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.63,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.55,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.5,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 3.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.45,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.45,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.4,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 3.4,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.37,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.35,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.35,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 3.35,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 2.05,
+          "best_bookmaker": "ETOTO",
+          "offers": [
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.05,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.05,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.05,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.02,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.02,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 2.0,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.99,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.98,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.98,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.98,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "0b5137fa732a55",
       "event": "Azerbejdżan 1:0 Litwa",
@@ -2096,527 +2398,263 @@
       ]
     },
     {
-      "id": "2249cc5df3a8b6",
-      "event": "Kosowo - Austria",
+      "id": "9c55c38334fc7c",
+      "event": "Grecja - Niemcy",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
       "sources": [
         "DobryBuk"
       ],
       "selections": [
         {
           "selection": "1",
-          "best_odds": 3.95,
-          "best_bookmaker": "LVBet",
+          "best_odds": 4.3,
+          "best_bookmaker": "BetSport",
           "offers": [
             {
-              "bookmaker": "LVBet",
-              "odds": 3.95,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "BetSport",
-              "odds": 3.94,
+              "odds": 4.3,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "STS",
-              "odds": 3.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "bookmaker": "LVBet",
+              "odds": 4.25,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betfan",
-              "odds": 3.75,
+              "odds": 4.15,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fortuna",
-              "odds": 3.65,
+              "odds": 4.15,
               "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.63,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.55,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 3.5,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 3.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.45,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Forbet",
-              "odds": 3.45,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.4,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.4,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.37,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 2.05,
-          "best_bookmaker": "ETOTO",
-          "offers": [
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.05,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.05,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.05,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.02,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.02,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.0,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.99,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.98,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.98,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.98,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/kosowo-vs-austria-2026-10-04-50609",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "3f6fc80ec56fed",
-      "event": "Walia - Dania",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 4.1,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
               "odds": 4.1,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.88,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.85,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.8,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.75,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
-              "odds": 3.7,
+              "odds": 4.0,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 3.65,
+              "odds": 4.0,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 4.0,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.95,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.95,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fuksiarz",
-              "odds": 3.6,
+              "odds": 3.85,
               "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "best_odds": 3.75,
-          "best_bookmaker": "LVBet",
+          "best_odds": 4.05,
+          "best_bookmaker": "Fortuna",
           "offers": [
             {
-              "bookmaker": "LVBet",
-              "odds": 3.75,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "bookmaker": "Fortuna",
+              "odds": 4.05,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betfan",
-              "odds": 3.65,
+              "odds": 4.0,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Forbet",
-              "odds": 3.6,
+              "odds": 4.0,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fortuna",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.55,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "bookmaker": "STS",
+              "odds": 4.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "BetSport",
-              "odds": 3.53,
+              "odds": 3.9,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.9,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 3.9,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.85,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.85,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 3.85,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "best_odds": 2.05,
-          "best_bookmaker": "LVBet",
+          "best_odds": 1.86,
+          "best_bookmaker": "BetSport",
           "offers": [
             {
+              "bookmaker": "BetSport",
+              "odds": 1.86,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
               "bookmaker": "LVBet",
-              "odds": 2.05,
+              "odds": 1.85,
               "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
-              "odds": 2.0,
+              "odds": 1.85,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 1.97,
+              "odds": 1.83,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.96,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.96,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.96,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "ETOTO",
-              "odds": 1.93,
+              "odds": 1.82,
               "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Forbet",
-              "odds": 1.93,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "bookmaker": "Fuksiarz",
+              "odds": 1.81,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 1.91,
+              "odds": 1.8,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.9,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 1.9,
+              "odds": 1.79,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.77,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.76,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.75,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
               "source_name": "DobryBuk"
             }
           ]
@@ -2888,791 +2926,263 @@
       ]
     },
     {
-      "id": "9c55c38334fc7c",
-      "event": "Grecja - Niemcy",
+      "id": "3f6fc80ec56fed",
+      "event": "Walia - Dania",
       "sport": "PIŁKA NOŻNA",
       "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
       "sources": [
         "DobryBuk"
       ],
       "selections": [
         {
           "selection": "1",
-          "best_odds": 4.3,
-          "best_bookmaker": "BetSport",
+          "best_odds": 4.1,
+          "best_bookmaker": "LVBet",
           "offers": [
             {
-              "bookmaker": "BetSport",
-              "odds": 4.3,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "LVBet",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
               "odds": 4.1,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.95,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.95,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.85,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 4.05,
-          "best_bookmaker": "Fortuna",
-          "offers": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.05,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "BetSport",
-              "odds": 3.9,
+              "odds": 3.88,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.9,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "bookmaker": "Betfan",
+              "odds": 3.85,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "TotalBet",
-              "odds": 3.9,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.85,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.85,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.85,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
               "odds": 3.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 1.86,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.86,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.82,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.81,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.8,
               "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 1.79,
+              "odds": 3.75,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.77,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.76,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.75,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "4f0e976b2633fc",
-      "event": "Holandia - Serbia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 1.19,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.19,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "ETOTO",
-              "odds": 1.18,
+              "odds": 3.75,
               "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Forbet",
-              "odds": 1.18,
+              "odds": 3.75,
               "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.17,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fortuna",
-              "odds": 1.16,
+              "odds": 3.75,
               "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
-              "odds": 1.15,
+              "odds": 3.7,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.6,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
-          "best_odds": 9.0,
-          "best_bookmaker": "STS",
+          "best_odds": 3.75,
+          "best_bookmaker": "LVBet",
           "offers": [
             {
-              "bookmaker": "STS",
-              "odds": 9.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 8.1,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 7.8,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "LVBet",
-              "odds": 7.8,
+              "odds": 3.75,
               "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "TotalBet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 7.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "bookmaker": "STS",
+              "odds": 3.7,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betfan",
-              "odds": 7.5,
+              "odds": 3.65,
               "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "Superbet",
-              "odds": 7.5,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "bookmaker": "TotalBet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 6.1,
+              "odds": 3.6,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.55,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.53,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "2",
-          "best_odds": 17.0,
-          "best_bookmaker": "STS",
+          "best_odds": 2.05,
+          "best_bookmaker": "LVBet",
           "offers": [
             {
-              "bookmaker": "STS",
-              "odds": 17.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 15.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "LVBet",
-              "odds": 14.2,
+              "odds": 2.05,
               "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 13.5,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 13.0,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 12.5,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "9617290cd3df18",
-      "event": "CSM Slatina - Universitatea Craiova",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 5.3,
-          "best_bookmaker": "Fuksiarz",
-          "offers": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 5.3,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.75,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "STS",
-              "odds": 4.7,
+              "odds": 2.0,
               "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 4.25,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.2,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Superbet",
-              "odds": 4.1,
+              "odds": 1.97,
               "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.83,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 1.55,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "BetSport",
-              "odds": 1.55,
+              "odds": 1.96,
               "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.52,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.51,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.51,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Fortuna",
-              "odds": 1.49,
+              "odds": 1.96,
               "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.96,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.93,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.93,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.91,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.9,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             },
             {
               "bookmaker": "Betclic",
-              "odds": 1.44,
+              "odds": 1.9,
               "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/csm-slatina-vs-universitatea-craiova-2026-10-04-56226",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
               "source_name": "DobryBuk"
             }
           ]
@@ -3769,249 +3279,6 @@
               "odds": 5.4,
               "bookmaker_url": "https://www.betclic.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "c3afdd1d33aadf",
-      "event": "Hamburger 0:0 FC Kopenhaga",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1",
-          "best_odds": 2.15,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.15,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.1,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.08,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.08,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.08,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.06,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.05,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.98,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.88,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.88,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 3.95,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.95,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.91,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.75,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 3.6,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.5,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.42,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2",
-          "best_odds": 3.25,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.25,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.21,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.0,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.86,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.85,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.84,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.8,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.77,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
               "source_name": "DobryBuk"
             }
           ]
@@ -4283,6 +3550,513 @@
       ]
     },
     {
+      "id": "c3afdd1d33aadf",
+      "event": "Hamburger 0:0 FC Kopenhaga",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 2.15,
+          "best_bookmaker": "Betfan",
+          "offers": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.15,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.1,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 2.08,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.08,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 2.08,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.06,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.05,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.98,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.88,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.88,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.95,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.95,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.91,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.75,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.7,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.55,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.55,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 3.55,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.5,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.42,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 3.25,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.25,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.21,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 3.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 2.95,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 2.9,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 2.86,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 2.85,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 2.84,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 2.8,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 2.77,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f0e976b2633fc",
+      "event": "Holandia - Serbia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.19,
+          "best_bookmaker": "BetSport",
+          "offers": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.19,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.18,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.17,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 1.17,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.17,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.17,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.16,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.15,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 9.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 9.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 8.1,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 7.8,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 7.8,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 7.6,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 7.5,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 7.5,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 6.1,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 17.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 17.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 15.0,
+              "bookmaker_url": "https://fuksiarz.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 14.2,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 13.5,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 13.0,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 12.5,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 12.0,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/holandia-vs-serbia-2026-10-04-50612",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "4504d5da9fa98e",
       "event": "Portugalia - Norwegia",
       "sport": "PIŁKA NOŻNA",
@@ -4540,6 +4314,303 @@
               "odds": 4.35,
               "bookmaker_url": "https://www.superbet.pl",
               "source_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ce0cd8afc5012",
+      "event": "Egipt - RPA",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.65,
+          "best_bookmaker": "Betfan",
+          "offers": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 1.65,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 1.64,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.62,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.6,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 1.59,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 1.59,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.8,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.75,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.74,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 3.65,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 3.6,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 3.55,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.5,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 5.8,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 5.8,
+              "bookmaker_url": "https://www.lvbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "BetSport",
+              "odds": 5.7,
+              "bookmaker_url": "https://www.betsport.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betfan",
+              "odds": 5.4,
+              "bookmaker_url": "https://www.betfan.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 5.25,
+              "bookmaker_url": "https://www.etoto.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Forbet",
+              "odds": 5.2,
+              "bookmaker_url": "https://www.iforbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Fortuna",
+              "odds": 5.2,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 5.15,
+              "bookmaker_url": "https://www.superbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Betclic",
+              "odds": 5.1,
+              "bookmaker_url": "https://www.betclic.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 5.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "TotalBet",
+              "odds": 5.0,
+              "bookmaker_url": "https://www.totalbet.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+              "source_name": "DobryBuk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a429a3bc80bed8",
+      "event": "Komory - Senegal",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1x2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+      "sources": [
+        "DobryBuk"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 11.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 11.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 6.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 6.0,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+              "source_name": "DobryBuk"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 1.22,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 1.22,
+              "bookmaker_url": "https://www.sts.pl",
+              "source_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
               "source_name": "DobryBuk"
             }
           ]
@@ -4808,21 +4879,21 @@
     ],
     "detail_events_scanned": 19,
     "detail_events_total": 19,
-    "markets": 13,
-    "markets_scanned": 13,
-    "dobrybuk_markets": 13,
+    "markets": 14,
+    "markets_scanned": 14,
+    "dobrybuk_markets": 14,
     "direct_markets": 0,
     "exhaustive_complete": true,
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
-    "elapsed_seconds": 40.55,
+    "elapsed_seconds": 34.95,
     "scanner": "multi-source-v17-resilient-coupon",
     "scan_mode": "detail",
     "sources": {
       "DobryBuk": {
-        "markets": 13,
-        "events": 13,
+        "markets": 14,
+        "events": 14,
         "mode": "comparison"
       },
       "Betclic": {
@@ -4873,12 +4944,11 @@
     }
   },
   "errors": [
+    "Markety: PIŁKA NOŻNA / CSM Slatina - Universitatea Craiova: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Enosis Neon Paralimni - Anorthosis Famagusta: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Egipt - RPA: 1x2: brak pełnej tabeli bukmacherów",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: STS: https://www.sts.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -4886,7 +4956,7 @@
   ],
   "source": "DobryBuk + direct bookmaker pages",
   "coupon_catalog_info": {
-    "items": 13,
+    "items": 14,
     "mode": "bookmaker-first"
   },
   "market_scan_note": "DobryBuk pozostaje głównym źródłem pełnych tabel rynków. Dodatkowo skaner pobiera konserwatywnie rozpoznane kursy bezpośrednio z publicznych stron bukmacherów i łączy je tylko przy zgodnym zdarzeniu oraz rynku. Niepewne fragmenty są pomijane."
