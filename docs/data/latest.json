@@ -1,373 +1,1063 @@
 {
-  "generated_at": 1791129815.9535713,
-  "last_scan": 1791129815.9535713,
+  "generated_at": 1791129912.5683506,
+  "last_scan": 1791129912.5683506,
   "latest": [],
   "scan_preview": [
     {
-      "event": "Maroko - Mali",
+      "event": "Azerbejdżan 1:0 Litwa",
       "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
       "best": [
         {
           "selection": "1",
-          "bookmaker": "Betfan",
-          "odds": 1.3,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.29,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            }
-          ]
+          "bookmaker": "BetSport",
+          "odds": 2.66,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 3.04,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Irlandia - Izrael",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-vs-izrael-2026-10-04-50613",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "STS",
+          "odds": 2.15,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 3.95,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Walia - Dania",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 4.1,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
         },
         {
           "selection": "X",
           "bookmaker": "LVBet",
-          "odds": 5.3,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 5.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            }
-          ]
+          "odds": 3.75,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
         },
         {
           "selection": "2",
-          "bookmaker": "Betfan",
-          "odds": 11.0,
-          "bookmaker_url": "https://www.betfan.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 10.5,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 10.0,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            }
-          ]
+          "bookmaker": "LVBet",
+          "odds": 2.05,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
         }
       ],
       "sources": [
-        "DobryBuk"
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Grecja - Niemcy",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "BetSport",
+          "odds": 4.3,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "BetSport",
+          "odds": 1.88,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Portugalia - Norwegia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 1.75,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Forbet",
+          "odds": 4.9,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Forbet",
+          "odds": 1.33,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Forbet",
+          "odds": 6.0,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Hamburger 2:0 FC Kopenhaga",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Betfan",
+          "odds": 2.15,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.95,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 3.25,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Enosis Neon Paralimni - Anorthosis Famagusta",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/enosis-neon-paralimni-vs-anorthosis-famagusta-2026-10-04-56645",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 4.35,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.7,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 1.7,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Molde - Kristiansund",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/molde-vs-kristiansund-2026-10-04-56716",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "Fuksiarz",
+          "odds": 1.48,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Fuksiarz",
+          "odds": 4.3,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Fuksiarz",
+          "odds": 5.6,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Argentyna - Burkina Faso",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/argentyna-vs-burkina-faso-2026-10-04-53140",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 1.03,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "Superbet",
+          "odds": 28.0,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "STS",
+          "odds": 80.0,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "USA - Meksyk",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 2.85,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.75,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Superbet",
+          "odds": 2.5,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Komory - Senegal",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "STS",
+          "odds": 11.0,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "X",
+          "bookmaker": "STS",
+          "odds": 6.0,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "STS",
+          "odds": 1.22,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
+      ]
+    },
+    {
+      "event": "Egipt - RPA",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+      "best": [
+        {
+          "selection": "X",
+          "bookmaker": "Betfan",
+          "odds": 3.8,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 5.8,
+          "bookmaker_url": "https://dobrybuk.pl/kursy",
+          "source_url": "https://dobrybuk.pl/kursy",
+          "source_name": "DobryBuk listing fallback",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "DobryBuk listing fallback"
       ]
     }
   ],
   "coupon_catalog": [
     {
-      "id": "35933e77f14208",
-      "event": "Maroko - Mali",
+      "id": "0b5137fa732a55",
+      "event": "Azerbejdżan 1:0 Litwa",
       "sport": "PIŁKA NOŻNA",
-      "market": "1x2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/azerbejdzan-vs-litwa-2026-10-04-50608",
       "sources": [
-        "DobryBuk"
+        "DobryBuk listing fallback"
       ],
       "selections": [
         {
           "selection": "1",
-          "best_odds": 1.3,
-          "best_bookmaker": "Betfan",
+          "best_odds": 2.66,
+          "best_bookmaker": "BetSport",
           "offers": [
             {
-              "bookmaker": "Betfan",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.29,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.29,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.29,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "BetSport",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.27,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.27,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X",
-          "best_odds": 5.3,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 5.3,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 5.1,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 5.0,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.55,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
+              "odds": 2.66,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
             }
           ]
         },
         {
           "selection": "2",
-          "best_odds": 11.0,
+          "best_odds": 3.04,
+          "best_bookmaker": "BetSport",
+          "offers": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 3.04,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4976c85e20bcf3",
+      "event": "Irlandia - Izrael",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-vs-izrael-2026-10-04-50613",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 2.15,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 2.15,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 3.95,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.95,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f6fc80ec56fed",
+      "event": "Walia - Dania",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 4.1,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 4.1,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.75,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.75,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 2.05,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 2.05,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c55c38334fc7c",
+      "event": "Grecja - Niemcy",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/grecja-vs-niemcy-2026-10-04-50611",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 4.3,
+          "best_bookmaker": "BetSport",
+          "offers": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 4.3,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 1.88,
+          "best_bookmaker": "BetSport",
+          "offers": [
+            {
+              "bookmaker": "BetSport",
+              "odds": 1.88,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4504d5da9fa98e",
+      "event": "Portugalia - Norwegia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.75,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.75,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 4.9,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 4.9,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c94bd70c22372e",
+      "event": "FK Dinamo Moscow - Rodina Moscow",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/dinamo-moscow-vs-rodina-moscow-2026-10-04-56400",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.33,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 1.33,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 6.0,
+          "best_bookmaker": "Forbet",
+          "offers": [
+            {
+              "bookmaker": "Forbet",
+              "odds": 6.0,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ba8cda1a64c4d",
+      "event": "Hamburger 2:0 FC Kopenhaga",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/hamburger-vs-kopenhaga-2026-10-04-55991",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 2.15,
           "best_bookmaker": "Betfan",
           "offers": [
             {
               "bookmaker": "Betfan",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.betfan.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.betsport.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "odds": 2.15,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.95,
+          "best_bookmaker": "LVBet",
+          "offers": [
             {
               "bookmaker": "LVBet",
-              "odds": 11.0,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "odds": 3.95,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 3.25,
+          "best_bookmaker": "LVBet",
+          "offers": [
             {
-              "bookmaker": "Fortuna",
-              "odds": 10.5,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "bookmaker": "LVBet",
+              "odds": 3.25,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f0ab58d6a5ae8",
+      "event": "Enosis Neon Paralimni - Anorthosis Famagusta",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/enosis-neon-paralimni-vs-anorthosis-famagusta-2026-10-04-56645",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 4.35,
+          "best_bookmaker": "LVBet",
+          "offers": [
             {
-              "bookmaker": "Betclic",
-              "odds": 10.0,
-              "bookmaker_url": "https://www.betclic.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "bookmaker": "LVBet",
+              "odds": 4.35,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.7,
+          "best_bookmaker": "LVBet",
+          "offers": [
             {
-              "bookmaker": "ETOTO",
-              "odds": 10.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "bookmaker": "LVBet",
+              "odds": 3.7,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 1.7,
+          "best_bookmaker": "LVBet",
+          "offers": [
             {
-              "bookmaker": "Forbet",
-              "odds": 10.0,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "bookmaker": "LVBet",
+              "odds": 1.7,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ab33469988895",
+      "event": "Molde - Kristiansund",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/molde-vs-kristiansund-2026-10-04-56716",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.48,
+          "best_bookmaker": "Fuksiarz",
+          "offers": [
             {
-              "bookmaker": "STS",
-              "odds": 9.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "bookmaker": "Fuksiarz",
+              "odds": 1.48,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 4.3,
+          "best_bookmaker": "Fuksiarz",
+          "offers": [
             {
-              "bookmaker": "TotalBet",
-              "odds": 9.75,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
-            },
+              "bookmaker": "Fuksiarz",
+              "odds": 4.3,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 5.6,
+          "best_bookmaker": "Fuksiarz",
+          "offers": [
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 5.6,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb66a84b8507dd",
+      "event": "Argentyna - Burkina Faso",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/argentyna-vs-burkina-faso-2026-10-04-53140",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 1.03,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 1.03,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 28.0,
+          "best_bookmaker": "Superbet",
+          "offers": [
             {
               "bookmaker": "Superbet",
-              "odds": 9.3,
-              "bookmaker_url": "https://www.superbet.pl",
-              "source_url": "https://dobrybuk.pl/kursy/mecz/maroko-vs-mali-2026-10-04-54401",
-              "source_name": "DobryBuk"
+              "odds": 28.0,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 80.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 80.0,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f9019e870fe025",
+      "event": "USA - Meksyk",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/usa-vs-meksyk-2026-10-04-53013",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 2.85,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 2.85,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 3.75,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 3.75,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 2.5,
+          "best_bookmaker": "Superbet",
+          "offers": [
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.5,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a429a3bc80bed8",
+      "event": "Komory - Senegal",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/komory-vs-senegal-2026-10-04-55918",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 11.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 11.0,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "X",
+          "best_odds": 6.0,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 6.0,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 1.22,
+          "best_bookmaker": "STS",
+          "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 1.22,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ce0cd8afc5012",
+      "event": "Egipt - RPA",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/egipt-vs-rpa-2026-10-04-54833",
+      "sources": [
+        "DobryBuk listing fallback"
+      ],
+      "selections": [
+        {
+          "selection": "X",
+          "best_odds": 3.8,
+          "best_bookmaker": "Betfan",
+          "offers": [
+            {
+              "bookmaker": "Betfan",
+              "odds": 3.8,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 5.8,
+          "best_bookmaker": "LVBet",
+          "offers": [
+            {
+              "bookmaker": "LVBet",
+              "odds": 5.8,
+              "bookmaker_url": "https://dobrybuk.pl/kursy",
+              "source_url": "https://dobrybuk.pl/kursy",
+              "source_name": "DobryBuk listing fallback"
             }
           ]
         }
@@ -390,26 +1080,26 @@
       "FUTBOL AMERYKAŃSKI",
       "TENIS STOŁOWY"
     ],
-    "detail_events_scanned": 19,
-    "detail_events_total": 19,
-    "markets": 1,
-    "markets_scanned": 1,
-    "dobrybuk_markets": 1,
+    "detail_events_scanned": 143,
+    "detail_events_total": 143,
+    "markets": 13,
+    "markets_scanned": 13,
+    "dobrybuk_markets": 143,
     "direct_markets": 0,
-    "exhaustive_complete": true,
+    "exhaustive_complete": false,
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
     "push_alerts_sent": 0,
     "telegram_alerts_sent": 0,
     "push_configured": false,
-    "elapsed_seconds": 42.57,
+    "elapsed_seconds": 54.19,
     "scanner": "multi-source-v17-resilient-coupon",
-    "scan_mode": "detail",
+    "scan_mode": "listing-fallback",
     "sources": {
       "DobryBuk": {
-        "markets": 1,
-        "events": 1,
+        "markets": 143,
+        "events": 13,
         "mode": "comparison"
       },
       "Betclic": {
@@ -463,21 +1153,22 @@
     "Markety: PIŁKA NOŻNA / Kosowo 0:0 Austria: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Malta 0:0 Andora: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Walia - Dania: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Irlandia - Izrael: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Grecja - Niemcy: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Irlandia - Izrael: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Azerbejdżan 1:0 Litwa: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Portugalia - Norwegia: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Holandia - Serbia: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / FK Dinamo Moscow - Rodina Moscow: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Portugalia - Norwegia: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / CSM Slatina - Universitatea Craiova: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Hamburger 2:0 FC Kopenhaga: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / FK Dinamo Moscow - Rodina Moscow: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Ludogorets - Cherno More Varna: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Hamburger 2:0 FC Kopenhaga: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Enosis Neon Paralimni - Anorthosis Famagusta: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Molde - Kristiansund: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Argentyna - Burkina Faso: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / USA - Meksyk: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Komory - Senegal: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: PIŁKA NOŻNA / Egipt - RPA: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Maroko - Mali: 1x2: brak pełnej tabeli bukmacherów",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: STS: https://www.sts.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -485,7 +1176,7 @@
   ],
   "source": "DobryBuk + direct bookmaker pages",
   "coupon_catalog_info": {
-    "items": 1,
+    "items": 13,
     "mode": "bookmaker-first"
   },
   "market_scan_note": "DobryBuk pozostaje głównym źródłem pełnych tabel rynków. Dodatkowo skaner pobiera konserwatywnie rozpoznane kursy bezpośrednio z publicznych stron bukmacherów i łączy je tylko przy zgodnym zdarzeniu oraz rynku. Niepewne fragmenty są pomijane."
