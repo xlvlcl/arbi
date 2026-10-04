@@ -6,7 +6,7 @@ on:
     types: [surebet_scan]
   schedule:
     # Zapasowy harmonogram. GitHub potrafi go opóźniać, dlatego docelowo
-    # dodatkowo wyzwalamy ten sam workflow z cron-job.org co 5 minut.
+    # dodatkowo wyzwalamy ten sam workflow z cron-job.org co 2 minuty.
     - cron: "*/5 * * * *"
 
 permissions:
@@ -34,6 +34,10 @@ jobs:
       MARKET_SCAN_CONCURRENCY: "6"
       MAX_MARKETS_PER_EVENT: "60"
       CONFIRM_CONCURRENCY: "3"
+      DIRECT_SOURCES_TIMEOUT: "12"
+      DIRECT_SOURCES_CONCURRENCY: "5"
+      COUPON_CATALOG_LIMIT: "350"
+      SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
 
     steps:
       - name: Pobierz kod
@@ -121,6 +125,23 @@ jobs:
 
       # Publikuj Pages po KAŻDYM poprawnym skanie. Dzięki temu local data/latest.json
       # na stronie również zawsze jest świeży, nawet jeśli raw.githubusercontent.com cache'uje.
+      - name: Wygeneruj blokadę hasłem
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import os
+          from pathlib import Path
+
+          password = os.getenv("SITE_PASSWORD", "")
+          digest = hashlib.sha256(password.encode("utf-8")).hexdigest() if password else ""
+          Path("docs/auth-config.js").write_text(
+              f'window.ARBI_AUTH_HASH = "{digest}";\n',
+              encoding="utf-8",
+          )
+          print("Blokada hasłem:", "włączona" if digest else "wyłączona - brak sekretu SITE_PASSWORD")
+          PY
+
       - name: Skonfiguruj GitHub Pages
         uses: actions/configure-pages@v5
 
