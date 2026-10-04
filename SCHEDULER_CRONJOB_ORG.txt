@@ -1,0 +1,34 @@
+AUTOMATYCZNE ODSWIEZANIE - cron-job.org + GitHub Actions
+
+Po wgraniu paczki i jednym udanym recznym Run workflow:
+
+1. GitHub -> avatar -> Settings -> Developer settings -> Personal access tokens -> Fine-grained tokens.
+2. Utworz token TYLKO dla repozytorium xlvlcl/arbi.
+3. Repository permissions -> Actions: Read and write.
+4. Ustaw mozliwie krotki, sensowny termin waznosci tokena.
+5. NIE wklejaj tokena do czatu ani do plikow repozytorium.
+
+Na cron-job.org utworz zadanie:
+- URL:
+  https://api.github.com/repos/xlvlcl/arbi/actions/workflows/surebet.yml/dispatches
+- Request method: POST
+- Schedule: co 5 minut
+- Header:
+  Accept: application/vnd.github+json
+- Header:
+  Authorization: Bearer TWOJ_TOKEN_GITHUB
+- Header:
+  X-GitHub-Api-Version: 2026-03-10
+- Header:
+  Content-Type: application/json
+- Request body:
+  {"ref":"main"}
+
+Po poprawnym wywolaniu GitHub powinien utworzyc nowy run Surebet Scanner.
+
+Dlaczego co 5 minut, a nie co minute:
+Pelny skan wielu wydarzen i rynkow moze trwac kilka minut. Wyzwalanie co minute
+powodowaloby kolejke skanow i dane moglyby byc paradoksalnie starsze.
+
+Strona v12 czyta docs/data/latest.json bezposrednio z galezi main co 3 sekundy,
+wiec po zakonczeniu skanu nie musi czekac na kolejny deployment GitHub Pages.

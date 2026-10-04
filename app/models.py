@@ -1,38 +1,58 @@
 from __future__ import annotations
-from dataclasses import dataclass, asdict
-from typing import Optional
+
+from dataclasses import asdict, dataclass, field
+
 
 @dataclass
 class Quote:
-    selection:str
-    odds:float
-    bookmaker:str
-    observed_at:float
-    source_url:str
+    selection: str
+    odds: float
+    bookmaker: str
+    observed_at: float
+    source_url: str
+    bookmaker_url: str = ""
+
 
 @dataclass
 class ArbLeg:
-    selection:str
-    bookmaker:str
-    odds:float
-    stake:float
-    payout:float
-    source_url:str
+    selection: str
+    bookmaker: str
+    odds: float
+    stake: float
+    payout: float
+    source_url: str
+    bookmaker_url: str = ""
+    alternatives: list[dict] = field(default_factory=list)
+
 
 @dataclass
 class Surebet:
-    event:str
-    sport:str
-    market:str
-    profit_pct:float
-    bankroll:float
-    guaranteed_payout:float
-    guaranteed_profit:float
-    legs:list[ArbLeg]
-    detected_at:float
-    source:str='DobryBuk public comparison'
-    confidence:str='strict'
+    event: str
+    sport: str
+    market: str
+    profit_pct: float
+    bankroll: float
+    guaranteed_payout: float
+    guaranteed_profit: float
+    legs: list[ArbLeg]
+    detected_at: float
+    source: str = "DobryBuk public comparison"
+    confidence: str = "strict"
+    event_url: str = ""
 
-    def key(self):
-        return '|'.join([self.sport,self.event,self.market]+[f'{x.selection}@{x.bookmaker}' for x in sorted(self.legs,key=lambda z:z.selection)])
-    def to_dict(self):return asdict(self)
+    def key(self) -> str:
+        legs = "|".join(
+            f"{x.selection.strip().lower()}@{x.bookmaker.strip().lower()}"
+            for x in sorted(self.legs, key=lambda z: z.selection.strip().lower())
+        )
+        return "|".join(
+            [
+                self.sport.strip().lower(),
+                self.event.strip().lower(),
+                self.market.strip().lower(),
+                legs,
+            ]
+        )
+
+    def to_dict(self) -> dict:
+        return asdict(self)

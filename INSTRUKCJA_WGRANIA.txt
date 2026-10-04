@@ -1,0 +1,26 @@
+ARBI V12
+
+1. Rozpakuj ZIP.
+2. Wgraj CALA zawartosc do repo xlvlcl/arbi, zastepujac stare pliki.
+3. Sprawdz szczegolnie, czy podmienil sie .github/workflows/surebet.yml.
+4. Actions -> Surebet Scanner -> Run workflow.
+5. Pierwszy reczny run publikuje aktualna wersje GitHub Pages.
+6. Kolejne skany zapisują docs/data/latest.json bezposrednio do main.
+7. Strona sprawdza nowe dane co 3 sekundy z raw GitHub i ma fallback do GitHub Pages.
+8. Po udanym tescie skonfiguruj cron-job.org wedlug SCHEDULER_CRONJOB_ORG.txt.
+
+Zmiany v12:
+- dynamiczne wykrywanie wszystkich sportow widocznych w porownywarce,
+- fallback z szeroka lista sportow, jesli zmieni sie uklad strony,
+- do 500 wydarzen / 60 rynkow na wydarzenie w ramach budzetu czasu,
+- 6 rownoleglych kart Playwright,
+- latest.json commitowany od razu do repo,
+- frontend odczytuje swieze dane co 3 sekundy bez czekania na deploy Pages,
+- dotychczasowy ciemny wyglad zostaje,
+- matematyka nadal odrzuca niepelne rynki (np. samo X+2 w 1X2).
+
+Wazne:
+"Wszystkie sporty" oznacza wszystkie sporty, ktore zrodlo DobryBuk rzeczywiscie
+udostepnia skanerowi. Z samego DobryBuk nie da sie pobrac sportu/rynku, ktorego
+ten serwis nie publikuje. Doslowne pokrycie kazdego sportu z kazdego bukmachera
+wymagaloby osobnych integracji z serwisami bukmacherow.

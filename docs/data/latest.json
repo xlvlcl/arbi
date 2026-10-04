@@ -1,16 +1,21 @@
 {
-  "generated_at": null,
-  "last_scan": null,
+  "generated_at": 0,
+  "last_scan": 0,
   "latest": [],
   "stats": {
     "events": 0,
+    "detail_events_scanned": 0,
+    "detail_events_total": 0,
     "markets": 0,
+    "markets_scanned": 0,
+    "exhaustive_complete": false,
     "candidates": 0,
     "surebets": 0,
     "alerts_sent": 0,
     "elapsed_seconds": 0,
-    "scanner": "playwright-known-good"
+    "scanner": "playwright-all-event-markets-v11"
   },
   "errors": [],
-  "source": "DobryBuk public comparison"
+  "source": "DobryBuk public comparison",
+  "market_scan_note": "Oczekiwanie na pierwszy skan v11."
 }
