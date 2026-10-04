@@ -5,93 +5,185 @@ import json
 import time
 from pathlib import Path
 
-from app.config import settings
-from app.source.dobrybuk_http import DobryBukHTTP
+from app.config import ROOT, settings
+from app.models import Quote
+from app.providers.dobrybuk import DobryBukProvider
+from app.state import State
 from app.surebet import detect
-from app.state import AlertState
-from app.telegram import send
+from app.telegram import render, send
 
 
-ROOT = Path(__file__).resolve().parent
-DATA = ROOT / "docs" / "data"
-STATE = ROOT / "data" / "alerts.json"
+DOCS_DATA = ROOT / "docs" / "data"
+ALERT_STATE = ROOT / "data" / "state.json"
+
+# Zachowane z działającej wersji lokalnej.
+# 1.00 = brak potrącenia od stawki w tym modelu; 0.88 = robocze 12%.
+# Rzeczywiste zasady operatora/promocji trzeba zawsze sprawdzić przed zakładem.
+DEFAULT_FACTORS = {
+    "Betclic": 1.0,
+    "Fortuna": 1.0,
+    "eFortuna": 1.0,
+    "Superbet": 0.88,
+    "STS": 0.88,
+    "Forbet": 0.88,
+    "LVBet": 0.88,
+    "ETOTO": 0.88,
+    "eToto": 0.88,
+    "Betfan": 0.88,
+    "Fuksiarz": 0.88,
+    "TotalBet": 0.88,
+    "Total Bet": 0.88,
+    "Betters": 0.88,
+    "LeBull": 0.88,
+    "AdmiralBet": 0.88,
+    "BetSport": 0.88,
+    "Betsport": 0.88,
+    "ComeOn": 0.88,
+    "PZBuk": 0.88,
+}
+
+
+def payout_factors() -> dict[str, float]:
+    result = dict(DEFAULT_FACTORS)
+    result.update(settings.bookmaker_payout_factors or {})
+    return result
+
+
+def event_to_quotes(event: dict) -> dict[str, list[Quote]]:
+    qdict: dict[str, list[Quote]] = {}
+    for selection, items in event["quotes"].items():
+        for item in items:
+            if item["bookmaker"] == "Unknown":
+                continue
+            qdict.setdefault(selection, []).append(
+                Quote(
+                    item["selection"],
+                    item["odds"],
+                    item["bookmaker"],
+                    item["observed_at"],
+                    item["source_url"],
+                )
+            )
+    return qdict
+
+
+async def detect_from_events(events: list[dict]):
+    found = []
+    factors = payout_factors()
+
+    for event in events:
+        found.extend(
+            detect(
+                event["event"],
+                event["sport"],
+                event["market"],
+                event_to_quotes(event),
+                settings.bankroll,
+                factors,
+                settings.min_profit_pct,
+                settings.max_quote_age_seconds,
+            )
+        )
+
+    # Unikalne okazje; zostaw najlepszą wersję tego samego klucza.
+    unique = {}
+    for arb in found:
+        old = unique.get(arb.key())
+        if old is None or arb.profit_pct > old.profit_pct:
+            unique[arb.key()] = arb
+
+    return sorted(unique.values(), key=lambda a: a.profit_pct, reverse=True)
 
 
 async def scan_once() -> dict:
-    provider = DobryBukHTTP(
-        settings.source_url,
-        concurrency=settings.concurrency,
-        timeout=settings.request_timeout,
-    )
-    state = AlertState(STATE)
+    started = time.time()
+    provider = DobryBukProvider(settings)
+    state = State(ALERT_STATE)
+    errors: list[str] = []
 
     await provider.start()
     try:
-        result = await provider.scan(
-            max_events=settings.max_events,
-            max_markets=settings.max_markets_per_event,
-        )
+        events, scan_errors = await provider.scan_all(settings.sports)
+        errors.extend(scan_errors)
 
-        found = []
-        for item in result["markets"]:
-            arbs = detect(
-                item["event"],
-                item["sport"],
-                item["market"],
-                item["quotes"],
-                settings.bankroll,
-                settings.min_profit_pct,
+        # Bardzo ważne: nie publikujemy "0" jako poprawnego skanu, jeśli scraper
+        # nic nie odczytał. Dzięki temu ostatnia dobra wersja strony zostaje online.
+        if not events:
+            raise RuntimeError(
+                "Skaner nie odczytał żadnych wydarzeń. "
+                "Nie publikuję pustego wyniku."
             )
-            found.extend(arbs)
 
-        unique = {}
-        for arb in found:
-            old = unique.get(arb.key())
-            if old is None or arb.profit_pct > old.profit_pct:
-                unique[arb.key()] = arb
+        candidates = await detect_from_events(events)
 
-        surebets = sorted(unique.values(), key=lambda x: x.profit_pct, reverse=True)
+        # Krótkie potwierdzenie tylko gdy faktycznie mamy kandydata.
+        confirmed = []
+        if candidates:
+            await asyncio.sleep(max(1, min(3, int(settings.recheck_delay_seconds))))
+            sports_to_recheck = sorted({arb.sport for arb in candidates})
+            confirm_events, confirm_errors = await provider.scan_all(sports_to_recheck)
+            errors.extend([f"Potwierdzenie: {x}" for x in confirm_errors])
+            confirm_candidates = await detect_from_events(confirm_events)
+            confirm_map = {arb.key(): arb for arb in confirm_candidates}
+            confirmed = [confirm_map[a.key()] for a in candidates if a.key() in confirm_map]
 
         alerts_sent = 0
-        for arb in surebets:
-            if state.should_alert(arb.key(), arb.profit_pct, settings.dedupe_minutes):
-                if settings.telegram_token and settings.telegram_chat_id:
-                    try:
-                        await send(settings.telegram_token, settings.telegram_chat_id, arb)
-                        alerts_sent += 1
-                    except Exception as exc:
-                        result["errors"].append(f"Telegram: {exc}")
+        for arb in confirmed:
+            if (
+                await state.should_alert(
+                    arb.key(),
+                    arb.profit_pct,
+                    settings.dedupe_minutes,
+                )
+                and settings.telegram_token
+                and settings.telegram_chat_id
+            ):
+                try:
+                    await send(
+                        settings.telegram_token,
+                        settings.telegram_chat_id,
+                        render(arb),
+                    )
+                    alerts_sent += 1
+                except Exception as exc:
+                    errors.append(f"Telegram: {exc}")
+
+        now = time.time()
+        markets = len(
+            {
+                (event["sport"], event["event"], event["market"])
+                for event in events
+            }
+        )
 
         payload = {
-            "generated_at": time.time(),
-            "last_scan": time.time(),
-            "latest": [x.to_dict() for x in surebets[:200]],
+            "generated_at": now,
+            "last_scan": now,
+            "latest": [arb.to_dict() for arb in confirmed[:200]],
             "stats": {
-                "events": len(result["events"]),
-                "markets": len(result["markets"]),
-                "surebets": len(surebets),
+                "events": len(events),
+                "markets": markets,
+                "candidates": len(candidates),
+                "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
-                "elapsed_seconds": result["elapsed"],
-                "scanner": "httpx-no-playwright",
+                "elapsed_seconds": round(time.time() - started, 2),
+                "scanner": "playwright-known-good",
             },
-            "errors": result["errors"][-20:],
+            "errors": errors[-30:],
             "source": "DobryBuk public comparison",
         }
 
-        DATA.mkdir(parents=True, exist_ok=True)
-        (DATA / "latest.json").write_text(
+        DOCS_DATA.mkdir(parents=True, exist_ok=True)
+        (DOCS_DATA / "latest.json").write_text(
             json.dumps(payload, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
+
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
         return payload
     finally:
         await provider.stop()
 
 
-async def main():
-    payload = await scan_once()
-    print(json.dumps(payload["stats"], ensure_ascii=False))
-
-
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(scan_once())

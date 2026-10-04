@@ -1,1 +1,16 @@
-{"generated_at":0,"last_scan":0,"latest":[],"stats":{"events":0,"markets":0,"surebets":0,"alerts_sent":0,"elapsed_seconds":0},"errors":[],"source":"DobryBuk public comparison"}
+{
+  "generated_at": null,
+  "last_scan": null,
+  "latest": [],
+  "stats": {
+    "events": 0,
+    "markets": 0,
+    "candidates": 0,
+    "surebets": 0,
+    "alerts_sent": 0,
+    "elapsed_seconds": 0,
+    "scanner": "playwright-known-good"
+  },
+  "errors": [],
+  "source": "DobryBuk public comparison"
+}

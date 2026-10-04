@@ -32,7 +32,7 @@ function scale(a,budget){
 function legsHtml(a,budget){
   const s=scale(a,budget);
   return s.legs.map(l=>{
-    const m=meta(l.bookmaker), link=l.bookmaker_url||m.url;
+    const m=meta(l.bookmaker), link=l.bookmaker_url||l.source_url||m.url;
     return `<div class="leg">
       <div class="book"><div class="book-logo">${esc(m.abbr)}</div><div class="book-info"><div class="book-name">${esc(l.bookmaker)}</div><div class="book-sub">najlepszy kurs dla tej nogi</div></div></div>
       <div class="pick"><div class="pick-label">Wybór</div><div class="pick-value">${esc(l.selection)}</div></div>
@@ -70,8 +70,13 @@ function repaint(){
   const ts=data.last_scan||data.generated_at;
   document.getElementById("last").textContent=ts?new Date(Number(ts)*1000).toLocaleString("pl-PL"):"—";
   const errs=data.errors||[];
-  document.getElementById("statusText").textContent=errs.length?"uwaga":"monitoring aktywny";
-  document.getElementById("statusDot").style.background=errs.length?"#fbbf24":"var(--green)";
+  const age=ts?Date.now()/1000-Number(ts):Infinity;
+  let status="monitoring aktywny", dot="var(--green)";
+  if(age>15*60){status="skan opóźniony";dot="#fb7185";}
+  else if(age>8*60){status="czekam na nowy skan";dot="#fbbf24";}
+  else if(errs.length){status="uwaga";dot="#fbbf24";}
+  document.getElementById("statusText").textContent=status;
+  document.getElementById("statusDot").style.background=dot;
   const sports=[...new Set((data.latest||[]).map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
   const sel=document.getElementById("sportFilter"), current=sel.value;
   sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");

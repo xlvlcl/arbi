@@ -1,158 +1,68 @@
 from __future__ import annotations
+from dataclasses import dataclass
+import math,time,re
+from .models import Surebet,ArbLeg,Quote
 
-import re
-import time
-from itertools import product
+# payout factor: 1.0 means stake is fully counted toward gross payout; 0.88 means 12% of stake is consumed by tax.
 
-from .models import Quote, Leg, Surebet
+def effective_odds(q:Quote, payout_factor:float)->float:
+    return q.odds*payout_factor
 
-
-def norm(value: str) -> str:
-    value = re.sub(r"\s+", " ", (value or "").strip().lower())
-    return value.replace("–", "-").replace("—", "-")
-
-
-def effective_odds(q: Quote) -> float:
-    # Polish betting-tax handling is intentionally NOT hard-coded here.
-    # A quote is treated at face value; user can adjust BANKROLL but should
-    # verify tax/account-specific rules before placing bets.
-    return q.odds
-
-
-def allocate(quotes: list[Quote], bankroll: float):
-    if not quotes or any(q.odds <= 1 for q in quotes):
-        return None
-
-    inv_sum = sum(1.0 / effective_odds(q) for q in quotes)
-    if inv_sum >= 1:
-        return None
-
-    payout = bankroll / inv_sum
-    legs: list[Leg] = []
-
+def allocation(quotes:list[Quote], bankroll:float, factors:dict[str,float]):
+    if not quotes or any(q.odds<=1.0 for q in quotes): return None
+    denom=sum(1.0/effective_odds(q,factors.get(q.bookmaker,0.88)) for q in quotes)
+    if denom>=1.0: return None
+    payout=bankroll/denom
+    legs=[]
     for q in quotes:
-        stake = payout / q.odds
-        legs.append(
-            Leg(
-                selection=q.selection,
-                bookmaker=q.bookmaker,
-                odds=q.odds,
-                stake=round(stake, 2),
-                payout=round(payout, 2),
-                bookmaker_url=q.bookmaker_url,
-            )
-        )
+        stake=payout/effective_odds(q,factors.get(q.bookmaker,0.88))
+        legs.append(ArbLeg(q.selection,q.bookmaker,q.odds,round(stake,2),round(payout,2),q.source_url))
+    # rounding safety: adjust last leg by 1-2 grosze so total equals bankroll and payout remains non-negative
+    rounded_total=round(sum(x.stake for x in legs),2)
+    diff=round(bankroll-rounded_total,2)
+    if legs: legs[-1].stake=round(legs[-1].stake+diff,2)
+    payout_after=[round(x.stake*effective_odds(q,factors.get(q.bookmaker,0.88)),2) for x,q in zip(legs,quotes)]
+    payout_min=min(payout_after)
+    profit=round(payout_min-bankroll,2)
+    return denom,round(payout_min,2),profit,legs
 
-    # Make displayed stakes sum exactly to the requested bankroll.
-    diff = round(bankroll - sum(x.stake for x in legs), 2)
-    legs[-1].stake = round(legs[-1].stake + diff, 2)
+def normalize_name(s:str)->str:
+    s=re.sub(r'\s+',' ',(s or '').strip().lower())
+    s=s.replace('–','-').replace('—','-')
+    return s
 
-    actual_payouts = [round(x.stake * x.odds, 2) for x in legs]
-    guaranteed = min(actual_payouts)
-    profit = round(guaranteed - bankroll, 2)
-    return inv_sum, guaranteed, profit, legs
+def detect(event:str,sport:str,market:str,quotes_by_selection:dict[str,list[Quote]],bankroll:float,factors:dict[str,float],min_profit_pct:float=0.0,max_age:int=180):
+    now=time.time()
+    # choose best eligible quote per selection, but never mix stale quotes
+    best={}
+    for sel,qs in quotes_by_selection.items():
+        fresh=[q for q in qs if now-q.observed_at<=max_age]
+        if fresh:
+            fresh.sort(key=lambda q:q.odds,reverse=True)
+            best[sel]=fresh[0]
+    if not best:return []
 
-
-def _canonical_binary_group(labels: list[str]) -> list[str] | None:
-    n = {norm(x): x for x in labels}
-
-    yes = {"yes", "tak", "true", "over", "o", "home", "1"}
-    no = {"no", "nie", "false", "under", "u", "away", "2"}
-
-    if len(labels) == 2 and any(x in n for x in yes) and any(x in n for x in no):
-        return labels
-
-    # Common Polish/English two-way outcomes that are mutually exclusive.
-    if len(labels) == 2:
-        a, b = map(norm, labels)
-        if (a.startswith("over ") and b.startswith("under ")) or (
-            a.startswith("under ") and b.startswith("over ")
-        ):
-            return labels
-        if ("yes" in a or "tak" in a) and ("no" in b or "nie" in b):
-            return labels
-        if ("no" in a or "nie" in a) and ("yes" in b or "tak" in b):
-            return labels
-
-    return None
-
-
-def outcome_groups(quotes_by_selection: dict[str, list[Quote]], market: str) -> list[list[str]]:
-    labels = list(quotes_by_selection)
-    n = {norm(x): x for x in labels}
-    groups: list[list[str]] = []
-
-    # Exact 1X2 is the classic three-way mutually exclusive/exhaustive market.
-    if all(x in n for x in ("1", "x", "2")):
-        groups.append([n["1"], n["x"], n["2"]])
-
-    # Two-way mutually exclusive markets.
-    binary = _canonical_binary_group(labels)
-    if binary:
-        groups.append(binary)
-
-    # Tennis/table-tennis/volleyball style winner markets often use two named sides.
-    if len(labels) == 2:
-        m = norm(market)
-        if any(token in m for token in ("winner", "match winner", "zwycięzca", "wynik meczu")):
-            groups.append(labels)
-
-    # Do NOT automatically treat arbitrary two-outcome markets as arbs.
-    # DNB, double chance and handicaps can contain pushes/overlap semantics.
-    return groups
-
-
-def detect(
-    event: str,
-    sport: str,
-    market: str,
-    quotes_by_selection: dict[str, list[Quote]],
-    bankroll: float,
-    min_profit_pct: float,
-) -> list[Surebet]:
-    groups = outcome_groups(quotes_by_selection, market)
-    out: list[Surebet] = []
-    seen: set[str] = set()
-
-    # For each outcome choose every available bookmaker quote, then keep the
-    # combination with the lowest implied probability. This preserves the
-    # bookmaker alternatives instead of discarding them during parsing.
+    keys=list(best)
+    nm={normalize_name(k):k for k in keys}
+    groups=[]
+    m=normalize_name(market)
+    # Strict, known exhaustive markets only.
+    if m in {'1x2','1 x 2','wynik','match result','result'} or set(nm)&{'1','x','2'}:
+        if all(x in nm for x in ('1','x','2')): groups.append([nm['1'],nm['x'],nm['2']])
+    # Two-way match winner: selection labels 1/2, or event cells with two named teams.
+    if len(keys)==2 and all(len(qs)>0 for qs in quotes_by_selection.values()):
+        groups.append(keys)
+    # Totals and BTTS: exact line / yes-no only.
+    if ('over' in m and 'under' in m) or m in {'u/o','over/under','bts','both teams to score'}:
+        if len(keys)==2:groups.append(keys)
+    out=[]; seen=set()
     for group in groups:
-        choices = []
-        for selection in group:
-            qs = quotes_by_selection.get(selection, [])
-            qs = [q for q in qs if q.odds > 1]
-            if not qs:
-                choices = []
-                break
-            choices.append(qs)
-
-        if not choices:
-            continue
-
-        best = min(product(*choices), key=lambda combo: sum(1 / q.odds for q in combo))
-        result = allocate(list(best), bankroll)
-        if not result:
-            continue
-
-        _, payout, profit, legs = result
-        pct = profit / bankroll * 100 if bankroll else 0
-        if pct + 1e-9 < min_profit_pct:
-            continue
-
-        arb = Surebet(
-            event=event,
-            sport=sport,
-            market=market,
-            profit_pct=round(pct, 3),
-            bankroll=bankroll,
-            guaranteed_payout=payout,
-            guaranteed_profit=profit,
-            legs=legs,
-            detected_at=time.time(),
-        )
-        if arb.key() not in seen:
-            seen.add(arb.key())
-            out.append(arb)
-
+        q=[best[x] for x in group]
+        r=allocation(q,bankroll,factors)
+        if not r:continue
+        denom,payout,profit,legs=r
+        pct=profit/bankroll*100 if bankroll else 0
+        if pct+1e-9>=min_profit_pct:
+            arb=Surebet(event,sport,market,round(pct,3),bankroll,payout,profit,legs,now)
+            if arb.key() not in seen:out.append(arb);seen.add(arb.key())
     return out

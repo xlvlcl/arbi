@@ -1,28 +1,56 @@
-# Surebet Alert — przebudowana wersja
+# Surebet Alert — Playwright + obecny wygląd
 
-Najważniejsze zmiany:
+Ta wersja łączy:
+- silnik Playwright z wcześniejszej wersji, która działała lokalnie,
+- obecny ciemny interfejs GitHub Pages,
+- automatyczny workflow GitHub Actions,
+- Telegram,
+- ochronę przed opublikowaniem pustego skanu.
 
-- skaner nie używa już Playwrighta do zwykłego pobierania kursów;
-- korzysta z HTTP + BeautifulSoup, dzięki czemu uruchomienie jest znacznie lżejsze;
-- nie ma whitelisty 12 sportów jako głównego mechanizmu skanowania;
-- zbiera linki do wydarzeń z publicznej porównywarki;
-- dla wydarzeń odkrywa dostępne przyciski rynków i próbuje pobrać je przez parametr `market=...`;
-- zachowuje kursy wielu bukmacherów dla tego samego wyniku;
-- panel odświeża JSON co 5 sekund bez przeładowania strony;
-- Telegram pozostaje konfigurowany przez GitHub Secrets.
+## Dlaczego poprzednia strona się nie odświeżała
 
-## Ważne
+Workflow miał tylko `workflow_dispatch`, czyli uruchamiał się wyłącznie ręcznie.
+Ten projekt ma także `schedule` co około 5 minut oraz `repository_dispatch`
+do późniejszego podłączenia zewnętrznego schedulera.
 
-GitHub Actions nadal nie jest serwerem czasu rzeczywistego. Harmonogram może zostać opóźniony przez GitHub. Ta wersja przede wszystkim skraca sam skan. Do częstszego wywoływania workflow można później dołożyć zewnętrzny darmowy scheduler.
+GitHub Pages sam nie uruchamia Pythona. Strona tylko pobiera świeży
+`docs/data/latest.json`. Nowy JSON pojawia się dopiero po zakończonym skanie
+i deployu Actions.
 
-## Uruchomienie lokalne
+## Pierwszy test
 
-```bash
-pip install -r requirements.txt
-python scanner.py
-```
+1. Wgraj cały projekt do repozytorium tak, aby `.github`, `app`, `docs`,
+   `data`, `scanner.py` i `requirements.txt` były w katalogu głównym.
+2. W `Settings -> Secrets and variables -> Actions` dodaj:
+   - `TELEGRAM_BOT_TOKEN`
+   - `TELEGRAM_CHAT_ID`
+3. W `Settings -> Pages -> Source` wybierz `GitHub Actions`.
+4. Wejdź w `Actions -> Surebet Scanner -> Run workflow`.
+5. Jeżeli skan odczyta 0 wydarzeń, workflow kończy się błędem i NIE nadpisuje
+   ostatniej dobrej strony zerami.
 
-Sekrety:
+## Automatyczne odświeżanie
 
-- `TELEGRAM_BOT_TOKEN`
-- `TELEGRAM_CHAT_ID`
+Workflow ma cron:
+`3-58/5 * * * *`
+
+To daje próbę uruchomienia co około 5 minut. GitHub może opóźniać cron.
+Dlatego workflow obsługuje też `repository_dispatch: surebet_scan`.
+Po potwierdzeniu, że Playwright działa na GitHubie, można podpiąć zewnętrzny
+scheduler i wywoływać go częściej bez polegania wyłącznie na harmonogramie GitHuba.
+
+Frontend sprawdza nowy `latest.json` co 5 sekund, ale to nie oznacza skanu co
+5 sekund — pokazuje nowy wynik natychmiast, gdy Pages dostanie świeży plik.
+
+## Uwaga o zakresach
+
+Ten rebuild celowo przywraca najpierw sprawdzony parser z działającej wersji.
+Nie udaje, że skanuje wszystkie możliwe rynki, jeśli źródło ich nie wystawia w
+odczytywanym widoku. Po ustabilizowaniu działania na GitHubie można rozbudować
+parser o kolejne rynki bez ponownego zmieniania wyglądu strony.
+
+## Testy
+
+`pytest -q`
+
+W przygotowanej paczce testy parsera i matematyki przechodzą.

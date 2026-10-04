@@ -14,7 +14,7 @@
 <header class="topbar">
   <a class="brand" href="./">
     <div class="brand-mark">SA</div>
-    <div><h1>Surebet Alert</h1><p>Arbitraż • Polska • wszystkie dostępne rynki</p></div>
+    <div><h1>Surebet Alert</h1><p>Arbitraż • Polska • rynki odczytane z porównywarki</p></div>
   </a>
   <div class="actions">
     <div class="status-pill"><span class="dot" id="statusDot"></span><span id="statusText">łączenie…</span></div>
@@ -22,7 +22,6 @@
     <span class="status-pill">⚡ dane sprawdzane automatycznie</span>
   </div>
 </header>
-
 <section class="hero">
   <div class="hero-card glass">
     <div class="eyebrow">Live monitor</div>
@@ -43,13 +42,11 @@
     <p class="warning">Kurs może zmienić się po wykryciu. Przed zawarciem obu zakładów sprawdź aktualny kurs, limit i zasady rozliczenia u bukmachera.</p>
   </div>
 </section>
-
 <section class="controls glass">
   <div class="input-wrap"><label>Sport</label><select id="sportFilter"><option value="">Wszystkie sporty</option></select></div>
   <div class="input-wrap"><label>Min. zysk</label><input id="minFilter" type="number" value="0.35" min="0" step="0.05"><span style="color:var(--muted);font-weight:800">%</span></div>
   <div style="margin-left:auto;color:var(--muted);font-size:11px">Sortowanie: <strong style="color:#dbe3ff">największy zysk</strong></div>
 </section>
-
 <main id="list" class="list"></main>
 <footer class="footer"><span>Surebet Alert • odczyt publicznie prezentowanych kursów</span><span>Nie składa automatycznie zakładów.</span></footer>
 </div>

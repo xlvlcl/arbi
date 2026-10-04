@@ -1,44 +1,23 @@
 from __future__ import annotations
-
-import html
 import httpx
 
-from .models import Surebet
+def render(arb):
+    lines=[f'🚨 SUREBET +{arb.profit_pct:.2f}%',f'{arb.sport} • {arb.market}',f'📌 {arb.event}','',f'💰 Stawka: {arb.bankroll:.2f} zł',f'💵 Wypłata min.: {arb.guaranteed_payout:.2f} zł',f'📈 Zysk min.: {arb.guaranteed_profit:.2f} zł','']
+    for leg in arb.legs: lines.append(f'• {leg.bookmaker}: {leg.selection} @ {leg.odds:.2f} → {leg.stake:.2f} zł')
+    lines += ['', '⚠️ Sprawdź kursy bezpośrednio przed zawarciem obu zakładów.']
+    return '\n'.join(lines)
 
+async def send(token,chat,text):
+    async with httpx.AsyncClient(timeout=15) as c:
+        r=await c.post(f'https://api.telegram.org/bot{token}/sendMessage',json={'chat_id':chat,'text':text})
+        if r.status_code>=400: raise RuntimeError(r.text[:500])
 
-def render(arb: Surebet) -> str:
-    lines = [
-        f"<b>🚨 SUREBET +{arb.profit_pct:.2f}%</b>",
-        f"{html.escape(arb.sport)} • {html.escape(arb.market)}",
-        f"📌 <b>{html.escape(arb.event)}</b>",
-        "",
-        f"💰 Stawka: <b>{arb.bankroll:.2f} zł</b>",
-        f"💵 Wypłata min.: <b>{arb.guaranteed_payout:.2f} zł</b>",
-        f"📈 Zysk min.: <b>+{arb.guaranteed_profit:.2f} zł</b>",
-        "",
-    ]
-    for leg in arb.legs:
-        name = html.escape(leg.bookmaker)
-        if leg.bookmaker_url:
-            name = f'<a href="{html.escape(leg.bookmaker_url, quote=True)}">{name}</a>'
-        lines.append(
-            f"• {name}: {html.escape(leg.selection)} @ <b>{leg.odds:.2f}</b> → {leg.stake:.2f} zł"
-        )
-    lines += ["", "⚠️ Sprawdź oba kursy bezpośrednio przed zawarciem zakładów."]
-    return "\n".join(lines)
-
-
-async def send(token: str, chat_id: str, arb: Surebet) -> None:
-    if not token or not chat_id:
-        return
-    async with httpx.AsyncClient(timeout=12) as client:
-        response = await client.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            json={
-                "chat_id": chat_id,
-                "text": render(arb),
-                "parse_mode": "HTML",
-                "disable_web_page_preview": True,
-            },
-        )
-        response.raise_for_status()
+async def discover(token):
+    async with httpx.AsyncClient(timeout=10) as c:
+        r=await c.get(f'https://api.telegram.org/bot{token}/getUpdates')
+        r.raise_for_status(); data=r.json()
+    chats=[]
+    for u in data.get('result',[]):
+        msg=u.get('message') or u.get('channel_post')
+        if msg and msg.get('chat'): chats.append(msg['chat'])
+    return chats[-1] if chats else None
