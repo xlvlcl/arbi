@@ -61,12 +61,22 @@ def event_to_quotes(event: dict) -> dict[str, list[Quote]]:
             bookmaker = item.get("bookmaker", "")
             if not bookmaker or bookmaker == "Unknown":
                 continue
+            try:
+                odds = float(item.get("odds", 0) or 0)
+                observed_at = float(
+                    item.get("observed_at", event.get("observed_at", time.time()))
+                    or time.time()
+                )
+            except (TypeError, ValueError):
+                continue
+            if odds <= 1.0:
+                continue
             out.setdefault(selection, []).append(
                 Quote(
-                    selection=item["selection"],
-                    odds=float(item["odds"]),
+                    selection=str(item.get("selection", selection)),
+                    odds=odds,
                     bookmaker=bookmaker,
-                    observed_at=float(item["observed_at"]),
+                    observed_at=observed_at,
                     source_url=item.get("source_url", event.get("event_url", "")),
                     bookmaker_url=item.get("bookmaker_url", ""),
                     source_name=item.get("source_name", ""),
@@ -83,18 +93,26 @@ def detect_from_markets(markets: list[dict]):
     found = []
     factors = payout_factors()
     for item in markets:
-        found.extend(
-            detect(
-                item["event"],
-                item["sport"],
-                item["market"],
-                event_to_quotes(item),
-                settings.bankroll,
-                factors,
-                settings.min_profit_pct,
-                settings.max_quote_age_seconds,
+        try:
+            event = str(item.get("event", "") or "")
+            sport = str(item.get("sport", "Inne") or "Inne")
+            market = str(item.get("market", "") or "")
+            if not event or not market:
+                continue
+            found.extend(
+                detect(
+                    event,
+                    sport,
+                    market,
+                    event_to_quotes(item),
+                    settings.bankroll,
+                    factors,
+                    settings.min_profit_pct,
+                    settings.max_quote_age_seconds,
+                )
             )
-        )
+        except Exception:
+            continue
     return dedupe_surebets(found)
 
 
@@ -664,10 +682,15 @@ async def scan_once() -> dict:
         # Rolling cache prevents FAST/DEEP rotation from making the UI look as if
         # hundreds of markets suddenly disappeared. Opportunity math still uses
         # only quotes younger than MAX_QUOTE_AGE_SECONDS.
-        market_cache.update(merged_rows)
-        market_cache.prune(keep_seconds=6 * 3600)
-        analysis_rows = market_cache.snapshot(settings.max_quote_age_seconds)
-        display_rows = market_cache.snapshot(30 * 60)
+        try:
+            market_cache.update(merged_rows)
+            market_cache.prune(keep_seconds=6 * 3600)
+            analysis_rows = market_cache.snapshot(settings.max_quote_age_seconds)
+            display_rows = market_cache.snapshot(30 * 60)
+        except Exception as exc:
+            errors.append(f"Market cache fallback: {type(exc).__name__}: {exc}")
+            analysis_rows = merged_rows
+            display_rows = merged_rows
 
         if not analysis_rows:
             raise RuntimeError(
@@ -900,7 +923,7 @@ async def scan_once() -> dict:
             **direct_source_summary,
         }
         coupon_catalog = build_coupon_catalog(
-            merged_rows,
+            display_rows,
             int(getattr(settings, "coupon_catalog_limit", 1600)),
         )
         payload = {
@@ -948,7 +971,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v25-rolling-market-cache",
+                "scanner": "multi-source-v25.1-cache-hotfix",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],
@@ -989,7 +1012,10 @@ async def scan_once() -> dict:
         }
 
         await state.save()
-        market_cache.save()
+        try:
+            market_cache.save()
+        except Exception as exc:
+            errors.append(f"Market cache save: {type(exc).__name__}: {exc}")
 
         DOCS_DATA.mkdir(parents=True, exist_ok=True)
         (DOCS_DATA / "latest.json").write_text(

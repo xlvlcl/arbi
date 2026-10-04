@@ -18,12 +18,24 @@ def _market_identity(row: dict) -> str:
     return market_key_for_item(row)
 
 
-def _quote_time(q: dict, row: dict, now: float) -> float:
+def _safe_float(value, default: float = 0.0) -> float:
     try:
-        value = float(q.get("observed_at", row.get("observed_at", 0)) or 0)
-    except Exception:
-        value = 0.0
+        return float(value or default)
+    except (TypeError, ValueError):
+        return float(default)
+
+
+def _quote_time(q: dict, row: dict, now: float) -> float:
+    value = _safe_float(q.get("observed_at", row.get("observed_at", 0)), 0.0)
     return value or now
+
+
+def _source_names(value) -> set[str]:
+    if isinstance(value, (list, tuple, set)):
+        return {str(x) for x in value if x not in (None, "")}
+    if value in (None, ""):
+        return set()
+    return {str(value)}
 
 
 class MarketCache:
@@ -73,13 +85,13 @@ class MarketCache:
                     base[field] = value
 
             base["observed_at"] = max(
-                float(old.get("observed_at", 0) or 0),
-                float(row.get("observed_at", 0) or 0),
+                _safe_float(old.get("observed_at", 0), 0.0),
+                _safe_float(row.get("observed_at", 0), 0.0),
                 now,
             )
             base["source_names"] = sorted(
-                set(old.get("source_names", []) or [])
-                | set(row.get("source_names", []) or [])
+                _source_names(old.get("source_names"))
+                | _source_names(row.get("source_names"))
             )
 
             # selection -> bookmaker -> latest quote
@@ -102,8 +114,8 @@ class MarketCache:
 
                         if (
                             previous is None
-                            or float(q.get("observed_at", 0))
-                            >= float(previous.get("observed_at", 0))
+                            or _safe_float(q.get("observed_at", 0), 0.0)
+                            >= _safe_float(previous.get("observed_at", 0), 0.0)
                         ):
                             # Preserve a verified direct deep link even if a newer
                             # comparison quote has no exact bookmaker URL.
@@ -115,7 +127,7 @@ class MarketCache:
             base["quotes"] = {
                 labels.get(skey, skey): sorted(
                     per_book.values(),
-                    key=lambda q: float(q.get("odds", 0) or 0),
+                    key=lambda q: _safe_float(q.get("odds", 0), 0.0),
                     reverse=True,
                 )
                 for skey, per_book in merged.items()
@@ -134,8 +146,9 @@ class MarketCache:
             for label, quotes in (row.get("quotes") or {}).items():
                 kept = []
                 for quote in quotes or []:
-                    observed = float(
-                        quote.get("observed_at", row.get("observed_at", 0)) or 0
+                    observed = _safe_float(
+                        quote.get("observed_at", row.get("observed_at", 0)),
+                        0.0,
                     )
                     if not observed or now - observed > max_age_seconds:
                         continue
@@ -149,7 +162,7 @@ class MarketCache:
 
             item = dict(row)
             item["quotes"] = filtered
-            item["observed_at"] = newest or float(row.get("observed_at", 0) or 0)
+            item["observed_at"] = newest or _safe_float(row.get("observed_at", 0), 0.0)
             out.append(item)
 
         return out
@@ -163,7 +176,10 @@ class MarketCache:
                 for quote in quotes or []:
                     newest = max(
                         newest,
-                        float(quote.get("observed_at", row.get("observed_at", 0)) or 0),
+                        _safe_float(
+                            quote.get("observed_at", row.get("observed_at", 0)),
+                            0.0,
+                        ),
                     )
             if newest and now - newest <= keep_seconds:
                 kept[key] = row
