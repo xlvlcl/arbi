@@ -64,7 +64,24 @@ jobs:
           fi
 
       - name: Uruchom skaner wszystkich sportów, zdarzeń i rynków
+        id: scanner
+        continue-on-error: true
         run: python scanner.py
+
+      - name: Zapisz diagnostykę jeśli źródło zwróci 0 wydarzeń
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surebet-debug
+          path: debug/
+          if-no-files-found: ignore
+          retention-days: 3
+
+      - name: Przerwij jeśli skaner nie zadziałał
+        if: steps.scanner.outcome != 'success'
+        run: |
+          echo "Skaner nie zakończył się poprawnie. Jeśli powstał artefakt surebet-debug, zawiera screenshot i HTML."
+          exit 1
 
       - name: Sprawdź wynik
         run: |
