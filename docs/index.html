@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060814">
+<meta name="description" content="Surebet Alert — szybki monitor arbitrażu bukmacherskiego">
+<link rel="manifest" href="./manifest.json">
+<link rel="stylesheet" href="./app.css">
+<title>Surebet Alert</title>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <a class="brand" href="./">
+    <div class="brand-mark">SA</div>
+    <div><h1>Surebet Alert</h1><p>Arbitraż • Polska • wszystkie dostępne rynki</p></div>
+  </a>
+  <div class="actions">
+    <div class="status-pill"><span class="dot" id="statusDot"></span><span id="statusText">łączenie…</span></div>
+    <button class="btn btn-primary" id="refreshBtn">↻ Odśwież</button>
+    <span class="status-pill">⚡ dane sprawdzane automatycznie</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-card glass">
+    <div class="eyebrow">Live monitor</div>
+    <h2 class="hero-title">Poluj na <strong>pewne różnice kursów</strong></h2>
+    <p class="hero-copy">System analizuje publicznie prezentowane kursy, zachowuje alternatywy wielu bukmacherów i szuka matematycznych surebetów.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-label">Najlepszy znaleziony</div><div class="kpi-value" id="best">—</div></div>
+      <div class="kpi"><div class="kpi-label">Surebety po filtrze</div><div class="kpi-value" id="count">0</div></div>
+      <div class="kpi"><div class="kpi-label">Rynki zeskanowane</div><div class="kpi-value" id="markets">0</div></div>
+      <div class="kpi"><div class="kpi-label">Ostatni skan</div><div class="kpi-value" style="font-size:14px" id="last">—</div></div>
+    </div>
+  </div>
+  <div class="side-card glass">
+    <div class="eyebrow">Szybki kalkulator</div>
+    <h3 style="margin:8px 0 5px;font-size:20px">Twój budżet</h3>
+    <p class="hero-copy" style="font-size:13px">Wpisz kwotę — stawki wszystkich znalezionych okazji przeliczą się natychmiast.</p>
+    <div class="input-wrap" style="margin-top:16px"><label>Budżet</label><input id="globalBudget" type="number" value="50" min="1" step="1"><span style="color:var(--muted);font-weight:800">zł</span></div>
+    <p class="warning">Kurs może zmienić się po wykryciu. Przed zawarciem obu zakładów sprawdź aktualny kurs, limit i zasady rozliczenia u bukmachera.</p>
+  </div>
+</section>
+
+<section class="controls glass">
+  <div class="input-wrap"><label>Sport</label><select id="sportFilter"><option value="">Wszystkie sporty</option></select></div>
+  <div class="input-wrap"><label>Min. zysk</label><input id="minFilter" type="number" value="0.35" min="0" step="0.05"><span style="color:var(--muted);font-weight:800">%</span></div>
+  <div style="margin-left:auto;color:var(--muted);font-size:11px">Sortowanie: <strong style="color:#dbe3ff">największy zysk</strong></div>
+</section>
+
+<main id="list" class="list"></main>
+<footer class="footer"><span>Surebet Alert • odczyt publicznie prezentowanych kursów</span><span>Nie składa automatycznie zakładów.</span></footer>
+</div>
+<script src="./app.js"></script>
+</body>
+</html>
