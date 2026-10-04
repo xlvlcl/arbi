@@ -4,7 +4,8 @@ const BOOK_META={
   Superbet:{abbr:"SB",url:"https://superbet.pl/"},STS:{abbr:"STS",url:"https://www.sts.pl/"},
   Forbet:{abbr:"FB",url:"https://www.iforbet.pl/"},LVBet:{abbr:"LV",url:"https://lvbet.pl/"},
   ETOTO:{abbr:"ET",url:"https://www.etoto.pl/"},eToto:{abbr:"ET",url:"https://www.etoto.pl/"},Etoto:{abbr:"ET",url:"https://www.etoto.pl/"},
-  Betfan:{abbr:"BF",url:"https://betfan.pl/"},Fuksiarz:{abbr:"FU",url:"https://fuksiarz.pl/"},
+  Betfan:{abbr:"BF",url:"https://betfan.pl/"},BETFAN:{abbr:"BF",url:"https://betfan.pl/"},
+  Fuksiarz:{abbr:"FU",url:"https://fuksiarz.pl/"},
   TotalBet:{abbr:"TB",url:"https://totalbet.pl/"},Totalbet:{abbr:"TB",url:"https://totalbet.pl/"},"Total Bet":{abbr:"TB",url:"https://totalbet.pl/"},
   Betters:{abbr:"BE",url:"https://betters.pl/"},LeBull:{abbr:"LB",url:"https://lebull.pl/"},
   AdmiralBet:{abbr:"AB",url:"https://admiralbet.pl/"},BetSport:{abbr:"BS",url:"https://betsport.pl/"},Betsport:{abbr:"BS",url:"https://betsport.pl/"},
@@ -15,10 +16,14 @@ const fmt=n=>new Intl.NumberFormat("pl-PL",{minimumFractionDigits:2,maximumFract
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const meta=b=>BOOK_META[b]||{abbr:String(b||"?").slice(0,3).toUpperCase(),url:"#"};
 const linkFor=o=>o?.bookmaker_url||o?.source_url||meta(o?.bookmaker).url||"#";
+const safeId=s=>String(s||"").replace(/[^a-z0-9_-]+/gi,"-");
 
 let data={latest:[],stats:{},scan_preview:[],coupon_catalog:[]};
 let budget=50;
 let coupon=loadCoupon();
+let selectedBook=localStorage.getItem("arbi_coupon_book_v16")||"";
+let openEventKey="";
+let currentView="surebets";
 
 const DATA_ENDPOINTS=[
   "data/latest.json",
@@ -35,34 +40,42 @@ async function sha256(value){
 function authHash(){return String(window.ARBI_AUTH_HASH||"").trim().toLowerCase()}
 function rememberedAccessValid(){
   const expected=authHash();
-  if(!expected)return true;
+  if(!expected)return false;
   try{
     const saved=JSON.parse(localStorage.getItem(AUTH_KEY)||"null");
-    if(!saved||saved.hash!==expected)return false;
-    if(saved.forever)return true;
-    return Number(saved.expires||0)>Date.now();
+    return Boolean(saved&&saved.hash===expected&&saved.forever===true);
   }catch{return false}
 }
-function showGate(){document.getElementById("authGate").hidden=false;document.body.classList.add("locked");setTimeout(()=>document.getElementById("authPassword")?.focus(),80)}
-function hideGate(){document.getElementById("authGate").hidden=true;document.body.classList.remove("locked")}
-function lockNow(){localStorage.removeItem(AUTH_KEY);sessionStorage.removeItem(AUTH_KEY);showGate()}
+function showGate(message=""){
+  const gate=document.getElementById("authGate");
+  gate.hidden=false;
+  document.body.classList.add("locked");
+  const error=document.getElementById("authError");
+  if(error&&message)error.textContent=message;
+  setTimeout(()=>document.getElementById("authPassword")?.focus(),80);
+}
+function hideGate(){
+  document.getElementById("authGate").hidden=true;
+  document.body.classList.remove("locked");
+}
+function lockNow(){localStorage.removeItem(AUTH_KEY);showGate()}
 async function initAuth(){
   const expected=authHash();
-  if(!expected){hideGate();return}
-  if(sessionStorage.getItem(AUTH_KEY)===expected||rememberedAccessValid()){hideGate();return}
+  if(!expected){
+    showGate("Blokada nie jest skonfigurowana. Dodaj sekret SITE_PASSWORD i uruchom workflow ponownie.");
+    return;
+  }
+  if(rememberedAccessValid()){hideGate();return}
   showGate();
 }
 document.getElementById("authForm").addEventListener("submit",async e=>{
   e.preventDefault();
-  const expected=authHash(),value=document.getElementById("authPassword").value;
-  const actual=await sha256(value);
-  const error=document.getElementById("authError");
+  const expected=authHash(),error=document.getElementById("authError");
+  if(!expected){error.textContent="Brak skonfigurowanego hasła SITE_PASSWORD.";return}
+  const actual=await sha256(document.getElementById("authPassword").value);
   if(actual!==expected){error.textContent="Nieprawidłowe hasło.";return}
   error.textContent="";
-  const mode=document.querySelector('input[name="remember"]:checked')?.value||"30";
-  if(mode==="session")sessionStorage.setItem(AUTH_KEY,expected);
-  else if(mode==="forever")localStorage.setItem(AUTH_KEY,JSON.stringify({hash:expected,forever:true}));
-  else localStorage.setItem(AUTH_KEY,JSON.stringify({hash:expected,expires:Date.now()+30*24*60*60*1000}));
+  localStorage.setItem(AUTH_KEY,JSON.stringify({hash:expected,forever:true}));
   document.getElementById("authPassword").value="";
   hideGate();
 });
@@ -79,6 +92,7 @@ async function load(){
       const next=await r.json();
       if(!next||typeof next!=="object")throw new Error("invalid data");
       data=next;
+      ensureSelectedBook();
       repaint();
       return;
     }catch(err){lastError=err}
@@ -109,7 +123,7 @@ function legsHtml(a,bankroll){
     return `<div class="leg"><div class="leg-main">
       <div class="book"><div class="book-logo">${esc(m.abbr)}</div><div class="book-info"><div class="book-name">${esc(l.bookmaker)}</div><div class="book-sub">najlepszy kurs</div></div></div>
       <div class="pick"><div class="pick-label">Wybór</div><div class="pick-value">${esc(l.selection)}</div></div>
-      <div class="odds-badge"><div class="odds-stack"><div class="odds">${Number(l.odds).toFixed(2)}</div><div class="stake">${fmt(l.stake)} zł</div></div>${link&&link!=="#"?`<a class="btn btn-small open-btn" href="${esc(link)}" target="_blank" rel="noopener">Otwórz mecz ↗</a>`:""}</div>
+      <div class="odds-badge"><div class="odds-stack"><div class="odds">${Number(l.odds).toFixed(2)}</div><div class="stake">${fmt(l.stake)} zł</div></div>${link&&link!=="#"?`<a class="btn btn-small open-btn" href="${esc(link)}" target="_blank" rel="noopener">Otwórz ↗</a>`:""}</div>
       </div>${alternativesHtml(l)}</div>`;
   }).join("");
 }
@@ -118,35 +132,19 @@ function card(a,bankroll){
   return `<article class="arb glass"><div class="arb-top"><div class="arb-left"><div class="arb-line"><span class="sport-tag">${esc(a.sport)}</span><span class="profit">+${Number(a.profit_pct||0).toFixed(2)}%</span><span class="market">${esc(a.market||"Rynek")}</span></div><h2 class="event">${esc(a.event)}</h2></div><div class="status-pill status-compact"><span class="dot"></span> potwierdzony</div></div>
   <div class="arb-body"><div class="legs">${legsHtml(a,bankroll)}</div><aside class="calc"><div class="calc-title">Budżet</div><div class="calc-input"><input class="budget" type="number" min="1" step="1" value="${Number(bankroll)}"><span>PLN</span></div><div class="calc-grid"><div class="calc-stat"><span>Wkład</span><strong>${fmt(bankroll)} zł</strong></div><div class="calc-stat"><span>Wypłata min.</span><strong>${fmt(s.payout)} zł</strong></div><div class="calc-stat full"><span>Zysk min.</span><strong class="green">+${fmt(s.profit)} zł</strong></div></div>${s.legs.map(l=>`<div class="leg-mini"><span>${esc(l.bookmaker)} · ${esc(l.selection)}</span><strong>${fmt(l.stake)} zł</strong></div>`).join("")}<div class="warning">Sprawdź kursy bezpośrednio przed postawieniem obu stron.</div></aside></div></article>`;
 }
-
-function addToCouponByPreview(rowIndex,selection){
-  const row=(data.scan_preview||[])[rowIndex];if(!row)return;
-  const catalog=(data.coupon_catalog||[]).find(x=>x.event===row.event&&x.market===row.market);
-  if(catalog)addCoupon(catalog.id,selection);
-}
 function previewHtml(){
   const sport=document.getElementById("sportFilter").value;
-  const rows=(data.scan_preview||[]).filter(x=>!sport||x.sport===sport).slice(0,36);
+  const rows=(data.scan_preview||[]).filter(x=>!sport||x.sport===sport).slice(0,24);
   if(!rows.length)return "";
-  return `<section class="scan-preview"><div class="scan-preview-head"><div><strong>Ostatnio zeskanowane rynki</strong><span>Kliknij kurs, żeby przejść do buka, albo dodaj typ do kuponu.</span></div><span>${rows.length} pokazanych</span></div><div class="scan-preview-grid">${rows.map((x,i)=>{
-    const originalIndex=(data.scan_preview||[]).indexOf(x);
-    return `<div class="scan-row glass"><div class="scan-row-top"><span class="sport-tag">${esc(x.sport||"Sport")}</span><span class="market">${esc(x.market||"Rynek")}</span></div><div class="scan-event">${esc(x.event||"Zdarzenie")}</div><div class="scan-outcomes">${(x.best||[]).map(q=>{
-      const link=linkFor(q),m=meta(q.bookmaker);
-      return `<div class="scan-outcome"><div><b>${esc(q.selection)}</b><span>${esc(q.bookmaker)} · ${Number(q.odds||0).toFixed(2)}</span></div><div class="scan-outcome-actions">${link&&link!=="#"?`<a class="mini-link" href="${esc(link)}" target="_blank" rel="noopener">${esc(m.abbr)} ↗</a>`:""}<button class="mini-add" onclick='addToCouponByPreview(${originalIndex},${JSON.stringify(String(q.selection))})'>+ kupon</button></div></div>`;
-    }).join("")}</div></div>`;
-  }).join("")}</div></section>`;
+  return `<section class="scan-preview"><div class="scan-preview-head"><div><strong>Ostatnio zeskanowane rynki</strong><span>Podgląd danych — nie są to surebety.</span></div><span>${rows.length} pokazanych</span></div><div class="scan-preview-grid">${rows.map(x=>`<div class="scan-row glass"><div class="scan-row-top"><span class="sport-tag">${esc(x.sport||"Sport")}</span><span class="market">${esc(x.market||"Rynek")}</span></div><div class="scan-event">${esc(x.event||"Zdarzenie")}</div><div class="scan-best">${(x.best||[]).slice(0,4).map(q=>`<span><b>${esc(q.selection)}</b> ${Number(q.odds||0).toFixed(2)} <small>${esc(q.bookmaker)}</small></span>`).join("")}</div></div>`).join("")}</div></section>`;
 }
-
 function renderSources(){
   const sources=data.stats?.sources||{};
-  const el=document.getElementById("sourceStrip");
-  const entries=Object.entries(sources);
-  if(!entries.length){el.innerHTML="";return}
-  el.innerHTML=entries.map(([name,s])=>`<span class="source-chip"><b>${esc(name)}</b> ${Number(s.markets||0)} ryn.</span>`).join("");
+  const rows=Object.entries(sources);
+  document.getElementById("sourceStrip").innerHTML=rows.map(([name,s])=>`<span class="source-chip"><b>${esc(name)}</b> ${Number(s.markets||0)} rynków</span>`).join("");
 }
 function repaintSurebets(){
-  const sport=document.getElementById("sportFilter").value;
-  const min=Number(document.getElementById("minFilter").value)||0;
+  const sport=document.getElementById("sportFilter").value,min=Number(document.getElementById("minFilter").value)||0;
   const items=(data.latest||[]).filter(a=>(Number(a.profit_pct)||0)>=min&&(!sport||a.sport===sport)).sort((a,b)=>(Number(b.profit_pct)||0)-(Number(a.profit_pct)||0));
   document.getElementById("count").textContent=items.length;
   document.getElementById("best").textContent=items.length?`+${Number(items[0].profit_pct).toFixed(2)}%`:"—";
@@ -154,27 +152,76 @@ function repaintSurebets(){
   document.getElementById("markets").textContent=`${ev} / ${mk}`;
   const ts=data.last_scan||data.generated_at;
   document.getElementById("last").textContent=ts?new Date(Number(ts)*1000).toLocaleString("pl-PL"):"—";
-  const errs=data.errors||[],age=ts?Date.now()/1000-Number(ts):Infinity,complete=data.stats?.exhaustive_complete;
+  const age=ts?Date.now()/1000-Number(ts):Infinity,errs=data.errors||[];
   let status="monitoring aktywny",dot="var(--green)";
-  if(age>15*60){status="skan opóźniony";dot="#fb7185"}else if(age>7*60){status="czekam na nowy skan";dot="#fbbf24"}else if(complete===false){status="skan częściowy";dot="#fbbf24"}else if(errs.length){status="monitoring aktywny · część źródeł niedostępna";dot="#fbbf24"}
-  document.getElementById("statusText").textContent=status;document.getElementById("statusDot").style.background=dot;
+  if(age>15*60){status="skan opóźniony";dot="#ff6b8b"}
+  else if(age>7*60){status="czekam na nowy skan";dot="#ffd166"}
+  else if(data.stats?.exhaustive_complete===false){status="skan częściowy";dot="#ffd166"}
+  else if(errs.length){status="uwaga";dot="#ffd166"}
+  document.getElementById("statusText").textContent=status;
+  document.getElementById("statusDot").style.background=dot;
   renderSources();
   const sports=[...new Set([...(data.stats?.sports||[]),...(data.latest||[]).map(x=>x.sport),...(data.scan_preview||[]).map(x=>x.sport),...(data.coupon_catalog||[]).map(x=>x.sport)].filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
-  const sel=document.getElementById("sportFilter"),current=sel.value;sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");sel.value=sports.includes(current)?current:"";
-  const empty=`<div class="empty glass"><div class="icon">⌁</div><h3>Brak potwierdzonych surebetów w tym skanie</h3><p>Skaner odczytał ${ev} zdarzeń i ${mk} rynków. Poniżej widać rynki i najlepsze kursy, które faktycznie znalazł.</p></div>`;
+  const sel=document.getElementById("sportFilter"),current=sel.value;
+  sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
+  sel.value=sports.includes(current)?current:"";
+  const empty=`<div class="empty glass"><div class="icon">⌁</div><h3>Brak potwierdzonych surebetów w tym skanie</h3><p>Skaner odczytał ${ev} zdarzeń i ${mk} rynków. Poniżej widać część zeskanowanych rynków.</p></div>`;
   document.getElementById("list").innerHTML=(items.length?items.slice(0,200).map(a=>card(a,budget)).join(""):empty)+previewHtml();
 }
 
-// ---------- COUPON ----------
-function loadCoupon(){try{return JSON.parse(localStorage.getItem("arbi_coupon_v1")||"[]")||[]}catch{return []}}
-function saveCoupon(){localStorage.setItem("arbi_coupon_v1",JSON.stringify(coupon));document.getElementById("couponCount").textContent=coupon.length}
+// ---------- COUPON DATA MODEL ----------
+function loadCoupon(){try{return JSON.parse(localStorage.getItem("arbi_coupon_v2")||"[]")||[]}catch{return []}}
+function saveCoupon(){
+  localStorage.setItem("arbi_coupon_v2",JSON.stringify(coupon));
+  document.getElementById("couponCount").textContent=coupon.length;
+}
 function catalogById(id){return (data.coupon_catalog||[]).find(x=>x.id===id)}
+function allBookmakers(){
+  const books=new Set();
+  for(const item of data.coupon_catalog||[]){
+    for(const selection of item.selections||[]){
+      for(const offer of selection.offers||[])if(offer.bookmaker)books.add(offer.bookmaker);
+    }
+  }
+  return [...books].sort((a,b)=>a.localeCompare(b,"pl"));
+}
+function bookStats(book){
+  const events=new Set(),sports=new Set(),markets=new Set();
+  for(const item of data.coupon_catalog||[]){
+    let has=false;
+    for(const selection of item.selections||[]){
+      if((selection.offers||[]).some(o=>o.bookmaker===book)){has=true;break}
+    }
+    if(has){
+      events.add(`${item.sport}|${item.event}`);
+      if(item.sport)sports.add(item.sport);
+      markets.add(item.id);
+    }
+  }
+  return {events:events.size,sports:sports.size,markets:markets.size};
+}
+function ensureSelectedBook(){
+  const books=allBookmakers();
+  if(selectedBook&&!books.includes(selectedBook))selectedBook="";
+  if(!selectedBook&&books.length)selectedBook=books[0];
+  if(selectedBook)localStorage.setItem("arbi_coupon_book_v16",selectedBook);
+}
+function selectBook(book){
+  selectedBook=book;
+  localStorage.setItem("arbi_coupon_book_v16",book);
+  openEventKey="";
+  renderCoupon();
+}
+function offerForBook(selection,book){
+  return (selection?.offers||[]).find(o=>o.bookmaker===book)||null;
+}
 function addCoupon(id,selection){
   const item=catalogById(id);if(!item)return;
   const sel=(item.selections||[]).find(x=>x.selection===selection);if(!sel)return;
   const key=`${id}|${selection}`;
   if(coupon.some(x=>x.key===key))return;
-  coupon.push({key,id,selection,event:item.event,sport:item.sport,market:item.market});saveCoupon();renderCoupon();switchView("coupon");
+  coupon.push({key,id,selection,event:item.event,sport:item.sport,market:item.market});
+  saveCoupon();renderCoupon();
 }
 function removeCoupon(key){coupon=coupon.filter(x=>x.key!==key);saveCoupon();renderCoupon()}
 function clearCoupon(){coupon=[];saveCoupon();renderCoupon()}
@@ -182,80 +229,249 @@ function currentLegs(){
   return coupon.map(c=>{
     const item=catalogById(c.id);if(!item)return null;
     const selection=(item.selections||[]).find(x=>x.selection===c.selection);if(!selection)return null;
-    return {...c,item,offers:selection.offers||[],best_odds:selection.best_odds,best_bookmaker:selection.best_bookmaker};
+    return {...c,item,offers:selection.offers||[],selectedOffer:offerForBook(selection,selectedBook),bestOffer:(selection.offers||[]).slice().sort((a,b)=>Number(b.odds)-Number(a.odds))[0]||null};
   }).filter(Boolean);
 }
 function commonBookRanking(legs){
   if(!legs.length)return [];
   let common=new Set((legs[0].offers||[]).map(o=>o.bookmaker));
-  for(const leg of legs.slice(1)){const books=new Set((leg.offers||[]).map(o=>o.bookmaker));common=new Set([...common].filter(x=>books.has(x)))}
-  const rows=[];
-  for(const book of common){
+  for(const leg of legs.slice(1)){
+    const books=new Set((leg.offers||[]).map(o=>o.bookmaker));
+    common=new Set([...common].filter(x=>books.has(x)));
+  }
+  return [...common].map(book=>{
     const offers=legs.map(leg=>(leg.offers||[]).find(o=>o.bookmaker===book));
-    if(offers.some(x=>!x))continue;
-    const total=offers.reduce((a,o)=>a*Number(o.odds||1),1);
-    rows.push({book,total,offers});
+    return {book,offers,total:offers.reduce((a,o)=>a*Number(o.odds||1),1)};
+  }).sort((a,b)=>b.total-a.total);
+}
+function selectedBookEvents(){
+  if(!selectedBook)return [];
+  const q=document.getElementById("couponSearch")?.value.trim().toLowerCase()||"";
+  const sport=document.getElementById("couponSport")?.value||"";
+  const groups=new Map();
+
+  for(const item of data.coupon_catalog||[]){
+    if(sport&&item.sport!==sport)continue;
+
+    const marketSelections=[];
+    for(const selection of item.selections||[]){
+      const offer=offerForBook(selection,selectedBook);
+      if(offer)marketSelections.push({selection:selection.selection,offer,bestOdds:selection.best_odds,bestBookmaker:selection.best_bookmaker});
+    }
+    if(!marketSelections.length)continue;
+
+    const hay=`${item.event} ${item.market} ${item.sport} ${marketSelections.map(x=>x.selection).join(" ")}`.toLowerCase();
+    if(q&&!hay.includes(q))continue;
+
+    const key=`${item.sport}|${item.event}`;
+    if(!groups.has(key)){
+      groups.set(key,{
+        key,event:item.event,sport:item.sport,markets:[],eventLink:"",
+        sources:new Set()
+      });
+    }
+    const group=groups.get(key);
+    const deep=marketSelections.find(x=>linkFor(x.offer)!=="#");
+    if(!group.eventLink&&deep)group.eventLink=linkFor(deep.offer);
+    for(const source of item.sources||[])group.sources.add(source);
+    group.markets.push({id:item.id,market:item.market,selections:marketSelections,sources:item.sources||[]});
   }
-  return rows.sort((a,b)=>b.total-a.total);
+
+  return [...groups.values()]
+    .map(g=>({...g,sources:[...g.sources]}))
+    .sort((a,b)=>a.sport.localeCompare(b.sport,"pl")||a.event.localeCompare(b.event,"pl"));
 }
-function independentBest(legs){
-  const offers=legs.map(leg=>(leg.offers||[]).slice().sort((a,b)=>Number(b.odds)-Number(a.odds))[0]).filter(Boolean);
-  return {offers,total:offers.length===legs.length?offers.reduce((a,o)=>a*Number(o.odds||1),1):0};
-}
-function eventLinksHtml(row,legs){
-  return `<div class="rank-links">${row.offers.map((o,i)=>{const u=linkFor(o);return u&&u!=="#"?`<a href="${esc(u)}" target="_blank" rel="noopener">${i+1}. mecz ↗</a>`:`<span>${i+1}. brak linku</span>`}).join("")}</div>`;
-}
-function renderCouponRanking(legs){
-  const wrap=document.getElementById("couponRanking"),stake=Math.max(1,Number(document.getElementById("couponStake").value)||1),chosen=document.getElementById("couponBookFilter").value;
-  if(!legs.length){wrap.innerHTML='<div class="coupon-empty">Dodaj co najmniej jeden typ.</div>';return}
-  const rankings=commonBookRanking(legs),bestEach=independentBest(legs);
-  const books=[...new Set(legs.flatMap(l=>(l.offers||[]).map(o=>o.bookmaker)))].sort();
-  const select=document.getElementById("couponBookFilter"),prev=select.value;select.innerHTML='<option value="">Automatycznie — ranking</option>'+books.map(b=>`<option value="${esc(b)}">${esc(b)}</option>`).join("");select.value=books.includes(prev)?prev:"";
-  let html="";
-  if(chosen){
-    const row=rankings.find(r=>r.book===chosen);
-    html+=`<div class="rank-section"><div class="rank-section-title">Wybrany bukmacher</div>${row?`<div class="rank-card best"><div><span>${esc(row.book)}</span><strong>${row.total.toFixed(2)}</strong></div><small>Potencjalna wypłata przy ${fmt(stake)} zł: ${fmt(stake*row.total)} zł</small>${eventLinksHtml(row,legs)}</div>`:`<div class="coupon-empty">${esc(chosen)} nie ma obecnie wszystkich zaznaczonych typów.</div>`}</div>`;
-  }else{
-    html+=`<div class="rank-section"><div class="rank-section-title">Najlepszy jeden buk dla całego kuponu</div>${rankings.length?rankings.slice(0,6).map((r,i)=>`<div class="rank-card ${i===0?'best':''}"><div><span>${i+1}. ${esc(r.book)}</span><strong>${r.total.toFixed(2)}</strong></div><small>${fmt(stake)} zł → ${fmt(stake*r.total)} zł brutto</small>${eventLinksHtml(r,legs)}</div>`).join(""):'<div class="coupon-empty">Żaden pojedynczy bukmacher nie ma wszystkich tych typów w aktualnym skanie.</div>'}</div>`;
+function couponSportsForBook(book){
+  const sports=new Set();
+  for(const item of data.coupon_catalog||[]){
+    if((item.selections||[]).some(s=>(s.offers||[]).some(o=>o.bookmaker===book)))sports.add(item.sport);
   }
-  html+=`<div class="rank-section"><div class="rank-section-title">Najlepszy kurs każdej nogi osobno</div><div class="rank-card split"><div><span>Łączny iloczyn najlepszych kursów</span><strong>${bestEach.total?bestEach.total.toFixed(2):'—'}</strong></div>${bestEach.offers.map((o,i)=>{const u=linkFor(o),leg=legs[i];return `<div class="split-leg"><span>${i+1}. ${esc(leg?.event||'')} · ${esc(leg?.selection||'')}</span><b>${esc(o.bookmaker)} ${Number(o.odds).toFixed(2)}</b>${u&&u!=="#"?`<a href="${esc(u)}" target="_blank" rel="noopener">Otwórz ↗</a>`:''}</div>`}).join("")}</div></div>`;
-  wrap.innerHTML=html;
+  return [...sports].filter(Boolean).sort((a,b)=>a.localeCompare(b,"pl"));
+}
+
+// ---------- COUPON RENDER ----------
+function renderBookmakerPicker(){
+  const books=allBookmakers();
+  const wrap=document.getElementById("bookmakerPicker");
+  wrap.innerHTML=books.length?books.map(book=>{
+    const st=bookStats(book),m=meta(book),active=book===selectedBook;
+    return `<button class="bookmaker-card ${active?"active":""}" onclick='selectBook(${JSON.stringify(book)})'>
+      <span class="bookmaker-card-logo">${esc(m.abbr)}</span>
+      <span class="bookmaker-card-name">${esc(book)}</span>
+      <span class="bookmaker-card-stats">${st.sports} sportów · ${st.events} zdarzeń</span>
+      <span class="bookmaker-card-markets">${st.markets} rynków</span>
+    </button>`;
+  }).join(""):'<div class="coupon-empty">Brak bukmacherów w ostatnim skanie.</div>';
+
+  const st=selectedBook?bookStats(selectedBook):{sports:0,events:0,markets:0};
+  document.getElementById("selectedBookSummary").innerHTML=selectedBook?`<b>${esc(selectedBook)}</b><span>${st.sports} sportów • ${st.events} zdarzeń • ${st.markets} rynków</span>`:"Wybierz bukmachera";
+  document.getElementById("couponBookBadge").textContent=selectedBook||"—";
+}
+function renderSportSelect(){
+  const sports=selectedBook?couponSportsForBook(selectedBook):[];
+  const sel=document.getElementById("couponSport"),prev=sel.value;
+  sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");
+  sel.value=sports.includes(prev)?prev:"";
+}
+function toggleEvent(key){
+  openEventKey=openEventKey===key?"":key;
+  renderEventCatalog();
+}
+function marketHtml(market,event){
+  return `<div class="event-market">
+    <div class="event-market-title"><span>${esc(market.market)}</span><small>${market.selections.length} typów</small></div>
+    <div class="market-selections">
+      ${market.selections.map(s=>{
+        const o=s.offer,u=linkFor(o),inCoupon=coupon.some(x=>x.key===`${market.id}|${s.selection}`);
+        const bestDifferent=s.bestBookmaker&&s.bestBookmaker!==selectedBook;
+        return `<div class="market-pick ${inCoupon?"picked":""}">
+          <div class="market-pick-main"><span>${esc(s.selection)}</span><strong>${Number(o.odds||0).toFixed(2)}</strong></div>
+          <div class="market-pick-sub">
+            <span>${esc(selectedBook)}</span>
+            ${bestDifferent?`<em>najlepiej: ${esc(s.bestBookmaker)} ${Number(s.bestOdds||0).toFixed(2)}</em>`:"<em>najlepszy lub równy</em>"}
+          </div>
+          <div class="market-pick-actions">
+            <button class="pick-add" onclick='event.stopPropagation();addCoupon(${JSON.stringify(market.id)},${JSON.stringify(String(s.selection))})'>${inCoupon?"✓ w kuponie":"+ do kuponu"}</button>
+            ${u&&u!=="#"?`<a class="pick-open" href="${esc(u)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Otwórz ↗</a>`:""}
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+  </div>`;
+}
+function renderEventCatalog(){
+  const events=selectedBookEvents(),wrap=document.getElementById("couponCatalog");
+  const marketCount=events.reduce((a,e)=>a+e.markets.length,0);
+  document.getElementById("catalogStats").textContent=`${events.length} zdarzeń • ${marketCount} rynków`;
+  document.getElementById("eventBrowserTitle").textContent=selectedBook?`Oferta: ${selectedBook}`:"Wybierz bukmachera powyżej";
+
+  if(!selectedBook){
+    wrap.innerHTML='<div class="coupon-empty big-empty">Wybierz bukmachera, a pokażę jego zeskanowaną ofertę.</div>';
+    return;
+  }
+  if(!events.length){
+    wrap.innerHTML=`<div class="coupon-empty big-empty">Brak pasujących zdarzeń dla ${esc(selectedBook)} w ostatnim skanie. Zmień sport lub wyszukiwanie.</div>`;
+    return;
+  }
+
+  wrap.innerHTML=events.slice(0,260).map(event=>{
+    const opened=openEventKey===event.key;
+    const link=event.eventLink;
+    return `<article class="event-card ${opened?"open":""}">
+      <button class="event-card-head" onclick='toggleEvent(${JSON.stringify(event.key)})'>
+        <div class="event-card-left">
+          <div class="event-meta"><span class="sport-tag">${esc(event.sport)}</span><span>${event.markets.length} rynków</span></div>
+          <h4>${esc(event.event)}</h4>
+          <small>${esc((event.sources||[]).slice(0,3).join(" + "))}</small>
+        </div>
+        <div class="event-card-right">
+          ${link&&link!=="#"?`<a class="event-deeplink" href="${esc(link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Otwórz u buka ↗</a>`:""}
+          <span class="event-chevron">${opened?"−":"+"}</span>
+        </div>
+      </button>
+      ${opened?`<div class="event-card-body">${event.markets.map(m=>marketHtml(m,event)).join("")}</div>`:""}
+    </article>`;
+  }).join("");
 }
 function renderCouponLegs(legs){
-  document.getElementById("couponTitle").textContent=`${legs.length} ${legs.length===1?'typ':'typy'}`;
-  document.getElementById("couponLegs").innerHTML=legs.length?legs.map(l=>`<div class="coupon-leg"><div><span class="sport-tag">${esc(l.sport)}</span><strong>${esc(l.event)}</strong><small>${esc(l.market)} → ${esc(l.selection)}</small></div><button onclick='removeCoupon(${JSON.stringify(l.key)})'>×</button></div>`).join(""):'<div class="coupon-empty">Jeszcze nic nie zaznaczyłeś.</div>';
+  document.getElementById("couponTitle").textContent=`${legs.length} ${legs.length===1?"typ":"typy"}`;
+  document.getElementById("couponLegs").innerHTML=legs.length?legs.map(l=>{
+    const o=l.selectedOffer,u=o?linkFor(o):"#";
+    return `<div class="coupon-leg-v16 ${o?"":"unavailable"}">
+      <div class="coupon-leg-top"><span class="sport-tag">${esc(l.sport)}</span><button onclick='removeCoupon(${JSON.stringify(l.key)})'>×</button></div>
+      <strong>${esc(l.event)}</strong>
+      <small>${esc(l.market)} → ${esc(l.selection)}</small>
+      <div class="coupon-leg-offer">
+        ${o?`<span>${esc(selectedBook)} <b>${Number(o.odds).toFixed(2)}</b></span>${u&&u!=="#"?`<a href="${esc(u)}" target="_blank" rel="noopener">Otwórz ↗</a>`:""}`:`<span class="missing">Brak tego typu u ${esc(selectedBook)}</span>`}
+      </div>
+    </div>`;
+  }).join(""):'<div class="coupon-empty">Dodaj typy z listy zdarzeń.</div>';
 }
-function renderCouponCatalog(){
-  const q=document.getElementById("couponSearch").value.trim().toLowerCase(),sport=document.getElementById("couponSport").value;
-  const catalog=(data.coupon_catalog||[]).filter(x=>(!sport||x.sport===sport)&&(!q||`${x.event} ${x.market} ${x.sport}`.toLowerCase().includes(q))).slice(0,100);
-  const sports=[...new Set((data.coupon_catalog||[]).map(x=>x.sport).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
-  const sel=document.getElementById("couponSport"),prev=sel.value;sel.innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(s=>`<option>${esc(s)}</option>`).join("");sel.value=sports.includes(prev)?prev:"";
-  document.getElementById("couponCatalog").innerHTML=catalog.length?catalog.map(item=>`<div class="catalog-card"><div class="catalog-head"><div><span class="sport-tag">${esc(item.sport)}</span><strong>${esc(item.event)}</strong><small>${esc(item.market)}</small></div><span class="source-mini">${esc((item.sources||[]).join(' + '))}</span></div><div class="catalog-selections">${(item.selections||[]).map(s=>`<button class="selection-btn" onclick='addCoupon(${JSON.stringify(item.id)},${JSON.stringify(String(s.selection))})'><span>${esc(s.selection)}</span><b>${Number(s.best_odds||0).toFixed(2)}</b><small>${esc(s.best_bookmaker||'')}</small><em>+ dodaj</em></button>`).join("")}</div></div>`).join(""):'<div class="coupon-empty">Brak pasujących rynków w ostatnim skanie.</div>';
+function renderCouponTotal(legs){
+  const stake=Math.max(1,Number(document.getElementById("couponStake").value)||1);
+  const offers=legs.map(l=>l.selectedOffer);
+  const complete=legs.length>0&&offers.every(Boolean);
+  const total=complete?offers.reduce((a,o)=>a*Number(o.odds||1),1):0;
+  document.getElementById("couponTotalOdds").textContent=complete?total.toFixed(2):"—";
+  document.getElementById("couponPayout").textContent=complete?`${fmt(stake*total)} zł`:"—";
+  const card=document.getElementById("couponTotalCard");
+  card.classList.toggle("incomplete",legs.length>0&&!complete);
 }
-function renderCoupon(){const legs=currentLegs();renderCouponLegs(legs);renderCouponCatalog();renderCouponRanking(legs);saveCoupon()}
+function renderCouponRanking(legs){
+  const wrap=document.getElementById("couponRanking");
+  if(!legs.length){wrap.innerHTML="";return}
+  const rankings=commonBookRanking(legs),current=rankings.find(r=>r.book===selectedBook),best=rankings[0];
+  let html='<div class="compare-title">Porównanie tego samego kuponu</div>';
+  if(current){
+    html+=`<div class="compare-row current"><span>${esc(selectedBook)}</span><strong>${current.total.toFixed(2)}</strong><small>Twój wybrany buk</small></div>`;
+  }
+  if(best&&best.book!==selectedBook){
+    html+=`<div class="compare-row best"><span>${esc(best.book)}</span><strong>${best.total.toFixed(2)}</strong><small>najwyższy łączny kurs</small></div>`;
+  }
+  const rest=rankings.filter(r=>r.book!==selectedBook&&(!best||r.book!==best.book)).slice(0,4);
+  html+=rest.map(r=>`<div class="compare-row"><span>${esc(r.book)}</span><strong>${r.total.toFixed(2)}</strong></div>`).join("");
+  if(!rankings.length)html+='<div class="coupon-empty">Żaden buk nie ma wszystkich zaznaczonych typów.</div>';
+  wrap.innerHTML=html;
+}
+function renderCoupon(){
+  ensureSelectedBook();
+  renderBookmakerPicker();
+  renderSportSelect();
+  renderEventCatalog();
+  const legs=currentLegs();
+  renderCouponLegs(legs);
+  renderCouponTotal(legs);
+  renderCouponRanking(legs);
+  saveCoupon();
+}
 
-// ---------- VIEWS / EVENTS ----------
+// ---------- VIEWS ----------
 function switchView(name){
+  currentView=name;
   document.querySelectorAll(".tab-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
-  document.querySelectorAll(".view").forEach(v=>{const on=v.id===`${name}View`;v.classList.toggle("active",on);v.hidden=!on});
+  document.querySelectorAll(".view").forEach(v=>{
+    const on=v.id===`${name}View`;
+    v.classList.toggle("active",on);
+    v.hidden=!on;
+  });
   if(name==="coupon")renderCoupon();
 }
-function repaint(){repaintSurebets();renderCoupon();document.getElementById("couponCount").textContent=coupon.length}
+function repaint(){
+  repaintSurebets();
+  if(currentView==="coupon")renderCoupon();
+  document.getElementById("couponCount").textContent=coupon.length;
+}
 
+// ---------- EVENTS ----------
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
 document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaintSurebets()});
 document.getElementById("sportFilter").addEventListener("change",repaintSurebets);
 document.getElementById("minFilter").addEventListener("input",repaintSurebets);
-document.getElementById("couponSearch").addEventListener("input",renderCouponCatalog);
-document.getElementById("couponSport").addEventListener("change",renderCouponCatalog);
-document.getElementById("couponStake").addEventListener("input",()=>renderCouponRanking(currentLegs()));
-document.getElementById("couponBookFilter").addEventListener("change",()=>renderCouponRanking(currentLegs()));
+document.getElementById("couponSearch").addEventListener("input",renderEventCatalog);
+document.getElementById("couponSport").addEventListener("change",()=>{openEventKey="";renderEventCatalog()});
+document.getElementById("couponStake").addEventListener("input",()=>{const legs=currentLegs();renderCouponTotal(legs);renderCouponRanking(legs)});
 document.getElementById("clearCouponBtn").addEventListener("click",clearCoupon);
-document.getElementById("refreshBtn").addEventListener("click",async()=>{const b=document.getElementById("refreshBtn");b.disabled=true;b.textContent="↻ odświeżam…";try{await load()}catch{document.getElementById("statusText").textContent="brak danych"}b.disabled=false;b.textContent="↻ Odśwież"});
-document.addEventListener("input",e=>{if(e.target.classList.contains("budget")){budget=Math.max(1,Number(e.target.value)||1);document.getElementById("globalBudget").value=budget;repaintSurebets()}});
+document.getElementById("refreshBtn").addEventListener("click",async()=>{
+  const b=document.getElementById("refreshBtn");b.disabled=true;b.textContent="↻ odświeżam…";
+  try{await load()}catch{document.getElementById("statusText").textContent="brak danych"}
+  b.disabled=false;b.textContent="↻ Odśwież";
+});
+document.addEventListener("input",e=>{
+  if(e.target.classList.contains("budget")){
+    budget=Math.max(1,Number(e.target.value)||1);
+    document.getElementById("globalBudget").value=budget;
+    repaintSurebets();
+  }
+});
 
-window.addCoupon=addCoupon;window.removeCoupon=removeCoupon;window.addToCouponByPreview=addToCouponByPreview;
+window.selectBook=selectBook;
+window.toggleEvent=toggleEvent;
+window.addCoupon=addCoupon;
+window.removeCoupon=removeCoupon;
 
 initAuth();saveCoupon();
-load().catch(()=>{document.getElementById("statusText").textContent="brak danych";document.getElementById("statusDot").style.background="#fb7185"});
+load().catch(()=>{
+  document.getElementById("statusText").textContent="brak danych";
+  document.getElementById("statusDot").style.background="#ff6b8b";
+});
 setInterval(()=>load().catch(()=>{}),3000);

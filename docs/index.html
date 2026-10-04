@@ -3,29 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#060814">
+<meta name="theme-color" content="#070914">
 <meta name="description" content="Surebet Alert — monitor arbitrażu i porównywarka kuponów">
 <link rel="manifest" href="./manifest.json">
 <link rel="stylesheet" href="./app.css">
 <title>Surebet Alert</title>
 </head>
-<body>
-<div class="auth-gate" id="authGate" hidden>
+<body class="locked">
+<div class="auth-gate" id="authGate">
   <div class="auth-card glass">
     <div class="auth-logo">SA</div>
     <div class="eyebrow">Dostęp prywatny</div>
     <h2>Podaj hasło</h2>
-    <p>Po poprawnym haśle możesz zapamiętać dostęp na tym urządzeniu przez miesiąc albo bezterminowo.</p>
+    <p>Wpisz hasło, aby korzystać ze strony. Po poprawnym logowaniu dostęp zostanie zapamiętany na zawsze na tym urządzeniu.</p>
     <form id="authForm">
-      <div class="auth-input"><input id="authPassword" type="password" autocomplete="current-password" placeholder="Hasło" required><button class="btn btn-primary" type="submit">Wejdź</button></div>
-      <div class="auth-remember">
-        <label><input type="radio" name="remember" value="30" checked> 30 dni</label>
-        <label><input type="radio" name="remember" value="forever"> Na zawsze</label>
-        <label><input type="radio" name="remember" value="session"> Tylko teraz</label>
+      <div class="auth-input">
+        <input id="authPassword" type="password" autocomplete="current-password" placeholder="Hasło" required>
+        <button class="btn btn-primary" type="submit">Wejdź</button>
       </div>
+      <div class="auth-remember auth-remember-single">✓ Zapamiętaj na zawsze na tym urządzeniu</div>
       <div class="auth-error" id="authError"></div>
     </form>
-    <div class="auth-note">To blokada interfejsu na statycznej stronie. Nie jest zamiennikiem prawdziwego logowania serwerowego.</div>
+    <div class="auth-note">Blokada dotyczy interfejsu GitHub Pages. Publiczny plik danych nie jest chroniony jak prywatny backend.</div>
   </div>
 </div>
 
@@ -33,40 +32,46 @@
 <header class="topbar">
   <a class="brand" href="./">
     <div class="brand-mark">SA</div>
-    <div><h1>Surebet Alert</h1><p>Multi-source • Polska • kursy + kupon</p></div>
+    <div>
+      <h1>Surebet Alert</h1>
+      <p>multi-source • live kursy • kupon</p>
+    </div>
   </a>
   <div class="actions">
     <div class="status-pill"><span class="dot" id="statusDot"></span><span id="statusText">łączenie…</span></div>
     <button class="btn btn-primary" id="refreshBtn">↻ Odśwież</button>
-    <button class="btn" id="lockBtn" title="Zablokuj dostęp">🔒</button>
+    <button class="btn btn-icon" id="lockBtn" title="Zablokuj dostęp">🔒</button>
   </div>
 </header>
 
 <nav class="tabs glass">
-  <button class="tab-btn active" data-view="surebets">Surebety</button>
-  <button class="tab-btn" data-view="coupon">Kupon / najlepszy kurs <span class="tab-count" id="couponCount">0</span></button>
+  <button class="tab-btn active" data-view="surebets"><span>⚡</span> Surebety</button>
+  <button class="tab-btn" data-view="coupon"><span>🎯</span> Kupon <span class="tab-count" id="couponCount">0</span></button>
 </nav>
 
 <section id="surebetsView" class="view active">
   <section class="hero">
     <div class="hero-card glass">
       <div class="eyebrow">Live monitor</div>
-      <h2 class="hero-title">Poluj na <strong>pewne różnice kursów</strong></h2>
-      <p class="hero-copy">System łączy kursy z porównywarki i publicznych stron bukmacherów, zachowuje linki do wydarzeń i odrzuca niepełne rynki.</p>
+      <h2 class="hero-title">Najlepsze <strong>różnice kursów</strong> w jednym miejscu</h2>
+      <p class="hero-copy">Skaner łączy publiczne kursy z kilku źródeł, sprawdza kompletność rynków i pokazuje tylko potwierdzone arbitraże.</p>
       <div class="kpis">
         <div class="kpi"><div class="kpi-label">Najlepszy znaleziony</div><div class="kpi-value" id="best">—</div></div>
-        <div class="kpi"><div class="kpi-label">Surebety po filtrze</div><div class="kpi-value" id="count">0</div></div>
+        <div class="kpi"><div class="kpi-label">Surebety</div><div class="kpi-value" id="count">0</div></div>
         <div class="kpi"><div class="kpi-label">Zdarzenia / rynki</div><div class="kpi-value" id="markets">0 / 0</div></div>
         <div class="kpi"><div class="kpi-label">Ostatni skan</div><div class="kpi-value small-kpi" id="last">—</div></div>
       </div>
       <div class="source-strip" id="sourceStrip"></div>
     </div>
+
     <div class="side-card glass">
-      <div class="eyebrow">Szybki kalkulator</div>
-      <h3>Twój budżet</h3>
-      <p class="hero-copy small-copy">Wpisz kwotę — stawki znalezionych surebetów przeliczą się natychmiast.</p>
-      <div class="input-wrap budget-wrap"><label>Budżet</label><input id="globalBudget" type="number" value="50" min="1" step="1"><span>zł</span></div>
-      <p class="warning">Kurs może zmienić się po wykryciu. Przed zawarciem obu zakładów sprawdź aktualny kurs, limit i zasady rozliczenia u bukmachera.</p>
+      <div class="eyebrow">Kalkulator</div>
+      <h3>Budżet surebeta</h3>
+      <p class="hero-copy small-copy">Wpisz kwotę, a wszystkie stawki przeliczą się automatycznie.</p>
+      <div class="input-wrap budget-wrap">
+        <label>Budżet</label><input id="globalBudget" type="number" value="50" min="1" step="1"><span>zł</span>
+      </div>
+      <p class="warning">Kursy zmieniają się szybko. Przed zawarciem obu stron sprawdź aktualny kurs i zasady rozliczenia.</p>
     </div>
   </section>
 
@@ -75,48 +80,89 @@
     <div class="input-wrap"><label>Min. zysk</label><input id="minFilter" type="number" value="0.35" min="0" step="0.05"><span>%</span></div>
     <div class="control-note">Sortowanie: <strong>największy zysk</strong></div>
   </section>
+
   <main id="list" class="list"></main>
 </section>
 
 <section id="couponView" class="view" hidden>
-  <section class="coupon-hero glass">
-    <div>
-      <div class="eyebrow">Porównywarka kuponu</div>
-      <h2>Wybierz typy, a system policzy <strong>najlepszy łączny kurs</strong></h2>
-      <p>Możesz znaleźć najlepszego jednego bukmachera dla całego kuponu albo porównać najlepszy kurs każdej nogi osobno.</p>
+  <section class="coupon-dashboard glass">
+    <div class="coupon-dashboard-copy">
+      <div class="eyebrow">Budowa kuponu</div>
+      <h2>Najpierw wybierz <strong>bukmachera</strong></h2>
+      <p>Po wyborze buka zobaczysz wyłącznie zdarzenia, sporty, rynki i kursy, które skaner znalazł właśnie dla niego. Kliknij zdarzenie, aby rozwinąć wszystkie dostępne rynki.</p>
     </div>
-    <div class="coupon-hero-actions">
-      <div class="input-wrap"><label>Stawka</label><input id="couponStake" type="number" value="50" min="1" step="1"><span>zł</span></div>
+    <div class="coupon-dashboard-actions">
+      <div class="input-wrap compact-input">
+        <label>Stawka kuponu</label>
+        <input id="couponStake" type="number" value="50" min="1" step="1">
+        <span>zł</span>
+      </div>
       <button class="btn" id="clearCouponBtn">Wyczyść kupon</button>
     </div>
   </section>
 
-  <section class="coupon-layout">
-    <div class="coupon-browser glass">
-      <div class="coupon-browser-head">
-        <div><div class="eyebrow">Dodaj zdarzenia</div><h3>Katalog zeskanowanych rynków</h3></div>
-        <div class="coupon-searches">
-          <input id="couponSearch" class="plain-input" placeholder="Szukaj meczu, rynku, sportu…">
-          <select id="couponSport"><option value="">Wszystkie sporty</option></select>
-        </div>
+  <section class="bookmaker-zone glass">
+    <div class="section-title-row">
+      <div>
+        <div class="eyebrow">1. Bukmacher kuponu</div>
+        <h3>Wybierz, gdzie chcesz zagrać</h3>
       </div>
-      <div id="couponCatalog" class="coupon-catalog"></div>
+      <div class="selected-book-summary" id="selectedBookSummary">Wybierz bukmachera</div>
+    </div>
+    <div id="bookmakerPicker" class="bookmaker-picker"></div>
+  </section>
+
+  <section class="coupon-toolbar glass">
+    <div class="input-wrap grow">
+      <label>Szukaj</label>
+      <input id="couponSearch" type="search" placeholder="np. Barcelona, tenis, gole, over 2.5…">
+    </div>
+    <div class="input-wrap">
+      <label>Sport</label>
+      <select id="couponSport"><option value="">Wszystkie sporty</option></select>
+    </div>
+    <div class="catalog-stats" id="catalogStats">0 zdarzeń • 0 rynków</div>
+  </section>
+
+  <section class="coupon-layout coupon-layout-v16">
+    <div class="event-browser">
+      <div class="browser-heading">
+        <div>
+          <div class="eyebrow">2. Zdarzenia</div>
+          <h3 id="eventBrowserTitle">Wybierz bukmachera powyżej</h3>
+        </div>
+        <span class="browser-hint">kliknij zdarzenie, aby rozwinąć rynki</span>
+      </div>
+      <div id="couponCatalog" class="event-catalog"></div>
     </div>
 
     <aside class="coupon-panel glass">
-      <div class="coupon-panel-head"><div><div class="eyebrow">Twój kupon</div><h3 id="couponTitle">0 typów</h3></div></div>
-      <div id="couponLegs" class="coupon-legs"></div>
-      <div class="coupon-book-select input-wrap">
-        <label>Pokaż buka</label>
-        <select id="couponBookFilter"><option value="">Automatycznie — ranking</option></select>
+      <div class="coupon-panel-head">
+        <div>
+          <div class="eyebrow">Twój kupon</div>
+          <h3 id="couponTitle">0 typów</h3>
+        </div>
+        <div class="coupon-book-badge" id="couponBookBadge">—</div>
       </div>
+
+      <div id="couponLegs" class="coupon-legs"></div>
+
+      <div class="coupon-total-card" id="couponTotalCard">
+        <div><span>Kurs łączny</span><strong id="couponTotalOdds">—</strong></div>
+        <div><span>Potencjalna wypłata</span><strong id="couponPayout">—</strong></div>
+      </div>
+
       <div id="couponRanking" class="coupon-ranking"></div>
     </aside>
   </section>
 </section>
 
-<footer class="footer"><span>Surebet Alert • publicznie prezentowane kursy</span><span>Nie składa automatycznie zakładów.</span></footer>
+<footer class="footer">
+  <span>Surebet Alert • publicznie prezentowane kursy</span>
+  <span>Nie składa automatycznie zakładów.</span>
+</footer>
 </div>
+
 <script src="./auth-config.js"></script>
 <script src="./app.js"></script>
 </body>

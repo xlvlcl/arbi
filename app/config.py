@@ -62,7 +62,7 @@ DEFAULT = {
     "direct_sources_enabled": True,
     "direct_sources_timeout": 12,
     "direct_sources_concurrency": 5,
-    "coupon_catalog_limit": 350,
+    "coupon_catalog_limit": 1600,
     "host": "0.0.0.0",
     "port": 8080,
     "headless": True,
@@ -109,7 +109,7 @@ class Settings:
         self.data["confirm_concurrency"] = min(4, max(1, int(self.data["confirm_concurrency"])))
         self.data["direct_sources_timeout"] = min(30, max(5, int(self.data["direct_sources_timeout"])))
         self.data["direct_sources_concurrency"] = min(8, max(1, int(self.data["direct_sources_concurrency"])))
-        self.data["coupon_catalog_limit"] = min(800, max(50, int(self.data["coupon_catalog_limit"])))
+        self.data["coupon_catalog_limit"] = min(2500, max(100, int(self.data["coupon_catalog_limit"])))
 
     def load_file(self):
         if SETTINGS.exists():

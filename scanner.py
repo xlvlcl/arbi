@@ -344,15 +344,16 @@ async def scan_once() -> dict:
             },
             **(direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}),
         }
+        coupon_catalog = build_coupon_catalog(
+            merged_rows,
+            int(getattr(settings, "coupon_catalog_limit", 1600)),
+        )
         payload = {
             "generated_at": now,
             "last_scan": now,
             "latest": [arb.to_dict() for arb in confirmed[:200]],
             "scan_preview": build_scan_preview(merged_rows, 120),
-            "coupon_catalog": build_coupon_catalog(
-                merged_rows,
-                int(getattr(settings, "coupon_catalog_limit", 350)),
-            ),
+            "coupon_catalog": coupon_catalog,
             "stats": {
                 "events": len(events),
                 "sports_scanned": len(getattr(provider, "discovered_sports", []) or []),
@@ -368,11 +369,15 @@ async def scan_once() -> dict:
                 "surebets": len(confirmed),
                 "alerts_sent": alerts_sent,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v15",
+                "scanner": "multi-source-v16-bookmaker-coupon",
                 "sources": sources,
             },
             "errors": errors[-80:],
             "source": "DobryBuk + direct bookmaker pages",
+            "coupon_catalog_info": {
+                "items": len(coupon_catalog),
+                "mode": "bookmaker-first",
+            },
             "market_scan_note": (
                 "DobryBuk pozostaje głównym źródłem pełnych tabel rynków. Dodatkowo skaner "
                 "pobiera konserwatywnie rozpoznane kursy bezpośrednio z publicznych stron bukmacherów "
