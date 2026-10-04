@@ -183,7 +183,10 @@ function previewHtml(){
 function renderSources(){
   const sources=data.stats?.sources||{};
   const rows=Object.entries(sources);
-  document.getElementById("sourceStrip").innerHTML=rows.map(([name,s])=>`<span class="source-chip"><b>${esc(name)}</b> ${Number(s.markets||0)} rynków</span>`).join("");
+  document.getElementById("sourceStrip").innerHTML=rows.map(([name,s])=>{
+    const broad=Number(s.broad_candidate_markets||0);
+    return `<span class="source-chip"><b>${esc(name)}</b> ${Number(s.markets||0)} pełnych${broad?` + ${broad} candidate`:""}</span>`;
+  }).join("");
 }
 function repaintSurebets(){
   const sport=document.getElementById("sportFilter").value,min=Number(document.getElementById("minFilter").value)||0;
@@ -546,7 +549,7 @@ function renderCoupon(){
 
 // ---------- VIEWS ----------
 function switchView(name){
-  if(!["surebets","coupon","app"].includes(name))name="surebets";
+  if(!["surebets","value","coupon","app"].includes(name))name="surebets";
   currentView=name;
   document.querySelectorAll(".tab-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===name));
   document.querySelectorAll(".view").forEach(v=>{
@@ -569,7 +572,7 @@ function repaint(){
 // ---------- EVENTS ----------
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.view)));
 const initialView=(location.hash||"").replace("#","");
-if(["coupon","app"].includes(initialView))switchView(initialView);
+if(["surebets","value","coupon","app"].includes(initialView))switchView(initialView);
 document.getElementById("globalBudget").addEventListener("input",e=>{budget=Math.max(1,Number(e.target.value)||1);repaintSurebets()});
 document.getElementById("sportFilter").addEventListener("change",repaintSurebets);
 document.getElementById("valueSport")?.addEventListener("change",renderValuebets);

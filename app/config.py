@@ -62,7 +62,7 @@ DEFAULT = {
     "market_scan_max_events": 250,
     "market_scan_budget_seconds": 330,
     "market_scan_concurrency": 4,
-    "max_markets_per_event": 40,
+    "max_markets_per_event": 120,
     "confirm_concurrency": 2,
     "direct_sources_enabled": True,
     "direct_sources_timeout": 12,
@@ -131,7 +131,7 @@ class Settings:
         self.data["market_scan_max_events"] = max(1, int(self.data["market_scan_max_events"]))
         self.data["market_scan_budget_seconds"] = max(30, int(self.data["market_scan_budget_seconds"]))
         self.data["market_scan_concurrency"] = min(8, max(1, int(self.data["market_scan_concurrency"])))
-        self.data["max_markets_per_event"] = min(80, max(1, int(self.data["max_markets_per_event"])))
+        self.data["max_markets_per_event"] = min(160, max(1, int(self.data["max_markets_per_event"])))
         self.data["confirm_concurrency"] = min(4, max(1, int(self.data["confirm_concurrency"])))
         self.data["dedupe_minutes"] = max(5, int(self.data["dedupe_minutes"]))
         self.data["alert_reappear_minutes"] = max(3, int(self.data["alert_reappear_minutes"]))

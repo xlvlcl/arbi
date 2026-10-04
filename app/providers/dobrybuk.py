@@ -125,10 +125,22 @@ MARKET_HINTS = (
     "ofsajd",
     "rożne",
     "rozne",
+    "korn",
     "kart",
     "gol",
+    "gole",
     "strzeli",
     "scorer",
+    "pierwszy",
+    "ostatni",
+    "dokładny wynik",
+    "dokladny wynik",
+    "correct score",
+    "połowa",
+    "polowa",
+    "half",
+    "ht/ft",
+    "ht-ft",
     "punkty",
     "points",
     "zbiórki",
@@ -152,6 +164,31 @@ MARKET_HINTS = (
     "czyste konto",
     "rzut karny",
     "penalty",
+    "odd/even",
+    "parzyst",
+    "nieparzyst",
+    "metoda zwycięstwa",
+    "sposób zwycięstwa",
+    "method of victory",
+    "wynik setów",
+    "set score",
+    "liczba setów",
+    "liczba gemów",
+    "team total",
+    "suma drużyny",
+    "suma druzyny",
+    "player total",
+    "zawodnik",
+    "gracz",
+    "kwarta",
+    "quarter",
+    "okres",
+    "period",
+    "inning",
+    "mapa",
+    "map ",
+    "round",
+    "runda",
 )
 
 
@@ -509,6 +546,120 @@ def extract_listing_tables(page_html: str, sport: str, source_url: str) -> list[
     return out
 
 
+def extract_listing_market(
+    page_html: str,
+    sport: str,
+    market: str,
+    source_url: str,
+) -> list[dict]:
+    """Parse best visible quotes from the main comparison listing for ANY selected market.
+
+    This layer is used for very broad candidate hunting across dates/sports.
+    A candidate is never alerted from this alone: it is re-opened on the event page
+    and confirmed from the full bookmaker table first.
+    """
+    soup = BeautifulSoup(page_html, "html.parser")
+    now = time.time()
+    out: list[dict] = []
+
+    for table in soup.find_all("table"):
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+
+        header = []
+        header_idx = -1
+        event_idx = -1
+
+        for idx, tr in enumerate(rows[:8]):
+            cells = [normalize_label(x.get_text(" ", strip=True)) for x in tr.find_all(["th", "td"])]
+            lows = [x.lower() for x in cells]
+            try:
+                possible_event_idx = next(i for i, x in enumerate(lows) if "zdarzenie" in x)
+            except StopIteration:
+                possible_event_idx = -1
+
+            if possible_event_idx >= 0 and len(cells) >= possible_event_idx + 3:
+                header = cells
+                header_idx = idx
+                event_idx = possible_event_idx
+                break
+
+        if not header or event_idx < 0:
+            continue
+
+        # columns after "Zdarzenie", excluding bonus/action columns
+        selection_cols: list[tuple[int, str]] = []
+        for idx in range(event_idx + 1, len(header)):
+            label = normalize_label(header[idx])
+            low = label.lower()
+            if not label or low in {"bonus", "bonusy"}:
+                continue
+            if low in {"", "więcej", "wiecej"}:
+                continue
+            selection_cols.append((idx, label))
+
+        if len(selection_cols) < 2:
+            continue
+
+        for tr in rows[header_idx + 1:]:
+            cells = tr.find_all(["td", "th"])
+            if len(cells) <= event_idx:
+                continue
+
+            # Event URL/name
+            event_cell = cells[event_idx]
+            event_url = ""
+            event = clean(event_cell.get_text(" ", strip=True))
+            for a in event_cell.find_all("a", href=True):
+                href = a.get("href", "")
+                if EVENT_PATH_RE.search(href):
+                    event_url = _absolute(href, source_url)
+                    event = clean(a.get_text(" ", strip=True)) or event
+                    break
+
+            if not event_url or len(event) < 3:
+                continue
+
+            quotes: dict[str, list[dict]] = defaultdict(list)
+            for col_idx, selection in selection_cols:
+                if col_idx >= len(cells):
+                    continue
+                _, values, books = _listing_cell_data(cells[col_idx])
+                if not values or not books:
+                    continue
+                odds = max(values)
+                book = books[0]
+                quotes[selection].append(
+                    {
+                        "selection": selection,
+                        "odds": odds,
+                        "bookmaker": book,
+                        "observed_at": now,
+                        "source_url": event_url,
+                        "bookmaker_url": "",
+                        "source_name": "DobryBuk broad listing",
+                    }
+                )
+
+            if len(quotes) >= 2:
+                out.append(
+                    {
+                        "event": event,
+                        "sport": sport,
+                        "market": clean(market) or "Rynek",
+                        "quotes": dict(quotes),
+                        "observed_at": now,
+                        "source_url": event_url,
+                        "event_url": event_url,
+                        "source_name": "DobryBuk broad listing",
+                        "source_names": ["DobryBuk broad listing"],
+                    }
+                )
+
+    return out
+
+
 class DobryBukProvider:
     def __init__(self, settings):
         self.settings = settings
@@ -854,6 +1005,264 @@ class DobryBukProvider:
 
         return list(unique.values()), errors
 
+    async def _click_text_on(self, page: Page, text: str, exact: bool = True) -> bool:
+        locators = [
+            page.get_by_role("button", name=text, exact=exact),
+            page.get_by_text(text, exact=exact),
+        ]
+        for locator in locators:
+            try:
+                count = min(await locator.count(), 20)
+            except Exception:
+                count = 0
+            for i in range(count):
+                item = locator.nth(i)
+                try:
+                    if not await item.is_visible():
+                        continue
+                    await item.scroll_into_view_if_needed(timeout=1200)
+                    await item.click(timeout=3000)
+                    await page.wait_for_timeout(450)
+                    return True
+                except Exception:
+                    continue
+        return False
+
+    async def _market_group_labels(self, page: Page) -> list[str]:
+        """Find the UI control group that contains the 1x2 market button.
+
+        This is deliberately structural, not a fixed whitelist. If DobryBuk adds
+        a new market beside 1x2 tomorrow, the scanner can see it automatically.
+        """
+        script = r"""
+        () => {
+          const norm = s => (s || "").replace(/\s+/g, " ").trim();
+          const visible = el => {
+            const st = getComputedStyle(el);
+            const r = el.getBoundingClientRect();
+            return st.display !== "none" && st.visibility !== "hidden" && r.width > 0 && r.height > 0;
+          };
+          const controls = [...document.querySelectorAll('button,[role="button"],[data-market]')]
+            .filter(visible)
+            .map(el => ({el, text:norm(el.innerText || el.textContent)}))
+            .filter(x => x.text && x.text.length <= 100);
+
+          const seed = controls.find(x => x.text.toLowerCase().replace(/\s/g,"") === "1x2");
+          if (!seed) return [];
+
+          let node = seed.el.parentElement;
+          for (let depth = 0; node && depth < 7; depth++, node = node.parentElement) {
+            const inside = [...node.querySelectorAll('button,[role="button"],[data-market]')]
+              .filter(visible)
+              .map(el => norm(el.innerText || el.textContent))
+              .filter(t => t && t.length <= 100);
+            const uniq = [...new Set(inside)];
+            const hasSeed = uniq.some(t => t.toLowerCase().replace(/\s/g,"") === "1x2");
+            if (hasSeed && uniq.length >= 4 && uniq.length <= 80) return uniq;
+          }
+          return [];
+        }
+        """
+        try:
+            labels = await page.evaluate(script)
+            if isinstance(labels, list):
+                return [normalize_label(str(x)) for x in labels if normalize_label(str(x))]
+        except Exception:
+            pass
+        return []
+
+    async def _activate_upcoming_all_dates(self, page: Page) -> None:
+        # Status
+        await self._click_text_on(page, "Nadchodzące", exact=True)
+
+        # Current page exposes a dedicated "All" button above the date strip.
+        # It is intentionally best-effort because source wording can change.
+        clicked_all = await self._click_text_on(page, "All", exact=True)
+        if not clicked_all:
+            await self._click_text_on(page, "Wszystkie daty", exact=True)
+        await page.wait_for_timeout(650)
+
+    async def _click_sport_on(self, page: Page, sport: str) -> bool:
+        locators = [
+            page.get_by_role("button", name=sport, exact=True),
+            page.get_by_text(sport, exact=True),
+        ]
+        for locator in locators:
+            try:
+                count = min(await locator.count(), 30)
+            except Exception:
+                count = 0
+            for i in range(count):
+                item = locator.nth(i)
+                try:
+                    if not await item.is_visible():
+                        continue
+                    await item.scroll_into_view_if_needed(timeout=1200)
+                    await item.click(timeout=3200)
+                    await page.wait_for_timeout(650)
+                    return True
+                except Exception:
+                    continue
+        return False
+
+    async def discover_priority_events(self) -> tuple[list[dict], list[str]]:
+        """Discover events highlighted by DobryBuk value/statistical-value pages.
+
+        We DO NOT trust their value score as our final signal. These events are merely
+        moved to the front of our own full-market scan, where our stricter model verifies them.
+        """
+        assert self.context
+        page = await self.context.new_page()
+        errors: list[str] = []
+        found: dict[str, dict] = {}
+
+        sources = [
+            ("https://dobrybuk.pl/valuebety", "Value"),
+            ("https://dobrybuk.pl/kursy/statystyczne-value", "Statystyczne Value"),
+            ("https://dobrybuk.pl/kursy/statystyczne", "Statystyczne"),
+        ]
+
+        try:
+            for url, label in sources:
+                try:
+                    await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                    try:
+                        await page.wait_for_load_state("networkidle", timeout=5000)
+                    except Exception:
+                        pass
+                    await page.wait_for_timeout(900)
+                    await self._dismiss_cookie_banner(page)
+
+                    loc = page.locator('a[href*="/kursy/mecz/"]')
+                    count = min(await loc.count(), 800)
+                    for i in range(count):
+                        a = loc.nth(i)
+                        try:
+                            href = await a.get_attribute("href")
+                            if not href:
+                                continue
+                            event_url = _absolute(href, self.settings.source_url)
+                            if not event_url:
+                                continue
+                            text = clean(await a.inner_text(timeout=700))
+                            if len(text) < 3:
+                                slug = event_url.split("?")[0].rstrip("/").split("/")[-1]
+                                slug = re.sub(r"-\d{4}-\d{2}-\d{2}-\d+$", "", slug)
+                                text = clean(slug.replace("-vs-", " – ").replace("-", " ")).title()
+                            # Statistical pages are mostly football/tennis; unknown is okay and
+                            # later main discovery can overwrite with a more precise sport.
+                            sport = "Piłka nożna" if "stat" in event_url.lower() else "Inne"
+                            found.setdefault(
+                                event_url.split("#")[0],
+                                {
+                                    "event": text,
+                                    "sport": sport,
+                                    "event_url": event_url,
+                                    "priority_source": label,
+                                },
+                            )
+                        except Exception:
+                            continue
+                except Exception as exc:
+                    errors.append(f"{label}: {type(exc).__name__}: {exc}")
+        finally:
+            await page.close()
+
+        return list(found.values()), errors
+
+    async def scan_broad_listing_markets(
+        self,
+        max_seconds: int = 105,
+    ) -> tuple[list[dict], list[str], dict]:
+        """Very broad candidate scan across ALL visible dates/sports/listing markets.
+
+        It reads only the best visible quote for each outcome, which is fast.
+        Any surebet candidate found here must still pass the full event-page recheck.
+        """
+        assert self.context
+        page = await self.context.new_page()
+        errors: list[str] = []
+        rows: list[dict] = []
+        started = time.monotonic()
+        scanned_pairs = 0
+
+        try:
+            await page.goto(self.settings.source_url, wait_until="domcontentloaded", timeout=45000)
+            try:
+                await page.wait_for_load_state("networkidle", timeout=7000)
+            except Exception:
+                pass
+            await page.wait_for_timeout(1600)
+            await self._dismiss_cookie_banner(page)
+            await self._activate_upcoming_all_dates(page)
+
+            try:
+                body_text = await page.locator("body").inner_text(timeout=5000)
+            except Exception:
+                body_text = ""
+            sports = discover_sports_from_text(body_text) or self.discovered_sports or SPORTS_FALLBACK
+
+            market_labels = await self._market_group_labels(page)
+            market_labels = [
+                x for x in market_labels
+                if self._looks_like_market_label(x)
+                and normalize_label(x).lower() not in NAV_SKIP
+            ]
+            # Main page currently exposes these; keep deterministic fallback.
+            if not market_labels:
+                market_labels = [
+                    "1x2", "1X / X2 / 12",
+                    "U/O 1.5", "U/O 2.5", "U/O 3.5",
+                    "BTS", "DNB",
+                    "H -2.5", "H -1.5", "H -0.5",
+                    "H +0.5", "H +1.5", "H +2.5",
+                ]
+
+            for sport in sports:
+                if time.monotonic() - started >= max_seconds:
+                    break
+                await self._click_sport_on(page, sport)
+                await page.wait_for_timeout(450)
+                await self._activate_upcoming_all_dates(page)
+
+                for market in market_labels:
+                    if time.monotonic() - started >= max_seconds:
+                        break
+                    clicked = await self._click_market_on(page, market)
+                    if not clicked:
+                        continue
+                    await page.wait_for_timeout(260)
+                    try:
+                        html = await page.content()
+                        parsed = extract_listing_market(
+                            html,
+                            sport,
+                            market,
+                            self.settings.source_url,
+                        )
+                        rows.extend(parsed)
+                        scanned_pairs += 1
+                    except Exception as exc:
+                        errors.append(f"{sport}/{market}: {type(exc).__name__}: {exc}")
+        finally:
+            await page.close()
+
+        unique: dict[tuple[str, str, str], dict] = {}
+        for row in rows:
+            key = (
+                event_key := clean(row.get("event", "")).lower(),
+                clean(row.get("sport", "")).lower(),
+                clean(row.get("market", "")).lower(),
+            )
+            if event_key:
+                unique.setdefault(key, row)
+
+        return list(unique.values()), errors, {
+            "broad_listing_pairs": scanned_pairs,
+            "broad_listing_markets": len(unique),
+            "broad_listing_elapsed": round(time.monotonic() - started, 2),
+        }
+
     async def _open_odds_tab(self, page: Page) -> bool:
         """Otwórz zakładkę `Kursy` przed szukaniem rynków.
 
@@ -895,66 +1304,77 @@ class DobryBukProvider:
 
     def _looks_like_market_label(self, label: str) -> bool:
         low = normalize_label(label).lower()
-        if not low or low in NAV_SKIP or len(low) > 80:
+        if not low or low in NAV_SKIP or len(low) > 90:
             return False
         if TIME_RE.fullmatch(low):
             return False
+        if low in {"1", "x", "2", "all", "więcej", "wiecej", "kupon"}:
+            return False
+        if low in {x.lower() for x in SPORTS_FALLBACK}:
+            return False
+        if any(book.lower() == low for book in BOOKS):
+            return False
+        if re.fullmatch(r"\d{1,2}[\.:]\d{2}", low):
+            return False
+        if re.fullmatch(r"\d+(?:[\.,]\d+)?", low):
+            return False
+        if any(token in low for token in (
+            "akceptuj", "cookie", "zaloguj", "rejestr", "ustawienia",
+            "historia kursów", "wszystkie kursy bukmacherów",
+            "prawdopodobieństwo", "marża", "pozycja w tabeli",
+        )):
+            return False
         if any(hint in low for hint in MARKET_HINTS):
             return True
-        # Common direct labels on the current source.
         if re.fullmatch(r"h\s*[+-]\s*\d+(?:[\.,]\d+)?", low):
             return True
-        return False
+
+        # Important v20 behavior: controls found structurally in the SAME market
+        # switcher group as 1x2 are allowed even if the source added a brand-new label.
+        # This general predicate therefore accepts short descriptive labels containing
+        # at least one alphabetic character.
+        return len(low) >= 2 and bool(re.search(r"[a-ząćęłńóśźż]", low, re.I))
 
     async def _market_buttons_on(self, page: Page) -> list[str]:
         names: list[str] = []
         seen: set[str] = set()
 
-        # Nie ograniczamy się już tylko do get_by_role("button").
-        # DobryBuk renderuje część kontrolek responsywnie / warunkowo.
-        locators = [
-            page.locator("button"),
-            page.locator('[role="button"]'),
-            page.locator("[data-market]"),
-        ]
+        # 1) Best path: every control in the SAME group as the 1x2 switcher.
+        for text in await self._market_group_labels(page):
+            label = normalize_label(text)
+            key = label.lower()
+            if key in seen or not self._looks_like_market_label(label):
+                continue
+            seen.add(key)
+            names.append(label)
 
-        for locator in locators:
-            try:
-                count = min(await locator.count(), 300)
-            except Exception:
-                count = 0
-            for i in range(count):
-                item = locator.nth(i)
+        # 2) Fallback: scan visible controls + data-market attributes.
+        if len(names) <= 1:
+            locators = [
+                page.locator("button"),
+                page.locator('[role="button"]'),
+                page.locator("[data-market]"),
+            ]
+            for locator in locators:
                 try:
-                    if not await item.is_visible():
-                        continue
-                    text = normalize_label(await item.inner_text(timeout=1200))
+                    count = min(await locator.count(), 400)
                 except Exception:
-                    continue
-
-                key = text.lower()
-                if key in seen or not self._looks_like_market_label(text):
-                    continue
-                seen.add(key)
-                names.append(text)
-
-        # Awaryjnie odczytaj krótkie etykiety z widocznego tekstu sekcji.
-        # To nie klika "w ciemno" - później _click_market_on i tak wymaga
-        # rzeczywistej, widocznej kontrolki o dokładnie tej nazwie.
-        try:
-            body = await page.locator("body").inner_text(timeout=2500)
-            for line in body.splitlines():
-                text = normalize_label(line)
-                key = text.lower()
-                if key in seen or not self._looks_like_market_label(text):
-                    continue
-                if len(text) <= 80:
+                    count = 0
+                for i in range(count):
+                    item = locator.nth(i)
+                    try:
+                        if not await item.is_visible():
+                            continue
+                        text = normalize_label(await item.inner_text(timeout=1000))
+                    except Exception:
+                        continue
+                    key = text.lower()
+                    if key in seen or not self._looks_like_market_label(text):
+                        continue
                     seen.add(key)
                     names.append(text)
-        except Exception:
-            pass
 
-        if not any(x.lower() == "1x2" for x in names):
+        if not any(x.lower().replace(" ", "") == "1x2" for x in names):
             names.insert(0, "1x2")
         return names
 

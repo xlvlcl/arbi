@@ -383,8 +383,44 @@ async def scan_once() -> dict:
     await provider.start()
     try:
         scan_mode = "detail"
+
+        # v20: two lightweight discovery jobs run in parallel:
+        # - DobryBuk value/stat pages -> prioritize likely interesting events,
+        # - broad main-listing sweep -> hunt candidate arbs across ALL visible dates.
+        priority_task = asyncio.create_task(provider.discover_priority_events())
+        broad_task = asyncio.create_task(
+            provider.scan_broad_listing_markets(
+                max_seconds=min(120, max(45, int(settings.market_scan_budget_seconds * 0.35)))
+            )
+        )
+
         events, discover_errors = await provider.discover_events(settings.sports)
         errors.extend(discover_errors)
+
+        try:
+            priority_events, priority_errors = await priority_task
+        except Exception as exc:
+            priority_events, priority_errors = [], [f"priority: {exc}"]
+        errors.extend([f"Priority: {x}" for x in priority_errors])
+
+        # Put value/statistical candidates FIRST, but preserve the more accurate sport/name
+        # from normal discovery when the same URL exists there.
+        normal_by_url = {e.get("event_url", "").split("#")[0]: e for e in events if e.get("event_url")}
+        combined = []
+        seen_urls = set()
+        for p in priority_events:
+            key = p.get("event_url", "").split("#")[0]
+            if not key or key in seen_urls:
+                continue
+            combined.append(normal_by_url.get(key, p))
+            seen_urls.add(key)
+        for e in events:
+            key = e.get("event_url", "").split("#")[0]
+            if not key or key in seen_urls:
+                continue
+            combined.append(e)
+            seen_urls.add(key)
+        events = combined
 
         dobrybuk_rows = []
         market_errors = []
@@ -432,12 +468,22 @@ async def scan_once() -> dict:
                 }
 
         try:
+            broad_rows, broad_errors, broad_stats = await broad_task
+        except Exception as exc:
+            broad_rows, broad_errors, broad_stats = [], [f"broad: {exc}"], {
+                "broad_listing_pairs": 0,
+                "broad_listing_markets": 0,
+                "broad_listing_elapsed": 0,
+            }
+        errors.extend([f"Broad: {x}" for x in broad_errors])
+
+        try:
             direct_rows, direct_errors, direct_stats = await direct_task
         except Exception as exc:
             direct_rows, direct_errors, direct_stats = [], [f"direct: {exc}"], {"enabled": True, "sources": {}}
         errors.extend([f"Direct: {x}" for x in direct_errors])
 
-        merged_rows = merge_markets(dobrybuk_rows + direct_rows)
+        merged_rows = merge_markets(dobrybuk_rows + broad_rows + direct_rows)
         if not merged_rows:
             raise RuntimeError(
                 "Żadne źródło nie zwróciło kursów. Nie nadpisuję poprawnych danych pustym skanem."
@@ -464,9 +510,9 @@ async def scan_once() -> dict:
         confirmed_values = []
         if candidates or value_candidates:
             await asyncio.sleep(max(0.5, min(2.0, float(settings.recheck_delay_seconds))))
-            targets = _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows)
+            targets = _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows + broad_rows)
             value_targets = find_confirmation_targets_from_values(
-                value_candidates, dobrybuk_rows
+                value_candidates, dobrybuk_rows + broad_rows
             )
             target_map = {
                 (x.get("event_url", ""), x.get("market", "")): x
@@ -614,8 +660,9 @@ async def scan_once() -> dict:
         sources = {
             "DobryBuk": {
                 "markets": len(dobrybuk_rows),
+                "broad_candidate_markets": len(broad_rows),
                 "events": len({(event_key(str(r.get("event", ""))), str(r.get("sport", "")).lower()) for r in merged_rows}),
-                "mode": "comparison",
+                "mode": "detail + all-date candidate sweep",
             },
             **(direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}),
         }
@@ -640,6 +687,9 @@ async def scan_once() -> dict:
                 "markets_scanned": len(merged_rows),
                 "dobrybuk_markets": len(dobrybuk_rows),
                 "direct_markets": len(direct_rows),
+                "broad_candidate_markets": len(broad_rows),
+                "broad_listing_pairs": broad_stats.get("broad_listing_pairs", 0),
+                "priority_events": len(priority_events),
                 "exhaustive_complete": market_stats.get("exhaustive_complete", False),
                 "candidates": len(candidates),
                 "surebets": len(confirmed),
@@ -651,7 +701,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v19-arb-value-coverage",
+                "scanner": "multi-source-v20-max-markets-value",
                 "scan_mode": scan_mode,
                 "sources": sources,
             },
@@ -663,8 +713,9 @@ async def scan_once() -> dict:
                 "mode": "bookmaker-first",
             },
             "market_scan_note": (
+                "Skan obejmuje detail markets + szeroki all-date candidate sweep + strony value/statystyczne. "
                 "Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków "
-                "i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej "
+                "bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej "
                 f"{settings.value_min_reference_books} innych kompletnych bukmacherów, "
                 f"edge >= {settings.value_min_edge_pct:.1f}% po uwzględnieniu współczynnika wypłaty "
                 "oraz niskiej rozbieżności konsensusu. Pokrycie nie oznacza 100% pełnej oferty "
