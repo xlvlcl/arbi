@@ -5,9 +5,9 @@ on:
   repository_dispatch:
     types: [surebet_scan]
   schedule:
-    # Tylko awaryjny harmonogram. Główne wywołanie nadal robi cron-job.org co 2 min.
-    # Dzięki temu GitHub schedule nie dokłada nam dodatkowej kolejki.
-    - cron: "*/30 * * * *"
+    # Awaryjny harmonogram. cron-job.org może nadal odpalać co 2 min.
+    # Gate nie pozwala uruchomić dwóch pełnych skanów jednocześnie.
+    - cron: "*/5 * * * *"
 
 permissions:
   actions: read
@@ -125,7 +125,7 @@ jobs:
       VALUE_MAX_ODDS: "8.0"
       VALUE_ALERT_COOLDOWN_MINUTES: "240"
       DEEP_SCAN_EVERY: "4"
-      FAST_SCAN_MAX_EVENTS: "70"
+      FAST_SCAN_MAX_EVENTS: "110"
       FAST_SCAN_BUDGET_SECONDS: "105"
       WATCH_SCAN_LIMIT: "50"
       WATCH_SCAN_SECONDS: "60"
@@ -277,12 +277,16 @@ jobs:
           password = os.getenv("SITE_PASSWORD", "")
           if not password:
               raise SystemExit("STOP: brak sekretu SITE_PASSWORD. Strona nie zostanie opublikowana bez hasła.")
+          from datetime import datetime, timezone
+
           digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
+          generated_at = datetime.now(timezone.utc).isoformat()
           Path("docs/auth-config.js").write_text(
-              f'window.ARBI_AUTH_HASH = "{digest}";\n',
+              f'window.ARBI_AUTH_HASH = "{digest}";\n'
+              f'window.ARBI_AUTH_GENERATED_AT = "{generated_at}";\n',
               encoding="utf-8",
           )
-          print("Blokada hasłem: włączona")
+          print("Blokada hasłem: włączona; konfiguracja odświeżona")
           PY
 
       - name: Wygeneruj konfigurację aplikacji push
