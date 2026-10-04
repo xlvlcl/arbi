@@ -10,6 +10,7 @@ from app.config import ROOT, settings
 from app.merge import event_key, market_key, merge_markets
 from app.models import Quote
 from app.intelligence import detect_near_arbs, scan_quality
+from app.market_cache import MarketCache
 from app.providers.direct_books import scan_direct_books, scan_direct_books_browser
 from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
@@ -20,6 +21,7 @@ from app.onesignal_push import send_push, send_value_push
 
 DOCS_DATA = ROOT / "docs" / "data"
 ALERT_STATE = ROOT / "data" / "state.json"
+MARKET_CACHE = ROOT / "data" / "market_cache.json"
 
 DEFAULT_FACTORS = {
     "Betclic": 1.0,
@@ -458,6 +460,7 @@ async def scan_once() -> dict:
     started = time.time()
     provider = DobryBukProvider(settings)
     state = State(ALERT_STATE)
+    market_cache = MarketCache(MARKET_CACHE)
     plan = state.next_scan_plan(settings.deep_scan_every)
     scan_mode = f"adaptive-{plan['mode']}"
     errors: list[str] = []
@@ -657,15 +660,24 @@ async def scan_once() -> dict:
             watch_rows + dobrybuk_rows + broad_rows + all_direct_rows
         )
         merged_rows = _enrich_market_metadata(merged_rows, events)
-        if not merged_rows:
+
+        # Rolling cache prevents FAST/DEEP rotation from making the UI look as if
+        # hundreds of markets suddenly disappeared. Opportunity math still uses
+        # only quotes younger than MAX_QUOTE_AGE_SECONDS.
+        market_cache.update(merged_rows)
+        market_cache.prune(keep_seconds=6 * 3600)
+        analysis_rows = market_cache.snapshot(settings.max_quote_age_seconds)
+        display_rows = market_cache.snapshot(30 * 60)
+
+        if not analysis_rows:
             raise RuntimeError(
                 "Żadne źródło nie zwróciło kursów. Nie nadpisuję poprawnych danych pustym skanem."
             )
 
-        candidates = detect_from_markets(merged_rows)
+        candidates = detect_from_markets(analysis_rows)
         value_candidates = (
             detect_valuebets(
-                merged_rows,
+                analysis_rows,
                 payout_factors(),
                 min_edge_pct=settings.value_min_edge_pct,
                 min_reference_books=settings.value_min_reference_books,
@@ -679,7 +691,7 @@ async def scan_once() -> dict:
             else []
         )
         near_arbs = detect_near_arbs(
-            merged_rows,
+            analysis_rows,
             payout_factors(),
             max_gap_pct=settings.near_arb_gap_pct,
             fallback_gap_pct=max(15.0, settings.near_arb_gap_pct),
@@ -691,9 +703,9 @@ async def scan_once() -> dict:
         confirmed_values = []
         if candidates or value_candidates:
             await asyncio.sleep(max(0.5, min(2.0, float(settings.recheck_delay_seconds))))
-            targets = _find_dobrybuk_confirmation_targets(candidates, dobrybuk_rows + broad_rows)
+            targets = _find_dobrybuk_confirmation_targets(candidates, analysis_rows)
             value_targets = find_confirmation_targets_from_values(
-                value_candidates, dobrybuk_rows + broad_rows
+                value_candidates, analysis_rows
             )
             target_map = {
                 (x.get("event_url", ""), x.get("market", "")): x
@@ -840,7 +852,9 @@ async def scan_once() -> dict:
                     errors.append(f"OneSignal value: {exc}")
 
         now = time.time()
-        quality = scan_quality(merged_rows)
+        quality = scan_quality(analysis_rows)
+        current_quality = scan_quality(merged_rows)
+        display_quality = scan_quality(display_rows)
 
         direct_source_summary = {}
         http_sources = direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}
@@ -868,7 +882,7 @@ async def scan_once() -> dict:
             dobrybuk_ok=bool(dobrybuk_rows or broad_rows),
         )
         coverage = build_coverage(
-            merged_rows,
+            analysis_rows,
             merged_direct_stats,
             len(events),
             int(market_stats.get("detail_events_scanned", 0) or 0),
@@ -895,7 +909,7 @@ async def scan_once() -> dict:
             "latest": [arb.to_dict() for arb in confirmed[:200]],
             "valuebets": stable_values[:150],
             "near_arbs": near_arbs[:120],
-            "scan_preview": build_scan_preview(merged_rows, 700),
+            "scan_preview": build_scan_preview(display_rows, 1200),
             "coupon_catalog": coupon_catalog,
             "stats": {
                 "events": len(events),
@@ -903,8 +917,12 @@ async def scan_once() -> dict:
                 "sports": list(getattr(provider, "discovered_sports", []) or []),
                 "detail_events_scanned": market_stats.get("detail_events_scanned", 0),
                 "detail_events_total": market_stats.get("detail_events_total", len(events)),
-                "markets": len(merged_rows),
+                "markets": len(display_rows),
                 "markets_scanned": len(merged_rows),
+                "markets_scanned_current": len(merged_rows),
+                "active_markets_5m": len(analysis_rows),
+                "active_markets_30m": len(display_rows),
+                "active_events_30m": display_quality.get("events", 0),
                 "dobrybuk_markets": len(dobrybuk_rows),
                 "direct_markets": len(all_direct_rows),
                 "direct_http_markets": len(direct_rows),
@@ -930,18 +948,22 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v23-full-catalog-radar-refresh",
+                "scanner": "multi-source-v25-rolling-market-cache",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],
                 "next_deep_in": plan["next_deep_in"],
                 "quality": quality,
+                "current_quality": current_quality,
+                "display_quality_30m": display_quality,
                 "sources": sources,
             },
             "coverage": coverage,
             "intelligence": {
                 "scan_plan": plan,
                 "quality": quality,
+                "current_quality": current_quality,
+                "display_quality_30m": display_quality,
                 "source_health": source_health,
                 "watchlist_size": len(state.watchlist),
                 "stable_valuebets": len(stable_values),
@@ -967,6 +989,7 @@ async def scan_once() -> dict:
         }
 
         await state.save()
+        market_cache.save()
 
         DOCS_DATA.mkdir(parents=True, exist_ok=True)
         (DOCS_DATA / "latest.json").write_text(

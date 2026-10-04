@@ -50,8 +50,8 @@ const INFO_COPY={
   },
   eventMarkets:{
     title:"Zdarzenia / rynki",
-    body:"Pierwsza liczba to liczba znalezionych wydarzeń, druga to liczba zeskanowanych rynków. Jedno wydarzenie może mieć wiele rynków.",
-    example:"Jeden mecz może zawierać 1X2, over/under, BTS, handicapy, kartki, rożne i inne rynki."
+    body:"Pierwsza liczba to liczba aktywnych wydarzeń, druga to liczba aktywnych rynków widzianych w rolling cache z ostatnich 30 minut. Dzięki temu FAST/DEEP nie powoduje sztucznego spadku licznika. Surebet/value nadal używa tylko bardzo świeżych kursów.",
+    example:"Jeden przebieg może sprawdzić 80 rynków, drugi 50, ale jeżeli oba zestawy są nadal aktywne, licznik może pokazać np. 120 aktywnych rynków."
   },
   lastScan:{
     title:"Ostatni skan",
@@ -656,8 +656,11 @@ function repaintSurebets(){
   const items=(data.latest||[]).filter(a=>(Number(a.profit_pct)||0)>=min&&(!sport||a.sport===sport)).sort((a,b)=>(Number(b.profit_pct)||0)-(Number(a.profit_pct)||0));
   document.getElementById("count").textContent=items.length;
   document.getElementById("best").textContent=items.length?`+${Number(items[0].profit_pct).toFixed(2)}%`:"—";
-  const ev=Number(data.stats?.events||0),mk=Number(data.stats?.markets_scanned??data.stats?.markets??0);
+  const ev=Number(data.stats?.active_events_30m??data.stats?.events??0);
+  const mk=Number(data.stats?.active_markets_30m??data.stats?.markets??0);
+  const currentMk=Number(data.stats?.markets_scanned_current??data.stats?.markets_scanned??0);
   document.getElementById("markets").textContent=`${ev} / ${mk}`;
+  document.getElementById("markets").title=`Aktywne z 30 min: ${mk} rynków • ostatni przebieg: ${currentMk}`;
   const ts=data.last_scan||data.generated_at;
   document.getElementById("last").textContent=ts?new Date(Number(ts)*1000).toLocaleString("pl-PL"):"—";
   const age=ts?Date.now()/1000-Number(ts):Infinity,errs=data.errors||[];
