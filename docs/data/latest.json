@@ -1,44 +1,9 @@
 {
-  "generated_at": 1791190028.0601132,
-  "last_scan": 1791190028.0601132,
+  "generated_at": 1791190254.285828,
+  "last_scan": 1791190254.285828,
   "latest": [],
   "valuebets": [],
   "near_arbs": [
-    {
-      "key": "82487ddc79cbb8465658",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "gap_pct": 3.4559,
-      "inverse_sum": 1.034559,
-      "score": 82.96,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 3.5",
-          "bookmaker": "Betclic",
-          "odds": 1.54,
-          "effective_odds": 1.54,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35"
-        },
-        {
-          "selection": "O 3.5",
-          "bookmaker": "Superbet",
-          "odds": 2.95,
-          "effective_odds": 2.596,
-          "bookmaker_url": "https://www.superbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 10,
-      "best_gap_pct": 3.4559
-    },
     {
       "key": "8919954d86f7acb01d07",
       "event": "Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00",
@@ -71,7 +36,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 8,
+      "seen_scans": 9,
       "best_gap_pct": 0.7313
     },
     {
@@ -115,7 +80,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 3.4466
     },
     {
@@ -150,7 +115,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 4.7458
     },
     {
@@ -186,7 +151,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 5.0285
     },
     {
@@ -229,7 +194,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 21,
+      "seen_scans": 22,
       "best_gap_pct": 5.1481
     },
     {
@@ -265,7 +230,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 5.1665
     },
     {
@@ -300,18 +265,18 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 4.1921
     },
     {
-      "key": "40d7fa0457efe14bd538",
-      "event": "Czarnogóra vs Armenia",
+      "key": "f6ecd4ec98c99f312724",
+      "event": "Cypr vs Łotwa",
       "sport": "PIŁKA NOŻNA",
-      "market": "U/O 1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-      "gap_pct": 5.6911,
-      "inverse_sum": 1.056911,
-      "score": 68.06,
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538",
+      "gap_pct": 5.7154,
+      "inverse_sum": 1.057154,
+      "score": 67.9,
       "bookmakers": 1,
       "sources": [
         "DobryBuk",
@@ -319,25 +284,33 @@
       ],
       "legs": [
         {
-          "selection": "U 1.5",
+          "selection": "1",
           "bookmaker": "Fortuna",
-          "odds": 4.1,
-          "effective_odds": 4.1,
+          "odds": 1.6,
+          "effective_odds": 1.6,
           "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
         },
         {
-          "selection": "O 1.5",
+          "selection": "X",
           "bookmaker": "Fortuna",
-          "odds": 1.23,
-          "effective_odds": 1.23,
+          "odds": 3.85,
+          "effective_odds": 3.85,
           "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Fortuna",
+          "odds": 5.8,
+          "effective_odds": 5.8,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
         }
       ],
       "radar_tier": "watch",
       "seen_scans": 1,
-      "best_gap_pct": 5.6911
+      "best_gap_pct": 5.7154
     },
     {
       "key": "39f8842218a14e4be486",
@@ -371,7 +344,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 12,
+      "seen_scans": 13,
       "best_gap_pct": 4.9166
     },
     {
@@ -406,7 +379,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 19,
+      "seen_scans": 20,
       "best_gap_pct": 0.6944
     },
     {
@@ -450,124 +423,18 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 9,
+      "seen_scans": 10,
       "best_gap_pct": 3.3107
     },
     {
-      "key": "3dbabe12579a3690804f",
-      "event": "Cypr vs Łotwa",
-      "sport": "PIŁKA NOŻNA",
-      "market": "U/O 2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538",
-      "gap_pct": 6.0986,
-      "inverse_sum": 1.060986,
-      "score": 67.34,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "U 2.5",
-          "bookmaker": "Betclic",
-          "odds": 1.71,
-          "effective_odds": 1.71,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
-        },
-        {
-          "selection": "O 2.5",
-          "bookmaker": "Fortuna",
-          "odds": 2.1,
-          "effective_odds": 2.1,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 6.0986
-    },
-    {
-      "key": "c7aa2a4c773756846e16",
-      "event": "Czarnogóra vs Armenia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "U/O 2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-      "gap_pct": 6.0986,
-      "inverse_sum": 1.060986,
-      "score": 65.34,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 2.5",
-          "bookmaker": "Betclic",
-          "odds": 2.1,
-          "effective_odds": 2.1,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        },
-        {
-          "selection": "O 2.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.71,
-          "effective_odds": 1.71,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 6.0986
-    },
-    {
-      "key": "a904e750449c644c7a68",
-      "event": "Anglia vs Czechy",
-      "sport": "",
-      "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
-      "gap_pct": 6.1015,
-      "inverse_sum": 1.061015,
-      "score": 63.32,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.88,
-          "effective_odds": 1.88,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397"
-        },
-        {
-          "selection": "O 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.89,
-          "effective_odds": 1.89,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 5.6299
-    },
-    {
-      "key": "a3f887417797e8bc44b1",
+      "key": "61571a44baa5ffa0ac99",
       "event": "Ukraina vs Węgry",
       "sport": "PIŁKA NOŻNA",
-      "market": "U/O 1.5",
+      "market": "U/O 2.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-      "gap_pct": 6.2937,
-      "inverse_sum": 1.062937,
-      "score": 64.04,
+      "gap_pct": 6.0262,
+      "inverse_sum": 1.060262,
+      "score": 65.83,
       "bookmakers": 1,
       "sources": [
         "DobryBuk",
@@ -575,225 +442,25 @@
       ],
       "legs": [
         {
-          "selection": "U 1.5",
+          "selection": "U 2.5",
           "bookmaker": "Fortuna",
-          "odds": 2.75,
-          "effective_odds": 2.75,
+          "odds": 1.58,
+          "effective_odds": 1.58,
           "bookmaker_url": "https://www.efortuna.pl",
           "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543"
         },
         {
-          "selection": "O 1.5",
+          "selection": "O 2.5",
           "bookmaker": "Fortuna",
-          "odds": 1.43,
-          "effective_odds": 1.43,
+          "odds": 2.34,
+          "effective_odds": 2.34,
           "bookmaker_url": "https://www.efortuna.pl",
           "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543"
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 4.9244
-    },
-    {
-      "key": "197be9c41b2691d4ff0f",
-      "event": "Czarnogóra vs Armenia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-      "gap_pct": 6.3218,
-      "inverse_sum": 1.063218,
-      "score": 63.85,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "Fortuna",
-          "odds": 1.52,
-          "effective_odds": 1.52,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 4.35,
-          "effective_odds": 4.35,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 5.7,
-          "effective_odds": 5.7,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 6.074
-    },
-    {
-      "key": "abc8f2c9b7f308dfb5b7",
-      "event": "Anglia vs Czechy",
-      "sport": "",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
-      "gap_pct": 6.3355,
-      "inverse_sum": 1.063355,
-      "score": 61.76,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "Fortuna",
-          "odds": 1.12,
-          "effective_odds": 1.12,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 8.7,
-          "effective_odds": 8.7,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 18.0,
-          "effective_odds": 18.0,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 4.5238
-    },
-    {
-      "key": "192ba4187ee24d84a983",
-      "event": "Czarnogóra vs Armenia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-      "gap_pct": 6.4264,
-      "inverse_sum": 1.064264,
-      "score": 63.16,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 3.5",
-          "bookmaker": "Betclic",
-          "odds": 1.43,
-          "effective_odds": 1.43,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        },
-        {
-          "selection": "O 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 2.74,
-          "effective_odds": 2.74,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        }
-      ],
-      "radar_tier": "watch",
       "seen_scans": 1,
-      "best_gap_pct": 6.4264
-    },
-    {
-      "key": "bda586723bd25acfbebb",
-      "event": "Cypr vs Łotwa",
-      "sport": "PIŁKA NOŻNA",
-      "market": "H +0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538",
-      "gap_pct": 6.4991,
-      "inverse_sum": 1.064991,
-      "score": 62.67,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 +0.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.16,
-          "effective_odds": 1.16,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
-        },
-        {
-          "selection": "2 -0.5",
-          "bookmaker": "STS",
-          "odds": 5.6,
-          "effective_odds": 4.928,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/cypr-vs-lotwa-2026-10-05-51538"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 6.4991
-    },
-    {
-      "key": "a1ef5ece4488553da53c",
-      "event": "Białoruś vs Finlandia",
-      "sport": "",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433",
-      "gap_pct": 6.5384,
-      "inverse_sum": 1.065384,
-      "score": 62.41,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "Betclic",
-          "odds": 3.75,
-          "effective_odds": 3.75,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Betclic",
-          "odds": 3.32,
-          "effective_odds": 3.32,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 2.01,
-          "effective_odds": 2.01,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 6.5384
+      "best_gap_pct": 6.0262
     },
     {
       "key": "491ddd34c9dc06ee65b7",
@@ -835,7 +502,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 67,
+      "seen_scans": 68,
       "best_gap_pct": 4.9866
     },
     {
@@ -870,7 +537,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 6.6363
     },
     {
@@ -905,43 +572,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 3.8667
-    },
-    {
-      "key": "3e44ced0a7ddaf66e7fa",
-      "event": "Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00",
-      "sport": "",
-      "market": "H -1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
-      "gap_pct": 6.9142,
-      "inverse_sum": 1.069142,
-      "score": 59.91,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 -1.5",
-          "bookmaker": "Superbet",
-          "odds": 7.1,
-          "effective_odds": 6.248,
-          "bookmaker_url": "https://www.superbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35"
-        },
-        {
-          "selection": "2 +1.5",
-          "bookmaker": "Betclic",
-          "odds": 1.1,
-          "effective_odds": 1.1,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 6.0097
     },
     {
       "key": "9379ed5efd8283272007",
@@ -975,7 +607,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 3.4466
     },
     {
@@ -1010,7 +642,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 7,
+      "seen_scans": 8,
       "best_gap_pct": 5.8659
     },
     {
@@ -1045,7 +677,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 3.4466
     },
     {
@@ -1080,7 +712,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 3.4466
     },
     {
@@ -1115,7 +747,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 5.0128
     },
     {
@@ -1150,43 +782,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 7.4821
-    },
-    {
-      "key": "fc3e36ab268eb41eeb45",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "gap_pct": 7.5354,
-      "inverse_sum": 1.075354,
-      "score": 55.76,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 -1.5",
-          "bookmaker": "Superbet",
-          "odds": 5.15,
-          "effective_odds": 4.532,
-          "bookmaker_url": "https://www.superbet.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35"
-        },
-        {
-          "selection": "2 +1.5",
-          "bookmaker": "Betclic",
-          "odds": 1.17,
-          "effective_odds": 1.17,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 7,
-      "best_gap_pct": 7.5354
     },
     {
       "key": "0103c3465bf51846443f",
@@ -1220,7 +817,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 5.6943
     },
     {
@@ -1255,43 +852,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 7.7471
-    },
-    {
-      "key": "13673e863e74105829d6",
-      "event": "Czarnogóra vs Armenia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "H -2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-      "gap_pct": 7.8431,
-      "inverse_sum": 1.078431,
-      "score": 51.71,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 -2.5",
-          "bookmaker": "Betclic",
-          "odds": 4.2,
-          "effective_odds": 4.2,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        },
-        {
-          "selection": "2 +2.5",
-          "bookmaker": "Betclic",
-          "odds": 1.19,
-          "effective_odds": 1.19,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 7.8431
     },
     {
       "key": "2018080511d10f9e7a4f",
@@ -1325,43 +887,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 5.6943
-    },
-    {
-      "key": "c71c06c7c796cae7d028",
-      "event": "Czarnogóra vs Armenia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "H -0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-      "gap_pct": 7.989,
-      "inverse_sum": 1.07989,
-      "score": 50.74,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 -0.5",
-          "bookmaker": "Betclic",
-          "odds": 1.5,
-          "effective_odds": 1.5,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        },
-        {
-          "selection": "2 +0.5",
-          "bookmaker": "Betclic",
-          "odds": 2.42,
-          "effective_odds": 2.42,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 7.989
     },
     {
       "key": "3fe88fe984998a20b217",
@@ -1403,8 +930,43 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 7,
+      "seen_scans": 8,
       "best_gap_pct": 3.5667
+    },
+    {
+      "key": "c0e8c0088bf696120ada",
+      "event": "Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00",
+      "sport": "",
+      "market": "H -0.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
+      "gap_pct": 8.0493,
+      "inverse_sum": 1.080493,
+      "score": 52.34,
+      "bookmakers": 2,
+      "sources": [
+        "DobryBuk"
+      ],
+      "legs": [
+        {
+          "selection": "1 -0.5",
+          "bookmaker": "Superbet",
+          "odds": 3.4,
+          "effective_odds": 2.992,
+          "bookmaker_url": "https://www.superbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35"
+        },
+        {
+          "selection": "2 +0.5",
+          "bookmaker": "Betclic",
+          "odds": 1.34,
+          "effective_odds": 1.34,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 4.9558
     },
     {
       "key": "8bd0417a1e78e4deadc2",
@@ -1438,43 +1000,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 5.9123
-    },
-    {
-      "key": "2471f3704b27a4147b31",
-      "event": "Białoruś vs Finlandia",
-      "sport": "",
-      "market": "H +0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433",
-      "gap_pct": 8.1395,
-      "inverse_sum": 1.081395,
-      "score": 51.74,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 +0.5",
-          "bookmaker": "Betclic",
-          "odds": 1.72,
-          "effective_odds": 1.72,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433"
-        },
-        {
-          "selection": "2 -0.5",
-          "bookmaker": "Fortuna",
-          "odds": 2.0,
-          "effective_odds": 2.0,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bialorus-vs-finlandia-2026-10-06-52433"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 8,
-      "best_gap_pct": 6.5384
     },
     {
       "key": "e38a0cc007e7db5db910",
@@ -1508,7 +1035,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 7,
+      "seen_scans": 8,
       "best_gap_pct": 8.1812
     },
     {
@@ -1543,8 +1070,43 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 5,
+      "seen_scans": 6,
       "best_gap_pct": 7.1118
+    },
+    {
+      "key": "69b9b1f135bd6b52e9b9",
+      "event": "Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00",
+      "sport": "",
+      "market": "U/O 1.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
+      "gap_pct": 9.4584,
+      "inverse_sum": 1.094584,
+      "score": 40.94,
+      "bookmakers": 1,
+      "sources": [
+        "DobryBuk"
+      ],
+      "legs": [
+        {
+          "selection": "U 1.5",
+          "bookmaker": "Fortuna",
+          "odds": 4.6,
+          "effective_odds": 4.6,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35"
+        },
+        {
+          "selection": "O 1.5",
+          "bookmaker": "Fortuna",
+          "odds": 1.14,
+          "effective_odds": 1.14,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 5.0128
     },
     {
       "key": "e157b8b8ad6d65652319",
@@ -1578,86 +1140,44 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 10.119
     },
     {
-      "key": "6308e10523e5e50ee302",
-      "event": "Bośnia i Hercegowina - Polska",
-      "sport": "TENIS",
+      "key": "f6f45a374b38e9d27e26",
+      "event": "Real Betis - Osasuna",
+      "sport": "PIŁKA NOŻNA",
       "market": "U/O 2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
-      "gap_pct": 11.4653,
-      "inverse_sum": 1.114653,
-      "score": 29.56,
+      "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
+      "gap_pct": 12.0482,
+      "inverse_sum": 1.120482,
+      "score": 27.68,
       "bookmakers": 2,
       "sources": [
+        "DobryBuk",
         "DobryBuk broad listing"
       ],
       "legs": [
         {
           "selection": "U 2.5",
           "bookmaker": "Fortuna",
-          "odds": 1.96,
-          "effective_odds": 1.96,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702"
+          "odds": 2.09,
+          "effective_odds": 2.09,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
         },
         {
           "selection": "O 2.5",
-          "bookmaker": "STS",
-          "odds": 1.88,
-          "effective_odds": 1.654,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 11.4653
-    },
-    {
-      "key": "5e051ed87dfad2c19075",
-      "event": "Włochy - Turcja",
-      "sport": "TENIS",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-      "gap_pct": 12.0399,
-      "inverse_sum": 1.120399,
-      "score": 27.73,
-      "bookmakers": 3,
-      "sources": [
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
           "bookmaker": "LVBet",
-          "odds": 1.45,
-          "effective_odds": 1.276,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 5.4,
-          "effective_odds": 5.4,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "BetSport",
-          "odds": 7.5,
-          "effective_odds": 6.6,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
+          "odds": 1.77,
+          "effective_odds": 1.558,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
         }
       ],
       "radar_tier": "watch",
       "seen_scans": 1,
-      "best_gap_pct": 12.0399
+      "best_gap_pct": 5.9783
     },
     {
       "key": "1eccc1aa318360657b6a",
@@ -1691,181 +1211,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 6.4065
-    },
-    {
-      "key": "1375449f17648900626c",
-      "event": "Liechtenstein - Gibraltar",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-      "gap_pct": 12.6398,
-      "inverse_sum": 1.126398,
-      "score": 25.73,
-      "bookmakers": 3,
-      "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 2.95,
-          "effective_odds": 2.596,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Betfan",
-          "odds": 2.85,
-          "effective_odds": 2.508,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 2.92,
-          "effective_odds": 2.92,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 8.1469
-    },
-    {
-      "key": "4d2a73e349241e3e75a1",
-      "event": "Liechtenstein - Gibraltar",
-      "sport": "TENIS",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-      "gap_pct": 12.6398,
-      "inverse_sum": 1.126398,
-      "score": 23.73,
-      "bookmakers": 3,
-      "sources": [
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 2.95,
-          "effective_odds": 2.596,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Betfan",
-          "odds": 2.85,
-          "effective_odds": 2.508,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 2.92,
-          "effective_odds": 2.92,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 12.177
-    },
-    {
-      "key": "6da7fce8fc60f5bd704e",
-      "event": "Francja - Belgia",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-      "gap_pct": 14.3086,
-      "inverse_sum": 1.143086,
-      "score": 8.61,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 1.52,
-          "effective_odds": 1.338,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 5.15,
-          "effective_odds": 4.532,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 6.5,
-          "effective_odds": 5.72,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 12.8616
-    },
-    {
-      "key": "57e172870d25ac3414e5",
-      "event": "Francja - Belgia",
-      "sport": "TENIS",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-      "gap_pct": 14.3086,
-      "inverse_sum": 1.143086,
-      "score": 8.61,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "LVBet",
-          "odds": 1.52,
-          "effective_odds": 1.338,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "LVBet",
-          "odds": 5.15,
-          "effective_odds": 4.532,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "LVBet",
-          "odds": 6.5,
-          "effective_odds": 5.72,
-          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 12.8616
     }
   ],
   "scan_preview": [
@@ -5856,183 +5203,19 @@
     {
       "event": "Chorwacja vs Hiszpania",
       "sport": "",
-      "market": "1X / X2 / 12",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "best": [
-        {
-          "selection": "1X",
-          "bookmaker": "STS",
-          "odds": 3.7,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X2",
-          "bookmaker": "Forbet",
-          "odds": 1.09,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "12",
-          "bookmaker": "Forbet",
-          "odds": 1.14,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.14,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.13,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.13,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.13,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
       "market": "U/O 1.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "best": [
         {
           "selection": "U 1.5",
-          "bookmaker": "Betfan",
-          "odds": 5.2,
-          "bookmaker_url": "https://www.betfan.pl",
+          "bookmaker": "Superbet",
+          "odds": 4.1,
+          "bookmaker_url": "https://www.superbet.pl",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
           "source_name": "DobryBuk",
           "alternatives": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.1,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
             {
               "bookmaker": "LVBet",
               "odds": 4.0,
@@ -6055,6 +5238,15 @@
               "bookmaker": "BetSport",
               "odds": 3.85,
               "bookmaker_url": "https://www.betsport.pl",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "ETOTO",
+              "odds": 3.85,
+              "bookmaker_url": "https://www.etoto.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
@@ -6316,291 +5508,6 @@
             {
               "bookmaker": "Superbet",
               "odds": 2.12,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "BTS",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "best": [
-        {
-          "selection": "BTS+",
-          "bookmaker": "LVBet",
-          "odds": 1.88,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.82,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.82,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "BTS−",
-          "bookmaker": "STS",
-          "odds": 1.95,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.9,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "DNB",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "best": [
-        {
-          "selection": "DNB 1",
-          "bookmaker": "ETOTO",
-          "odds": 7.0,
-          "bookmaker_url": "https://www.etoto.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fortuna",
-              "odds": 7.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 6.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 6.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 6.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "DNB 2",
-          "bookmaker": "BetSport",
-          "odds": 1.09,
-          "bookmaker_url": "https://www.betsport.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "H -0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "best": [
-        {
-          "selection": "1 -0.5",
-          "bookmaker": "Superbet",
-          "odds": 7.8,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 6.75,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +0.5",
-          "bookmaker": "BetSport",
-          "odds": 1.07,
-          "bookmaker_url": "https://www.betsport.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.07,
               "bookmaker_url": "https://www.superbet.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
@@ -11156,7 +10063,7 @@
       ]
     },
     {
-      "event": "Arsenal vs Leeds",
+      "event": "Arsenal - Leeds",
       "sport": "PIŁKA NOŻNA",
       "market": "U/O 2.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
@@ -11165,11 +10072,11 @@
           "selection": "U 2.5",
           "bookmaker": "Superbet",
           "odds": 2.12,
-          "bookmaker_url": "https://www.superbet.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "LVBet",
@@ -11213,11 +10120,11 @@
           "selection": "O 2.5",
           "bookmaker": "LVBet",
           "odds": 1.75,
-          "bookmaker_url": "https://www.lvbet.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "STS",
@@ -18012,11 +16919,11 @@
           "selection": "U 2.5",
           "bookmaker": "Fortuna",
           "odds": 2.09,
-          "bookmaker_url": "https://www.efortuna.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "STS",
@@ -18060,11 +16967,11 @@
           "selection": "O 2.5",
           "bookmaker": "LVBet",
           "odds": 1.77,
-          "bookmaker_url": "https://www.lvbet.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "Superbet",
@@ -19836,24 +18743,14 @@
         },
         {
           "selection": "BTS-",
-          "bookmaker": "STS",
-          "odds": 1.65,
+          "bookmaker": "Superbet",
+          "odds": 1.64,
           "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/barcelona-vs-getafe-2026-10-10-40370",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/barcelona-vs-getafe-2026-10-10-40370",
           "source_name": "DobryBuk broad listing",
-          "alternatives": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.64,
-              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/barcelona-vs-getafe-2026-10-10-40370",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/barcelona-vs-getafe-2026-10-10-40370",
-              "source_name": "DobryBuk broad listing"
-            }
-          ]
+          "alternatives": []
         }
       ],
       "sources": [
@@ -48638,336 +47535,6 @@
       ]
     },
     {
-      "id": "4b7a2aed946b6a",
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "1X / X2 / 12",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1X",
-          "best_odds": 3.7,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 3.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 3.65,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.5,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.4,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 3.27,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X2",
-          "best_odds": 1.09,
-          "best_bookmaker": "Forbet",
-          "offers": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.06,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.06,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "12",
-          "best_odds": 1.14,
-          "best_bookmaker": "Forbet",
-          "offers": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.14,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.14,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.13,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.13,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.13,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.13,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.13,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.12,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.12,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.12,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.11,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "7279e16628e31a",
       "event": "Chorwacja vs Hiszpania",
       "sport": "",
@@ -48979,18 +47546,9 @@
       "selections": [
         {
           "selection": "U 1.5",
-          "best_odds": 5.2,
-          "best_bookmaker": "Betfan",
+          "best_odds": 4.1,
+          "best_bookmaker": "Superbet",
           "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 5.2,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
             {
               "bookmaker": "Superbet",
               "odds": 4.1,
@@ -49155,15 +47713,6 @@
               "bookmaker": "Betclic",
               "odds": 1.18,
               "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.12,
-              "bookmaker_url": "https://www.betfan.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
@@ -49594,516 +48143,6 @@
               "bookmaker": "Betfan",
               "odds": 2.05,
               "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "7d2e72ceef7123",
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "BTS",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "BTS+",
-          "best_odds": 1.88,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.88,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.82,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.82,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.81,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.81,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.81,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.8,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.8,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.8,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "BTS−",
-          "best_odds": 1.95,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.95,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.9,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.9,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.9,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.9,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.9,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.88,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "11b928778426e3",
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "DNB",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "DNB 1",
-          "best_odds": 7.0,
-          "best_bookmaker": "ETOTO",
-          "offers": [
-            {
-              "bookmaker": "ETOTO",
-              "odds": 7.0,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 7.0,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 6.9,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 6.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 6.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 6.4,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 6.4,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 6.3,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 6.25,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 5.9,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "DNB 2",
-          "best_odds": 1.09,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.09,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.08,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "723dcd28590974",
-      "event": "Chorwacja vs Hiszpania",
-      "sport": "",
-      "market": "H -0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1 -0.5",
-          "best_odds": 7.8,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 7.8,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 7.7,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 6.75,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +0.5",
-          "best_odds": 1.07,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.07,
-              "bookmaker_url": "https://www.superbet.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
@@ -58439,7 +56478,7 @@
     },
     {
       "id": "4fe512e9ea6c20",
-      "event": "Arsenal vs Leeds",
+      "event": "Arsenal - Leeds",
       "sport": "PIŁKA NOŻNA",
       "market": "U/O 2.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
@@ -58456,11 +56495,11 @@
             {
               "bookmaker": "Superbet",
               "odds": 2.12,
-              "bookmaker_url": "https://www.superbet.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "LVBet",
@@ -58562,11 +56601,11 @@
             {
               "bookmaker": "LVBet",
               "odds": 1.75,
-              "bookmaker_url": "https://www.lvbet.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "STS",
@@ -69138,11 +67177,11 @@
             {
               "bookmaker": "Fortuna",
               "odds": 2.09,
-              "bookmaker_url": "https://www.efortuna.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "STS",
@@ -69244,11 +67283,11 @@
             {
               "bookmaker": "LVBet",
               "odds": 1.77,
-              "bookmaker_url": "https://www.lvbet.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "Superbet",
@@ -71772,18 +69811,9 @@
         },
         {
           "selection": "BTS-",
-          "best_odds": 1.65,
-          "best_bookmaker": "STS",
+          "best_odds": 1.64,
+          "best_bookmaker": "Superbet",
           "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.65,
-              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/barcelona-vs-getafe-2026-10-10-40370",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/barcelona-vs-getafe-2026-10-10-40370",
-              "source_name": "DobryBuk broad listing"
-            },
             {
               "bookmaker": "Superbet",
               "odds": 1.64,
@@ -109112,31 +107142,31 @@
     "events": 65,
     "sports_scanned": 0,
     "sports": [],
-    "detail_events_scanned": 65,
+    "detail_events_scanned": 52,
     "detail_events_total": 65,
-    "markets": 602,
-    "markets_scanned": 99,
-    "markets_scanned_current": 99,
-    "active_markets_5m": 99,
-    "active_markets_30m": 602,
+    "markets": 598,
+    "markets_scanned": 245,
+    "markets_scanned_current": 245,
+    "active_markets_5m": 245,
+    "active_markets_30m": 598,
     "active_events_30m": 98,
-    "dobrybuk_markets": 49,
+    "dobrybuk_markets": 41,
     "direct_markets": 0,
     "direct_http_markets": 0,
     "direct_browser_markets": 0,
-    "broad_candidate_markets": 97,
-    "broad_listing_pairs": 19,
+    "broad_candidate_markets": 200,
+    "broad_listing_pairs": 7,
     "priority_events": 8,
     "signal_events": 57,
     "watch_targets": 50,
-    "watch_rows": 20,
+    "watch_rows": 7,
     "catalog_events": 65,
     "rotation_offset": 0,
-    "near_arbs": 50,
-    "exhaustive_complete": true,
+    "near_arbs": 33,
+    "exhaustive_complete": false,
     "candidates": 0,
     "surebets": 0,
-    "value_candidates": 2,
+    "value_candidates": 1,
     "value_confirmed": 0,
     "valuebets": 0,
     "alerts_sent": 0,
@@ -109144,47 +107174,47 @@
     "value_push_alerts_sent": 0,
     "telegram_alerts_sent": 0,
     "push_configured": true,
-    "elapsed_seconds": 156.99,
+    "elapsed_seconds": 137.46,
     "scanner": "multi-source-v25.1-cache-hotfix",
-    "scan_mode": "adaptive-deep",
-    "scan_sequence": 156,
+    "scan_mode": "adaptive-fast",
+    "scan_sequence": 157,
     "deep_every": 4,
-    "next_deep_in": 0,
+    "next_deep_in": 3,
     "quality": {
-      "events": 17,
-      "markets": 99,
-      "selections": 219,
-      "offers": 1312,
+      "events": 65,
+      "markets": 245,
+      "selections": 541,
+      "offers": 1337,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 13.25,
-      "markets_per_event": 5.82
+      "offers_per_market": 5.46,
+      "markets_per_event": 3.77
     },
     "current_quality": {
-      "events": 17,
-      "markets": 99,
-      "selections": 219,
-      "offers": 1312,
+      "events": 65,
+      "markets": 245,
+      "selections": 541,
+      "offers": 1337,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 13.25,
-      "markets_per_event": 5.82
+      "offers_per_market": 5.46,
+      "markets_per_event": 3.77
     },
     "display_quality_30m": {
       "events": 98,
-      "markets": 602,
-      "selections": 1336,
-      "offers": 6098,
+      "markets": 598,
+      "selections": 1327,
+      "offers": 6014,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 10.13,
-      "markets_per_event": 6.14
+      "offers_per_market": 10.06,
+      "markets_per_event": 6.1
     },
     "sources": {
       "DobryBuk": {
-        "markets": 49,
-        "broad_candidate_markets": 97,
-        "events": 25,
+        "markets": 41,
+        "broad_candidate_markets": 200,
+        "events": 65,
         "mode": "detail + all-date candidate sweep"
       },
       "Fortuna": {
@@ -109194,53 +107224,11 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "ETOTO": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "LeBull": {
+      "Betclic": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
-        "mode": "http + public-browser"
-      },
-      "TotalBet": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Forbet": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "AdmiralBet": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Betfan": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Fuksiarz": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
         "mode": "http + public-browser"
       },
       "Betters": {
@@ -109250,14 +107238,14 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Superbet": {
+      "Fuksiarz": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
         "ok": true,
         "mode": "http + public-browser"
       },
-      "LVBet": {
+      "AdmiralBet": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -109271,7 +107259,7 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "PZBuk": {
+      "LVBet": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -109285,7 +107273,7 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Betclic": {
+      "LeBull": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -109297,6 +107285,48 @@
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
+        "mode": "http + public-browser"
+      },
+      "PZBuk": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Betfan": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "ETOTO": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Forbet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "Superbet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "TotalBet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
         "mode": "http + public-browser"
       }
     }
@@ -109306,8 +107336,8 @@
     "scope": "Kursy i zdarzenia widoczne w aktualnie skanowanym zakresie DobryBuk + konserwatywne dane bezpośrednie. To nie jest gwarancja 100% pełnej oferty każdego bukmachera.",
     "comparison_bookmakers": 16,
     "discovered_events": 65,
-    "detail_events_scanned": 65,
-    "detail_completion_pct": 100.0,
+    "detail_events_scanned": 52,
+    "detail_completion_pct": 80.0,
     "books": {
       "AdmiralBet": {
         "events": 0,
@@ -109316,21 +107346,21 @@
         "direct_status": "reachable-no-markets"
       },
       "BetSport": {
-        "events": 11,
+        "events": 19,
         "markets": 58,
-        "offers": 127,
+        "offers": 108,
         "direct_status": "blocked-or-failed"
       },
       "Betclic": {
-        "events": 10,
-        "markets": 55,
-        "offers": 122,
+        "events": 7,
+        "markets": 41,
+        "offers": 90,
         "direct_status": "blocked-or-failed"
       },
       "Betfan": {
-        "events": 12,
-        "markets": 54,
-        "offers": 120,
+        "events": 6,
+        "markets": 37,
+        "offers": 82,
         "direct_status": "reachable-no-markets"
       },
       "Betters": {
@@ -109346,33 +107376,33 @@
         "direct_status": "blocked-or-failed"
       },
       "ETOTO": {
-        "events": 10,
+        "events": 14,
         "markets": 53,
-        "offers": 117,
+        "offers": 99,
         "direct_status": "reachable-no-markets"
       },
       "Forbet": {
-        "events": 9,
-        "markets": 42,
-        "offers": 94,
+        "events": 54,
+        "markets": 80,
+        "offers": 145,
         "direct_status": "blocked-or-failed"
       },
       "Fortuna": {
-        "events": 13,
-        "markets": 48,
-        "offers": 107,
+        "events": 9,
+        "markets": 38,
+        "offers": 79,
         "direct_status": "blocked-or-failed"
       },
       "Fuksiarz": {
-        "events": 10,
-        "markets": 30,
-        "offers": 70,
+        "events": 27,
+        "markets": 52,
+        "offers": 79,
         "direct_status": "reachable-no-markets"
       },
       "LVBet": {
-        "events": 16,
-        "markets": 73,
-        "offers": 150,
+        "events": 61,
+        "markets": 189,
+        "offers": 269,
         "direct_status": "reachable-no-markets"
       },
       "LeBull": {
@@ -109388,197 +107418,197 @@
         "direct_status": "reachable-no-markets"
       },
       "STS": {
-        "events": 15,
-        "markets": 76,
-        "offers": 155,
+        "events": 23,
+        "markets": 73,
+        "offers": 126,
         "direct_status": "blocked-or-failed"
       },
       "Superbet": {
-        "events": 11,
-        "markets": 62,
-        "offers": 135,
+        "events": 48,
+        "markets": 107,
+        "offers": 164,
         "direct_status": "reachable-no-markets"
       },
       "TotalBet": {
-        "events": 9,
+        "events": 20,
         "markets": 52,
-        "offers": 115,
+        "offers": 96,
         "direct_status": "reachable-no-markets"
       }
     }
   },
   "intelligence": {
     "scan_plan": {
-      "sequence": 156,
-      "mode": "deep",
+      "sequence": 157,
+      "mode": "fast",
       "deep_every": 4,
-      "next_deep_in": 0
+      "next_deep_in": 3
     },
     "quality": {
-      "events": 17,
-      "markets": 99,
-      "selections": 219,
-      "offers": 1312,
+      "events": 65,
+      "markets": 245,
+      "selections": 541,
+      "offers": 1337,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 13.25,
-      "markets_per_event": 5.82
+      "offers_per_market": 5.46,
+      "markets_per_event": 3.77
     },
     "current_quality": {
-      "events": 17,
-      "markets": 99,
-      "selections": 219,
-      "offers": 1312,
+      "events": 65,
+      "markets": 245,
+      "selections": 541,
+      "offers": 1337,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 13.25,
-      "markets_per_event": 5.82
+      "offers_per_market": 5.46,
+      "markets_per_event": 3.77
     },
     "display_quality_30m": {
       "events": 98,
-      "markets": 602,
-      "selections": 1336,
-      "offers": 6098,
+      "markets": 598,
+      "selections": 1327,
+      "offers": 6014,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 10.13,
-      "markets_per_event": 6.14
+      "offers_per_market": 10.06,
+      "markets_per_event": 6.1
     },
     "source_health": {
       "DobryBuk": {
         "ok": true,
         "markets": 1,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 156,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 157,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "ETOTO": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 46,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 47,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "ComeOn": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 147,
+        "consecutive_failures": 148,
         "last_success": 1791152893.1831927
       },
       "TotalBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 156,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 157,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "LeBull": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 46,
+        "consecutive_failures": 47,
         "last_success": 1791178842.2904928
       },
       "Superbet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 156,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 157,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "LVBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 46,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 47,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "Fuksiarz": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 156,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 157,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "PZBuk": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 46,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 47,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "STS": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 156,
+        "consecutive_failures": 157,
         "last_success": 0.0
       },
       "BetSport": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 46,
+        "consecutive_failures": 47,
         "last_success": 1791178842.2904928
       },
       "Betfan": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 156,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 157,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "Betclic": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 156,
+        "consecutive_failures": 157,
         "last_success": 0.0
       },
       "Forbet": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 156,
+        "consecutive_failures": 157,
         "last_success": 0.0
       },
       "AdmiralBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791190028.068023,
-        "consecutive_success": 156,
+        "last_checked": 1791190254.2964916,
+        "consecutive_success": 157,
         "consecutive_failures": 0,
-        "last_success": 1791190028.068023
+        "last_success": 1791190254.2964916
       },
       "Fortuna": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 156,
+        "consecutive_failures": 157,
         "last_success": 0.0
       },
       "Betters": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791190028.068023,
+        "last_checked": 1791190254.2964916,
         "consecutive_success": 0,
-        "consecutive_failures": 156,
+        "consecutive_failures": 157,
         "last_success": 0.0
       }
     },
@@ -109588,6 +107618,30 @@
     "near_arb_limit_pct": 1.5
   },
   "errors": [
+    "Markety: Inne / Fresno State Bulldogs vs Boise State Broncos: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Fresno State Bulldogs vs Boise State Broncos: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Hertha vs Greuther Furth: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Hertha vs Greuther Furth: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / St. Pauli vs Karlsruhe: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / St. Pauli vs Karlsruhe: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Grasshoppers vs Young Boys: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Grasshoppers vs Young Boys: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Lazio Rzym vs Monza: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Lazio Rzym vs Monza: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Benfica vs Guimaraes: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Benfica vs Guimaraes: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Farul Constanta vs Petrolul Ploiesti: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Farul Constanta vs Petrolul Ploiesti: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / St Louis City vs Los Angeles Galaxy: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / St Louis City vs Los Angeles Galaxy: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Gent vs Aarhus GF: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Gent vs Aarhus GF: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Panathinaikos vs Borac Banja Luka: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Panathinaikos vs Borac Banja Luka: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Olympique Marsylia vs Olympiakos Pireus: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Olympique Marsylia vs Olympiakos Pireus: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Wellington Phoenix vs Melbourne Victory: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Wellington Phoenix vs Melbourne Victory: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Osasuna vs Santander: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Osasuna vs Santander: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Estudiantes Lp vs San Lorenzo: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
@@ -109606,62 +107660,47 @@
     "Markety: Inne / Liechtenstein vs Gibraltar: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Vedmoch, Michal vs Petr Zmuda: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Vedmoch, Michal vs Petr Zmuda: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Roman Guliak vs Zurek, Filip: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Roman Guliak vs Zurek, Filip: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Bruzek Petr vs Miroslav Novotny: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Bruzek Petr vs Miroslav Novotny: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Zlin vs Slavia Praga: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Zlin vs Slavia Praga: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Aldosivi vs CA Sarmiento Junin: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Aldosivi vs CA Sarmiento Junin: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Sutton United FC vs Boreham Wood: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Sutton United FC vs Boreham Wood: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Cukaricki vs Macva Sabac: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Cukaricki vs Macva Sabac: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Missouri Tigers vs Texas A&M Aggies: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Missouri Tigers vs Texas A&M Aggies: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Appalachian State Mountaineers vs Old Dominion Monarchs: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Appalachian State Mountaineers vs Old Dominion Monarchs: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Napoli vs Frosinone: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Napoli vs Frosinone: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Benfica vs Celtic: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Benfica vs Celtic: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Tychy - Pogon Siedlce Puchar Polski · 28 paź, 16:00: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Tychy - Pogon Siedlce Puchar Polski · 28 paź, 16:00: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Znicz Pruszkow - Ruch Chorzów Puchar Polski · 28 paź, 16:00: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Znicz Pruszkow - Ruch Chorzów Puchar Polski · 28 paź, 16:00: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Podbeskidzie - Pogon Siedlce I Liga · 9 paź, 20:30: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Podbeskidzie - Pogon Siedlce I Liga · 9 paź, 20:30: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Smith, Dalton - Puello, Alberto Boks Zawodowy · 25 paź, 01:00: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Smith, Dalton - Puello, Alberto Boks Zawodowy · 25 paź, 01:00: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Roman Guliak vs Zurek, Filip: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Roman Guliak vs Zurek, Filip: 1x2: brak pełnej tabeli bukmacherów",
+    "Watch: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30 / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Estonia vs Islandia / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Estonia vs Islandia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Włochy vs Turcja / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Włochy vs Turcja / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Cypr vs Łotwa / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30 / H -1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Ukraina vs Węgry / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Anglia vs Czechy / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Cypr vs Łotwa / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Białoruś vs Finlandia / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / H +1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H -1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H -2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / H -1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Ukraina vs Węgry / H -1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Ukraina vs Węgry / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / H -0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Anglia vs Czechy / H -1.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Ukraina vs Węgry / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Ukraina vs Węgry / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Ukraina vs Węgry / H +0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Cypr vs Łotwa / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Cypr vs Łotwa / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Ukraina vs Węgry / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / H -1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Ukraina vs Węgry / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / H -2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / H -0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Cypr vs Łotwa / H -0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Białoruś vs Finlandia / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / H +2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Białoruś vs Finlandia / H -1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Białoruś vs Finlandia / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / H -1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Ukraina vs Węgry / H -0.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Białoruś vs Finlandia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / H -0.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / H -0.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Ukraina vs Węgry / H +0.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Anglia vs Czechy / H -2.5: nie znaleziono rynku przy potwierdzeniu",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: STS: https://www.sts.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -109670,15 +107709,6 @@
     "Direct: LeBull: https://lebull.pl/: HTTPStatusError: Server error '520 <none>' for url 'https://www.lebull.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520",
     "Direct: BetSport: https://betsport.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://betsport.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: ComeOn: https://comeon.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.comeon.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
-    "Direct browser: Betclic: https://www.betclic.pl/: HTTP 403",
-    "Direct browser: Fortuna: https://www.efortuna.pl/: HTTP 403",
-    "Direct browser: STS: https://www.sts.pl/: HTTP 403",
-    "Direct browser: Forbet: https://www.iforbet.pl/: HTTP 403",
-    "Direct browser: Betters: https://betters.pl/: HTTP 520",
-    "Direct browser: LeBull: https://lebull.pl/: HTTP 520",
-    "Direct browser: BetSport: https://betsport.pl/: HTTP 403",
-    "Direct browser: ComeOn: https://comeon.pl/: HTTP 403",
-    "Potwierdzenie: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / H -1.5: nie znaleziono rynku przy potwierdzeniu",
     "Potwierdzenie: Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00 / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Potwierdzenie direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Potwierdzenie direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -109691,7 +107721,7 @@
   ],
   "source": "DobryBuk comparison + best-effort direct bookmaker pages",
   "coupon_catalog_info": {
-    "items": 548,
+    "items": 544,
     "mode": "bookmaker-first"
   },
   "market_scan_note": "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, a co kilka cykli wykonywany jest pełny deep scan. Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej 5 innych kompletnych bukmacherów, edge >= 5.0% po uwzględnieniu współczynnika wypłaty oraz niskiej rozbieżności konsensusu. Pokrycie nie oznacza 100% pełnej oferty każdego bukmachera."
