@@ -1,6 +1,6 @@
 {
-  "generated_at": 1791180530.276781,
-  "last_scan": 1791180530.276781,
+  "generated_at": 1791180775.949954,
+  "last_scan": 1791180775.949954,
   "latest": [],
   "valuebets": [],
   "near_arbs": [
@@ -45,79 +45,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 3,
+      "seen_scans": 4,
       "best_gap_pct": 3.8667
-    },
-    {
-      "key": "2535c3991a5ca471d9ed",
-      "event": "Włochy vs Turcja",
-      "sport": "PIŁKA NOŻNA",
-      "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-      "gap_pct": 5.0285,
-      "inverse_sum": 1.050285,
-      "score": 72.48,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "U 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.64,
-          "effective_odds": 1.64,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
-        },
-        {
-          "selection": "O 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 2.27,
-          "effective_odds": 2.27,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 5.0285
-    },
-    {
-      "key": "432a10bf38e7c4be6ba5",
-      "event": "Włochy vs Turcja",
-      "sport": "PIŁKA NOŻNA",
-      "market": "U/O 1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-      "gap_pct": 5.4377,
-      "inverse_sum": 1.054377,
-      "score": 67.75,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 1.5",
-          "bookmaker": "Fortuna",
-          "odds": 5.2,
-          "effective_odds": 5.2,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
-        },
-        {
-          "selection": "O 1.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.16,
-          "effective_odds": 1.16,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 7,
-      "best_gap_pct": 5.4377
     },
     {
       "key": "d0832d0aeab01925ec2d",
@@ -151,7 +80,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 5.5302
     },
     {
@@ -186,8 +115,43 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 3,
+      "seen_scans": 4,
       "best_gap_pct": 5.6847
+    },
+    {
+      "key": "fef4e39592d71b0e07ad",
+      "event": "Estonia vs Islandia",
+      "sport": "",
+      "market": "U/O 2.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
+      "gap_pct": 5.8201,
+      "inverse_sum": 1.058201,
+      "score": 67.2,
+      "bookmakers": 2,
+      "sources": [
+        "DobryBuk"
+      ],
+      "legs": [
+        {
+          "selection": "U 2.5",
+          "bookmaker": "Betclic",
+          "odds": 1.89,
+          "effective_odds": 1.89,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
+        },
+        {
+          "selection": "O 2.5",
+          "bookmaker": "Fortuna",
+          "odds": 1.89,
+          "effective_odds": 1.89,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 4.1921
     },
     {
       "key": "0b12f59f4db7a02b3deb",
@@ -230,7 +194,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 22,
+      "seen_scans": 23,
       "best_gap_pct": 3.3107
     },
     {
@@ -265,7 +229,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 4,
+      "seen_scans": 5,
       "best_gap_pct": 6.0097
     },
     {
@@ -300,15 +264,15 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 6.0312
     },
     {
-      "key": "197be9c41b2691d4ff0f",
-      "event": "Czarnogóra vs Armenia",
+      "key": "5b4563ab886d88f61ea2",
+      "event": "Irlandia Północna vs Gruzja",
       "sport": "PIŁKA NOŻNA",
       "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.074,
       "inverse_sum": 1.06074,
       "score": 67.51,
@@ -324,7 +288,7 @@
           "odds": 2.35,
           "effective_odds": 2.35,
           "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         },
         {
           "selection": "X",
@@ -332,7 +296,7 @@
           "odds": 2.97,
           "effective_odds": 2.97,
           "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         },
         {
           "selection": "2",
@@ -340,11 +304,11 @@
           "odds": 3.35,
           "effective_odds": 3.35,
           "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 3,
+      "seen_scans": 1,
       "best_gap_pct": 6.074
     },
     {
@@ -379,7 +343,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 5.7151
     },
     {
@@ -414,7 +378,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 0.1115
     },
     {
@@ -457,7 +421,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 28,
+      "seen_scans": 29,
       "best_gap_pct": 5.6943
     },
     {
@@ -500,7 +464,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 28,
+      "seen_scans": 29,
       "best_gap_pct": 6.2447
     },
     {
@@ -535,43 +499,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 5.6299
-    },
-    {
-      "key": "3e314da021e3a91edfb7",
-      "event": "Estonia vs Islandia",
-      "sport": "",
-      "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
-      "gap_pct": 6.438,
-      "inverse_sum": 1.06438,
-      "score": 63.08,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 3.5",
-          "bookmaker": "Betclic",
-          "odds": 1.33,
-          "effective_odds": 1.33,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
-        },
-        {
-          "selection": "O 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 3.2,
-          "effective_odds": 3.2,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 0.6944
     },
     {
       "key": "abc8f2c9b7f308dfb5b7",
@@ -613,7 +542,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 25,
+      "seen_scans": 26,
       "best_gap_pct": 4.5238
     },
     {
@@ -649,52 +578,8 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 12,
+      "seen_scans": 13,
       "best_gap_pct": 6.4815
-    },
-    {
-      "key": "7a714a5a0fd0a821a879",
-      "event": "Malaga - Espanyol",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
-      "gap_pct": 6.4903,
-      "inverse_sum": 1.064903,
-      "score": 64.73,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "Fortuna",
-          "odds": 2.74,
-          "effective_odds": 2.74,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 3.1,
-          "effective_odds": 3.1,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Betclic",
-          "odds": 2.65,
-          "effective_odds": 2.65,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 3,
-      "best_gap_pct": 2.142
     },
     {
       "key": "f6f45a374b38e9d27e26",
@@ -729,54 +614,54 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 6.6704
     },
     {
-      "key": "7d6cfaf93de0decb9a5b",
-      "event": "Włochy vs Turcja",
+      "key": "a859b74f0d049e8bc12f",
+      "event": "Irlandia Północna vs Gruzja",
       "sport": "PIŁKA NOŻNA",
-      "market": "H -0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-      "gap_pct": 6.9671,
-      "inverse_sum": 1.069671,
-      "score": 59.55,
+      "market": "U/O 1.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
+      "gap_pct": 6.6818,
+      "inverse_sum": 1.066818,
+      "score": 61.45,
       "bookmakers": 2,
       "sources": [
         "DobryBuk"
       ],
       "legs": [
         {
-          "selection": "1 -0.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.43,
-          "effective_odds": 1.43,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
+          "selection": "U 1.5",
+          "bookmaker": "Betclic",
+          "odds": 2.42,
+          "effective_odds": 2.42,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         },
         {
-          "selection": "2 +0.5",
-          "bookmaker": "Betclic",
-          "odds": 2.7,
-          "effective_odds": 2.7,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
+          "selection": "O 1.5",
+          "bookmaker": "Fortuna",
+          "odds": 1.53,
+          "effective_odds": 1.53,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 6.9671
+      "seen_scans": 1,
+      "best_gap_pct": 6.074
     },
     {
-      "key": "028be3839fd7ead97a7d",
-      "event": "Real Betis - Osasuna",
+      "key": "9379ed5efd8283272007",
+      "event": "Włochy vs Turcja",
       "sport": "PIŁKA NOŻNA",
       "market": "H -1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
-      "gap_pct": 6.9671,
-      "inverse_sum": 1.069671,
-      "score": 57.55,
-      "bookmakers": 1,
+      "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
+      "gap_pct": 6.9172,
+      "inverse_sum": 1.069172,
+      "score": 59.89,
+      "bookmakers": 2,
       "sources": [
         "DobryBuk"
       ],
@@ -784,137 +669,58 @@
         {
           "selection": "1 -1.5",
           "bookmaker": "Fortuna",
-          "odds": 2.7,
-          "effective_odds": 2.7,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
-        },
-        {
-          "selection": "2 +1.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.43,
-          "effective_odds": 1.43,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 9,
-      "best_gap_pct": 6.9671
-    },
-    {
-      "key": "5d03b46ab7d955371555",
-      "event": "Malaga - Espanyol",
-      "sport": "PIŁKA NOŻNA",
-      "market": "U/O 1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
-      "gap_pct": 7.1051,
-      "inverse_sum": 1.071051,
-      "score": 56.63,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "U 1.5",
-          "bookmaker": "Fortuna",
-          "odds": 3.25,
-          "effective_odds": 3.25,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
-        },
-        {
-          "selection": "O 1.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.31,
-          "effective_odds": 1.31,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 6.4903
-    },
-    {
-      "key": "5d9cdef02d27f7ce5cf4",
-      "event": "Ekwador vs Panama",
-      "sport": "PIŁKA NOŻNA",
-      "market": "1X2",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
-      "gap_pct": 7.1272,
-      "inverse_sum": 1.071272,
-      "score": 58.49,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
-      ],
-      "legs": [
-        {
-          "selection": "1",
-          "bookmaker": "Fortuna",
-          "odds": 1.7,
-          "effective_odds": 1.7,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367"
-        },
-        {
-          "selection": "X",
-          "bookmaker": "Fortuna",
-          "odds": 3.7,
-          "effective_odds": 3.7,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367"
-        },
-        {
-          "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 4.7,
-          "effective_odds": 4.7,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 1,
-      "best_gap_pct": 2.6247
-    },
-    {
-      "key": "355cfe44111fe3207ea1",
-      "event": "Włochy vs Turcja",
-      "sport": "PIŁKA NOŻNA",
-      "market": "H -2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-      "gap_pct": 7.1429,
-      "inverse_sum": 1.071429,
-      "score": 58.38,
-      "bookmakers": 2,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 -2.5",
-          "bookmaker": "Fortuna",
-          "odds": 3.6,
-          "effective_odds": 3.6,
+          "odds": 2.11,
+          "effective_odds": 2.11,
           "bookmaker_url": "https://www.efortuna.pl",
           "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
         },
         {
-          "selection": "2 +2.5",
+          "selection": "2 +1.5",
           "bookmaker": "Betclic",
-          "odds": 1.26,
-          "effective_odds": 1.26,
+          "odds": 1.68,
+          "effective_odds": 1.68,
           "bookmaker_url": "https://www.betclic.pl",
           "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539"
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 7,
-      "best_gap_pct": 3.8667
+      "seen_scans": 1,
+      "best_gap_pct": 6.9172
+    },
+    {
+      "key": "6750c8c98fbdb52daeea",
+      "event": "Real Betis - Osasuna",
+      "sport": "PIŁKA NOŻNA",
+      "market": "H -0.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
+      "gap_pct": 7.1177,
+      "inverse_sum": 1.071177,
+      "score": 56.55,
+      "bookmakers": 1,
+      "sources": [
+        "DobryBuk"
+      ],
+      "legs": [
+        {
+          "selection": "1 -0.5",
+          "bookmaker": "Fortuna",
+          "odds": 1.65,
+          "effective_odds": 1.65,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
+        },
+        {
+          "selection": "2 +0.5",
+          "bookmaker": "Fortuna",
+          "odds": 2.15,
+          "effective_odds": 2.15,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 7.1177
     },
     {
       "key": "fef2724bbc8dfcef0fe9",
@@ -948,21 +754,22 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 12,
+      "seen_scans": 13,
       "best_gap_pct": 6.2447
     },
     {
-      "key": "192ba4187ee24d84a983",
-      "event": "Czarnogóra vs Armenia",
+      "key": "3bd15c6997d0207c1817",
+      "event": "Irlandia Północna vs Gruzja",
       "sport": "PIŁKA NOŻNA",
       "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.1585,
       "inverse_sum": 1.071585,
-      "score": 58.28,
+      "score": 60.28,
       "bookmakers": 2,
       "sources": [
-        "DobryBuk"
+        "DobryBuk",
+        "DobryBuk broad listing"
       ],
       "legs": [
         {
@@ -971,7 +778,7 @@
           "odds": 1.15,
           "effective_odds": 1.15,
           "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         },
         {
           "selection": "O 3.5",
@@ -979,55 +786,54 @@
           "odds": 4.95,
           "effective_odds": 4.95,
           "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         }
       ],
       "radar_tier": "watch",
       "seen_scans": 1,
-      "best_gap_pct": 6.6948
+      "best_gap_pct": 6.074
     },
     {
-      "key": "b85e43e15d444c1c4554",
-      "event": "Malaga - Espanyol",
+      "key": "67fc0636d4c874ce8d16",
+      "event": "Irlandia Północna vs Gruzja",
       "sport": "PIŁKA NOŻNA",
-      "market": "U/O 3.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
-      "gap_pct": 7.3701,
-      "inverse_sum": 1.073701,
-      "score": 56.87,
-      "bookmakers": 1,
+      "market": "H -1.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
+      "gap_pct": 7.4473,
+      "inverse_sum": 1.074473,
+      "score": 56.35,
+      "bookmakers": 2,
       "sources": [
-        "DobryBuk",
-        "DobryBuk broad listing"
+        "DobryBuk"
       ],
       "legs": [
         {
-          "selection": "U 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.29,
-          "effective_odds": 1.29,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
+          "selection": "1 -1.5",
+          "bookmaker": "LVBet",
+          "odds": 5.35,
+          "effective_odds": 4.708,
+          "bookmaker_url": "https://www.lvbet.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         },
         {
-          "selection": "O 3.5",
-          "bookmaker": "Fortuna",
-          "odds": 3.35,
-          "effective_odds": 3.35,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368"
+          "selection": "2 +1.5",
+          "bookmaker": "Betclic",
+          "odds": 1.16,
+          "effective_odds": 1.16,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         }
       ],
       "radar_tier": "watch",
       "seen_scans": 1,
-      "best_gap_pct": 6.6667
+      "best_gap_pct": 6.1603
     },
     {
-      "key": "cb086347656ec5752275",
-      "event": "Czarnogóra vs Armenia",
+      "key": "688a840a32d2ab890d4b",
+      "event": "Irlandia Północna vs Gruzja",
       "sport": "PIŁKA NOŻNA",
       "market": "H +0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.7441,
       "inverse_sum": 1.077441,
       "score": 52.37,
@@ -1042,7 +848,7 @@
           "odds": 1.35,
           "effective_odds": 1.35,
           "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         },
         {
           "selection": "2 -0.5",
@@ -1050,47 +856,12 @@
           "odds": 2.97,
           "effective_odds": 2.97,
           "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540"
+          "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541"
         }
       ],
       "radar_tier": "watch",
       "seen_scans": 1,
-      "best_gap_pct": 7.4821
-    },
-    {
-      "key": "d49ac1a82c31b78ab98f",
-      "event": "Estonia vs Islandia",
-      "sport": "",
-      "market": "H +0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
-      "gap_pct": 7.7471,
-      "inverse_sum": 1.077471,
-      "score": 52.35,
-      "bookmakers": 1,
-      "sources": [
-        "DobryBuk"
-      ],
-      "legs": [
-        {
-          "selection": "1 +0.5",
-          "bookmaker": "Fortuna",
-          "odds": 2.27,
-          "effective_odds": 2.27,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
-        },
-        {
-          "selection": "2 -0.5",
-          "bookmaker": "Fortuna",
-          "odds": 1.57,
-          "effective_odds": 1.57,
-          "bookmaker_url": "https://www.efortuna.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
-        }
-      ],
-      "radar_tier": "watch",
-      "seen_scans": 2,
-      "best_gap_pct": 7.7471
+      "best_gap_pct": 6.074
     },
     {
       "key": "796d863cfa3837e35cbc",
@@ -1133,8 +904,43 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 10,
+      "seen_scans": 11,
       "best_gap_pct": 3.5667
+    },
+    {
+      "key": "e38a0cc007e7db5db910",
+      "event": "Estonia vs Islandia",
+      "sport": "",
+      "market": "H +1.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
+      "gap_pct": 8.1812,
+      "inverse_sum": 1.081812,
+      "score": 51.46,
+      "bookmakers": 2,
+      "sources": [
+        "DobryBuk"
+      ],
+      "legs": [
+        {
+          "selection": "1 +1.5",
+          "bookmaker": "Betclic",
+          "odds": 1.45,
+          "effective_odds": 1.45,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
+        },
+        {
+          "selection": "2 -1.5",
+          "bookmaker": "Fortuna",
+          "odds": 2.55,
+          "effective_odds": 2.55,
+          "bookmaker_url": "https://www.efortuna.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 8.1812
     },
     {
       "key": "b1b0d37668970a3cc8be",
@@ -1168,43 +974,43 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 6.9172
     },
     {
-      "key": "b51d959d04d5f87dcf59",
-      "event": "Estonia vs Islandia",
-      "sport": "",
-      "market": "H +2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
-      "gap_pct": 8.6015,
-      "inverse_sum": 1.086015,
-      "score": 48.66,
+      "key": "aef1b234eb3fab325ae1",
+      "event": "Real Betis - Osasuna",
+      "sport": "PIŁKA NOŻNA",
+      "market": "H -2.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
+      "gap_pct": 8.3805,
+      "inverse_sum": 1.083805,
+      "score": 50.13,
       "bookmakers": 2,
       "sources": [
         "DobryBuk"
       ],
       "legs": [
         {
-          "selection": "1 +2.5",
-          "bookmaker": "Betclic",
-          "odds": 1.15,
-          "effective_odds": 1.15,
-          "bookmaker_url": "https://www.betclic.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
+          "selection": "1 -2.5",
+          "bookmaker": "STS",
+          "odds": 5.5,
+          "effective_odds": 4.84,
+          "bookmaker_url": "https://www.sts.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
         },
         {
-          "selection": "2 -2.5",
-          "bookmaker": "STS",
-          "odds": 5.25,
-          "effective_odds": 4.62,
-          "bookmaker_url": "https://www.sts.pl",
-          "source_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432"
+          "selection": "2 +2.5",
+          "bookmaker": "Betclic",
+          "odds": 1.14,
+          "effective_odds": 1.14,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 4,
-      "best_gap_pct": 8.6015
+      "seen_scans": 1,
+      "best_gap_pct": 7.6559
     },
     {
       "key": "a4508eafd452c9cd1478",
@@ -1238,7 +1044,7 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 4,
+      "seen_scans": 5,
       "best_gap_pct": 7.1118
     },
     {
@@ -1273,8 +1079,43 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 1,
+      "seen_scans": 2,
       "best_gap_pct": 6.4903
+    },
+    {
+      "key": "9dc7957d2b07c79d4f8c",
+      "event": "Real Betis - Osasuna",
+      "sport": "PIŁKA NOŻNA",
+      "market": "H +0.5",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
+      "gap_pct": 9.2796,
+      "inverse_sum": 1.092796,
+      "score": 42.14,
+      "bookmakers": 1,
+      "sources": [
+        "DobryBuk"
+      ],
+      "legs": [
+        {
+          "selection": "1 +0.5",
+          "bookmaker": "Betclic",
+          "odds": 1.17,
+          "effective_odds": 1.17,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
+        },
+        {
+          "selection": "2 -0.5",
+          "bookmaker": "Betclic",
+          "odds": 4.2,
+          "effective_odds": 4.2,
+          "bookmaker_url": "https://www.betclic.pl",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 7.6445
     },
     {
       "key": "49b420e7d880c4bb0e90",
@@ -1308,8 +1149,95 @@
         }
       ],
       "radar_tier": "watch",
-      "seen_scans": 2,
+      "seen_scans": 3,
       "best_gap_pct": 6.9671
+    },
+    {
+      "key": "1bd1c0bdb23567b4edec",
+      "event": "Bośnia i Hercegowina - Polska",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
+      "gap_pct": 12.3534,
+      "inverse_sum": 1.123534,
+      "score": 25.64,
+      "bookmakers": 2,
+      "sources": [
+        "DobryBuk",
+        "DobryBuk broad listing"
+      ],
+      "legs": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 3.1,
+          "effective_odds": 2.728,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702"
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 3.65,
+          "effective_odds": 3.212,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702"
+        },
+        {
+          "selection": "2",
+          "bookmaker": "Forbet",
+          "odds": 2.55,
+          "effective_odds": 2.244,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 6.6759
+    },
+    {
+      "key": "6da7fce8fc60f5bd704e",
+      "event": "Francja - Belgia",
+      "sport": "PIŁKA NOŻNA",
+      "market": "1X2",
+      "event_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
+      "gap_pct": 12.8616,
+      "inverse_sum": 1.128616,
+      "score": 18.26,
+      "bookmakers": 1,
+      "sources": [
+        "DobryBuk broad listing"
+      ],
+      "legs": [
+        {
+          "selection": "1",
+          "bookmaker": "LVBet",
+          "odds": 1.55,
+          "effective_odds": 1.364,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
+        },
+        {
+          "selection": "X",
+          "bookmaker": "LVBet",
+          "odds": 5.15,
+          "effective_odds": 4.532,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
+        },
+        {
+          "selection": "2",
+          "bookmaker": "LVBet",
+          "odds": 6.5,
+          "effective_odds": 5.72,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
+          "source_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542"
+        }
+      ],
+      "radar_tier": "watch",
+      "seen_scans": 1,
+      "best_gap_pct": 12.8616
     }
   ],
   "scan_preview": [
@@ -3528,7 +3456,7 @@
       ]
     },
     {
-      "event": "Czarnogóra vs Armenia",
+      "event": "Czarnogóra - Armenia",
       "sport": "PIŁKA NOŻNA",
       "market": "1X2",
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
@@ -3553,15 +3481,6 @@
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "STS",
-              "odds": 2.4,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-              "source_name": "DobryBuk"
-            },
-            {
               "bookmaker": "Forbet",
               "odds": 2.38,
               "bookmaker_url": "https://www.iforbet.pl",
@@ -3578,18 +3497,27 @@
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
               "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "Superbet",
+              "odds": 2.37,
+              "bookmaker_url": "https://www.superbet.pl",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+              "source_name": "DobryBuk"
             }
           ]
         },
         {
           "selection": "X",
           "bookmaker": "STS",
-          "odds": 3.1,
-          "bookmaker_url": "https://www.sts.pl",
+          "odds": 4.4,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "LVBet",
@@ -3631,14 +3559,23 @@
         },
         {
           "selection": "2",
-          "bookmaker": "Fortuna",
-          "odds": 3.35,
-          "bookmaker_url": "https://www.efortuna.pl",
+          "bookmaker": "Fuksiarz",
+          "odds": 5.8,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
+            {
+              "bookmaker": "Fortuna",
+              "odds": 3.35,
+              "bookmaker_url": "https://www.efortuna.pl",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+              "source_name": "DobryBuk"
+            },
             {
               "bookmaker": "Betfan",
               "odds": 3.35,
@@ -3661,15 +3598,6 @@
               "bookmaker": "STS",
               "odds": 3.3,
               "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 3.3,
-              "bookmaker_url": "https://www.lvbet.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
@@ -5787,7 +5715,7 @@
       ]
     },
     {
-      "event": "Włochy vs Turcja",
+      "event": "Włochy - Turcja",
       "sport": "PIŁKA NOŻNA",
       "market": "BTS",
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
@@ -5796,11 +5724,11 @@
           "selection": "BTS+",
           "bookmaker": "STS",
           "odds": 1.75,
-          "bookmaker_url": "https://www.sts.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "LVBet",
@@ -6441,102 +6369,6 @@
               "bookmaker": "Betfan",
               "odds": 1.28,
               "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "U 3.5",
-          "bookmaker": "LVBet",
-          "odds": 1.55,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.55,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "O 3.5",
-          "bookmaker": "Superbet",
-          "odds": 2.95,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.42,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.35,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.3,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.3,
-              "bookmaker_url": "https://www.etoto.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
@@ -7832,7 +7664,7 @@
         {
           "selection": "X",
           "bookmaker": "STS",
-          "odds": 3.05,
+          "odds": 3.1,
           "bookmaker_url": "https://www.sts.pl",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
@@ -7879,23 +7711,14 @@
         },
         {
           "selection": "2",
-          "bookmaker": "STS",
+          "bookmaker": "Betfan",
           "odds": 3.35,
-          "bookmaker_url": "https://www.sts.pl",
+          "bookmaker_url": "https://www.betfan.pl",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
           "source_name": "DobryBuk",
           "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
-              "source_name": "DobryBuk"
-            },
             {
               "bookmaker": "Fortuna",
               "odds": 3.35,
@@ -7909,6 +7732,15 @@
               "bookmaker": "TotalBet",
               "odds": 3.32,
               "bookmaker_url": "https://www.totalbet.pl",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.3,
+              "bookmaker_url": "https://www.sts.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
@@ -22218,836 +22050,6 @@
       ]
     },
     {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "1X / X2 / 12",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "1X",
-          "bookmaker": "BetSport",
-          "odds": 1.54,
-          "bookmaker_url": "https://www.betsport.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.48,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.47,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.46,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X2",
-          "bookmaker": "STS",
-          "odds": 1.5,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.48,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "12",
-          "bookmaker": "STS",
-          "odds": 1.3,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.27,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "U/O 1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "U 1.5",
-          "bookmaker": "STS",
-          "odds": 4.7,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.55,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.55,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "O 1.5",
-          "bookmaker": "Superbet",
-          "odds": 1.25,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.16,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "BTS",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "BTS+",
-          "bookmaker": "Superbet",
-          "odds": 1.65,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.49,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "BTS−",
-          "bookmaker": "LVBet",
-          "odds": 2.55,
-          "bookmaker_url": "https://www.lvbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "STS",
-              "odds": 2.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.5,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "DNB",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "DNB 1",
-          "bookmaker": "Superbet",
-          "odds": 1.95,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.87,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "DNB 2",
-          "bookmaker": "STS",
-          "odds": 1.92,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.89,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.89,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "1 -2.5",
-          "bookmaker": "Superbet",
-          "odds": 12.0,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": []
-        },
-        {
-          "selection": "2 +2.5",
-          "bookmaker": "Superbet",
-          "odds": 1.03,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": []
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "1 -1.5",
-          "bookmaker": "Superbet",
-          "odds": 5.15,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.5,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.35,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +1.5",
-          "bookmaker": "Betfan",
-          "odds": 1.18,
-          "bookmaker_url": "https://www.betfan.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "1 -0.5",
-          "bookmaker": "Superbet",
-          "odds": 2.62,
-          "bookmaker_url": "https://www.superbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.44,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.4,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +0.5",
-          "bookmaker": "STS",
-          "odds": 1.53,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.51,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H +1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "best": [
-        {
-          "selection": "1 +1.5",
-          "bookmaker": "Forbet",
-          "odds": 1.17,
-          "bookmaker_url": "https://www.iforbet.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.17,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 -1.5",
-          "bookmaker": "STS",
-          "odds": 4.8,
-          "bookmaker_url": "https://www.sts.pl",
-          "exact_bookmaker_url": "",
-          "bookmaker_link_exact": false,
-          "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-          "source_name": "DobryBuk",
-          "alternatives": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.45,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.45,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "DobryBuk"
-      ]
-    },
-    {
       "event": "Rumunia - Szwecja",
       "sport": "PIŁKA NOŻNA",
       "market": "1X2",
@@ -25762,27 +24764,27 @@
         },
         {
           "selection": "X",
-          "bookmaker": "Fuksiarz",
-          "odds": 3.15,
-          "bookmaker_url": "https://fuksiarz.pl",
+          "bookmaker": "STS",
+          "odds": 3.35,
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
-              "bookmaker": "TotalBet",
-              "odds": 3.12,
-              "bookmaker_url": "https://www.totalbet.pl",
+              "bookmaker": "Fuksiarz",
+              "odds": 3.15,
+              "bookmaker_url": "https://fuksiarz.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
               "source_name": "DobryBuk"
             },
             {
-              "bookmaker": "STS",
-              "odds": 3.1,
-              "bookmaker_url": "https://www.sts.pl",
+              "bookmaker": "TotalBet",
+              "odds": 3.12,
+              "bookmaker_url": "https://www.totalbet.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
@@ -26567,7 +25569,7 @@
       ]
     },
     {
-      "event": "Ukraina vs Węgry",
+      "event": "Ukraina - Węgry",
       "sport": "PIŁKA NOŻNA",
       "market": "U/O 2.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
@@ -26576,11 +25578,11 @@
           "selection": "U 2.5",
           "bookmaker": "STS",
           "odds": 1.62,
-          "bookmaker_url": "https://www.sts.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "Superbet",
@@ -26624,11 +25626,11 @@
           "selection": "O 2.5",
           "bookmaker": "LVBet",
           "odds": 2.35,
-          "bookmaker_url": "https://www.lvbet.pl",
+          "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
           "exact_bookmaker_url": "",
           "bookmaker_link_exact": false,
           "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-          "source_name": "DobryBuk",
+          "source_name": "DobryBuk broad listing",
           "alternatives": [
             {
               "bookmaker": "STS",
@@ -35785,7 +34787,7 @@
     },
     {
       "id": "cbcba71ed20713",
-      "event": "Czarnogóra vs Armenia",
+      "event": "Czarnogóra - Armenia",
       "sport": "PIŁKA NOŻNA",
       "market": "1X2",
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
@@ -35812,15 +34814,6 @@
               "bookmaker": "BetSport",
               "odds": 2.44,
               "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.4,
-              "bookmaker_url": "https://www.sts.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
@@ -35897,22 +34890,31 @@
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
               "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 1.57,
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+              "source_name": "DobryBuk broad listing"
             }
           ]
         },
         {
           "selection": "X",
-          "best_odds": 3.1,
+          "best_odds": 4.4,
           "best_bookmaker": "STS",
           "offers": [
             {
               "bookmaker": "STS",
-              "odds": 3.1,
-              "bookmaker_url": "https://www.sts.pl",
+              "odds": 4.4,
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "LVBet",
@@ -36008,9 +35010,18 @@
         },
         {
           "selection": "2",
-          "best_odds": 3.35,
-          "best_bookmaker": "Fortuna",
+          "best_odds": 5.8,
+          "best_bookmaker": "Fuksiarz",
           "offers": [
+            {
+              "bookmaker": "Fuksiarz",
+              "odds": 5.8,
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
+              "source_name": "DobryBuk broad listing"
+            },
             {
               "bookmaker": "Fortuna",
               "odds": 3.35,
@@ -36096,15 +35107,6 @@
               "bookmaker": "BetSport",
               "odds": 3.25,
               "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 3.1,
-              "bookmaker_url": "https://fuksiarz.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
@@ -40226,7 +39228,7 @@
     },
     {
       "id": "39815dff73ad89",
-      "event": "Włochy vs Turcja",
+      "event": "Włochy - Turcja",
       "sport": "PIŁKA NOŻNA",
       "market": "BTS",
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
@@ -40243,11 +39245,11 @@
             {
               "bookmaker": "STS",
               "odds": 1.75,
-              "bookmaker_url": "https://www.sts.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "LVBet",
@@ -41485,200 +40487,6 @@
               "bookmaker": "Betclic",
               "odds": 1.26,
               "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "U 3.5",
-          "best_odds": 1.55,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.55,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.55,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.53,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.52,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.52,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.52,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.4,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "O 3.5",
-          "best_odds": 2.95,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.95,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.42,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.35,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.3,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.3,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.3,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.27,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.27,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.27,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 2.25,
-              "bookmaker_url": "https://www.betsport.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
@@ -44219,12 +43027,12 @@
         },
         {
           "selection": "X",
-          "best_odds": 3.05,
+          "best_odds": 3.1,
           "best_bookmaker": "STS",
           "offers": [
             {
               "bookmaker": "STS",
-              "odds": 3.05,
+              "odds": 3.1,
               "bookmaker_url": "https://www.sts.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
@@ -44326,17 +43134,8 @@
         {
           "selection": "2",
           "best_odds": 3.35,
-          "best_bookmaker": "STS",
+          "best_bookmaker": "Betfan",
           "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 3.35,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
-              "source_name": "DobryBuk"
-            },
             {
               "bookmaker": "Betfan",
               "odds": 3.35,
@@ -44359,6 +43158,15 @@
               "bookmaker": "TotalBet",
               "odds": 3.32,
               "bookmaker_url": "https://www.totalbet.pl",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
+              "source_name": "DobryBuk"
+            },
+            {
+              "bookmaker": "STS",
+              "odds": 3.3,
+              "bookmaker_url": "https://www.sts.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
@@ -67199,1490 +66007,6 @@
       ]
     },
     {
-      "id": "7f5f121f8934a9",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "1X / X2 / 12",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1X",
-          "best_odds": 1.54,
-          "best_bookmaker": "BetSport",
-          "offers": [
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.54,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.48,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.47,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.46,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.46,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.45,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.45,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.43,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.42,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.42,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "X2",
-          "best_odds": 1.5,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.48,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.45,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.45,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.43,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.43,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.39,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "12",
-          "best_odds": 1.3,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.3,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.28,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.27,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.26,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.26,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.26,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.26,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.25,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.23,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "5cc10aee5ef238",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "U/O 1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "U 1.5",
-          "best_odds": 4.7,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.55,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.55,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 4.3,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.3,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 3.9,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "O 1.5",
-          "best_odds": 1.25,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.25,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.16,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.15,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.15,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.15,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "bca2f85eb5d19b",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "BTS",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "BTS+",
-          "best_odds": 1.65,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.65,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.49,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.47,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.46,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.45,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.45,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "BTS−",
-          "best_odds": 2.55,
-          "best_bookmaker": "LVBet",
-          "offers": [
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.55,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.5,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.5,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.44,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.41,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 2.4,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 2.39,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.2,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "e959bbfe6ca315",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "DNB",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "DNB 1",
-          "best_odds": 1.95,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.95,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.87,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.85,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.83,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.8,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.8,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.8,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "DNB 2",
-          "best_odds": 1.92,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.92,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.89,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.89,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fortuna",
-              "odds": 1.87,
-              "bookmaker_url": "https://www.efortuna.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.84,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.84,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.83,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.8,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "bfd50c3b51a700",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -2.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1 -2.5",
-          "best_odds": 12.0,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 12.0,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +2.5",
-          "best_odds": 1.03,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.03,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "9bc39093a9b65c",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1 -1.5",
-          "best_odds": 5.15,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 5.15,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.6,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.5,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 4.35,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.3,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.2,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.15,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +1.5",
-          "best_odds": 1.18,
-          "best_bookmaker": "Betfan",
-          "offers": [
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.18,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.16,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.15,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "79fd53572e654b",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H -0.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1 -0.5",
-          "best_odds": 2.62,
-          "best_bookmaker": "Superbet",
-          "offers": [
-            {
-              "bookmaker": "Superbet",
-              "odds": 2.62,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 2.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 2.45,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 2.44,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 2.4,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 2.4,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 2.38,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 2.35,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 2.35,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 2.35,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 +0.5",
-          "best_odds": 1.53,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 1.53,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.51,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.5,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betfan",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.betfan.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.5,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.49,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.48,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "BetSport",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.betsport.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "LVBet",
-              "odds": 1.47,
-              "bookmaker_url": "https://www.lvbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.46,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "3a1b50e7a188e0",
-      "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
-      "sport": "",
-      "market": "H +1.5",
-      "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "sources": [
-        "DobryBuk"
-      ],
-      "selections": [
-        {
-          "selection": "1 +1.5",
-          "best_odds": 1.17,
-          "best_bookmaker": "Forbet",
-          "offers": [
-            {
-              "bookmaker": "Forbet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 1.17,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 1.17,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 1.16,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 1.15,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        },
-        {
-          "selection": "2 -1.5",
-          "best_odds": 4.8,
-          "best_bookmaker": "STS",
-          "offers": [
-            {
-              "bookmaker": "STS",
-              "odds": 4.8,
-              "bookmaker_url": "https://www.sts.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Superbet",
-              "odds": 4.7,
-              "bookmaker_url": "https://www.superbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Forbet",
-              "odds": 4.6,
-              "bookmaker_url": "https://www.iforbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Fuksiarz",
-              "odds": 4.45,
-              "bookmaker_url": "https://fuksiarz.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "Betclic",
-              "odds": 4.45,
-              "bookmaker_url": "https://www.betclic.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "ETOTO",
-              "odds": 4.4,
-              "bookmaker_url": "https://www.etoto.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "TotalBet",
-              "odds": 4.25,
-              "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-              "source_name": "DobryBuk"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "47825617e9cc99",
       "event": "Rumunia - Szwecja",
       "sport": "PIŁKA NOŻNA",
@@ -73167,9 +70491,18 @@
         },
         {
           "selection": "X",
-          "best_odds": 3.15,
-          "best_bookmaker": "Fuksiarz",
+          "best_odds": 3.35,
+          "best_bookmaker": "STS",
           "offers": [
+            {
+              "bookmaker": "STS",
+              "odds": 3.35,
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
+              "exact_bookmaker_url": "",
+              "bookmaker_link_exact": false,
+              "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
+              "source_name": "DobryBuk broad listing"
+            },
             {
               "bookmaker": "Fuksiarz",
               "odds": 3.15,
@@ -73183,15 +70516,6 @@
               "bookmaker": "TotalBet",
               "odds": 3.12,
               "bookmaker_url": "https://www.totalbet.pl",
-              "exact_bookmaker_url": "",
-              "bookmaker_link_exact": false,
-              "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-              "source_name": "DobryBuk"
-            },
-            {
-              "bookmaker": "STS",
-              "odds": 3.1,
-              "bookmaker_url": "https://www.sts.pl",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
@@ -74390,7 +71714,7 @@
     },
     {
       "id": "53734ca8bb5f2b",
-      "event": "Ukraina vs Węgry",
+      "event": "Ukraina - Węgry",
       "sport": "PIŁKA NOŻNA",
       "market": "U/O 2.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
@@ -74407,11 +71731,11 @@
             {
               "bookmaker": "STS",
               "odds": 1.62,
-              "bookmaker_url": "https://www.sts.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "Superbet",
@@ -74513,11 +71837,11 @@
             {
               "bookmaker": "LVBet",
               "odds": 2.35,
-              "bookmaker_url": "https://www.lvbet.pl",
+              "bookmaker_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
               "exact_bookmaker_url": "",
               "bookmaker_link_exact": false,
               "source_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-              "source_name": "DobryBuk"
+              "source_name": "DobryBuk broad listing"
             },
             {
               "bookmaker": "STS",
@@ -83526,27 +80850,27 @@
     "events": 65,
     "sports_scanned": 0,
     "sports": [],
-    "detail_events_scanned": 29,
+    "detail_events_scanned": 33,
     "detail_events_total": 65,
-    "markets": 525,
-    "markets_scanned": 158,
-    "markets_scanned_current": 158,
-    "active_markets_5m": 158,
-    "active_markets_30m": 525,
+    "markets": 517,
+    "markets_scanned": 64,
+    "markets_scanned_current": 64,
+    "active_markets_5m": 68,
+    "active_markets_30m": 517,
     "active_events_30m": 84,
-    "dobrybuk_markets": 46,
+    "dobrybuk_markets": 38,
     "direct_markets": 0,
     "direct_http_markets": 0,
     "direct_browser_markets": 0,
-    "broad_candidate_markets": 114,
-    "broad_listing_pairs": 4,
+    "broad_candidate_markets": 27,
+    "broad_listing_pairs": 6,
     "priority_events": 9,
     "signal_events": 54,
     "watch_targets": 50,
     "watch_rows": 5,
     "catalog_events": 65,
     "rotation_offset": 0,
-    "near_arbs": 35,
+    "near_arbs": 33,
     "exhaustive_complete": false,
     "candidates": 0,
     "surebets": 0,
@@ -83558,57 +80882,78 @@
     "value_push_alerts_sent": 0,
     "telegram_alerts_sent": 0,
     "push_configured": true,
-    "elapsed_seconds": 132.1,
+    "elapsed_seconds": 130.73,
     "scanner": "multi-source-v25.1-cache-hotfix",
     "scan_mode": "adaptive-fast",
-    "scan_sequence": 117,
+    "scan_sequence": 118,
     "deep_every": 4,
-    "next_deep_in": 3,
+    "next_deep_in": 2,
     "quality": {
-      "events": 64,
-      "markets": 158,
-      "selections": 344,
-      "offers": 1328,
+      "events": 16,
+      "markets": 68,
+      "selections": 149,
+      "offers": 992,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 8.41,
-      "markets_per_event": 2.47
+      "offers_per_market": 14.59,
+      "markets_per_event": 4.25
     },
     "current_quality": {
-      "events": 64,
-      "markets": 158,
-      "selections": 344,
-      "offers": 1328,
+      "events": 15,
+      "markets": 64,
+      "selections": 141,
+      "offers": 908,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 8.41,
-      "markets_per_event": 2.47
+      "offers_per_market": 14.19,
+      "markets_per_event": 4.27
     },
     "display_quality_30m": {
       "events": 84,
-      "markets": 525,
-      "selections": 1243,
-      "offers": 4484,
+      "markets": 517,
+      "selections": 1224,
+      "offers": 4323,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 8.54,
-      "markets_per_event": 6.25
+      "offers_per_market": 8.36,
+      "markets_per_event": 6.15
     },
     "sources": {
       "DobryBuk": {
-        "markets": 46,
-        "broad_candidate_markets": 114,
-        "events": 64,
+        "markets": 38,
+        "broad_candidate_markets": 27,
+        "events": 15,
         "mode": "detail + all-date candidate sweep"
       },
-      "Forbet": {
+      "Fortuna": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
         "mode": "http + public-browser"
       },
-      "ComeOn": {
+      "Betfan": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Betters": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "TotalBet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Forbet": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -83622,6 +80967,13 @@
         "ok": false,
         "mode": "http + public-browser"
       },
+      "ComeOn": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
       "Superbet": {
         "markets": 0,
         "http_markets": 0,
@@ -83629,14 +80981,28 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "STS": {
+      "Fuksiarz": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "PZBuk": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "LeBull": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Betfan": {
+      "AdmiralBet": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -83657,35 +81023,7 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "LeBull": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "PZBuk": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Fortuna": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "TotalBet": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Betters": {
+      "STS": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -83693,20 +81031,6 @@
         "mode": "http + public-browser"
       },
       "LVBet": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "AdmiralBet": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Fuksiarz": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -83720,8 +81044,8 @@
     "scope": "Kursy i zdarzenia widoczne w aktualnie skanowanym zakresie DobryBuk + konserwatywne dane bezpośrednie. To nie jest gwarancja 100% pełnej oferty każdego bukmachera.",
     "comparison_bookmakers": 16,
     "discovered_events": 65,
-    "detail_events_scanned": 29,
-    "detail_completion_pct": 44.6,
+    "detail_events_scanned": 33,
+    "detail_completion_pct": 50.8,
     "books": {
       "AdmiralBet": {
         "events": 0,
@@ -83730,21 +81054,21 @@
         "direct_status": "reachable-no-markets"
       },
       "BetSport": {
-        "events": 13,
-        "markets": 52,
-        "offers": 113,
+        "events": 8,
+        "markets": 43,
+        "offers": 94,
         "direct_status": "blocked-or-failed"
       },
       "Betclic": {
-        "events": 9,
-        "markets": 45,
-        "offers": 103,
+        "events": 8,
+        "markets": 40,
+        "offers": 88,
         "direct_status": "blocked-or-failed"
       },
       "Betfan": {
-        "events": 9,
-        "markets": 44,
-        "offers": 101,
+        "events": 10,
+        "markets": 42,
+        "offers": 90,
         "direct_status": "reachable-no-markets"
       },
       "Betters": {
@@ -83760,33 +81084,33 @@
         "direct_status": "blocked-or-failed"
       },
       "ETOTO": {
-        "events": 9,
-        "markets": 45,
-        "offers": 103,
+        "events": 8,
+        "markets": 40,
+        "offers": 88,
         "direct_status": "reachable-no-markets"
       },
       "Forbet": {
         "events": 9,
         "markets": 36,
-        "offers": 85,
+        "offers": 79,
         "direct_status": "blocked-or-failed"
       },
       "Fortuna": {
-        "events": 9,
-        "markets": 40,
-        "offers": 93,
+        "events": 8,
+        "markets": 34,
+        "offers": 75,
         "direct_status": "blocked-or-failed"
       },
       "Fuksiarz": {
-        "events": 30,
-        "markets": 56,
-        "offers": 100,
+        "events": 9,
+        "markets": 29,
+        "offers": 65,
         "direct_status": "reachable-no-markets"
       },
       "LVBet": {
-        "events": 60,
-        "markets": 144,
-        "offers": 233,
+        "events": 16,
+        "markets": 63,
+        "offers": 123,
         "direct_status": "reachable-no-markets"
       },
       "LeBull": {
@@ -83802,197 +81126,197 @@
         "direct_status": "reachable-no-markets"
       },
       "STS": {
-        "events": 16,
-        "markets": 52,
-        "offers": 110,
+        "events": 13,
+        "markets": 57,
+        "offers": 108,
         "direct_status": "blocked-or-failed"
       },
       "Superbet": {
-        "events": 45,
-        "markets": 103,
-        "offers": 167,
+        "events": 9,
+        "markets": 44,
+        "offers": 94,
         "direct_status": "reachable-no-markets"
       },
       "TotalBet": {
-        "events": 26,
-        "markets": 62,
-        "offers": 120,
+        "events": 8,
+        "markets": 40,
+        "offers": 88,
         "direct_status": "reachable-no-markets"
       }
     }
   },
   "intelligence": {
     "scan_plan": {
-      "sequence": 117,
+      "sequence": 118,
       "mode": "fast",
       "deep_every": 4,
-      "next_deep_in": 3
+      "next_deep_in": 2
     },
     "quality": {
-      "events": 64,
-      "markets": 158,
-      "selections": 344,
-      "offers": 1328,
+      "events": 16,
+      "markets": 68,
+      "selections": 149,
+      "offers": 992,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 8.41,
-      "markets_per_event": 2.47
+      "offers_per_market": 14.59,
+      "markets_per_event": 4.25
     },
     "current_quality": {
-      "events": 64,
-      "markets": 158,
-      "selections": 344,
-      "offers": 1328,
+      "events": 15,
+      "markets": 64,
+      "selections": 141,
+      "offers": 908,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 8.41,
-      "markets_per_event": 2.47
+      "offers_per_market": 14.19,
+      "markets_per_event": 4.27
     },
     "display_quality_30m": {
       "events": 84,
-      "markets": 525,
-      "selections": 1243,
-      "offers": 4484,
+      "markets": 517,
+      "selections": 1224,
+      "offers": 4323,
       "bookmakers": 11,
       "sources": 2,
-      "offers_per_market": 8.54,
-      "markets_per_event": 6.25
+      "offers_per_market": 8.36,
+      "markets_per_event": 6.15
     },
     "source_health": {
       "DobryBuk": {
         "ok": true,
         "markets": 1,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 117,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 118,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "ETOTO": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 7,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 8,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "ComeOn": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 108,
+        "consecutive_failures": 109,
         "last_success": 1791152893.1831927
       },
       "TotalBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 117,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 118,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "LeBull": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 7,
+        "consecutive_failures": 8,
         "last_success": 1791178842.2904928
       },
       "Superbet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 117,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 118,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "LVBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 7,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 8,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "Fuksiarz": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 117,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 118,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "PZBuk": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 7,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 8,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "STS": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 117,
+        "consecutive_failures": 118,
         "last_success": 0.0
       },
       "BetSport": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 7,
+        "consecutive_failures": 8,
         "last_success": 1791178842.2904928
       },
       "Betfan": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 117,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 118,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "Betclic": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 117,
+        "consecutive_failures": 118,
         "last_success": 0.0
       },
       "Forbet": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 117,
+        "consecutive_failures": 118,
         "last_success": 0.0
       },
       "AdmiralBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791180530.284928,
-        "consecutive_success": 117,
+        "last_checked": 1791180775.9565995,
+        "consecutive_success": 118,
         "consecutive_failures": 0,
-        "last_success": 1791180530.284928
+        "last_success": 1791180775.9565995
       },
       "Fortuna": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 117,
+        "consecutive_failures": 118,
         "last_success": 0.0
       },
       "Betters": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791180530.284928,
+        "last_checked": 1791180775.9565995,
         "consecutive_success": 0,
-        "consecutive_failures": 117,
+        "consecutive_failures": 118,
         "last_success": 0.0
       }
     },
@@ -84002,98 +81326,98 @@
     "near_arb_limit_pct": 1.5
   },
   "errors": [
-    "Markety: PIŁKA NOŻNA / Czarnogóra vs Armenia: CELNE STRZAŁY: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Czarnogóra vs Armenia: STRZAŁY: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Czarnogóra vs Armenia: SPALONE: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Czarnogóra vs Armenia: FAULE: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Liechtenstein vs Gibraltar: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Liechtenstein vs Gibraltar: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Kazachstan vs Wyspy Owcze: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Kazachstan vs Wyspy Owcze: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Chicago Fire vs Vancouver Whitecaps: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Chicago Fire vs Vancouver Whitecaps: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Botafogo RJ vs Vasco da Gama: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Botafogo RJ vs Vasco da Gama: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Louisville Cardinals. vs Florida State Seminoles.: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Louisville Cardinals. vs Florida State Seminoles.: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / BYU Cougars vs Iowa State Cyclones: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / BYU Cougars vs Iowa State Cyclones: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Arsenal vs Leeds: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Arsenal vs Leeds: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Skalica vs Slovan Bratislava: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Skalica vs Slovan Bratislava: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: U/O 2.5: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: BTS: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: DNB: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: H -1.5: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: H +0.5: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: H +1.5: nie znaleziono przycisku",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: CELNE STRZAŁY: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: STRZAŁY: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: SPALONE: brak pełnej tabeli bukmacherów",
-    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: FAULE: brak pełnej tabeli bukmacherów",
-    "Markety:  / Chorwacja vs Hiszpania: 1X / X2 / 12: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: U/O 1.5: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: U/O 3.5: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: DNB: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: H -1.5: brak pełnej tabeli bukmacherów",
-    "Markety:  / Chorwacja vs Hiszpania: H -0.5: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: H +1.5: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: H +2.5: nie znaleziono przycisku",
-    "Markety:  / Chorwacja vs Hiszpania: CELNE STRZAŁY: brak pełnej tabeli bukmacherów",
-    "Markety:  / Chorwacja vs Hiszpania: STRZAŁY: brak pełnej tabeli bukmacherów",
-    "Markety:  / Chorwacja vs Hiszpania: SPALONE: brak pełnej tabeli bukmacherów",
-    "Markety:  / Chorwacja vs Hiszpania: FAULE: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Army Black Knights vs Tulane Green Wave.: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Army Black Knights vs Tulane Green Wave.: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Oregon Ducks vs UCLA Bruins: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Oregon Ducks vs UCLA Bruins: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / New York Rb vs San Diego FC: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / New York Rb vs San Diego FC: 1x2: brak pełnej tabeli bukmacherów",
-    "Markety: Inne / Colorado Rapids vs San Jose Earthquakes: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
-    "Markety: Inne / Colorado Rapids vs San Jose Earthquakes: 1x2: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Purdue Boilermakers vs Minnesota Golden Gophers: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Purdue Boilermakers vs Minnesota Golden Gophers: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Colorado Rapids vs San Jose Earthquakes: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Colorado Rapids vs San Jose Earthquakes: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: 1X / X2 / 12: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: U/O 1.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: U/O 2.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: U/O 3.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: BTS: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: H -2.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: H -0.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: H +0.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: CELNE STRZAŁY: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: STRZAŁY: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: SPALONE: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Włochy vs Turcja: FAULE: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: 1X / X2 / 12: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: U/O 2.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: H -2.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: H -0.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: H +1.5: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: CELNE STRZAŁY: nie znaleziono przycisku",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: STRZAŁY: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: SPALONE: brak pełnej tabeli bukmacherów",
+    "Markety: PIŁKA NOŻNA / Irlandia Północna vs Gruzja: FAULE: brak pełnej tabeli bukmacherów",
+    "Markety:  / Chorwacja vs Hiszpania: 1X / X2 / 12: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: U/O 1.5: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: U/O 3.5: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: DNB: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: H -1.5: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: H +1.5: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: H +2.5: nie znaleziono przycisku",
+    "Markety:  / Chorwacja vs Hiszpania: CELNE STRZAŁY: brak pełnej tabeli bukmacherów",
+    "Markety:  / Chorwacja vs Hiszpania: STRZAŁY: brak pełnej tabeli bukmacherów",
+    "Markety:  / Chorwacja vs Hiszpania: SPALONE: brak pełnej tabeli bukmacherów",
+    "Markety:  / Chorwacja vs Hiszpania: FAULE: brak pełnej tabeli bukmacherów",
     "Markety: Inne / Fresno State Bulldogs vs Boise State Broncos: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
     "Markety: Inne / Fresno State Bulldogs vs Boise State Broncos: 1x2: brak pełnej tabeli bukmacherów",
-    "Watch: Estonia vs Islandia / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Chorwacja vs Hiszpania / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Markety: Inne / Motherwell vs Celtic: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Motherwell vs Celtic: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Hertha vs Greuther Furth: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Hertha vs Greuther Furth: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / St. Pauli vs Karlsruhe: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / St. Pauli vs Karlsruhe: 1x2: brak pełnej tabeli bukmacherów",
+    "Markety: Inne / Grasshoppers vs Young Boys: wykryto tylko 1 rynek na stronie wydarzenia; prawdopodobnie sekcja kursów nie została w pełni załadowana",
+    "Markety: Inne / Grasshoppers vs Young Boys: 1x2: brak pełnej tabeli bukmacherów",
     "Watch: Real Betis - Osasuna / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Włochy vs Turcja / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Chorwacja vs Hiszpania / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Real Betis - Osasuna / H -0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Włochy vs Turcja / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Chorwacja vs Hiszpania / H +0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Real Betis - Osasuna / H -1.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Anglia vs Czechy / H -2.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Anglia vs Czechy / H -1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / H +0.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Włochy vs Turcja / H -2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Anglia vs Czechy / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Real Betis - Osasuna / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / H -1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Anglia vs Czechy / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Włochy vs Turcja / H -0.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Anglia vs Czechy / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Real Betis - Osasuna / H -2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Malaga - Espanyol / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Chorwacja vs Hiszpania / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Chorwacja vs Hiszpania / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Anglia vs Czechy / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Anglia vs Czechy / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Real Betis - Osasuna / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Anglia vs Czechy / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Chorwacja vs Hiszpania / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Real Betis - Osasuna / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Malaga - Espanyol / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Malaga - Espanyol / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / H +2.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Malaga - Espanyol / H -1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Czarnogóra vs Armenia / H +0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Estonia vs Islandia / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Włochy vs Turcja / H -1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Malaga - Espanyol / H +1.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Anglia vs Czechy / H -0.5: nie znaleziono rynku przy potwierdzeniu",
+    "Watch: Real Betis - Osasuna / H -2.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Chorwacja vs Hiszpania / H +2.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: West Ham United vs Qpr / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Real Betis - Osasuna / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / H +2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / H +0.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: Corvinul 1921 Hunedoara vs FC Voluntari / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
     "Watch: West Ham United vs Qpr / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: West Ham United vs Qpr / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Ekwador vs Panama / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Szkocja vs Słowenia / U/O 2.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Czarnogóra vs Armenia / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Czarnogóra vs Armenia / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Irlandia Północna vs Gruzja / U/O 1.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Irlandia Północna vs Gruzja / U/O 3.5: nie znaleziono rynku przy potwierdzeniu",
-    "Watch: Estonia vs Islandia / H -0.5: nie znaleziono rynku przy potwierdzeniu",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: Fortuna: https://www.efortuna.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Direct: STS: https://www.sts.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -84105,7 +81429,7 @@
   ],
   "source": "DobryBuk comparison + best-effort direct bookmaker pages",
   "coupon_catalog_info": {
-    "items": 469,
+    "items": 461,
     "mode": "bookmaker-first"
   },
   "market_scan_note": "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, a co kilka cykli wykonywany jest pełny deep scan. Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej 5 innych kompletnych bukmacherów, edge >= 5.0% po uwzględnieniu współczynnika wypłaty oraz niskiej rozbieżności konsensusu. Pokrycie nie oznacza 100% pełnej oferty każdego bukmachera."
