@@ -7,7 +7,7 @@
       "last_profit": 10.724
     }
   },
-  "scan_seq": 105,
+  "scan_seq": 106,
   "watchlist": {
     "3e314da021e3a91edfb7": {
       "event": "Estonia vs Islandia",
@@ -16,10 +16,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 6.438,
       "best_gap_pct": 0.6944,
-      "score": 63.264,
+      "score": 65.08,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "0e83d0eacd0a13041857": {
       "event": "Włochy vs Turcja",
@@ -28,7 +28,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 4.5238,
       "best_gap_pct": 4.5238,
-      "score": 5.087616708472141e-08,
+      "score": 4.070093366777713e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791153267.7575018,
       "consecutive": 0
@@ -40,10 +40,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 6.255,
       "best_gap_pct": 4.9166,
-      "score": 66.3,
+      "score": 68.3,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "last_seen": 1791177770.3046892,
+      "consecutive": 2
     },
     "36e3ce4ed2b2bbcd8dff": {
       "event": "Ekwador vs Panama",
@@ -52,7 +52,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 8.0634,
       "best_gap_pct": 4.9244,
-      "score": 2.2321009458099077e-07,
+      "score": 1.7856807566479264e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791155583.062856,
       "consecutive": 0
@@ -64,7 +64,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 5.0128,
       "best_gap_pct": 3.3107,
-      "score": 8.437463252992005,
+      "score": 6.749970602393605,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -76,7 +76,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 5.7796,
       "best_gap_pct": 5.7796,
-      "score": 2.7105027461538616e-05,
+      "score": 2.1684021969230896e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791160607.775781,
       "consecutive": 0
@@ -88,7 +88,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 5.9926,
       "best_gap_pct": 5.9926,
-      "score": 6.478165150348301e-05,
+      "score": 5.1825321202786414e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791161605.234764,
       "consecutive": 0
@@ -100,10 +100,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 6.0312,
       "best_gap_pct": 6.0312,
-      "score": 67.79,
+      "score": 69.79,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "last_seen": 1791177770.3046892,
+      "consecutive": 2
     },
     "467a5fd50e1cccf3a089": {
       "event": "Ekwador vs Panama",
@@ -112,7 +112,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 6.0317,
       "best_gap_pct": 6.0317,
-      "score": 2.6430113482949843e-05,
+      "score": 2.1144090786359875e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791160607.775781,
       "consecutive": 0
@@ -124,10 +124,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 6.0394,
       "best_gap_pct": 6.0394,
-      "score": 67.74000000000001,
+      "score": 69.74000000000001,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "last_seen": 1791177770.3046892,
+      "consecutive": 3
     },
     "7d53cedd4681edbe813a": {
       "event": "Kazachstan vs Wyspy Owcze",
@@ -136,7 +136,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 6.0873,
       "best_gap_pct": 5.0128,
-      "score": 9.317394677760005,
+      "score": 7.453915742208004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -148,10 +148,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 6.1126,
       "best_gap_pct": 6.1126,
-      "score": 79.25,
+      "score": 81.25,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 7
+      "last_seen": 1791177770.3046892,
+      "consecutive": 8
     },
     "491ddd34c9dc06ee65b7": {
       "event": "Estonia vs Islandia",
@@ -162,8 +162,8 @@
       "best_gap_pct": 5.6943,
       "score": 84.99,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 16
+      "last_seen": 1791177770.3046892,
+      "consecutive": 17
     },
     "32c94d455bbfe3c250f6": {
       "event": "Irlandia Północna vs Gruzja",
@@ -172,7 +172,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.1603,
       "best_gap_pct": 6.1603,
-      "score": 7.189139960255334e-09,
+      "score": 5.751311968204267e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150646.9264941,
       "consecutive": 0
@@ -186,8 +186,8 @@
       "best_gap_pct": 6.2447,
       "score": 84.37,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 16
+      "last_seen": 1791177770.3046892,
+      "consecutive": 17
     },
     "67eee63f488fac294d16": {
       "event": "Kazachstan vs Wyspy Owcze",
@@ -196,7 +196,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 6.2558,
       "best_gap_pct": 5.0128,
-      "score": 11.457160806400005,
+      "score": 9.165728645120003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -208,7 +208,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.3218,
       "best_gap_pct": 6.3218,
-      "score": 5.4943260279450256e-09,
+      "score": 4.3954608223560205e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -220,7 +220,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.3492,
       "best_gap_pct": 6.3492,
-      "score": 3.4648509880670016e-08,
+      "score": 2.7718807904536015e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152892.8377852,
       "consecutive": 0
@@ -232,7 +232,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 6.516,
       "best_gap_pct": 5.0128,
-      "score": 8.665096519680002,
+      "score": 6.932077215744002,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -244,7 +244,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.5644,
       "best_gap_pct": 6.5644,
-      "score": 6.300640866894406e-05,
+      "score": 5.0405126935155254e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791161605.234764,
       "consecutive": 0
@@ -256,7 +256,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 6.5714,
       "best_gap_pct": 6.5714,
-      "score": 8.615435960320005,
+      "score": 6.892348768256004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -268,7 +268,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 6.5812,
       "best_gap_pct": 5.8443,
-      "score": 9.681124720640007,
+      "score": 7.744899776512006,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -280,7 +280,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 6.6151,
       "best_gap_pct": 6.6151,
-      "score": 8.308077363200004,
+      "score": 6.646461890560004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -292,7 +292,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.6586,
       "best_gap_pct": 6.6586,
-      "score": 5.140553175120625e-09,
+      "score": 4.1124425400965e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -304,7 +304,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.6667,
       "best_gap_pct": 6.6667,
-      "score": 6.83766162475467e-09,
+      "score": 5.470129299803736e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150646.9264941,
       "consecutive": 0
@@ -316,7 +316,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 6.6707,
       "best_gap_pct": 6.6707,
-      "score": 8.526852259840004,
+      "score": 6.821481807872003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -328,7 +328,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.6948,
       "best_gap_pct": 6.6948,
-      "score": 5.28740228384019e-09,
+      "score": 4.229921827072152e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -340,7 +340,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 6.6964,
       "best_gap_pct": 6.6964,
-      "score": 8.235599790080006,
+      "score": 6.588479832064005,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -352,7 +352,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 6.711,
       "best_gap_pct": 6.711,
-      "score": 5.736050620593579e-07,
+      "score": 4.5888404964748635e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156277.013849,
       "consecutive": 0
@@ -364,7 +364,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.7906,
       "best_gap_pct": 6.7906,
-      "score": 2.495766929598887e-08,
+      "score": 1.9966135436791096e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -376,7 +376,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 6.8084,
       "best_gap_pct": 6.8084,
-      "score": 7.079826862449608e-07,
+      "score": 5.663861489959687e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156782.358225,
       "consecutive": 0
@@ -388,7 +388,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 6.8273,
       "best_gap_pct": 6.8084,
-      "score": 5.824342088637033e-07,
+      "score": 4.659473670909627e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156277.013849,
       "consecutive": 0
@@ -400,7 +400,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 6.8286,
       "best_gap_pct": 6.8286,
-      "score": 0.44626363263118185,
+      "score": 0.3570109061049455,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -412,7 +412,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 6.9109,
       "best_gap_pct": 6.9109,
-      "score": 8.312103895040002,
+      "score": 6.649683116032001,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -424,7 +424,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.9172,
       "best_gap_pct": 6.9172,
-      "score": 3.3763274519860586e-08,
+      "score": 2.701061961588847e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152892.8377852,
       "consecutive": 0
@@ -436,7 +436,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 6.934,
       "best_gap_pct": 6.1126,
-      "score": 8.022193602560002,
+      "score": 6.417754882048001,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -448,7 +448,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 6.9444,
       "best_gap_pct": 6.9444,
-      "score": 4.754712664307316e-07,
+      "score": 3.803770131445853e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156277.013849,
       "consecutive": 0
@@ -460,7 +460,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 6.9465,
       "best_gap_pct": 6.9465,
-      "score": 3.281492453097475,
+      "score": 2.6251939624779803,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -472,7 +472,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.9547,
       "best_gap_pct": 6.9547,
-      "score": 2.4524003433839525e-08,
+      "score": 1.961920274707162e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -484,7 +484,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.9671,
       "best_gap_pct": 6.9671,
-      "score": 6.036806434578929e-05,
+      "score": 4.829445147663144e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791161605.234764,
       "consecutive": 0
@@ -496,7 +496,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 6.9672,
       "best_gap_pct": 6.9672,
-      "score": 0.439401443835762,
+      "score": 0.35152115506860965,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -508,7 +508,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 7.021,
       "best_gap_pct": 7.021,
-      "score": 7.944347320320005,
+      "score": 6.355477856256004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -520,7 +520,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.0402,
       "best_gap_pct": 7.0402,
-      "score": 2.429722403803665e-08,
+      "score": 1.9437779230429322e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -532,10 +532,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 7.0646,
       "best_gap_pct": 6.2447,
-      "score": 37.3248,
+      "score": 58.9,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791176797.3037763,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "19e49837746a7bb790cd": {
       "event": "Arsenal vs Leeds",
@@ -544,7 +544,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 7.0646,
       "best_gap_pct": 7.0646,
-      "score": 7.905424179200003,
+      "score": 6.324339343360003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -556,7 +556,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 7.0994,
       "best_gap_pct": 7.0994,
-      "score": 8.142989557760002,
+      "score": 6.514391646208002,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -568,7 +568,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 7.1051,
       "best_gap_pct": 7.1051,
-      "score": 0.432613042016637,
+      "score": 0.3460904336133096,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -580,7 +580,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 7.1118,
       "best_gap_pct": 7.1118,
-      "score": 7.863816683520004,
+      "score": 6.291053346816003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -592,7 +592,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 7.1327,
       "best_gap_pct": 7.1327,
-      "score": 8.113461657600004,
+      "score": 6.490769326080003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -604,10 +604,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 7.1429,
       "best_gap_pct": 6.2447,
-      "score": 53.104,
+      "score": 58.38,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "d2a321fee531355727c8": {
       "event": "Benfica vs Guimaraes",
@@ -616,7 +616,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 7.2002,
       "best_gap_pct": 7.2002,
-      "score": 7.784628224000004,
+      "score": 6.227702579200003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -628,7 +628,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/skalica-vs-slovan-bratislava-2026-10-10-43791",
       "gap_pct": 7.2005,
       "best_gap_pct": 7.2005,
-      "score": 7.784628224000004,
+      "score": 6.227702579200003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -640,7 +640,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 7.2261,
       "best_gap_pct": 7.2261,
-      "score": 0.4267100839130499,
+      "score": 0.34136806713043993,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -652,7 +652,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 7.2394,
       "best_gap_pct": 7.2394,
-      "score": 7.749731614720004,
+      "score": 6.199785291776004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -664,7 +664,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 7.2553,
       "best_gap_pct": 7.2553,
-      "score": 8.003403120640005,
+      "score": 6.402722496512005,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -676,7 +676,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.2553,
       "best_gap_pct": 7.2553,
-      "score": 6.427777393740549e-09,
+      "score": 5.1422219149924396e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150646.9264941,
       "consecutive": 0
@@ -688,7 +688,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/skalica-vs-slovan-bratislava-2026-10-10-43791",
       "gap_pct": 7.2595,
       "best_gap_pct": 7.2595,
-      "score": 7.730941132800004,
+      "score": 6.1847529062400035,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -700,10 +700,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 7.2856,
       "best_gap_pct": 7.2856,
-      "score": 59.43,
+      "score": 61.43,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "last_seen": 1791177770.3046892,
+      "consecutive": 3
     },
     "d94cd4ad178a331fe229": {
       "event": "Benfica vs Guimaraes",
@@ -712,7 +712,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 7.5359,
       "best_gap_pct": 7.3375,
-      "score": 7.752415969280003,
+      "score": 6.201932775424003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -724,7 +724,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 7.3624,
       "best_gap_pct": 7.3624,
-      "score": 0.4199954690702195,
+      "score": 0.33599637525617565,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -736,7 +736,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/kazachstan-vs-wyspy-owcze-2026-10-06-52431",
       "gap_pct": 7.4074,
       "best_gap_pct": 5.0128,
-      "score": 11.848069939200006,
+      "score": 9.478455951360004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -748,7 +748,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 7.7197,
       "best_gap_pct": 7.4107,
-      "score": 7.588670341120002,
+      "score": 6.070936272896002,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -760,7 +760,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 7.4835,
       "best_gap_pct": 7.4835,
-      "score": 7.530956718080003,
+      "score": 6.024765374464003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -772,7 +772,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 7.5247,
       "best_gap_pct": 7.5247,
-      "score": 8.031588843520003,
+      "score": 6.425271074816003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -784,7 +784,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 7.545,
       "best_gap_pct": 7.545,
-      "score": 4.465232441214027e-07,
+      "score": 3.5721859529712217e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156277.013849,
       "consecutive": 0
@@ -796,7 +796,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 7.5751,
       "best_gap_pct": 7.5751,
-      "score": 5.319199099339237e-07,
+      "score": 4.2553592794713893e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156277.013849,
       "consecutive": 0
@@ -808,7 +808,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 7.6082,
       "best_gap_pct": 7.6082,
-      "score": 7.687991459840004,
+      "score": 6.150393167872004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -820,7 +820,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 7.8764,
       "best_gap_pct": 7.7386,
-      "score": 7.447741726720004,
+      "score": 5.958193381376003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -832,7 +832,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.7441,
       "best_gap_pct": 7.7441,
-      "score": 2.1631571490880174e-08,
+      "score": 1.730525719270414e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -844,7 +844,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 7.7482,
       "best_gap_pct": 7.7482,
-      "score": 7.563168972800003,
+      "score": 6.050535178240003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -856,7 +856,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/west-ham-united-vs-qpr-2026-10-09-42723",
       "gap_pct": 7.8062,
       "best_gap_pct": 7.8062,
-      "score": 7.242388602880005,
+      "score": 5.793910882304004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -868,7 +868,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 7.8092,
       "best_gap_pct": 7.8092,
-      "score": 0.41276434539332546,
+      "score": 0.3302114763146604,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -880,7 +880,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/skalica-vs-slovan-bratislava-2026-10-10-43791",
       "gap_pct": 7.8204,
       "best_gap_pct": 7.8204,
-      "score": 7.228966830080004,
+      "score": 5.783173464064003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -892,7 +892,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 7.8372,
       "best_gap_pct": 7.8372,
-      "score": 7.214202880000004,
+      "score": 5.771362304000004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -904,7 +904,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.8519,
       "best_gap_pct": 6.1603,
-      "score": 2.2140830484963832e-08,
+      "score": 1.7712664387971067e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -916,7 +916,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chicago-fire-vs-vancouver-whitecaps-2026-10-07-43910",
       "gap_pct": 7.6006,
       "best_gap_pct": 7.6006,
-      "score": 7.694702346240003,
+      "score": 6.155761876992003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -928,7 +928,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.9127,
       "best_gap_pct": 7.9127,
-      "score": 4.4430199087027e-09,
+      "score": 3.55441592696216e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -940,7 +940,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.989,
       "best_gap_pct": 7.989,
-      "score": 2.098306199060183e-08,
+      "score": 1.6786449592481464e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -952,7 +952,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 8.1633,
       "best_gap_pct": 8.1633,
-      "score": 2.945591650811907,
+      "score": 2.3564733206495254,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -964,7 +964,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/corvinul-hunedoara-vs-voluntari-2026-10-12-36319",
       "gap_pct": 8.1731,
       "best_gap_pct": 8.1731,
-      "score": 6.913555169280001,
+      "score": 5.530844135424001,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -976,7 +976,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 8.1812,
       "best_gap_pct": 8.1812,
-      "score": 42.768,
+      "score": 34.214400000000005,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -988,7 +988,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/west-ham-united-vs-qpr-2026-10-09-42723",
       "gap_pct": 8.1849,
       "best_gap_pct": 8.1849,
-      "score": 6.902817751040003,
+      "score": 5.522254200832003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1000,7 +1000,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/west-ham-united-vs-qpr-2026-10-09-42723",
       "gap_pct": 8.2779,
       "best_gap_pct": 8.2779,
-      "score": 2.793309290364931,
+      "score": 2.2346474322919447,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -1012,7 +1012,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 8.3916,
       "best_gap_pct": 8.3916,
-      "score": 2.0914298646030838e-05,
+      "score": 1.6731438916824672e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791160607.775781,
       "consecutive": 0
@@ -1024,7 +1024,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 8.5461,
       "best_gap_pct": 7.1429,
-      "score": 6.849130659840005,
+      "score": 5.479304527872004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1036,7 +1036,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 8.5926,
       "best_gap_pct": 8.5926,
-      "score": 0.3594901485084521,
+      "score": 0.2875921188067617,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -1048,7 +1048,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 8.6612,
       "best_gap_pct": 8.6612,
-      "score": 5.270349311692241e-07,
+      "score": 4.2162794493537933e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156531.4461637,
       "consecutive": 0
@@ -1060,7 +1060,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 8.6612,
       "best_gap_pct": 8.6612,
-      "score": 2.763072720601089,
+      "score": 2.2104581764808713,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -1072,7 +1072,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/hertha-vs-greuther-furth-2026-10-11-45029",
       "gap_pct": 8.7812,
       "best_gap_pct": 8.7812,
-      "score": 6.369973370880003,
+      "score": 5.095978696704003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1084,7 +1084,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/corvinul-hunedoara-vs-voluntari-2026-10-12-36319",
       "gap_pct": 8.8942,
       "best_gap_pct": 8.8942,
-      "score": 6.269310074880003,
+      "score": 5.015448059904003,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1096,7 +1096,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/corvinul-hunedoara-vs-voluntari-2026-10-12-36319",
       "gap_pct": 8.9015,
       "best_gap_pct": 8.9015,
-      "score": 6.262599188480002,
+      "score": 5.010079350784002,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1108,7 +1108,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/slask-wroclaw-vs-lech-poznan-2026-10-10-41921",
       "gap_pct": 8.9237,
       "best_gap_pct": 7.5751,
-      "score": 4.81333240948371e-07,
+      "score": 3.8506659275869685e-07,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791156277.013849,
       "consecutive": 0
@@ -1120,10 +1120,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 8.9345,
       "best_gap_pct": 7.1118,
-      "score": 48.44,
+      "score": 50.44,
       "first_seen": 1791150454.3855422,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "last_seen": 1791177770.3046892,
+      "consecutive": 3
     },
     "cee4ced73352fbe71ad1": {
       "event": "Hertha vs Greuther Furth",
@@ -1132,7 +1132,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/hertha-vs-greuther-furth-2026-10-11-45029",
       "gap_pct": 8.9795,
       "best_gap_pct": 8.9795,
-      "score": 1.835719530235814e-08,
+      "score": 1.4685756241886514e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1144,7 +1144,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/st-pauli-vs-karlsruhe-2026-10-11-45028",
       "gap_pct": 8.9926,
       "best_gap_pct": 8.9926,
-      "score": 1.8321388029336623e-08,
+      "score": 1.4657110423469298e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1156,7 +1156,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/new-york-rb-vs-san-diego-2026-10-10-43916",
       "gap_pct": 8.6683,
       "best_gap_pct": 8.6683,
-      "score": 6.470636666880004,
+      "score": 5.176509333504004,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1168,7 +1168,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/philadelphia-union-vs-salt-lake-2026-10-10-43918",
       "gap_pct": 9.0173,
       "best_gap_pct": 9.0173,
-      "score": 3.828089265939527e-09,
+      "score": 3.062471412751622e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -1180,7 +1180,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/colorado-rapids-vs-san-jose-earthquakes-2026-10-11-43923",
       "gap_pct": 8.5301,
       "best_gap_pct": 8.5301,
-      "score": 6.594116976640002,
+      "score": 5.2752935813120025,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1192,7 +1192,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/grasshoppers-vs-young-boys-2026-10-11-45003",
       "gap_pct": 9.1894,
       "best_gap_pct": 9.1894,
-      "score": 0.028357343927105535,
+      "score": 0.02268587514168443,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791168925.9679914,
       "consecutive": 0
@@ -1204,7 +1204,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 9.2247,
       "best_gap_pct": 9.2247,
-      "score": 0.3283520445120305,
+      "score": 0.2626816356096244,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -1216,7 +1216,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/st-pauli-vs-karlsruhe-2026-10-11-45028",
       "gap_pct": 9.2606,
       "best_gap_pct": 9.2606,
-      "score": 1.7609221154797812e-08,
+      "score": 1.408737692383825e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1228,7 +1228,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 9.2861,
       "best_gap_pct": 9.2861,
-      "score": 0.3400841737429097,
+      "score": 0.2720673389943278,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -1240,7 +1240,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/west-ham-united-vs-qpr-2026-10-09-42723",
       "gap_pct": 9.3189,
       "best_gap_pct": 9.3189,
-      "score": 1.7454056305037952e-08,
+      "score": 1.3963245044030362e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1252,7 +1252,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chicago-fire-vs-vancouver-whitecaps-2026-10-07-43910",
       "gap_pct": 9.333,
       "best_gap_pct": 9.333,
-      "score": 3.6528715793991398e-09,
+      "score": 2.922297263519312e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -1264,7 +1264,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/corvinul-hunedoara-vs-voluntari-2026-10-12-36319",
       "gap_pct": 9.3758,
       "best_gap_pct": 6.4903,
-      "score": 0.4195711939565242,
+      "score": 0.3356569551652194,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791171811.6788273,
       "consecutive": 0
@@ -1276,7 +1276,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 9.502,
       "best_gap_pct": 9.502,
-      "score": 1.7937445919041056e-05,
+      "score": 1.4349956735232846e-05,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791160607.775781,
       "consecutive": 0
@@ -1288,7 +1288,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/st-pauli-vs-karlsruhe-2026-10-11-45028",
       "gap_pct": 9.6312,
       "best_gap_pct": 9.6312,
-      "score": 1.7422227617907724e-08,
+      "score": 1.393778209432618e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1300,7 +1300,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/grasshoppers-vs-young-boys-2026-10-11-45003",
       "gap_pct": 9.7668,
       "best_gap_pct": 9.7668,
-      "score": 0.0259171165216662,
+      "score": 0.02073369321733296,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791168925.9679914,
       "consecutive": 0
@@ -1312,7 +1312,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/motherwell-vs-celtic-2026-10-11-40153",
       "gap_pct": 10.111,
       "best_gap_pct": 10.111,
-      "score": 1.2282690363554421e-08,
+      "score": 9.826152290843538e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152114.387835,
       "consecutive": 0
@@ -1324,7 +1324,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/motherwell-vs-celtic-2026-10-11-40153",
       "gap_pct": 10.1377,
       "best_gap_pct": 10.1377,
-      "score": 1.528572699429129e-08,
+      "score": 1.2228581595433032e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1336,7 +1336,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/colorado-rapids-vs-san-jose-earthquakes-2026-10-11-43923",
       "gap_pct": 10.1476,
       "best_gap_pct": 10.1476,
-      "score": 6.575552131607758e-09,
+      "score": 5.260441705286207e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -1348,7 +1348,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/motherwell-vs-celtic-2026-10-11-40153",
       "gap_pct": 10.2036,
       "best_gap_pct": 10.2036,
-      "score": 1.5906386393330702e-08,
+      "score": 1.2725109114664562e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1360,7 +1360,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/philadelphia-union-vs-salt-lake-2026-10-10-43918",
       "gap_pct": 10.2141,
       "best_gap_pct": 10.2141,
-      "score": 3.16309642702196e-09,
+      "score": 2.530477141617568e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -1372,7 +1372,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/philadelphia-union-vs-salt-lake-2026-10-10-43918",
       "gap_pct": 10.2338,
       "best_gap_pct": 10.2338,
-      "score": 3.151415247919268e-09,
+      "score": 2.5211321983354147e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -1384,7 +1384,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/new-york-rb-vs-san-diego-2026-10-10-43916",
       "gap_pct": 10.2941,
       "best_gap_pct": 10.2941,
-      "score": 1.645940983221837e-08,
+      "score": 1.3167527865774697e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1396,7 +1396,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/botafogo-rj-vs-vasco-da-gama-2026-10-07-37629",
       "gap_pct": 10.4298,
       "best_gap_pct": 10.4298,
-      "score": 3.9309905034187843e-08,
+      "score": 3.144792402735028e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791153807.721993,
       "consecutive": 0
@@ -1408,7 +1408,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/colorado-rapids-vs-san-jose-earthquakes-2026-10-11-43923",
       "gap_pct": 10.473,
       "best_gap_pct": 10.473,
-      "score": 5.895996929902569e-09,
+      "score": 4.716797543922056e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -1420,7 +1420,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/botafogo-rj-vs-vasco-da-gama-2026-10-07-37629",
       "gap_pct": 10.4956,
       "best_gap_pct": 10.4956,
-      "score": 3.888251787789813e-08,
+      "score": 3.1106014302318505e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791153807.721993,
       "consecutive": 0
@@ -1432,7 +1432,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/botafogo-rj-vs-vasco-da-gama-2026-10-07-37629",
       "gap_pct": 10.5386,
       "best_gap_pct": 10.5386,
-      "score": 3.8600830888525433e-08,
+      "score": 3.088066471082035e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791153807.721993,
       "consecutive": 0
@@ -1444,7 +1444,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/botafogo-rj-vs-vasco-da-gama-2026-10-07-37629",
       "gap_pct": 10.5547,
       "best_gap_pct": 10.5547,
-      "score": 3.6561028551688395e-08,
+      "score": 2.9248822841350718e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791153807.721993,
       "consecutive": 0
@@ -1456,7 +1456,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/grasshoppers-vs-young-boys-2026-10-11-45003",
       "gap_pct": 10.7226,
       "best_gap_pct": 10.7226,
-      "score": 0.02314729996016751,
+      "score": 0.018517839968134008,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791168925.9679914,
       "consecutive": 0
@@ -1468,7 +1468,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/new-york-rb-vs-san-diego-2026-10-10-43916",
       "gap_pct": 10.7744,
       "best_gap_pct": 10.7744,
-      "score": 1.518626234700933e-08,
+      "score": 1.2149009877607465e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1480,7 +1480,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/colorado-rapids-vs-san-jose-earthquakes-2026-10-11-43923",
       "gap_pct": 10.8345,
       "best_gap_pct": 10.8345,
-      "score": 5.8291821498788e-09,
+      "score": 4.66334571990304e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -1492,7 +1492,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/st-pauli-vs-karlsruhe-2026-10-11-45028",
       "gap_pct": 10.8453,
       "best_gap_pct": 10.8453,
-      "score": 1.4999268810119248e-08,
+      "score": 1.19994150480954e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1504,7 +1504,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/philadelphia-union-vs-salt-lake-2026-10-10-43918",
       "gap_pct": 10.9405,
       "best_gap_pct": 10.9405,
-      "score": 2.9253009952885746e-09,
+      "score": 2.3402407962308597e-09,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791150454.3855422,
       "consecutive": 0
@@ -1516,7 +1516,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/motherwell-vs-celtic-2026-10-11-40153",
       "gap_pct": 11.0217,
       "best_gap_pct": 11.0217,
-      "score": 1.4529795674948406e-08,
+      "score": 1.1623836539958726e-08,
       "first_seen": 1791150454.3855422,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -1528,10 +1528,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 5.6299,
       "best_gap_pct": 5.6299,
-      "score": 74.47,
+      "score": 76.47,
       "first_seen": 1791150646.9264941,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 3
+      "last_seen": 1791177770.3046892,
+      "consecutive": 4
     },
     "abc8f2c9b7f308dfb5b7": {
       "event": "Anglia vs Czechy",
@@ -1542,8 +1542,8 @@
       "best_gap_pct": 4.5238,
       "score": 80.92,
       "first_seen": 1791150646.9264941,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 13
+      "last_seen": 1791177770.3046892,
+      "consecutive": 14
     },
     "00b279e6ecf1a48a3ea6": {
       "event": "Ekwador vs Panama",
@@ -1552,7 +1552,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 5.8729,
       "best_gap_pct": 5.8729,
-      "score": 4.5287497215566414e-08,
+      "score": 3.6229997772453135e-08,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791153267.7575018,
       "consecutive": 0
@@ -1564,10 +1564,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 6.0097,
       "best_gap_pct": 6.0097,
-      "score": 75.94,
+      "score": 60.752,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791177534.0585022,
-      "consecutive": 5
+      "consecutive": 0
     },
     "76973b16e4145e96d88a": {
       "event": "Augsburg vs Bayern Monachium",
@@ -1576,7 +1576,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.4065,
       "best_gap_pct": 1.1131,
-      "score": 10.105252741120008,
+      "score": 8.084202192896006,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1588,7 +1588,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.5571,
       "best_gap_pct": 6.5571,
-      "score": 8.642247351757684e-09,
+      "score": 6.913797881406147e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150894.4890342,
       "consecutive": 0
@@ -1600,7 +1600,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.7682,
       "best_gap_pct": 6.7682,
-      "score": 6.167252455017436e-05,
+      "score": 4.933801964013949e-05,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791161605.234764,
       "consecutive": 0
@@ -1612,7 +1612,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.8756,
       "best_gap_pct": 6.8756,
-      "score": 8.103818002492951e-09,
+      "score": 6.4830544019943614e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150894.4890342,
       "consecutive": 0
@@ -1624,7 +1624,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.9172,
       "best_gap_pct": 6.9172,
-      "score": 8.068618020821881e-09,
+      "score": 6.454894416657505e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150894.4890342,
       "consecutive": 0
@@ -1636,7 +1636,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 6.9444,
       "best_gap_pct": 6.9444,
-      "score": 9.891846553600004,
+      "score": 7.9134772428800035,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1648,7 +1648,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 6.9593,
       "best_gap_pct": 6.9593,
-      "score": 8.267812044800003,
+      "score": 6.614249635840003,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1660,7 +1660,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 7.1429,
       "best_gap_pct": 7.1429,
-      "score": 5.922053168478891e-05,
+      "score": 4.737642534783113e-05,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791161605.234764,
       "consecutive": 0
@@ -1672,7 +1672,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 7.1539,
       "best_gap_pct": 7.1539,
-      "score": 7.86263294289494e-09,
+      "score": 6.2901063543159526e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150894.4890342,
       "consecutive": 0
@@ -1684,7 +1684,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 7.3647,
       "best_gap_pct": 7.3647,
-      "score": 6.143048653112416e-09,
+      "score": 4.914438922489933e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150646.9264941,
       "consecutive": 0
@@ -1696,7 +1696,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 7.608,
       "best_gap_pct": 7.608,
-      "score": 10.103910563840005,
+      "score": 8.083128451072005,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1708,7 +1708,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 8.1843,
       "best_gap_pct": 8.1843,
-      "score": 5.573591171856158e-09,
+      "score": 4.4588729374849265e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150646.9264941,
       "consecutive": 0
@@ -1720,7 +1720,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/csikszereda-vs-universitatea-craiova-2026-10-12-36316",
       "gap_pct": 8.6498,
       "best_gap_pct": 8.6498,
-      "score": 2.656969848520707,
+      "score": 2.1255758788165657,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -1732,7 +1732,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/csikszereda-vs-universitatea-craiova-2026-10-12-36316",
       "gap_pct": 8.683,
       "best_gap_pct": 8.683,
-      "score": 6.457214894080003,
+      "score": 5.165771915264003,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1744,7 +1744,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/csikszereda-vs-universitatea-craiova-2026-10-12-36316",
       "gap_pct": 8.5401,
       "best_gap_pct": 8.5401,
-      "score": 6.586063912960002,
+      "score": 5.268851130368002,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -1756,7 +1756,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
       "gap_pct": 8.7392,
       "best_gap_pct": 8.7392,
-      "score": 7.779847800816706e-09,
+      "score": 6.2238782406533646e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -1768,7 +1768,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 8.9995,
       "best_gap_pct": 8.9995,
-      "score": 4.939212390400003,
+      "score": 3.951369912320003,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -1780,10 +1780,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 9.2857,
       "best_gap_pct": 6.9671,
-      "score": 46.1,
+      "score": 36.88,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "consecutive": 0
     },
     "b221666d3a663d8812f0": {
       "event": "Rangers vs Kilmarnock",
@@ -1792,7 +1792,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rangers-vs-kilmarnock-2026-10-10-40127",
       "gap_pct": 9.375,
       "best_gap_pct": 9.375,
-      "score": 0.891712726219359,
+      "score": 0.7133701809754873,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -1804,7 +1804,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/csikszereda-vs-universitatea-craiova-2026-10-12-36316",
       "gap_pct": 9.425,
       "best_gap_pct": 9.425,
-      "score": 0.8137103806733021,
+      "score": 0.6509683045386417,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -1816,7 +1816,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 9.4371,
       "best_gap_pct": 9.4371,
-      "score": 5.8783969390670394e-09,
+      "score": 4.702717551253632e-09,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791150894.4890342,
       "consecutive": 0
@@ -1828,7 +1828,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rangers-vs-kilmarnock-2026-10-10-40127",
       "gap_pct": 9.4911,
       "best_gap_pct": 9.4911,
-      "score": 0.841812842348094,
+      "score": 0.6734502738784752,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -1840,7 +1840,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/aldosivi-vs-sarmiento-junin-2026-10-11-43832",
       "gap_pct": 9.6838,
       "best_gap_pct": 9.6838,
-      "score": 0.8185742682708622,
+      "score": 0.6548594146166898,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -1852,7 +1852,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rangers-vs-kilmarnock-2026-10-10-40127",
       "gap_pct": 10.1595,
       "best_gap_pct": 10.1595,
-      "score": 0.7254398279768403,
+      "score": 0.5803518623814722,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -1864,7 +1864,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 10.3412,
       "best_gap_pct": 10.3412,
-      "score": 1.4888280980059603e-05,
+      "score": 1.1910624784047684e-05,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791160607.775781,
       "consecutive": 0
@@ -1876,7 +1876,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/aldosivi-vs-sarmiento-junin-2026-10-11-43832",
       "gap_pct": 12.0742,
       "best_gap_pct": 12.0742,
-      "score": 0.3676378447815086,
+      "score": 0.29411027582520693,
       "first_seen": 1791150646.9264941,
       "last_seen": 1791172248.677785,
       "consecutive": 0
@@ -1890,8 +1890,8 @@
       "best_gap_pct": 5.7151,
       "score": 85.9,
       "first_seen": 1791150894.4890342,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 10
+      "last_seen": 1791177770.3046892,
+      "consecutive": 11
     },
     "37f00becb5b5fe6f216e": {
       "event": "Anglia vs Czechy",
@@ -1900,10 +1900,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 5.9086,
       "best_gap_pct": 0.1115,
-      "score": 68.61,
+      "score": 70.61,
       "first_seen": 1791150894.4890342,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "last_seen": 1791177770.3046892,
+      "consecutive": 2
     },
     "690242f60607c75c9c9b": {
       "event": "Augsburg vs Bayern Monachium",
@@ -1912,7 +1912,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 7.3647,
       "best_gap_pct": 7.3647,
-      "score": 6.539087708160003,
+      "score": 5.231270166528002,
       "first_seen": 1791150894.4890342,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -1924,10 +1924,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 7.3701,
       "best_gap_pct": 6.6667,
-      "score": 51.89600000000001,
+      "score": 58.87,
       "first_seen": 1791150894.4890342,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "caad3995d8b50a1c32e3": {
       "event": "Real Betis - Osasuna",
@@ -1936,10 +1936,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 7.9652,
       "best_gap_pct": 6.4815,
-      "score": 30.156800000000004,
+      "score": 56.9,
       "first_seen": 1791150894.4890342,
-      "last_seen": 1791176797.3037763,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "f6f45a374b38e9d27e26": {
       "event": "Real Betis - Osasuna",
@@ -1948,10 +1948,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 12.0482,
       "best_gap_pct": 6.6704,
-      "score": 16.220160000000003,
+      "score": 29.68,
       "first_seen": 1791150894.4890342,
-      "last_seen": 1791176797.3037763,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "82487ddc79cbb8465658": {
       "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
@@ -1960,7 +1960,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 3.4559,
       "best_gap_pct": 3.4559,
-      "score": 71.16799999999999,
+      "score": 56.9344,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -1972,10 +1972,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 3.5667,
       "best_gap_pct": 0.7313,
-      "score": 88.22,
+      "score": 90.22,
       "first_seen": 1791151299.4658313,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 3
+      "last_seen": 1791177770.3046892,
+      "consecutive": 4
     },
     "3d139b6de809f9bbd515": {
       "event": "Polonia Środa Wielkopolska - Śląsk Wrocław II Puchar Polski · 28 paź, 16:00",
@@ -1984,7 +1984,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/polonia-sroda-wielkopolska-vs-slask-wroclaw-ii-2026-10-28-40655?market=2",
       "gap_pct": 5.1481,
       "best_gap_pct": 5.1481,
-      "score": 8.555574853632006,
+      "score": 6.844459882905605,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -1996,7 +1996,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 5.475,
       "best_gap_pct": 5.475,
-      "score": 1.0016005571271993,
+      "score": 0.8012804457017595,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791172248.677785,
       "consecutive": 0
@@ -2008,7 +2008,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 5.9632,
       "best_gap_pct": 5.9632,
-      "score": 3.593160383060729e-08,
+      "score": 2.874528306448583e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791152892.8377852,
       "consecutive": 0
@@ -2020,7 +2020,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 5.9887,
       "best_gap_pct": 5.9887,
-      "score": 1.6618925288962364e-07,
+      "score": 1.3295140231169893e-07,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791155114.2066767,
       "consecutive": 0
@@ -2032,7 +2032,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 6.6096,
       "best_gap_pct": 6.6096,
-      "score": 52.752,
+      "score": 42.201600000000006,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -2044,7 +2044,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 6.6544,
       "best_gap_pct": 6.6544,
-      "score": 1.2963696953392747e-08,
+      "score": 1.0370957562714199e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151554.3763118,
       "consecutive": 0
@@ -2056,7 +2056,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.6667,
       "best_gap_pct": 6.6667,
-      "score": 4.9390413915947214e-08,
+      "score": 3.9512331132757776e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791153571.9968135,
       "consecutive": 0
@@ -2068,7 +2068,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 6.6831,
       "best_gap_pct": 6.6831,
-      "score": 6.940184617476453e-08,
+      "score": 5.552147693981163e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791153807.721993,
       "consecutive": 0
@@ -2080,7 +2080,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 6.8627,
       "best_gap_pct": 6.8627,
-      "score": 2.0449931481170554e-08,
+      "score": 1.6359945184936443e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791152114.387835,
       "consecutive": 0
@@ -2092,7 +2092,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/vancouver-canucks-vs-vegas-golden-knights-2026-10-05-55318",
       "gap_pct": 6.8302,
       "best_gap_pct": 6.8302,
-      "score": 1.1037493613670614e-06,
+      "score": 8.829994890936492e-07,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -2104,7 +2104,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/vancouver-canucks-vs-vegas-golden-knights-2026-10-05-55318",
       "gap_pct": 6.8845,
       "best_gap_pct": 6.8845,
-      "score": 2.391130120658265e-08,
+      "score": 1.912904096526612e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -2116,10 +2116,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 6.9142,
       "best_gap_pct": 6.0097,
-      "score": 51.128,
+      "score": 61.91,
       "first_seen": 1791151299.4658313,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "2a71dd39fe969c0de4f2": {
       "event": "Rumunia vs Szwecja",
@@ -2128,7 +2128,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.9549,
       "best_gap_pct": 6.9549,
-      "score": 3.831253882491914e-08,
+      "score": 3.065003105993531e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791153267.7575018,
       "consecutive": 0
@@ -2140,7 +2140,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 7.0415,
       "best_gap_pct": 7.0415,
-      "score": 7.9268990156800045,
+      "score": 6.341519212544004,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2152,7 +2152,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lazio-rzym-vs-monza-2026-10-11-39707",
       "gap_pct": 7.1105,
       "best_gap_pct": 6.0394,
-      "score": 7.865158860800003,
+      "score": 6.292127088640003,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2164,7 +2164,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/znicz-pruszkow-vs-ruch-chorzow-2026-10-28-40539?market=1",
       "gap_pct": 7.1112,
       "best_gap_pct": 7.1112,
-      "score": 8.132252139520006,
+      "score": 6.505801711616005,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2176,7 +2176,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 7.1193,
       "best_gap_pct": 6.0873,
-      "score": 48.432,
+      "score": 38.7456,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -2188,7 +2188,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/skalica-vs-slovan-bratislava-2026-10-10-43791",
       "gap_pct": 7.1725,
       "best_gap_pct": 7.1725,
-      "score": 9.48118024825129e-09,
+      "score": 7.584944198601033e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -2200,7 +2200,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 7.5354,
       "best_gap_pct": 7.5354,
-      "score": 47.808,
+      "score": 38.2464,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -2212,7 +2212,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
       "gap_pct": 7.6555,
       "best_gap_pct": 7.6555,
-      "score": 9.282365536961034e-09,
+      "score": 7.425892429568828e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -2224,22 +2224,22 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 3.5667,
       "best_gap_pct": 3.5667,
-      "score": 90.22,
+      "score": 92.22,
       "first_seen": 1791151299.4658313,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 4
+      "last_seen": 1791177770.3046892,
+      "consecutive": 5
     },
     "3fd5d2192fb3c0c3048b": {
       "event": "Unia Skierniewice - Bruk-Bet Termalica Nieciecza I Liga · 10 paź, 15:30",
       "sport": "",
       "market": "1X2",
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
-      "gap_pct": 3.4559,
+      "gap_pct": 8.0351,
       "best_gap_pct": 2.4012,
-      "score": 54.37440000000001,
+      "score": 54.43,
       "first_seen": 1791151299.4658313,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "c0e8c0088bf696120ada": {
       "event": "Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00",
@@ -2248,10 +2248,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 8.0493,
       "best_gap_pct": 4.9558,
-      "score": 58.34,
+      "score": 60.34,
       "first_seen": 1791151299.4658313,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 3
+      "last_seen": 1791177770.3046892,
+      "consecutive": 4
     },
     "be91abce07fa9bbc9b78": {
       "event": "Mjallby AIF vs Inter Escaldes",
@@ -2260,7 +2260,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 8.0634,
       "best_gap_pct": 8.0634,
-      "score": 7.279969566720005,
+      "score": 5.823975653376004,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2272,7 +2272,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 8.0675,
       "best_gap_pct": 8.0675,
-      "score": 7.008849756160004,
+      "score": 5.607079804928003,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2284,7 +2284,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 8.1034,
       "best_gap_pct": 8.1034,
-      "score": 9.537440455673754e-07,
+      "score": 7.629952364539003e-07,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -2296,7 +2296,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/farul-constanta-vs-petrolul-ploiesti-2026-10-12-36317",
       "gap_pct": 8.1315,
       "best_gap_pct": 8.1315,
-      "score": 6.951136133120002,
+      "score": 5.560908906496002,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2308,7 +2308,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 8.1584,
       "best_gap_pct": 8.1584,
-      "score": 6.926976942080005,
+      "score": 5.541581553664004,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2320,7 +2320,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 8.4932,
       "best_gap_pct": 8.4932,
-      "score": 6.627671408640004,
+      "score": 5.302137126912004,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2332,7 +2332,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/farul-constanta-vs-petrolul-ploiesti-2026-10-12-36317",
       "gap_pct": 8.5805,
       "best_gap_pct": 8.5805,
-      "score": 6.549825126400002,
+      "score": 5.2398601011200014,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2344,7 +2344,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 8.583,
       "best_gap_pct": 8.583,
-      "score": 2.7916600229232653,
+      "score": 2.233328018338612,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -2356,7 +2356,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/argentyna-vs-benin-2026-10-06-52154?market=bts_yes",
       "gap_pct": 8.6691,
       "best_gap_pct": 8.6691,
-      "score": 0.9045029491610912,
+      "score": 0.723602359328873,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -2368,7 +2368,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/farul-constanta-vs-petrolul-ploiesti-2026-10-12-36317",
       "gap_pct": 8.9017,
       "best_gap_pct": 8.9017,
-      "score": 0.0401369871297264,
+      "score": 0.032109589703781125,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2380,7 +2380,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 8.9105,
       "best_gap_pct": 8.9105,
-      "score": 6.522981580800003,
+      "score": 5.218385264640003,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -2392,7 +2392,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 8.9345,
       "best_gap_pct": 6.5055,
-      "score": 5.201205395456004,
+      "score": 4.160964316364804,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -2404,7 +2404,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 8.979,
       "best_gap_pct": 8.979,
-      "score": 0.039725000684652206,
+      "score": 0.031780000547721766,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2416,7 +2416,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 9.2199,
       "best_gap_pct": 7.9412,
-      "score": 28.499200000000002,
+      "score": 22.799360000000004,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -2428,7 +2428,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 9.3095,
       "best_gap_pct": 7.6445,
-      "score": 4.718021574656002,
+      "score": 3.774417259724802,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -2440,7 +2440,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 9.3505,
       "best_gap_pct": 9.3505,
-      "score": 0.03776014225429841,
+      "score": 0.03020811380343873,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2452,7 +2452,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 9.4086,
       "best_gap_pct": 9.4086,
-      "score": 0.03745907523674426,
+      "score": 0.029967260189395408,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2464,7 +2464,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/unia-skierniewice-vs-termalica-nieciecza-2026-10-10-43770?market=over35",
       "gap_pct": 9.4284,
       "best_gap_pct": 7.6567,
-      "score": 27.6096,
+      "score": 22.087680000000002,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -2476,7 +2476,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 9.4484,
       "best_gap_pct": 9.4484,
-      "score": 0.035660595947670425,
+      "score": 0.028528476758136342,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2488,7 +2488,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 9.4539,
       "best_gap_pct": 9.4539,
-      "score": 0.037213467932950044,
+      "score": 0.029770774346360038,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2500,7 +2500,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 9.4584,
       "best_gap_pct": 5.0128,
-      "score": 35.952,
+      "score": 28.7616,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -2512,7 +2512,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 9.4627,
       "best_gap_pct": 9.4627,
-      "score": 0.03558929060140761,
+      "score": 0.02847143248112609,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2524,7 +2524,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 9.4768,
       "best_gap_pct": 9.4768,
-      "score": 0.03551006243889333,
+      "score": 0.028408049951114667,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2536,7 +2536,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 9.4988,
       "best_gap_pct": 9.4988,
-      "score": 0.00010696339970387426,
+      "score": 8.557071976309942e-05,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -2548,7 +2548,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 9.502,
       "best_gap_pct": 9.502,
-      "score": 0.6434743147586972,
+      "score": 0.5147794518069578,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791172248.677785,
       "consecutive": 0
@@ -2560,7 +2560,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/getafe-vs-rayo-vallecano-2026-10-19-43908",
       "gap_pct": 9.5374,
       "best_gap_pct": 9.5374,
-      "score": 0.03836227628940686,
+      "score": 0.03068982103152549,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2572,7 +2572,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estudiantes-lp-vs-san-lorenzo-2026-10-18-56213",
       "gap_pct": 9.5393,
       "best_gap_pct": 9.5393,
-      "score": 0.00010631687814757139,
+      "score": 8.505350251805711e-05,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -2584,7 +2584,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 9.5665,
       "best_gap_pct": 9.5665,
-      "score": 5.967702645995498e-07,
+      "score": 4.774162116796399e-07,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791157059.7294762,
       "consecutive": 0
@@ -2596,7 +2596,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/hertha-vs-greuther-furth-2026-10-11-45029",
       "gap_pct": 9.7616,
       "best_gap_pct": 9.7616,
-      "score": 6.6684409721286055e-09,
+      "score": 5.334752777702885e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -2608,7 +2608,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 9.8934,
       "best_gap_pct": 9.8934,
-      "score": 0.03330751952099678,
+      "score": 0.026646015616797428,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2620,7 +2620,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/hertha-vs-greuther-furth-2026-10-11-45029",
       "gap_pct": 9.9249,
       "best_gap_pct": 9.9249,
-      "score": 1.743814196147284e-08,
+      "score": 1.3950513569178273e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -2632,7 +2632,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 9.945,
       "best_gap_pct": 9.945,
-      "score": 0.0330381437684483,
+      "score": 0.02643051501475864,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2644,7 +2644,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 10.0629,
       "best_gap_pct": 10.0629,
-      "score": 0.0324122412845856,
+      "score": 0.02592979302766848,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2656,7 +2656,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 10.0801,
       "best_gap_pct": 10.0801,
-      "score": 1.6390768051441763e-05,
+      "score": 1.3112614441153411e-05,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791160607.775781,
       "consecutive": 0
@@ -2668,7 +2668,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/polonia-sroda-wielkopolska-vs-slask-wroclaw-ii-2026-10-28-40655?market=2",
       "gap_pct": 10.119,
       "best_gap_pct": 10.119,
-      "score": 4.352949354496002,
+      "score": 3.482359483596802,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -2680,7 +2680,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 10.1377,
       "best_gap_pct": 10.1377,
-      "score": 9.199762293760571e-05,
+      "score": 7.359809835008457e-05,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -2692,7 +2692,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 10.1595,
       "best_gap_pct": 10.1595,
-      "score": 0.031905181044494295,
+      "score": 0.02552414483559544,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2704,7 +2704,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 10.1782,
       "best_gap_pct": 10.1782,
-      "score": 0.03181010724947717,
+      "score": 0.02544808579958174,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2716,7 +2716,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 10.2025,
       "best_gap_pct": 10.2025,
-      "score": 0.033259982623488234,
+      "score": 0.026607986098790587,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2728,7 +2728,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 10.2632,
       "best_gap_pct": 10.2632,
-      "score": 0.031358506723145864,
+      "score": 0.025086805378516694,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2740,7 +2740,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 10.3026,
       "best_gap_pct": 10.3026,
-      "score": 0.03273707675089409,
+      "score": 0.02618966140071527,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2752,7 +2752,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 10.303,
       "best_gap_pct": 10.303,
-      "score": 0.031144590684357366,
+      "score": 0.024915672547485893,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2764,7 +2764,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rangers-vs-kilmarnock-2026-10-10-40127",
       "gap_pct": 10.3831,
       "best_gap_pct": 10.3831,
-      "score": 0.698598374197712,
+      "score": 0.5588786993581696,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -2776,7 +2776,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 10.4041,
       "best_gap_pct": 10.4041,
-      "score": 0.0306137619955118,
+      "score": 0.024491009596409444,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2788,7 +2788,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 10.4225,
       "best_gap_pct": 10.4225,
-      "score": 0.03210325145077997,
+      "score": 0.025682601160623975,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2800,7 +2800,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/panathinaikos-vs-borac-banja-luka-2026-10-15-28650",
       "gap_pct": 10.4377,
       "best_gap_pct": 10.4377,
-      "score": 1.4235942619192678e-07,
+      "score": 1.1388754095354143e-07,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791155583.062856,
       "consecutive": 0
@@ -2812,7 +2812,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 10.4607,
       "best_gap_pct": 10.4607,
-      "score": 0.031897258228242874,
+      "score": 0.0255178065825943,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2824,7 +2824,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/new-york-rb-vs-san-diego-2026-10-10-43916",
       "gap_pct": 10.5704,
       "best_gap_pct": 10.5704,
-      "score": 1.4135915671711845e-08,
+      "score": 1.1308732537369477e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -2836,7 +2836,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/tychy-vs-pogon-siedlce-2026-10-28-40541?market=dc_x2",
       "gap_pct": 10.6061,
       "best_gap_pct": 10.6061,
-      "score": 7.59610715575134e-09,
+      "score": 6.076885724601072e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151554.3763118,
       "consecutive": 0
@@ -2848,7 +2848,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/znicz-pruszkow-vs-ruch-chorzow-2026-10-28-40539?market=1",
       "gap_pct": 10.6061,
       "best_gap_pct": 10.6061,
-      "score": 7.59610715575134e-09,
+      "score": 6.076885724601072e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151554.3763118,
       "consecutive": 0
@@ -2860,7 +2860,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 10.703,
       "best_gap_pct": 10.703,
-      "score": 5.180395593930249e-07,
+      "score": 4.144316475144199e-07,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791157059.7294762,
       "consecutive": 0
@@ -2872,7 +2872,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 10.921,
       "best_gap_pct": 10.921,
-      "score": 1.479636092966404e-08,
+      "score": 1.1837088743731233e-08,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -2884,10 +2884,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 11.7886,
       "best_gap_pct": 7.2553,
-      "score": 29.41,
+      "score": 23.528000000000002,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "consecutive": 0
     },
     "b7d61d8b2a4da0158b74": {
       "event": "Argentyna - Benin Towarzyskie · 7 paź, 01:00",
@@ -2896,7 +2896,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/argentyna-vs-benin-2026-10-06-52154?market=bts_yes",
       "gap_pct": 11.853,
       "best_gap_pct": 11.853,
-      "score": 0.5580860658237524,
+      "score": 0.44646885265900194,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -2908,7 +2908,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/aldosivi-vs-sarmiento-junin-2026-10-11-43832",
       "gap_pct": 11.8869,
       "best_gap_pct": 11.8869,
-      "score": 0.0010017912882152452,
+      "score": 0.0008014330305721962,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791165401.5688446,
       "consecutive": 0
@@ -2920,7 +2920,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estudiantes-lp-vs-san-lorenzo-2026-10-18-56213",
       "gap_pct": 12.0742,
       "best_gap_pct": 12.0742,
-      "score": 0.021795667507674157,
+      "score": 0.017436534006139325,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -2932,7 +2932,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estudiantes-lp-vs-san-lorenzo-2026-10-18-56213",
       "gap_pct": 12.0801,
       "best_gap_pct": 12.0801,
-      "score": 6.0988533477897375e-05,
+      "score": 4.87908267823179e-05,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -2944,7 +2944,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 12.2334,
       "best_gap_pct": 6.4065,
-      "score": 19.552000000000003,
+      "score": 15.641600000000004,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -2956,7 +2956,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/portugalia-vs-norwegia-2026-10-04-50615",
       "gap_pct": 13.538,
       "best_gap_pct": 13.538,
-      "score": 3.218516842608505e-09,
+      "score": 2.574813474086804e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -2968,7 +2968,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/walia-vs-dania-2026-10-04-50614",
       "gap_pct": 14.0123,
       "best_gap_pct": 14.0123,
-      "score": 2.3759987627965586e-09,
+      "score": 1.900799010237247e-09,
       "first_seen": 1791151299.4658313,
       "last_seen": 1791151299.4658313,
       "consecutive": 0
@@ -2980,10 +2980,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 5.6847,
       "best_gap_pct": 5.6847,
-      "score": 70.1,
+      "score": 72.1,
       "first_seen": 1791151554.3763118,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "last_seen": 1791177770.3046892,
+      "consecutive": 2
     },
     "b6620c6fa1e0ac75627e": {
       "event": "Augsburg vs Bayern Monachium",
@@ -2992,7 +2992,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.5571,
       "best_gap_pct": 4.9166,
-      "score": 8.628857733120004,
+      "score": 6.903086186496004,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3004,7 +3004,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.8756,
       "best_gap_pct": 6.8756,
-      "score": 8.074538516480002,
+      "score": 6.459630813184003,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3016,7 +3016,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 7.1141,
       "best_gap_pct": 7.1141,
-      "score": 5.202923382374404,
+      "score": 4.162338705899524,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791174583.6676075,
       "consecutive": 0
@@ -3028,7 +3028,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 7.2177,
       "best_gap_pct": 7.2177,
-      "score": 7.768522096640004,
+      "score": 6.214817677312004,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3040,10 +3040,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 5.8201,
       "best_gap_pct": 4.1921,
-      "score": 69.2,
+      "score": 71.2,
       "first_seen": 1791151554.3763118,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "last_seen": 1791177770.3046892,
+      "consecutive": 2
     },
     "bbcdd687d2b17bac254b": {
       "event": "AS Monaco vs Toulouse",
@@ -3052,7 +3052,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 7.4561,
       "best_gap_pct": 7.4561,
-      "score": 5.350670257356803,
+      "score": 4.280536205885443,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791174583.6676075,
       "consecutive": 0
@@ -3064,7 +3064,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 7.6445,
       "best_gap_pct": 7.6445,
-      "score": 1.0431465070451624e-06,
+      "score": 8.3451720563613e-07,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -3076,7 +3076,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 7.6567,
       "best_gap_pct": 7.6567,
-      "score": 1.0417330293933398e-06,
+      "score": 8.33386423514672e-07,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -3088,7 +3088,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 7.8224,
       "best_gap_pct": 7.8224,
-      "score": 0.0049213337315940865,
+      "score": 0.00393706698527527,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791166366.7316213,
       "consecutive": 0
@@ -3100,7 +3100,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 7.9652,
       "best_gap_pct": 7.9652,
-      "score": 0.003736300388791912,
+      "score": 0.0029890403110335298,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791166144.6531196,
       "consecutive": 0
@@ -3112,7 +3112,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 9.3495,
       "best_gap_pct": 8.3943,
-      "score": 0.00010935792398647708,
+      "score": 8.748633918918167e-05,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -3124,7 +3124,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/monaco-vs-toulouse-2026-10-10-37649",
       "gap_pct": 9.1954,
       "best_gap_pct": 9.1954,
-      "score": 4.799625953280002,
+      "score": 3.839700762624002,
       "first_seen": 1791151554.3763118,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -3136,7 +3136,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 5.7631,
       "best_gap_pct": 5.7631,
-      "score": 0.9739304410166352,
+      "score": 0.7791443528133082,
       "first_seen": 1791151876.0363092,
       "last_seen": 1791172248.677785,
       "consecutive": 0
@@ -3148,7 +3148,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.5055,
       "best_gap_pct": 6.5055,
-      "score": 9.135306063730192e-07,
+      "score": 7.308244850984154e-07,
       "first_seen": 1791151876.0363092,
       "last_seen": 1791157059.7294762,
       "consecutive": 0
@@ -3160,7 +3160,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 6.9092,
       "best_gap_pct": 6.9092,
-      "score": 1.9714688808462314e-08,
+      "score": 1.577175104676985e-08,
       "first_seen": 1791151876.0363092,
       "last_seen": 1791152114.387835,
       "consecutive": 0
@@ -3172,7 +3172,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 6.9172,
       "best_gap_pct": 6.4065,
-      "score": 8.306735185920003,
+      "score": 6.645388148736003,
       "first_seen": 1791151876.0363092,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3184,7 +3184,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 7.7471,
       "best_gap_pct": 7.7471,
-      "score": 36.06400000000001,
+      "score": 28.851200000000006,
       "first_seen": 1791151876.0363092,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -3196,7 +3196,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 7.9412,
       "best_gap_pct": 7.9412,
-      "score": 9.728259938669829e-07,
+      "score": 7.782607950935863e-07,
       "first_seen": 1791151876.0363092,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -3208,7 +3208,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 7.7778,
       "best_gap_pct": 7.7778,
-      "score": 7.2678899712000025,
+      "score": 5.814311976960003,
       "first_seen": 1791152114.387835,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3220,7 +3220,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/grasshoppers-vs-young-boys-2026-10-11-45003",
       "gap_pct": 8.6981,
       "best_gap_pct": 8.6981,
-      "score": 6.443793121280002,
+      "score": 5.155034497024002,
       "first_seen": 1791152114.387835,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3232,7 +3232,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/farul-constanta-vs-petrolul-ploiesti-2026-10-12-36317",
       "gap_pct": 8.8142,
       "best_gap_pct": 8.8142,
-      "score": 6.340445470720002,
+      "score": 5.0723563765760025,
       "first_seen": 1791152114.387835,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3244,7 +3244,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 9.4371,
       "best_gap_pct": 9.4371,
-      "score": 1.6707408971873963e-07,
+      "score": 1.336592717749917e-07,
       "first_seen": 1791152114.387835,
       "last_seen": 1791155583.062856,
       "consecutive": 0
@@ -3256,7 +3256,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/atalanta-bergamo-vs-pafos-2026-10-15-28659",
       "gap_pct": 10.6719,
       "best_gap_pct": 10.6719,
-      "score": 0.030780141136791762,
+      "score": 0.02462411290943341,
       "first_seen": 1791152114.387835,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -3268,10 +3268,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.074,
       "best_gap_pct": 6.074,
-      "score": 60.40800000000001,
+      "score": 69.51,
       "first_seen": 1791152538.5857491,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "197be9c41b2691d4ff0f": {
       "event": "Czarnogóra vs Armenia",
@@ -3280,7 +3280,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.3218,
       "best_gap_pct": 6.3218,
-      "score": 9.911979212800006,
+      "score": 7.929583370240005,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3292,7 +3292,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.6586,
       "best_gap_pct": 6.6586,
-      "score": 6.238850646686687e-05,
+      "score": 4.99108051734935e-05,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791161605.234764,
       "consecutive": 0
@@ -3304,7 +3304,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 6.8627,
       "best_gap_pct": 6.8627,
-      "score": 8.355053568000004,
+      "score": 6.684042854400004,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3316,7 +3316,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 6.8896,
       "best_gap_pct": 6.8896,
-      "score": 3.3023831740252185,
+      "score": 2.641906539220175,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -3328,7 +3328,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 6.9672,
       "best_gap_pct": 6.9672,
-      "score": 7.992665702400003,
+      "score": 6.394132561920003,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3340,7 +3340,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 7.1539,
       "best_gap_pct": 4.2427,
-      "score": 8.094671175680004,
+      "score": 6.475736940544003,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3352,7 +3352,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/benfica-vs-guimaraes-2026-10-11-44989",
       "gap_pct": 7.1525,
       "best_gap_pct": 7.1525,
-      "score": 7.827577896960005,
+      "score": 6.262062317568004,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3364,7 +3364,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 7.446,
       "best_gap_pct": 7.446,
-      "score": 0.4158633983977087,
+      "score": 0.33269071871816697,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -3376,7 +3376,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 7.7079,
       "best_gap_pct": 7.7079,
-      "score": 7.598065582080004,
+      "score": 6.078452465664004,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3388,7 +3388,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.8431,
       "best_gap_pct": 7.8431,
-      "score": 2.1368984822055818e-08,
+      "score": 1.7095187857644654e-08,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791152538.5857491,
       "consecutive": 0
@@ -3400,7 +3400,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/szkocja-vs-slowenia-2026-10-06-52418",
       "gap_pct": 8.0819,
       "best_gap_pct": 8.0819,
-      "score": 7.2638634393600015,
+      "score": 5.811090751488002,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3412,7 +3412,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/velez-sarsfield-vs-platense-2026-10-04-36583",
       "gap_pct": 8.5461,
       "best_gap_pct": 8.5461,
-      "score": 6.849130659840005,
+      "score": 5.479304527872004,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3424,7 +3424,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=hcp_m05_1",
       "gap_pct": 8.3805,
       "best_gap_pct": 8.3805,
-      "score": 1.3403148839555429e-05,
+      "score": 1.0722519071644344e-05,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791160122.884424,
       "consecutive": 0
@@ -3436,7 +3436,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liechtenstein-vs-gibraltar-2026-10-05-56369",
       "gap_pct": 8.935,
       "best_gap_pct": 8.7392,
-      "score": 6.5001645670400015,
+      "score": 5.200131653632002,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3448,7 +3448,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/augsburg-vs-bayern-monachium-2026-10-10-37381",
       "gap_pct": 9.4371,
       "best_gap_pct": 7.7471,
-      "score": 4.626753519616003,
+      "score": 3.701402815692802,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -3460,7 +3460,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 9.6907,
       "best_gap_pct": 9.6907,
-      "score": 0.035969585781476084,
+      "score": 0.02877566862518087,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -3472,7 +3472,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/velez-sarsfield-vs-platense-2026-10-04-36583",
       "gap_pct": 9.8462,
       "best_gap_pct": 9.8462,
-      "score": 0.6104719366893261,
+      "score": 0.4883775493514609,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791172248.677785,
       "consecutive": 0
@@ -3484,7 +3484,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/velez-sarsfield-vs-platense-2026-10-04-36583",
       "gap_pct": 9.9707,
       "best_gap_pct": 9.9707,
-      "score": 0.5696873384638588,
+      "score": 0.45574987077108703,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791172248.677785,
       "consecutive": 0
@@ -3496,7 +3496,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 10.2564,
       "best_gap_pct": 10.2564,
-      "score": 0.031390197988151576,
+      "score": 0.025112158390521264,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -3508,7 +3508,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/mjallby-aif-vs-inter-escaldes-2026-10-15-28647",
       "gap_pct": 10.421,
       "best_gap_pct": 10.421,
-      "score": 0.03211117426703138,
+      "score": 0.025688939413625107,
       "first_seen": 1791152538.5857491,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -3520,7 +3520,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.6586,
       "best_gap_pct": 6.6586,
-      "score": 9.611331502080004,
+      "score": 7.689065201664004,
       "first_seen": 1791152892.8377852,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3532,10 +3532,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.3492,
       "best_gap_pct": 6.074,
-      "score": 47.14880000000001,
+      "score": 65.67,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "192ba4187ee24d84a983": {
       "event": "Czarnogóra vs Armenia",
@@ -3544,7 +3544,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.6948,
       "best_gap_pct": 6.6948,
-      "score": 8.505377423360006,
+      "score": 6.804301938688005,
       "first_seen": 1791152892.8377852,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3556,7 +3556,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 6.9092,
       "best_gap_pct": 6.9092,
-      "score": 8.045010616320004,
+      "score": 6.436008493056004,
       "first_seen": 1791152892.8377852,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3568,10 +3568,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.7966,
       "best_gap_pct": 6.7966,
-      "score": 54.952,
+      "score": 62.69,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "3bd15c6997d0207c1817": {
       "event": "Irlandia Północna vs Gruzja",
@@ -3580,10 +3580,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 6.3034,
       "best_gap_pct": 6.074,
-      "score": 48.62720000000001,
+      "score": 67.98,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "32738b37ed29be7a446c": {
       "event": "Irlandia Północna vs Gruzja",
@@ -3592,22 +3592,22 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.2553,
       "best_gap_pct": 6.1603,
-      "score": 52.504,
+      "score": 59.63,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "688a840a32d2ab890d4b": {
       "event": "Irlandia Północna vs Gruzja",
       "sport": "PIŁKA NOŻNA",
       "market": "H +0.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
-      "gap_pct": 6.074,
+      "gap_pct": 7.7441,
       "best_gap_pct": 6.074,
-      "score": 58.80800000000001,
+      "score": 54.37,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "67fc0636d4c874ce8d16": {
       "event": "Irlandia Północna vs Gruzja",
@@ -3616,10 +3616,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 7.4473,
       "best_gap_pct": 6.1603,
-      "score": 47.584,
+      "score": 58.35,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "354ede1973fe5cb52ff7": {
       "event": "Czarnogóra vs Armenia",
@@ -3628,7 +3628,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.9127,
       "best_gap_pct": 7.9127,
-      "score": 7.147094016000004,
+      "score": 5.717675212800003,
       "first_seen": 1791152892.8377852,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3640,7 +3640,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.989,
       "best_gap_pct": 7.989,
-      "score": 6.736656203776004,
+      "score": 5.389324963020804,
       "first_seen": 1791152892.8377852,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -3652,10 +3652,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/irlandia-polnocna-vs-gruzja-2026-10-05-51541",
       "gap_pct": 8.1843,
       "best_gap_pct": 8.1843,
-      "score": 36.7616,
+      "score": 53.44,
       "first_seen": 1791152892.8377852,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "value:da2186a06548f773ef6e": {
       "event": "Stal Rzeszow - Lechia Gdańsk I Liga · 12 paź, 18:00",
@@ -3664,7 +3664,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/stal-rzeszow-vs-lechia-gdansk-2026-10-12-43779?market=over35",
       "gap_pct": 99.0,
       "best_gap_pct": 99.0,
-      "score": 5.646816842350596,
+      "score": 4.517453473880477,
       "first_seen": 1791152892.8377852,
       "last_seen": 1791174332.032744,
       "consecutive": 0
@@ -3676,7 +3676,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 6.7906,
       "best_gap_pct": 6.7906,
-      "score": 6.950330826752001,
+      "score": 5.560264661401601,
       "first_seen": 1791153267.7575018,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -3688,7 +3688,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.4821,
       "best_gap_pct": 7.4821,
-      "score": 7.800734351360004,
+      "score": 6.240587481088003,
       "first_seen": 1791153267.7575018,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3700,7 +3700,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/czarnogora-vs-armenia-2026-10-05-51540",
       "gap_pct": 7.8431,
       "best_gap_pct": 7.8431,
-      "score": 8.819446906880009,
+      "score": 7.055557525504007,
       "first_seen": 1791153267.7575018,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3712,7 +3712,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/arsenal-vs-leeds-2026-10-10-35799",
       "gap_pct": 6.6544,
       "best_gap_pct": 6.6544,
-      "score": 8.273180753920002,
+      "score": 6.618544603136002,
       "first_seen": 1791153571.9968135,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3724,10 +3724,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 8.6015,
       "best_gap_pct": 8.6015,
-      "score": 33.702400000000004,
+      "score": 50.66,
       "first_seen": 1791153571.9968135,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "ffd65f31f08b1d265a59": {
       "event": "Ekwador vs Panama",
@@ -3736,7 +3736,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 5.9233,
       "best_gap_pct": 5.8729,
-      "score": 35.07712000000001,
+      "score": 28.06169600000001,
       "first_seen": 1791153807.721993,
       "last_seen": 1791176797.3037763,
       "consecutive": 0
@@ -3748,7 +3748,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 5.9632,
       "best_gap_pct": 5.9632,
-      "score": 3.752083429785602,
+      "score": 3.0016667438284816,
       "first_seen": 1791153807.721993,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -3760,7 +3760,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/uganda-vs-dr-kongo-2026-10-05-56746",
       "gap_pct": 13.7136,
       "best_gap_pct": 13.7136,
-      "score": 0.37334840910901446,
+      "score": 0.29867872728721157,
       "first_seen": 1791153807.721993,
       "last_seen": 1791172769.9236188,
       "consecutive": 0
@@ -3772,10 +3772,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
       "gap_pct": 12.3534,
       "best_gap_pct": 6.6759,
-      "score": 29.64,
+      "score": 23.712000000000003,
       "first_seen": 1791155114.2066767,
       "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "consecutive": 0
     },
     "6da7fce8fc60f5bd704e": {
       "event": "Francja - Belgia",
@@ -3784,10 +3784,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
       "gap_pct": 14.5348,
       "best_gap_pct": 13.8215,
-      "score": 11.1,
+      "score": 8.88,
       "first_seen": 1791155114.2066767,
       "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "consecutive": 0
     },
     "5d20dc96414fba3eab7f": {
       "event": "Olympique Marsylia vs Olympiakos Pireus",
@@ -3796,7 +3796,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/olympique-marsylia-vs-olympiakos-pireus-2026-10-15-41261",
       "gap_pct": 7.9724,
       "best_gap_pct": 7.9724,
-      "score": 7.0934069248000045,
+      "score": 5.674725539840004,
       "first_seen": 1791155353.7603157,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -3808,10 +3808,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 5.5302,
       "best_gap_pct": 5.5302,
-      "score": 61.704,
+      "score": 71.13,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "7a714a5a0fd0a821a879": {
       "event": "Malaga - Espanyol",
@@ -3820,10 +3820,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 6.4903,
       "best_gap_pct": 2.142,
-      "score": 82.73,
+      "score": 84.73,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 9
+      "last_seen": 1791177770.3046892,
+      "consecutive": 10
     },
     "ed1c52a98cac1e473846": {
       "event": "Malaga - Espanyol",
@@ -3832,10 +3832,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 6.6398,
       "best_gap_pct": 6.4903,
-      "score": 55.78399999999999,
+      "score": 63.73,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "028be3839fd7ead97a7d": {
       "event": "Real Betis - Osasuna",
@@ -3844,7 +3844,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 6.9671,
       "best_gap_pct": 6.9671,
-      "score": 0.28121692405488774,
+      "score": 0.2249735392439102,
       "first_seen": 1791155583.062856,
       "last_seen": 1791171058.9572394,
       "consecutive": 0
@@ -3856,7 +3856,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 6.9672,
       "best_gap_pct": 6.9672,
-      "score": 0.2906616570206271,
+      "score": 0.23252932561650166,
       "first_seen": 1791155583.062856,
       "last_seen": 1791171058.9572394,
       "consecutive": 0
@@ -3868,10 +3868,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 7.0694,
       "best_gap_pct": 6.3492,
-      "score": 51.89600000000001,
+      "score": 58.87,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "5d03b46ab7d955371555": {
       "event": "Malaga - Espanyol",
@@ -3880,10 +3880,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 7.1051,
       "best_gap_pct": 6.4903,
-      "score": 51.704,
+      "score": 58.63,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "6750c8c98fbdb52daeea": {
       "event": "Real Betis - Osasuna",
@@ -3892,7 +3892,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 7.1177,
       "best_gap_pct": 7.1177,
-      "score": 0.276494557572018,
+      "score": 0.22119564605761444,
       "first_seen": 1791155583.062856,
       "last_seen": 1791171058.9572394,
       "consecutive": 0
@@ -3904,7 +3904,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 7.6559,
       "best_gap_pct": 5.0128,
-      "score": 0.464562802752302,
+      "score": 0.3716502422018416,
       "first_seen": 1791155583.062856,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -3916,10 +3916,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 8.2584,
       "best_gap_pct": 6.9172,
-      "score": 56.752,
+      "score": 52.94,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "aef1b234eb3fab325ae1": {
       "event": "Real Betis - Osasuna",
@@ -3928,7 +3928,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 8.3805,
       "best_gap_pct": 7.6559,
-      "score": 0.2461769647519949,
+      "score": 0.19694157180159594,
       "first_seen": 1791155583.062856,
       "last_seen": 1791171058.9572394,
       "consecutive": 0
@@ -3940,10 +3940,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 9.0486,
       "best_gap_pct": 6.4903,
-      "score": 42.944,
+      "score": 47.68,
       "first_seen": 1791155583.062856,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "9dc7957d2b07c79d4f8c": {
       "event": "Real Betis - Osasuna",
@@ -3952,7 +3952,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 9.2796,
       "best_gap_pct": 7.6445,
-      "score": 0.20844525655386642,
+      "score": 0.16675620524309315,
       "first_seen": 1791155583.062856,
       "last_seen": 1791171058.9572394,
       "consecutive": 0
@@ -3964,7 +3964,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 12.3284,
       "best_gap_pct": 12.3284,
-      "score": 0.023617915245502236,
+      "score": 0.01889433219640179,
       "first_seen": 1791156079.6479995,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -3976,7 +3976,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/uganda-vs-dr-kongo-2026-10-05-56746",
       "gap_pct": 13.7136,
       "best_gap_pct": 13.7136,
-      "score": 0.014720592595150335,
+      "score": 0.011776474076120268,
       "first_seen": 1791156079.6479995,
       "last_seen": 1791169120.781398,
       "consecutive": 0
@@ -3988,7 +3988,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/crystal-palace-vs-nottingham-forest-2026-10-11-35805",
       "gap_pct": 11.9913,
       "best_gap_pct": 11.9913,
-      "score": 17.9584,
+      "score": 14.36672,
       "first_seen": 1791156782.358225,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -4000,7 +4000,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ipswich-vs-fulham-2026-10-10-35801",
       "gap_pct": 12.0369,
       "best_gap_pct": 12.0369,
-      "score": 17.76,
+      "score": 14.208000000000002,
       "first_seen": 1791156782.358225,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -4014,8 +4014,8 @@
       "best_gap_pct": 3.3107,
       "score": 90.04,
       "first_seen": 1791157059.7294762,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 10
+      "last_seen": 1791177770.3046892,
+      "consecutive": 11
     },
     "e88c0f2aa6f07f4081bf": {
       "event": "Rumunia vs Szwecja",
@@ -4024,7 +4024,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 5.9887,
       "best_gap_pct": 5.9887,
-      "score": 11.757472972800004,
+      "score": 9.405978378240004,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -4036,7 +4036,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 6.4252,
       "best_gap_pct": 6.4252,
-      "score": 1.1867911734116456e-06,
+      "score": 9.494329387293166e-07,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -4048,7 +4048,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.6667,
       "best_gap_pct": 6.6667,
-      "score": 13.748928512000006,
+      "score": 10.999142809600006,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791175843.1197708,
       "consecutive": 0
@@ -4060,7 +4060,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 6.6831,
       "best_gap_pct": 5.8189,
-      "score": 8.516114841600002,
+      "score": 6.812891873280002,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4072,10 +4072,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 6.9418,
       "best_gap_pct": 3.4559,
-      "score": 50.976,
+      "score": 63.72,
       "first_seen": 1791157059.7294762,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "d78b8d727ede649c87c0": {
       "event": "Rumunia vs Szwecja",
@@ -4084,7 +4084,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.9549,
       "best_gap_pct": 6.9549,
-      "score": 0.0001475745315368204,
+      "score": 0.00011805962522945632,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -4096,7 +4096,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 7.5726,
       "best_gap_pct": 7.5726,
-      "score": 1.0516273729560984e-06,
+      "score": 8.413018983648787e-07,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -4108,7 +4108,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 7.8519,
       "best_gap_pct": 7.8519,
-      "score": 1.018587332844743e-06,
+      "score": 8.148698662757945e-07,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -4120,7 +4120,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 7.9127,
       "best_gap_pct": 7.9127,
-      "score": 9.761830032900617e-07,
+      "score": 7.809464026320494e-07,
       "first_seen": 1791157059.7294762,
       "last_seen": 1791157250.0013204,
       "consecutive": 0
@@ -4132,7 +4132,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.5055,
       "best_gap_pct": 6.5055,
-      "score": 11.849747660800006,
+      "score": 9.479798128640004,
       "first_seen": 1791157250.0013204,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -4144,7 +4144,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 7.6445,
       "best_gap_pct": 7.6445,
-      "score": 12.381585408000005,
+      "score": 9.905268326400005,
       "first_seen": 1791157474.8854797,
       "last_seen": 1791175843.1197708,
       "consecutive": 0
@@ -4156,7 +4156,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 7.6567,
       "best_gap_pct": 7.6567,
-      "score": 15.300820992000006,
+      "score": 12.240656793600005,
       "first_seen": 1791157474.8854797,
       "last_seen": 1791175843.1197708,
       "consecutive": 0
@@ -4168,7 +4168,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 7.9412,
       "best_gap_pct": 7.9412,
-      "score": 11.966349312000006,
+      "score": 9.573079449600005,
       "first_seen": 1791157474.8854797,
       "last_seen": 1791175843.1197708,
       "consecutive": 0
@@ -4180,7 +4180,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 8.1034,
       "best_gap_pct": 8.1034,
-      "score": 7.2450729574400015,
+      "score": 5.7960583659520015,
       "first_seen": 1791157474.8854797,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4192,10 +4192,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
       "gap_pct": 12.3534,
       "best_gap_pct": 12.3534,
-      "score": 25.64,
+      "score": 20.512,
       "first_seen": 1791157474.8854797,
       "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "consecutive": 0
     },
     "57e172870d25ac3414e5": {
       "event": "Francja - Belgia",
@@ -4204,10 +4204,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
       "gap_pct": 14.5348,
       "best_gap_pct": 13.8215,
-      "score": 9.1,
+      "score": 7.28,
       "first_seen": 1791157474.8854797,
       "last_seen": 1791177534.0585022,
-      "consecutive": 1
+      "consecutive": 0
     },
     "52deef5e5f7cd10ad526": {
       "event": "Rumunia vs Szwecja",
@@ -4216,7 +4216,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/rumunia-vs-szwecja-2026-10-05-44982",
       "gap_pct": 6.9549,
       "best_gap_pct": 6.9549,
-      "score": 10.339798220800004,
+      "score": 8.271838576640004,
       "first_seen": 1791157724.1047914,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -4228,7 +4228,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 6.4252,
       "best_gap_pct": 4.9244,
-      "score": 52.136,
+      "score": 41.708800000000004,
       "first_seen": 1791158192.702335,
       "last_seen": 1791177335.1295435,
       "consecutive": 0
@@ -4240,22 +4240,22 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 6.4776,
       "best_gap_pct": 6.4776,
-      "score": 68.82,
+      "score": 70.82,
       "first_seen": 1791158192.702335,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "last_seen": 1791177770.3046892,
+      "consecutive": 3
     },
     "0103c3465bf51846443f": {
       "event": "Ukraina vs Węgry",
       "sport": "PIŁKA NOŻNA",
       "market": "H +1.5",
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
-      "gap_pct": 5.6943,
+      "gap_pct": 7.5726,
       "best_gap_pct": 5.6943,
-      "score": 49.94560000000001,
+      "score": 57.52,
       "first_seen": 1791158192.702335,
-      "last_seen": 1791177058.4422872,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "c6f84543a962b1f1dc53": {
       "event": "Ukraina vs Węgry",
@@ -4264,10 +4264,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 7.4473,
       "best_gap_pct": 7.4473,
-      "score": 60.35,
+      "score": 62.35,
       "first_seen": 1791158192.702335,
-      "last_seen": 1791177534.0585022,
-      "consecutive": 2
+      "last_seen": 1791177770.3046892,
+      "consecutive": 3
     },
     "2018080511d10f9e7a4f": {
       "event": "Ukraina vs Węgry",
@@ -4276,10 +4276,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 7.9127,
       "best_gap_pct": 5.6943,
-      "score": 42.6,
+      "score": 53.25,
       "first_seen": 1791158192.702335,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "8bd0417a1e78e4deadc2": {
       "event": "Ukraina vs Węgry",
@@ -4288,10 +4288,10 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ukraina-vs-wegry-2026-10-05-51543",
       "gap_pct": 8.0586,
       "best_gap_pct": 8.0586,
-      "score": 41.824000000000005,
+      "score": 52.28,
       "first_seen": 1791158192.702335,
-      "last_seen": 1791177335.1295435,
-      "consecutive": 0
+      "last_seen": 1791177770.3046892,
+      "consecutive": 1
     },
     "eedc0159317a6eb75095": {
       "event": "Real Betis - Osasuna",
@@ -4300,7 +4300,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 7.6567,
       "best_gap_pct": 7.6567,
-      "score": 9.372793958501626e-06,
+      "score": 7.498235166801301e-06,
       "first_seen": 1791159644.1026363,
       "last_seen": 1791159644.1026363,
       "consecutive": 0
@@ -4312,7 +4312,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 8.1034,
       "best_gap_pct": 8.1034,
-      "score": 8.553332688955663e-06,
+      "score": 6.8426661511645305e-06,
       "first_seen": 1791159644.1026363,
       "last_seen": 1791159644.1026363,
       "consecutive": 0
@@ -4324,7 +4324,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 6.5627,
       "best_gap_pct": 2.6247,
-      "score": 34.94400000000001,
+      "score": 27.95520000000001,
       "first_seen": 1791160607.775781,
       "last_seen": 1791176797.3037763,
       "consecutive": 0
@@ -4336,7 +4336,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 14.7699,
       "best_gap_pct": 4.9558,
-      "score": 5.088870400000001,
+      "score": 4.071096320000001,
       "first_seen": 1791161605.234764,
       "last_seen": 1791176350.5909564,
       "consecutive": 0
@@ -4348,7 +4348,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 6.3729,
       "best_gap_pct": 5.7796,
-      "score": 32.51712,
+      "score": 26.013696,
       "first_seen": 1791161605.234764,
       "last_seen": 1791176797.3037763,
       "consecutive": 0
@@ -4360,7 +4360,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 5.9028,
       "best_gap_pct": 5.6809,
-      "score": 43.93600000000001,
+      "score": 35.14880000000001,
       "first_seen": 1791161605.234764,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -4372,7 +4372,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 8.3916,
       "best_gap_pct": 8.3916,
-      "score": 34.598400000000005,
+      "score": 27.678720000000006,
       "first_seen": 1791161605.234764,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -4384,7 +4384,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 9.502,
       "best_gap_pct": 6.5812,
-      "score": 22.8608,
+      "score": 18.28864,
       "first_seen": 1791161605.234764,
       "last_seen": 1791176797.3037763,
       "consecutive": 0
@@ -4396,7 +4396,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 10.0801,
       "best_gap_pct": 7.4074,
-      "score": 20.8896,
+      "score": 16.71168,
       "first_seen": 1791161841.8248577,
       "last_seen": 1791176797.3037763,
       "consecutive": 0
@@ -4408,7 +4408,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 10.3412,
       "best_gap_pct": 6.9109,
-      "score": 18.97472,
+      "score": 15.179776000000002,
       "first_seen": 1791161841.8248577,
       "last_seen": 1791176797.3037763,
       "consecutive": 0
@@ -4420,7 +4420,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/velez-sarsfield-vs-platense-2026-10-04-36583",
       "gap_pct": 9.5008,
       "best_gap_pct": 9.5008,
-      "score": 0.00010693945446104802,
+      "score": 8.555156356883841e-05,
       "first_seen": 1791162566.7126284,
       "last_seen": 1791162566.7126284,
       "consecutive": 0
@@ -4432,7 +4432,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.3492,
       "best_gap_pct": 6.3492,
-      "score": 8.339752747008005,
+      "score": 6.671802197606404,
       "first_seen": 1791163513.9968498,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4444,7 +4444,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.7682,
       "best_gap_pct": 6.7682,
-      "score": 7.181185318912004,
+      "score": 5.744948255129604,
       "first_seen": 1791163513.9968498,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4456,7 +4456,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.9172,
       "best_gap_pct": 6.9172,
-      "score": 6.860136513536003,
+      "score": 5.488109210828803,
       "first_seen": 1791163513.9968498,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4468,7 +4468,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.9671,
       "best_gap_pct": 6.9671,
-      "score": 7.682622750720004,
+      "score": 6.146098200576003,
       "first_seen": 1791163513.9968498,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4480,7 +4480,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 8.1843,
       "best_gap_pct": 8.1843,
-      "score": 3.6723688367718426,
+      "score": 2.937895069417474,
       "first_seen": 1791163513.9968498,
       "last_seen": 1791174332.032744,
       "consecutive": 0
@@ -4492,7 +4492,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 10.1377,
       "best_gap_pct": 5.6847,
-      "score": 1.3517835756529266,
+      "score": 1.0814268605223414,
       "first_seen": 1791163513.9968498,
       "last_seen": 1791173390.3709579,
       "consecutive": 0
@@ -4504,7 +4504,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 5.9926,
       "best_gap_pct": 5.9926,
-      "score": 8.380554936320005,
+      "score": 6.704443949056004,
       "first_seen": 1791164201.0501318,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4516,7 +4516,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 6.5644,
       "best_gap_pct": 6.5644,
-      "score": 7.971459301376005,
+      "score": 6.377167441100805,
       "first_seen": 1791164201.0501318,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4528,7 +4528,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 7.1429,
       "best_gap_pct": 7.1429,
-      "score": 9.714679152640004,
+      "score": 7.771743322112004,
       "first_seen": 1791164201.0501318,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4540,7 +4540,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/real-betis-vs-osasuna-2026-10-11-40374",
       "gap_pct": 12.0482,
       "best_gap_pct": 10.9782,
-      "score": 18.9952,
+      "score": 15.19616,
       "first_seen": 1791165194.1539607,
       "last_seen": 1791177058.4422872,
       "consecutive": 0
@@ -4552,7 +4552,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/malaga-vs-espanyol-2026-10-09-40368",
       "gap_pct": 6.4903,
       "best_gap_pct": 6.4903,
-      "score": 0.0035242364177267833,
+      "score": 0.0028193891341814267,
       "first_seen": 1791165879.8703434,
       "last_seen": 1791165879.8703434,
       "consecutive": 0
@@ -4564,7 +4564,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/ekwador-vs-panama-2026-10-05-56367",
       "gap_pct": 14.4396,
       "best_gap_pct": 14.4396,
-      "score": 0.15841141473298093,
+      "score": 0.12672913178638476,
       "first_seen": 1791165879.8703434,
       "last_seen": 1791172005.9714706,
       "consecutive": 0
@@ -4576,7 +4576,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 6.9671,
       "best_gap_pct": 6.9671,
-      "score": 0.024156349837949186,
+      "score": 0.01932507987035935,
       "first_seen": 1791168357.0197442,
       "last_seen": 1791168357.0197442,
       "consecutive": 0
@@ -4588,7 +4588,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/estonia-vs-islandia-2026-10-06-52432",
       "gap_pct": 8.3805,
       "best_gap_pct": 8.3805,
-      "score": 0.021146440252767268,
+      "score": 0.016917152202213816,
       "first_seen": 1791168357.0197442,
       "last_seen": 1791168357.0197442,
       "consecutive": 0
@@ -4600,7 +4600,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 6.9547,
       "best_gap_pct": 6.9547,
-      "score": 8.004745297920003,
+      "score": 6.403796238336003,
       "first_seen": 1791171519.9688635,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4612,7 +4612,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/sporting-braga-vs-sporting-lizbona-2026-10-09-44984",
       "gap_pct": 7.369,
       "best_gap_pct": 7.369,
-      "score": 0.4196265341887453,
+      "score": 0.3357012273509963,
       "first_seen": 1791171519.9688635,
       "last_seen": 1791171519.9688635,
       "consecutive": 0
@@ -4624,7 +4624,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/lens-vs-olympique-lyon-2026-10-10-37654",
       "gap_pct": 7.5536,
       "best_gap_pct": 7.5536,
-      "score": 7.467874385920003,
+      "score": 5.974299508736003,
       "first_seen": 1791171519.9688635,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4636,7 +4636,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chorwacja-vs-hiszpania-2026-10-06-52073",
       "gap_pct": 6.2447,
       "best_gap_pct": 6.2447,
-      "score": 1.1956156290743203,
+      "score": 0.9564925032594562,
       "first_seen": 1791172487.562504,
       "last_seen": 1791172487.562504,
       "consecutive": 0
@@ -4648,7 +4648,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 5.475,
       "best_gap_pct": 5.475,
-      "score": 9.328132096000004,
+      "score": 7.462505676800004,
       "first_seen": 1791173066.4703074,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4660,7 +4660,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 7.4473,
       "best_gap_pct": 7.4473,
-      "score": 4.0097814675456025,
+      "score": 3.2078251740364823,
       "first_seen": 1791173066.4703074,
       "last_seen": 1791174332.032744,
       "consecutive": 0
@@ -4672,7 +4672,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 5.7631,
       "best_gap_pct": 5.7631,
-      "score": 11.673586892800007,
+      "score": 9.338869514240006,
       "first_seen": 1791173390.3709579,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -4684,7 +4684,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 6.4152,
       "best_gap_pct": 6.4152,
-      "score": 9.828764221440004,
+      "score": 7.863011377152003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4696,7 +4696,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 6.5644,
       "best_gap_pct": 6.5644,
-      "score": 3.4216801856389134,
+      "score": 2.7373441485111307,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4708,7 +4708,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 6.7906,
       "best_gap_pct": 6.7906,
-      "score": 3.3386670577418265,
+      "score": 2.670933646193461,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4720,7 +4720,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 6.9519,
       "best_gap_pct": 6.9519,
-      "score": 3.279293429841923,
+      "score": 2.6234347438735384,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4732,7 +4732,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 6.9593,
       "best_gap_pct": 6.9593,
-      "score": 3.3864958135500824,
+      "score": 2.7091966508400662,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4744,7 +4744,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 7.0118,
       "best_gap_pct": 7.0118,
-      "score": 7.952400384000005,
+      "score": 6.361920307200005,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4756,7 +4756,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 7.0933,
       "best_gap_pct": 7.0933,
-      "score": 7.879922810880004,
+      "score": 6.303938248704004,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4768,7 +4768,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 7.0944,
       "best_gap_pct": 7.0944,
-      "score": 9.220757913600005,
+      "score": 7.376606330880005,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4780,7 +4780,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 7.1118,
       "best_gap_pct": 7.1118,
-      "score": 7.863816683520004,
+      "score": 6.291053346816003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4792,7 +4792,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 7.1141,
       "best_gap_pct": 7.1141,
-      "score": 3.2199198019420177,
+      "score": 2.575935841553614,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4804,7 +4804,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/osasuna-vs-santander-2026-10-18-43904",
       "gap_pct": 7.3232,
       "best_gap_pct": 7.3232,
-      "score": 7.943005143040003,
+      "score": 6.354404114432003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4816,7 +4816,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 7.4835,
       "best_gap_pct": 7.4835,
-      "score": 7.530956718080003,
+      "score": 6.024765374464003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4828,7 +4828,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 7.6193,
       "best_gap_pct": 7.6193,
-      "score": 7.9456894976000045,
+      "score": 6.356551598080004,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4840,7 +4840,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/osasuna-vs-santander-2026-10-18-43904",
       "gap_pct": 7.8238,
       "best_gap_pct": 7.8238,
-      "score": 7.226282475520003,
+      "score": 5.781025980416003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4852,7 +4852,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 8.0471,
       "best_gap_pct": 8.0471,
-      "score": 7.026298060800002,
+      "score": 5.621038448640002,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4864,7 +4864,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/osasuna-vs-santander-2026-10-18-43904",
       "gap_pct": 8.169,
       "best_gap_pct": 8.169,
-      "score": 6.917581701120003,
+      "score": 5.534065360896003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4876,7 +4876,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 8.2355,
       "best_gap_pct": 8.2355,
-      "score": 7.932267724800005,
+      "score": 6.345814179840005,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4888,7 +4888,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 8.42,
       "best_gap_pct": 8.42,
-      "score": 2.8515834066370576,
+      "score": 2.281266725309646,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4900,7 +4900,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/chicago-fire-vs-vancouver-whitecaps-2026-10-07-43910",
       "gap_pct": 8.5461,
       "best_gap_pct": 8.5461,
-      "score": 6.849130659840005,
+      "score": 5.479304527872004,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4912,7 +4912,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/osasuna-vs-santander-2026-10-18-43904",
       "gap_pct": 8.5781,
       "best_gap_pct": 8.5781,
-      "score": 6.819602759680006,
+      "score": 5.455682207744005,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4924,7 +4924,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/liverpool-vs-manchester-city-2026-10-11-35807",
       "gap_pct": 8.6788,
       "best_gap_pct": 8.6788,
-      "score": 2.646524488056834,
+      "score": 2.117219590445467,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174003.4340122,
       "consecutive": 0
@@ -4936,7 +4936,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 8.6981,
       "best_gap_pct": 8.6981,
-      "score": 7.785970401280003,
+      "score": 6.228776321024003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4948,7 +4948,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 8.719,
       "best_gap_pct": 8.719,
-      "score": 6.693438095360003,
+      "score": 5.354750476288003,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -4960,7 +4960,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 8.8239,
       "best_gap_pct": 8.8239,
-      "score": 5.709085278208003,
+      "score": 4.567268222566403,
       "first_seen": 1791174003.4340122,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -4972,7 +4972,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 6.2654,
       "best_gap_pct": 6.2654,
-      "score": 12.453727436800008,
+      "score": 9.962981949440007,
       "first_seen": 1791174332.032744,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -4984,7 +4984,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/japonia-vs-nowa-zelandia-2026-10-05-55703",
       "gap_pct": 7.7441,
       "best_gap_pct": 7.7441,
-      "score": 3.736277950136323,
+      "score": 2.9890223601090584,
       "first_seen": 1791174332.032744,
       "last_seen": 1791174332.032744,
       "consecutive": 0
@@ -4996,7 +4996,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 8.8239,
       "best_gap_pct": 8.8239,
-      "score": 5.494336913408004,
+      "score": 4.395469530726404,
       "first_seen": 1791174332.032744,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -5008,7 +5008,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/podbeskidzie-vs-pogon-siedlce-2026-10-09-43769?market=over35",
       "gap_pct": 9.0997,
       "best_gap_pct": 9.0997,
-      "score": 5.297842159616003,
+      "score": 4.238273727692802,
       "first_seen": 1791174332.032744,
       "last_seen": 1791174845.2148173,
       "consecutive": 0
@@ -5020,7 +5020,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 14.7699,
       "best_gap_pct": 14.7699,
-      "score": 3.778150400000001,
+      "score": 3.022520320000001,
       "first_seen": 1791174332.032744,
       "last_seen": 1791176350.5909564,
       "consecutive": 0
@@ -5032,7 +5032,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 6.9092,
       "best_gap_pct": 6.9092,
-      "score": 8.045010616320004,
+      "score": 6.436008493056004,
       "first_seen": 1791175314.3955245,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -5044,7 +5044,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/napoli-vs-frosinone-2026-10-10-39696",
       "gap_pct": 6.9671,
       "best_gap_pct": 6.9671,
-      "score": 7.992665702400003,
+      "score": 6.394132561920003,
       "first_seen": 1791175314.3955245,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -5056,7 +5056,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 7.4074,
       "best_gap_pct": 7.4074,
-      "score": 7.867843215360004,
+      "score": 6.294274572288003,
       "first_seen": 1791175314.3955245,
       "last_seen": 1791175314.3955245,
       "consecutive": 0
@@ -5068,7 +5068,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/anglia-vs-czechy-2026-10-06-18397",
       "gap_pct": 7.5726,
       "best_gap_pct": 7.5726,
-      "score": 9.650254643200004,
+      "score": 7.720203714560004,
       "first_seen": 1791175630.4988747,
       "last_seen": 1791175630.4988747,
       "consecutive": 0
@@ -5080,7 +5080,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/bosnia-i-hercegowina-vs-polska-2026-10-05-48702",
       "gap_pct": 12.3534,
       "best_gap_pct": 12.3534,
-      "score": 8.401715200000002,
+      "score": 6.721372160000001,
       "first_seen": 1791176350.5909564,
       "last_seen": 1791176350.5909564,
       "consecutive": 0
@@ -5092,7 +5092,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/francja-vs-belgia-2026-10-05-51542",
       "gap_pct": 14.5348,
       "best_gap_pct": 14.5348,
-      "score": 2.981888000000001,
+      "score": 2.3855104000000007,
       "first_seen": 1791176350.5909564,
       "last_seen": 1791176350.5909564,
       "consecutive": 0
@@ -5104,7 +5104,7 @@
       "event_url": "https://dobrybuk.pl/kursy/mecz/wlochy-vs-turcja-2026-10-05-51539",
       "gap_pct": 14.7699,
       "best_gap_pct": 14.7699,
-      "score": 3.778150400000001,
+      "score": 3.022520320000001,
       "first_seen": 1791176350.5909564,
       "last_seen": 1791176350.5909564,
       "consecutive": 0
@@ -5127,137 +5127,137 @@
     "DobryBuk": {
       "ok": true,
       "markets": 1,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 105,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 106,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "ETOTO": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 2,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "ComeOn": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 96,
+      "consecutive_failures": 97,
       "last_success": 1791152893.1831927
     },
     "TotalBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 105,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 106,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "LeBull": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_success": 1791177058.4514072
     },
     "Superbet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 105,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 106,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "LVBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 2,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "Fuksiarz": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 105,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 106,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "PZBuk": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 2,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 3,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "STS": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 105,
+      "consecutive_failures": 106,
       "last_success": 0.0
     },
     "BetSport": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 2,
+      "consecutive_failures": 3,
       "last_success": 1791177058.4514072
     },
     "Betfan": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 105,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 106,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "Betclic": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 105,
+      "consecutive_failures": 106,
       "last_success": 0.0
     },
     "Forbet": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 105,
+      "consecutive_failures": 106,
       "last_success": 0.0
     },
     "AdmiralBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791177534.065511,
-      "consecutive_success": 105,
+      "last_checked": 1791177770.3133957,
+      "consecutive_success": 106,
       "consecutive_failures": 0,
-      "last_success": 1791177534.065511
+      "last_success": 1791177770.3133957
     },
     "Fortuna": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 105,
+      "consecutive_failures": 106,
       "last_success": 0.0
     },
     "Betters": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791177534.065511,
+      "last_checked": 1791177770.3133957,
       "consecutive_success": 0,
-      "consecutive_failures": 105,
+      "consecutive_failures": 106,
       "last_success": 0.0
     }
   }
