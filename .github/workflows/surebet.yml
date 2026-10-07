@@ -1,286 +1,269 @@
+# Podmień CAŁY .github/workflows/surebet.yml, nie twórz drugiego workflow.
+# Wywołania co 2 min pochodzą z istniejącego zewnętrznego triggera.
+# Harmonogram GitHuba jest awaryjny i działa co 5 min.
+# Nowa grupa oddziela tę wersję od starych uruchomień z cancel-in-progress: true.
+# Trwający skan wraz z publikacją kończy się przed startem kolejnego.
+# Limit 210 s dotyczy samego scanner.py; 12 min to awaryjny limit całego joba.
 name: Surebet Scanner
-
-on:
-  workflow_dispatch:
+run-name: Surebet v3 — ${{ github.event_name }} — ${{ github.run_number }}
+'on':
+  workflow_dispatch: null
   repository_dispatch:
-    types: [surebet_scan]
+    types:
+    - surebet_scan
   schedule:
-    # Awaryjny harmonogram. cron-job.org może nadal odpalać co 2 min.
-    # Gate nie pozwala uruchomić dwóch pełnych skanów jednocześnie.
-    - cron: "*/5 * * * *"
-
+  - cron: '*/5 * * * *'
 permissions:
-  actions: read
   contents: write
   pages: write
   id-token: write
-
-# Każdy nowy skan zastępuje poprzedni, jeśli poprzedni nadal działa.
-# Przy wywołaniu co ~2 min zawieszony run nie zablokuje kolejnych.
 concurrency:
-  group: surebet-scanner
+  group: arbi-scan-publish-v3-${{ github.ref }}
   cancel-in-progress: false
-
 jobs:
-  scan:
-    name: Skanuj kursy
-    runs-on: ubuntu-latest
-    timeout-minutes: 4
-
-    env:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      BANKROLL_PLN: "50"
-      MIN_PROFIT_PCT: "0.35"
-      DEDUPE_MINUTES: "120"
-      ALERT_REAPPEAR_MINUTES: "6"
-      ALERT_IMPROVEMENT_PCT: "0.15"
-      MAX_QUOTE_AGE_SECONDS: "300"
-      MARKET_SCAN_MAX_EVENTS: "180"
-      MARKET_SCAN_BUDGET_SECONDS: "120"
-      MARKET_SCAN_CONCURRENCY: "6"
-      MAX_MARKETS_PER_EVENT: "120"
-      CONFIRM_CONCURRENCY: "3"
-      DIRECT_SOURCES_TIMEOUT: "12"
-      DIRECT_SOURCES_CONCURRENCY: "5"
-      COUPON_CATALOG_LIMIT: "1600"
-      VALUE_MIN_EDGE_PCT: "5.0"
-      VALUE_MIN_REFERENCE_BOOKS: "5"
-      VALUE_MAX_DISPERSION: "0.08"
-      VALUE_MAX_PRICE_GAP: "0.30"
-      VALUE_MIN_ODDS: "1.35"
-      VALUE_MAX_ODDS: "8.0"
-      VALUE_ALERT_COOLDOWN_MINUTES: "240"
-      DEEP_SCAN_EVERY: "4"
-      FORCE_FAST_SCAN: "1"
-      FAST_SCAN_MAX_EVENTS: "140"
-      FAST_SCAN_BUDGET_SECONDS: "90"
-      WATCH_SCAN_LIMIT: "50"
-      WATCH_SCAN_SECONDS: "60"
-      NEAR_ARB_GAP_PCT: "1.50"
-      VALUE_STABILITY_SCANS: "1"
-      VALUE_ELITE_EDGE_PCT: "9.0"
-      SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
-      ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
-      ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
-      APP_PUBLIC_URL: "https://xlvlcl.github.io/arbi/"
-
-    steps:
-      - name: Pobierz kod
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Ustaw Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: "pip"
-
-      - name: Zainstaluj biblioteki
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Sprawdź przeglądarkę
-        shell: bash
-        run: |
-          if command -v google-chrome >/dev/null 2>&1; then
-            echo "Systemowy Google Chrome jest dostępny."
-            google-chrome --version
-          else
-            echo "Brak systemowego Chrome - instaluję Chromium dla Playwright."
-            python -m playwright install --with-deps chromium
-          fi
-
-      - name: Uruchom skaner wszystkich sportów, zdarzeń i rynków
-        id: scanner
-        continue-on-error: true
-        shell: bash
-        run: |
-          set -o pipefail
-          python -u scanner.py 2>&1 | tee scanner.log
-
-      - name: Zapisz pełny log skanera
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: scanner-log
-          path: scanner.log
-          if-no-files-found: ignore
-          retention-days: 3
-
-      - name: Zapisz diagnostykę jeśli źródło zwróci 0 wydarzeń
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: surebet-debug
-          path: debug/
-          if-no-files-found: ignore
-          retention-days: 3
-
-      - name: Przerwij jeśli skaner nie zadziałał
-        if: steps.scanner.outcome != 'success'
-        shell: bash
-        run: |
-          echo "================ OSTATNIE 180 LINII SCANNER.LOG ================"
-          if [ -f scanner.log ]; then
-            tail -n 180 scanner.log
-          else
-            echo "Brak scanner.log"
-          fi
-          echo "================================================================"
-          echo "Skaner nie zakończył się poprawnie. Artefakt scanner-log zawiera pełny log."
-          exit 1
-
-      - name: Sprawdź wynik
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          p = Path("docs/data/latest.json")
-          data = json.loads(p.read_text(encoding="utf-8"))
-          stats = data.get("stats", {})
-          print("STATS:", json.dumps(stats, ensure_ascii=False, indent=2))
-          print("ERRORS:", json.dumps(data.get("errors", [])[-10:], ensure_ascii=False, indent=2))
-
-          if not data.get("scan_preview"):
-              raise SystemExit("STOP: brak scan_preview")
-          if not data.get("coupon_catalog"):
-              print("WARN: brak coupon_catalog w tym cyklu")
-          if not data.get("data_fresh", True):
-              print("WARN: cykl zdegradowany — podgląd z cache, bez nowych surebet/value")
-          print("SCANNER:", stats.get("scanner"))
-          print("SCAN MODE:", stats.get("scan_mode"))
-          print("COUPON ITEMS:", len(data.get("coupon_catalog", [])))
-          PY
-
-      - name: Zapisz najnowsze dane do repozytorium
-        shell: bash
-        run: |
-          set -u
-
-          git config user.name "surebet-bot"
-          git config user.email "surebet-bot@users.noreply.github.com"
-
-          cp docs/data/latest.json /tmp/arbi-latest.json
-          if [ -f data/state.json ]; then
-            cp data/state.json /tmp/arbi-state.json
-          fi
-          if [ -f data/market_cache.json ]; then
-            cp data/market_cache.json /tmp/arbi-market-cache.json
-          fi
-
-          success=0
-          for attempt in 1 2 3; do
-            echo "Próba zapisu danych: $attempt/3"
-
-            git fetch origin main
-            git reset --hard origin/main
-
-            mkdir -p docs/data data
-            cp /tmp/arbi-latest.json docs/data/latest.json
-            if [ -f /tmp/arbi-state.json ]; then
-              cp /tmp/arbi-state.json data/state.json
-            fi
-            if [ -f /tmp/arbi-market-cache.json ]; then
-              cp /tmp/arbi-market-cache.json data/market_cache.json
-            fi
-
-            git add docs/data/latest.json
-            if [ -f data/state.json ]; then
-              git add data/state.json
-            fi
-            if [ -f data/market_cache.json ]; then
-              git add data/market_cache.json
-            fi
-
-            if git diff --cached --quiet; then
-              echo "Brak zmian danych do zapisania."
-              success=1
-              break
-            fi
-
-            git commit -m "data: refresh odds [skip ci]"
-
-            if git push origin HEAD:main; then
-              echo "Dane zapisane poprawnie."
-              success=1
-              break
-            fi
-
-            echo "Push nie udał się - ponawiam na świeżym origin/main."
-            sleep $((attempt * 2))
-          done
-
-          if [ "$success" -ne 1 ]; then
-            echo "::warning::Nie udało się zapisać latest.json do gałęzi main po 3 próbach."
-            echo "::warning::Bieżący wynik nadal zostanie opublikowany przez GitHub Pages."
-          fi
-
-      # Publikuj Pages po KAŻDYM poprawnym skanie. Dzięki temu local data/latest.json
-      # na stronie również zawsze jest świeży, nawet jeśli raw.githubusercontent.com cache'uje.
-      - name: Wygeneruj blokadę hasłem
-        shell: bash
-        run: |
-          python - <<'PY'
-          import hashlib
-          import os
-          from pathlib import Path
-
-          password = os.getenv("SITE_PASSWORD", "")
-          if not password:
-              raise SystemExit("STOP: brak sekretu SITE_PASSWORD. Strona nie zostanie opublikowana bez hasła.")
-          from datetime import datetime, timezone
-
-          digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
-          generated_at = datetime.now(timezone.utc).isoformat()
-          Path("docs/auth-config.js").write_text(
-              f'window.ARBI_AUTH_HASH = "{digest}";\n'
-              f'window.ARBI_AUTH_GENERATED_AT = "{generated_at}";\n',
-              encoding="utf-8",
-          )
-          print("Blokada hasłem: włączona; konfiguracja odświeżona")
-          PY
-
-      - name: Wygeneruj konfigurację aplikacji push
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          app_id = os.getenv("ONESIGNAL_APP_ID", "").strip()
-          public_url = os.getenv("APP_PUBLIC_URL", "https://xlvlcl.github.io/arbi/").strip()
-          Path("docs/push-config.js").write_text(
-              "window.ARBI_ONESIGNAL_APP_ID = " + json.dumps(app_id) + ";\n"
-              "window.ARBI_PUBLIC_URL = " + json.dumps(public_url) + ";\n",
-              encoding="utf-8",
-          )
-          print("OneSignal Web Push:", "włączony" if app_id else "nie skonfigurowany")
-          if not app_id:
-              print("Dodaj sekret ONESIGNAL_APP_ID, aby włączyć powiadomienia z aplikacji.")
-          PY
-
-      - name: Skonfiguruj GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Przygotuj stronę
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: scan
-    if: needs.scan.result == 'success'
+  scan_publish:
+    name: Skanuj i publikuj — v3
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      BANKROLL_PLN: '50'
+      MIN_PROFIT_PCT: '0.35'
+      DEDUPE_MINUTES: '120'
+      ALERT_REAPPEAR_MINUTES: '6'
+      ALERT_IMPROVEMENT_PCT: '0.15'
+      MAX_QUOTE_AGE_SECONDS: '300'
+      MARKET_SCAN_MAX_EVENTS: '180'
+      MARKET_SCAN_BUDGET_SECONDS: '120'
+      MARKET_SCAN_CONCURRENCY: '6'
+      MAX_MARKETS_PER_EVENT: '120'
+      CONFIRM_CONCURRENCY: '3'
+      DIRECT_SOURCES_TIMEOUT: '12'
+      DIRECT_SOURCES_CONCURRENCY: '5'
+      COUPON_CATALOG_LIMIT: '1600'
+      VALUE_MIN_EDGE_PCT: '5.0'
+      VALUE_MIN_REFERENCE_BOOKS: '5'
+      VALUE_MAX_DISPERSION: '0.08'
+      VALUE_MAX_PRICE_GAP: '0.30'
+      VALUE_MIN_ODDS: '1.35'
+      VALUE_MAX_ODDS: '8.0'
+      VALUE_ALERT_COOLDOWN_MINUTES: '240'
+      DEEP_SCAN_EVERY: '4'
+      FORCE_FAST_SCAN: '1'
+      FAST_SCAN_MAX_EVENTS: '140'
+      FAST_SCAN_BUDGET_SECONDS: '90'
+      WATCH_SCAN_LIMIT: '50'
+      WATCH_SCAN_SECONDS: '60'
+      NEAR_ARB_GAP_PCT: '1.50'
+      VALUE_STABILITY_SCANS: '1'
+      VALUE_ELITE_EDGE_PCT: '9.0'
+      SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+      ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+      ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+      APP_PUBLIC_URL: https://xlvlcl.github.io/arbi/
+    defaults:
+      run:
+        shell: bash
     steps:
-      - name: Opublikuj stronę
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Pobierz kod
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        fetch-depth: 1
+    - name: Sprawdź wymagane pliki i hasło
+      shell: bash
+      run: |-
+        set -euo pipefail
+        for file in scanner.py requirements.txt docs/index.html; do
+          test -f "$file" || { echo "::error::Brak pliku: $file"; exit 1; }
+        done
+        if [ -z "$SITE_PASSWORD" ]; then
+          echo "::error::Brak sekretu SITE_PASSWORD. Uzupełnij go w Settings > Secrets and variables > Actions."
+          exit 1
+        fi
+        python - <<'CHECK'
+        import os
+        from pathlib import Path
+        p = Path("docs/data/latest.json")
+        Path(os.environ["RUNNER_TEMP"], "arbi-before.json").write_bytes(p.read_bytes() if p.exists() else b"")
+        CHECK
+    - name: Ustaw Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: pip
+    - name: Zainstaluj biblioteki
+      timeout-minutes: 2
+      run: python -m pip install --disable-pip-version-check -r requirements.txt
+    - name: Sprawdź przeglądarkę
+      shell: bash
+      run: |
+        if command -v google-chrome >/dev/null 2>&1; then
+          echo "Systemowy Google Chrome jest dostępny."
+          google-chrome --version
+        else
+          echo "Brak systemowego Chrome - instaluję Chromium dla Playwright."
+          python -m playwright install --with-deps chromium
+        fi
+      timeout-minutes: 2
+    - name: Skanuj kursy — maksymalnie 210 sekund
+      id: scanner
+      shell: bash
+      run: |-
+        set -euo pipefail
+        timeout --signal=TERM --kill-after=10s 210s python -u scanner.py 2>&1 | tee scanner.log
+    - name: Sprawdź, czy skaner zapisał nowy wynik
+      id: validate
+      shell: bash
+      run: |-
+        python - <<'CHECK'
+        import json
+        import os
+        from pathlib import Path
+        p = Path("docs/data/latest.json")
+        if not p.is_file():
+            raise SystemExit("STOP: skaner nie utworzył docs/data/latest.json.")
+        raw = p.read_bytes()
+        data = json.loads(raw)
+        if not isinstance(data, dict):
+            raise SystemExit("STOP: latest.json nie jest obiektem JSON.")
+        if raw == Path(os.environ["RUNNER_TEMP"], "arbi-before.json").read_bytes():
+            raise SystemExit("STOP: latest.json jest identyczny jak przed skanem. Nie publikuję starego wyniku jako nowego.")
+        if data.get("data_fresh") is False:
+            raise SystemExit("STOP: skaner oznaczył dane jako nieświeże (data_fresh=false). Sprawdź scanner.log i debug.")
+        if not isinstance(data.get("scan_preview"), list) or not data["scan_preview"]:
+            raise SystemExit("STOP: brak podglądu zdarzeń ze skanera. Sprawdź scanner.log i debug.")
+        stats = data.get("stats", {})
+        print("STATS:", json.dumps(stats, ensure_ascii=False, indent=2))
+        print("ERRORS:", json.dumps(data.get("errors", [])[-10:], ensure_ascii=False, indent=2))
+        print("Podgląd zdarzeń:", len(data["scan_preview"]))
+        print("Katalog kuponów:", len(data.get("coupon_catalog", [])))
+        print("OK: skaner zapisał zmieniony wynik. Przechodzę do publikacji.")
+        CHECK
+    - name: Zapisz dane i stan alertów do main
+      id: save
+      shell: bash
+      run: |-
+        set -euo pipefail
+        git config user.name "surebet-bot"
+        git config user.email "surebet-bot@users.noreply.github.com"
+        writeback_dir="$RUNNER_TEMP/arbi-writeback-$GITHUB_RUN_ID"
+        git fetch --no-tags origin main
+        git worktree add --detach "$writeback_dir" origin/main
+        for attempt in 1 2 3; do
+          git fetch --no-tags origin main
+          git -C "$writeback_dir" reset --hard origin/main
+          mkdir -p "$writeback_dir/docs/data" "$writeback_dir/data"
+          for file in docs/data/latest.json data/state.json data/market_cache.json; do
+            if [ -f "$file" ]; then
+              cp "$file" "$writeback_dir/$file"
+              git -C "$writeback_dir" add -f -- "$file"
+            fi
+          done
+          if git -C "$writeback_dir" diff --cached --quiet; then
+            echo "Dane już znajdują się na main."
+            exit 0
+          fi
+          git -C "$writeback_dir" commit -m "data: refresh odds [skip ci]"
+          if git -C "$writeback_dir" push origin HEAD:main; then
+            echo "OK: dane i stan alertów zapisane."
+            exit 0
+          fi
+          echo "Ponawiam zapis po równoczesnej zmianie main ($attempt/3)."
+          sleep 2
+        done
+        echo "::error::Nie udało się zapisać danych do main. Sprawdź uprawnienia Actions i ochronę gałęzi."
+        exit 1
+    - name: Wygeneruj blokadę hasłem
+      shell: bash
+      run: |
+        python - <<'PY'
+        import hashlib
+        import os
+        from pathlib import Path
+
+        password = os.getenv("SITE_PASSWORD", "")
+        if not password:
+            raise SystemExit("STOP: brak sekretu SITE_PASSWORD. Strona nie zostanie opublikowana bez hasła.")
+        from datetime import datetime, timezone
+
+        digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        generated_at = datetime.now(timezone.utc).isoformat()
+        Path("docs/auth-config.js").write_text(
+            f'window.ARBI_AUTH_HASH = "{digest}";\n'
+            f'window.ARBI_AUTH_GENERATED_AT = "{generated_at}";\n',
+            encoding="utf-8",
+        )
+        print("Blokada hasłem: włączona; konfiguracja odświeżona")
+        PY
+    - name: Wygeneruj konfigurację aplikacji push
+      shell: bash
+      run: |
+        python - <<'PY'
+        import json
+        import os
+        from pathlib import Path
+
+        app_id = os.getenv("ONESIGNAL_APP_ID", "").strip()
+        public_url = os.getenv("APP_PUBLIC_URL", "https://xlvlcl.github.io/arbi/").strip()
+        Path("docs/push-config.js").write_text(
+            "window.ARBI_ONESIGNAL_APP_ID = " + json.dumps(app_id) + ";\n"
+            "window.ARBI_PUBLIC_URL = " + json.dumps(public_url) + ";\n",
+            encoding="utf-8",
+        )
+        print("OneSignal Web Push:", "włączony" if app_id else "nie skonfigurowany")
+        if not app_id:
+            print("Dodaj sekret ONESIGNAL_APP_ID, aby włączyć powiadomienia z aplikacji.")
+        PY
+    - name: Skonfiguruj GitHub Pages
+      uses: actions/configure-pages@v5
+    - name: Przygotuj stronę
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./docs
+    - name: Opublikuj nowy wynik na stronie
+      id: deployment
+      timeout-minutes: 3
+      uses: actions/deploy-pages@v4
+    - name: Zapisz log i diagnostykę
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: scanner-debug-${{ github.run_id }}
+        path: |-
+          scanner.log
+          debug/
+        if-no-files-found: ignore
+        retention-days: 3
+    - name: Podsumowanie skanu i publikacji
+      if: always()
+      shell: bash
+      env:
+        SCAN_RESULT: ${{ steps.scanner.outcome }}
+        VALIDATION_RESULT: ${{ steps.validate.outcome }}
+        SAVE_RESULT: ${{ steps.save.outcome }}
+        DEPLOY_RESULT: ${{ steps.deployment.outcome }}
+      run: |-
+        python - <<'SUMMARY'
+        import os
+        from pathlib import Path
+        rows = [
+            ("Skaner", "SCAN_RESULT"),
+            ("Nowy wynik JSON", "VALIDATION_RESULT"),
+            ("Zapis danych i alertów", "SAVE_RESULT"),
+            ("Publikacja strony", "DEPLOY_RESULT"),
+        ]
+        lines = ["## Surebet Scanner v3", "", "| Etap | Wynik |", "| --- | --- |"]
+        lines += [f"| {label} | {os.getenv(key) or 'nie uruchomiono'} |" for label, key in rows]
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+        if os.getenv("SCAN_RESULT") != "success" or os.getenv("VALIDATION_RESULT") != "success":
+            p = Path("scanner.log")
+            if p.exists():
+                print("Ostatnie 100 linii skanera:")
+                print("\n".join(p.read_text(errors="replace").splitlines()[-100:]))
+        SUMMARY
