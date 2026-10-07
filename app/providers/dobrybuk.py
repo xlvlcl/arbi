@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import html as htmlmod
 import json
+import os
 import re
 import shutil
 import time
@@ -932,6 +933,7 @@ class DobryBukProvider:
 
     async def discover_events(self, sports: list[str]) -> tuple[list[dict], list[str]]:
         assert self.page
+        deadline = time.monotonic() + float(os.getenv("DISCOVERY_BUDGET_SECONDS", "60"))
         errors: list[str] = []
         discovered: dict[str, dict] = {}
 
@@ -939,10 +941,10 @@ class DobryBukProvider:
             await self.page.goto(
                 self.settings.source_url,
                 wait_until="domcontentloaded",
-                timeout=60000,
+                timeout=20000,
             )
             try:
-                await self.page.wait_for_load_state("networkidle", timeout=12000)
+                await self.page.wait_for_load_state("networkidle", timeout=3000)
             except Exception:
                 pass
             # The known-good diagnostic version needed a longer settle time on GitHub CI.
@@ -966,34 +968,41 @@ class DobryBukProvider:
 
         self.discovered_sports = sports_to_scan
 
+        if sports_to_scan:
+            offset = (int(getattr(self, "discovery_sequence", 1)) - 1) * 5 % len(sports_to_scan)
+            sports_to_scan = sports_to_scan[offset:] + sports_to_scan[:offset]
         for sport in sports_to_scan:
+            if time.monotonic() >= deadline:
+                errors.append("Discovery: budżet czasu wyczerpany; pozostałe sporty wrócą w kolejnych cyklach.")
+                break
             try:
-                clicked = await self._click_sport(sport)
-                if not clicked:
-                    # If the current default sport is already selected, its text can be
-                    # non-clickable. Still try collecting the currently visible table.
-                    await self._prepare_all_upcoming(self.page)
-                    current = await self._collect_event_links(sport)
-                    if current:
-                        for event in current:
-                            discovered.setdefault(event["event_url"], event)
+                async with asyncio.timeout(min(8.0, max(0.1, deadline - time.monotonic()))):
+                    clicked = await self._click_sport(sport)
+                    if not clicked:
+                        # If the current default sport is already selected, its text can be
+                        # non-clickable. Still try collecting the currently visible table.
+                        await self._prepare_all_upcoming(self.page)
+                        current = await self._collect_event_links(sport)
+                        if current:
+                            for event in current:
+                                discovered.setdefault(event["event_url"], event)
+                            continue
+                        errors.append(f"{sport}: nie znaleziono filtra sportu")
                         continue
-                    errors.append(f"{sport}: nie znaleziono filtra sportu")
-                    continue
 
-                try:
-                    await self.page.wait_for_load_state("networkidle", timeout=6500)
-                except Exception:
-                    pass
-                await self.page.wait_for_timeout(700)
-                await self._prepare_all_upcoming(self.page)
-                await self.page.wait_for_timeout(400)
+                    try:
+                        await self.page.wait_for_load_state("networkidle", timeout=1000)
+                    except Exception:
+                        pass
+                    await self.page.wait_for_timeout(700)
+                    await self._prepare_all_upcoming(self.page)
+                    await self.page.wait_for_timeout(400)
 
-                events = await self._collect_event_links(sport)
-                if not events:
-                    errors.append(f"{sport}: 0 linków wydarzeń po odczekaniu")
-                for event in events:
-                    discovered.setdefault(event["event_url"], event)
+                    events = await self._collect_event_links(sport)
+                    if not events:
+                        errors.append(f"{sport}: 0 linków wydarzeń po odczekaniu")
+                    for event in events:
+                        discovered.setdefault(event["event_url"], event)
             except Exception as exc:
                 errors.append(f"{sport}: {type(exc).__name__}: {exc}")
 
@@ -1692,7 +1701,12 @@ class DobryBukProvider:
                 details: list[dict] = []
                 local_errors: list[str] = []
                 try:
-                    details, local_errors = await self._scan_event_markets(page, event)
+                    remaining = max_seconds - (time.time() - started)
+                    if remaining <= 0:
+                        return
+                    details, local_errors = await asyncio.wait_for(
+                        self._scan_event_markets(page, event), timeout=min(30.0, remaining)
+                    )
                 except Exception as exc:
                     local_errors = [f"{type(exc).__name__}: {exc}"]
 

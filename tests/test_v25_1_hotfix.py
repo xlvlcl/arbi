@@ -18,5 +18,6 @@ def test_cache_tolerates_bad_values(tmp_path: Path):
 def test_workflow_captures_log():
     root = Path(__file__).resolve().parents[1]
     wf = (root / ".github/workflows/surebet.yml").read_text("utf-8")
-    assert "tee scanner.log" in wf
-    assert "tail -n 180 scanner.log" in wf
+    assert "python -u scan_runtime.py" in wf
+    assert "scanner.log" in wf
+    assert "scanner-debug-${{ github.run_id }}" in wf

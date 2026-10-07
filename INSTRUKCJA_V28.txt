@@ -1,0 +1,34 @@
+ARBI V28 — PODMIANA CAŁEGO KODU
+
+1. Zrób kopię repozytorium arbi na GitHubie: Code > Download ZIP.
+2. Rozpakuj arbi_v28_rebuild.zip na komputerze.
+3. Na GitHubie otwórz repo arbi > Add file > Upload files.
+4. Przeciągnij do okna Upload ZAWARTOŚĆ rozpakowanego folderu (folder app, docs, tests oraz scanner.py, scan_runtime.py, requirements.txt, README.md).
+   Wgraj kod do katalogu głównego repozytorium, nie do dodatkowego folderu arbi_v28_rebuild.
+5. Kliknij Commit changes. Dane i historia powiadomień nie są dołączone do paczki, więc zachowasz obecne data/state.json i docs/data/latest.json.
+6. Workflow podmień OSOBNO: otwórz .github/workflows/surebet.yml > Edit; usuń cały kod i wklej treść surebet_v28.txt.
+7. Podmień tak samo .github/workflows/watchdog.yml treścią watchdog_v28.txt. Jeśli pliku nie ma, utwórz go przez Add file > Create new file.
+8. Settings > Pages > Build and deployment > Source: GitHub Actions.
+9. Zachowaj dotychczasowe sekrety SITE_PASSWORD, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID oraz OneSignal. Nie wklejaj ich do kodu.
+10. Actions: anuluj uruchomienia starej wersji, które nadal trwają. Następnie Surebet Scanner > Run workflow > main, tylko raz.
+11. Nowy run nosi nazwę Arbi v28. Po publikacji odśwież stronę Ctrl+F5. Pod statusem zobaczysz czas ostatniej próby oraz jej wynik.
+
+CO SIĘ ZMIENIŁO
+- Czas wykrywania sportów jest ograniczony; kolejność sportów zmienia się w następnych cyklach.
+- Odczyt jednego wydarzenia ma limit i nie blokuje wszystkich kolejnych.
+- Skaner uruchamia się pod kontrolą procesu nadzorującego (scan_runtime.py), który kończy zawieszoną próbę.
+- Nieudany skan publikuje aktualny status błędu, a data ostatniego udanego skanu pozostaje prawdziwa.
+- W razie błędu znikają stare okazje surebet/value; podgląd katalogu pozostaje dostępny jako dane historyczne.
+- Strona pobiera wynik z pierwszego działającego endpointu, nie czeka bez końca na drugi i nie cofa się do starszej wersji danych.
+- Brak świeżych danych kończy run błędem dopiero PO opublikowaniu statusu diagnostycznego.
+
+WYWOŁANIA CO 2 MINUTY
+Pozostaw istniejący zewnętrzny trigger kierujący na surebet.yml / main lub repository_dispatch surebet_scan. Cron GitHuba pozostaje awaryjny co 5 min.
+Wywołanie co 2 min nie gwarantuje zakończenia skanu i deployu dokładnie co 2 min. Trwający skan może skończyć się później; następny czeka.
+Ta paczka nie zapewnia dostępu do wszystkich bukmacherów. Działanie źródeł musi zostać potwierdzone w Twoich Actions.
+
+JEŚLI RUN JEST CZERWONY
+Otwórz pierwszy czerwony krok. Jeśli to „Zgłoś błąd skanera po publikacji diagnostyki”, log scanner-debug zawiera scanner.log i debug. Pobierz go przez sekcję Artifacts i prześlij tutaj. Jeśli czerwony jest inny krok, prześlij jego komunikat.
+
+WERYFIKACJA
+59 testów Python przeszło lokalnie. Test odczytu JS sprawdził timeout i wybór aktualnego wyniku. YAML i skrypty workflow sprawdzone składniowo. Pełny odczyt kursów w przeglądarce i deploy muszą zostać sprawdzone w Twoich GitHub Actions.

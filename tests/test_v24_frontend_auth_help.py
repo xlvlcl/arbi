@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 
@@ -26,8 +27,8 @@ def test_help_dictionary_is_broad():
     assert all(key in js for key in keys)
 
 
-def test_assets_have_v24_cache_busting():
+def test_assets_have_cache_busting():
     html = (ROOT / "docs/index.html").read_text("utf-8")
-    assert "./app.js?v=24" in html
+    assert re.search(r"\./app\.js\?v=\d+", html)
     assert "./app.css?v=24" in html
     assert "./auth-config.js?v=24" in html

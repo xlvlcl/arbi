@@ -8,6 +8,7 @@ import time
 from pathlib import Path
 
 from app.config import ROOT, settings
+from scan_runtime import atomic_json, read_json
 from app.merge import event_key, market_key, merge_markets
 from app.models import Quote
 from app.intelligence import detect_near_arbs, scan_quality
@@ -503,6 +504,16 @@ async def scan_once() -> dict:
     errors: list[str] = []
     watch_targets = state.priority_targets(settings.watch_scan_limit)
 
+    await state.save()
+    provider.discovery_sequence = plan["sequence"]
+    async def bounded(label, operation, seconds, fallback):
+        print(f"ETAP: {label}; limit {seconds}s", flush=True)
+        try:
+            return await asyncio.wait_for(operation, timeout=seconds)
+        except Exception as exc:
+            errors.append(f"{label}: {type(exc).__name__}: {exc}")
+            return fallback
+
     # Direct bookmaker pages are lightweight HTTP requests, so run them in parallel
     # with the browser-based comparison scan instead of adding minutes to each cycle.
     direct_task = asyncio.create_task(
@@ -513,7 +524,16 @@ async def scan_once() -> dict:
         )
     )
 
-    await provider.start()
+    print("ETAP: start przeglądarki", flush=True)
+    try:
+        await asyncio.wait_for(provider.start(), timeout=30)
+    except BaseException:
+        direct_task.cancel()
+        try:
+            await asyncio.wait_for(provider.stop(), timeout=8)
+        except Exception:
+            pass
+        raise
     browser_direct_task = None
     if plan["mode"] == "deep":
         try:
@@ -532,15 +552,15 @@ async def scan_once() -> dict:
         # Discovery jobs run in parallel:
         # - DobryBuk value/stat pages -> prioritize likely interesting events,
         # - broad main-listing sweep -> hunt candidate arbs across ALL visible dates.
-        priority_task = asyncio.create_task(provider.discover_priority_events())
-        signal_task = asyncio.create_task(provider.discover_signal_events())
+        priority_task = asyncio.create_task(bounded("Priorytety", provider.discover_priority_events(), 45, ([], [])))
+        signal_task = asyncio.create_task(bounded("Sygnały", provider.discover_signal_events(), 45, ([], [])))
         broad_budget = (
             min(120, max(55, int(settings.market_scan_budget_seconds * 0.35)))
             if plan["mode"] == "deep"
             else min(80, max(45, int(settings.fast_scan_budget_seconds * 0.55)))
         )
         broad_task = asyncio.create_task(
-            provider.scan_broad_listing_markets(max_seconds=broad_budget)
+            bounded("Szeroki podgląd", provider.scan_broad_listing_markets(max_seconds=broad_budget), broad_budget + 10, ([], [], {}))
         )
         watch_task = None
         if watch_targets:
@@ -552,7 +572,7 @@ async def scan_once() -> dict:
                 )
             )
 
-        events, discover_errors = await provider.discover_events(settings.sports)
+        events, discover_errors = await bounded("Wykrywanie wydarzeń", provider.discover_events(settings.sports), 65, ([], []))
         errors.extend(discover_errors)
 
         try:
@@ -633,9 +653,9 @@ async def scan_once() -> dict:
 
         if not dobrybuk_rows:
             scan_mode += "+fallback"
-            fallback_rows, fallback_errors = await provider.scan_listing_fallback(
+            fallback_rows, fallback_errors = await bounded("Fallback tabeli", provider.scan_listing_fallback(
                 list(getattr(provider, "discovered_sports", []) or settings.sports)
-            )
+            ), 25, ([], []))
             errors.extend([f"Fallback: {x}" for x in fallback_errors])
             dobrybuk_rows = fallback_rows
 
@@ -700,7 +720,7 @@ async def scan_once() -> dict:
 
         static_fallback_rows = []
         if not merged_rows:
-            static_fallback_rows, static_fallback_errors = await provider.scan_static_http_fallback()
+            static_fallback_rows, static_fallback_errors = await bounded("Publiczny HTML", provider.scan_static_http_fallback(), 22, ([], []))
             errors.extend([f"Static fallback: {x}" for x in static_fallback_errors])
             if static_fallback_rows:
                 merged_rows = merge_markets(static_fallback_rows)
@@ -720,7 +740,7 @@ async def scan_once() -> dict:
             display_rows = merged_rows
 
         if not analysis_rows:
-            static_rows, static_errors = await provider.scan_static_http_fallback()
+            static_rows, static_errors = await bounded("Publiczny HTML", provider.scan_static_http_fallback(), 22, ([], []))
             errors.extend([f"Static recovery: {x}" for x in static_errors])
             if static_rows:
                 analysis_rows = merge_markets(static_rows)
@@ -785,11 +805,11 @@ async def scan_once() -> dict:
 
             confirm_rows = []
             if target_map:
-                confirm_rows, confirm_errors = await provider.scan_specific_markets(
+                confirm_rows, confirm_errors = await bounded("Potwierdzenie kursów", provider.scan_specific_markets(
                     list(target_map.values()),
                     concurrency=settings.confirm_concurrency,
-                    max_seconds=45,
-                )
+                    max_seconds=25,
+                ), 30, ([], []))
                 errors.extend([f"Potwierdzenie: {x}" for x in confirm_errors])
 
             # Re-fetch direct pages too so no alert is based solely on stale direct data.
@@ -846,7 +866,11 @@ async def scan_once() -> dict:
         push_configured = bool(settings.onesignal_app_id and settings.onesignal_api_key)
         telegram_configured = bool(settings.telegram_token and settings.telegram_chat_id)
 
+        alert_deadline = time.monotonic() + 20
         for arb in confirmed:
+            if time.monotonic() >= alert_deadline:
+                errors.append("Alerty: limit czasu powiadomień; pozostałe okazje wrócą przy następnym skanie.")
+                break
             if not (push_configured or telegram_configured):
                 continue
 
@@ -863,12 +887,12 @@ async def scan_once() -> dict:
             delivered = False
             if push_configured:
                 try:
-                    result = await send_push(
+                    result = await asyncio.wait_for(send_push(
                         settings.onesignal_app_id,
                         settings.onesignal_api_key,
                         arb,
                         settings.app_public_url,
-                    )
+                    ), timeout=max(0.1, min(8, alert_deadline - time.monotonic())))
                     push_alerts_sent += 1
                     delivered = True
                     if isinstance(result, dict) and result.get("errors"):
@@ -880,11 +904,11 @@ async def scan_once() -> dict:
             # jeśli chcesz dostawać wyłącznie powiadomienia z aplikacji.
             if telegram_configured:
                 try:
-                    await send(
+                    await asyncio.wait_for(send(
                         settings.telegram_token,
                         settings.telegram_chat_id,
                         arb,
-                    )
+                    ), timeout=max(0.1, min(8, alert_deadline - time.monotonic())))
                     telegram_alerts_sent += 1
                     delivered = True
                 except Exception as exc:
@@ -897,6 +921,9 @@ async def scan_once() -> dict:
         # They are NOT guaranteed wins; they are high-confidence consensus mispricings.
         if push_configured:
             for value in stable_values:
+                if time.monotonic() >= alert_deadline:
+                    errors.append("Alerty value: budżet powiadomień wyczerpany.")
+                    break
                 should_send_value = await state.should_alert(
                     "value|" + str(value.get("key", "")),
                     float(value.get("edge_pct", 0) or 0),
@@ -907,12 +934,12 @@ async def scan_once() -> dict:
                 if not should_send_value:
                     continue
                 try:
-                    result = await send_value_push(
+                    result = await asyncio.wait_for(send_value_push(
                         settings.onesignal_app_id,
                         settings.onesignal_api_key,
                         value,
                         settings.app_public_url,
-                    )
+                    ), timeout=max(0.1, min(8, alert_deadline - time.monotonic())))
                     value_push_alerts_sent += 1
                     if isinstance(result, dict) and result.get("errors"):
                         errors.append(
@@ -996,10 +1023,11 @@ async def scan_once() -> dict:
             errors.append(f"Scan preview: {type(exc).__name__}: {exc}")
             scan_preview = []
 
-        fresh_data = bool(analysis_rows)
+        fresh_data = bool(merged_rows) and bool(analysis_rows)
         payload = {
             "generated_at": now,
-            "last_scan": now,
+            "last_scan": now if fresh_data else read_json(DOCS_DATA / "latest.json").get("last_scan"),
+            "last_attempt": now,
             "data_fresh": fresh_data,
             "data_status": "fresh" if fresh_data else "degraded-cache",
             "latest": [arb.to_dict() for arb in confirmed[:200]],
@@ -1091,10 +1119,7 @@ async def scan_once() -> dict:
             errors.append(f"Market cache save: {type(exc).__name__}: {exc}")
 
         DOCS_DATA.mkdir(parents=True, exist_ok=True)
-        (DOCS_DATA / "latest.json").write_text(
-            json.dumps(payload, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
+        atomic_json(DOCS_DATA / "latest.json", payload)
 
         print(
             json.dumps(
@@ -1112,7 +1137,10 @@ async def scan_once() -> dict:
             direct_task.cancel()
         if browser_direct_task is not None and not browser_direct_task.done():
             browser_direct_task.cancel()
-        await provider.stop()
+        try:
+            await asyncio.wait_for(provider.stop(), timeout=8)
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":

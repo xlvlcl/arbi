@@ -11,8 +11,8 @@ def test_safe_float_does_not_crash():
 def test_workflow_forces_fast_profile():
     root = Path(__file__).resolve().parents[1]
     wf = (root / ".github/workflows/surebet.yml").read_text("utf-8")
-    assert 'FORCE_FAST_SCAN: "1"' in wf
-    assert 'FAST_SCAN_BUDGET_SECONDS: "90"' in wf
+    assert "FORCE_FAST_SCAN: '1'" in wf
+    assert "FAST_SCAN_BUDGET_SECONDS: '60'" in wf
 
 
 def test_provider_has_public_html_fallback():

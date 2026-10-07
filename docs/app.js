@@ -484,28 +484,39 @@ document.getElementById("authToggle")?.addEventListener("click",()=>{
 document.getElementById("lockBtn")?.addEventListener("click",lockNow);
 
 // ---------- DATA ----------
-async function load(){
-  const attempts=await Promise.all(DATA_ENDPOINTS.map(async endpoint=>{
-    try{
-      const sep=endpoint.includes("?")?"&":"?";
-      const r=await fetch(`${endpoint}${sep}t=${Date.now()}`,{cache:"no-store",mode:"cors"});
-      if(!r.ok)throw new Error(`HTTP ${r.status}`);
-      const payload=await r.json();
-      if(!payload||typeof payload!=="object")throw new Error("invalid data");
-      return {endpoint,payload:normalizePayload(payload),ok:true};
-    }catch(error){
-      return {endpoint,error,ok:false};
-    }
-  }));
-
-  const good=attempts.filter(x=>x.ok);
-  if(!good.length)throw attempts.find(x=>x.error)?.error||new Error("data");
-
-  good.sort((a,b)=>Number(b.payload.last_scan||0)-Number(a.payload.last_scan||0));
-  data=good[0].payload;
-  data._loaded_from=good[0].endpoint.includes("raw.githubusercontent")?"repo RAW":"GitHub Pages";
-  ensureSelectedBook();
-  repaint();
+let loadInFlight=null;
+function payloadTime(payload){
+  const value=Number(payload.last_attempt||payload.last_scan||payload.generated_at||0);
+  return Number.isFinite(value)?value:0;
+}
+async function fetchData(endpoint){
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),8000);
+  try{
+    const sep=endpoint.includes("?")?"&":"?";
+    const r=await fetch(`${endpoint}${sep}t=${Date.now()}`,{cache:"no-store",mode:"cors",signal:controller.signal});
+    if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    const payload=await r.json();
+    if(!payload||Array.isArray(payload)||typeof payload!=="object")throw new Error("invalid data");
+    return normalizePayload(payload);
+  }finally{clearTimeout(timer)}
+}
+function load(){
+  if(loadInFlight)return loadInFlight;
+  loadInFlight=(async()=>{
+    let received=0;
+    await Promise.allSettled(DATA_ENDPOINTS.map(async endpoint=>{
+      const payload=await fetchData(endpoint);
+      received++;
+      if(payloadTime(payload)<payloadTime(data))return;
+      data=payload;
+      data._loaded_from=endpoint.includes("raw.githubusercontent")?"repo RAW":"GitHub Pages";
+      ensureSelectedBook();
+      repaint();
+    }));
+    if(!received)throw new Error("Żadne źródło danych nie odpowiedziało w ciągu 8 sekund.");
+  })().finally(()=>{loadInFlight=null});
+  return loadInFlight;
 }
 
 // ---------- SUREBETS ----------
@@ -661,16 +672,28 @@ function repaintSurebets(){
   const currentMk=Number(data.stats?.markets_scanned_current??data.stats?.markets_scanned??0);
   document.getElementById("markets").textContent=`${ev} / ${mk}`;
   document.getElementById("markets").title=`Aktywne z 30 min: ${mk} rynków • ostatni przebieg: ${currentMk}`;
-  const ts=data.last_scan||data.generated_at;
+  const ts=Object.prototype.hasOwnProperty.call(data,"last_scan")?data.last_scan:data.generated_at;
   document.getElementById("last").textContent=ts?new Date(Number(ts)*1000).toLocaleString("pl-PL"):"—";
   const age=ts?Date.now()/1000-Number(ts):Infinity,errs=data.errors||[];
   let status="monitoring aktywny",dot="var(--green)";
-  if(age>15*60){status="skan opóźniony";dot="#ff6b8b"}
+  const runtime=data.runtime||{};
+  if(runtime.state&&runtime.state!=="ok"){
+    status=runtime.state==="timeout"?"skaner przekroczył limit":runtime.state==="no_data"?"brak świeżych kursów":"błąd skanera";
+    dot="#ff6b8b";
+  }
+  else if(age>15*60){status="skan opóźniony";dot="#ff6b8b"}
   else if(age>7*60){status="czekam na nowy skan";dot="#ffd166"}
   else if(data.stats?.exhaustive_complete===false){status="skan częściowy";dot="#ffd166"}
   else if(errs.length){status="uwaga";dot="#ffd166"}
   document.getElementById("statusText").textContent=status;
   document.getElementById("statusDot").style.background=dot;
+  const diagnostic=document.getElementById("scanDiagnostic");
+  if(diagnostic){
+    const runtime=data.runtime||{};
+    diagnostic.hidden=!runtime.attempt_finished_at;
+    diagnostic.textContent=`Ostatnia próba: ${new Date(Number(runtime.attempt_finished_at)*1000).toLocaleString("pl-PL")} • ${runtime.message||""}`;
+    diagnostic.style.color=runtime.state==="ok"?"var(--green)":"#ff6b8b";
+  }
   renderSources();
   const sports=[...new Set([...(data.stats?.sports||[]),...(data.latest||[]).map(x=>x.sport),...(data.scan_preview||[]).map(x=>x.sport),...(data.coupon_catalog||[]).map(x=>x.sport)].filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pl"));
   const sel=document.getElementById("sportFilter"),current=sel.value||String(pref("sportFilter",""));
@@ -1223,4 +1246,7 @@ load().catch(()=>{
   document.getElementById("statusText").textContent="brak danych";
   document.getElementById("statusDot").style.background="#ff6b8b";
 });
-setInterval(()=>load().catch(()=>{}),3000);
+setInterval(()=>load().catch(()=>{
+  document.getElementById("statusText").textContent="nie można pobrać danych";
+  document.getElementById("statusDot").style.background="#ff6b8b";
+}),10000);

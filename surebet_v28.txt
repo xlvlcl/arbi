@@ -1,0 +1,262 @@
+# Wywołania co 2 min z zewnętrznego triggera; cron GitHuba co 5 min.
+name: Surebet Scanner
+run-name: Arbi v28 — ${{ github.event_name }} — ${{ github.run_number }}
+'on':
+  workflow_dispatch: null
+  repository_dispatch:
+    types:
+    - surebet_scan
+  schedule:
+  - cron: '*/5 * * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: arbi-runtime-v28-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  scan_publish:
+    name: Skan, status i publikacja — v28
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      BANKROLL_PLN: '50'
+      MIN_PROFIT_PCT: '0.35'
+      DEDUPE_MINUTES: '120'
+      ALERT_REAPPEAR_MINUTES: '6'
+      ALERT_IMPROVEMENT_PCT: '0.15'
+      MAX_QUOTE_AGE_SECONDS: '300'
+      MARKET_SCAN_MAX_EVENTS: '180'
+      MARKET_SCAN_BUDGET_SECONDS: '120'
+      MARKET_SCAN_CONCURRENCY: '6'
+      MAX_MARKETS_PER_EVENT: '120'
+      CONFIRM_CONCURRENCY: '3'
+      DIRECT_SOURCES_TIMEOUT: '12'
+      DIRECT_SOURCES_CONCURRENCY: '5'
+      COUPON_CATALOG_LIMIT: '1600'
+      VALUE_MIN_EDGE_PCT: '5.0'
+      VALUE_MIN_REFERENCE_BOOKS: '5'
+      VALUE_MAX_DISPERSION: '0.08'
+      VALUE_MAX_PRICE_GAP: '0.30'
+      VALUE_MIN_ODDS: '1.35'
+      VALUE_MAX_ODDS: '8.0'
+      VALUE_ALERT_COOLDOWN_MINUTES: '240'
+      DEEP_SCAN_EVERY: '4'
+      FORCE_FAST_SCAN: '1'
+      FAST_SCAN_MAX_EVENTS: '140'
+      FAST_SCAN_BUDGET_SECONDS: '60'
+      WATCH_SCAN_LIMIT: '50'
+      WATCH_SCAN_SECONDS: '60'
+      NEAR_ARB_GAP_PCT: '1.50'
+      VALUE_STABILITY_SCANS: '1'
+      VALUE_ELITE_EDGE_PCT: '9.0'
+      SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+      ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+      ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+      APP_PUBLIC_URL: https://xlvlcl.github.io/arbi/
+      SCAN_DEADLINE_SECONDS: '240'
+      DISCOVERY_BUDGET_SECONDS: '45'
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Pobierz kod
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        fetch-depth: 1
+    - name: Sprawdź wymagane pliki i hasło
+      shell: bash
+      run: |-
+        set -euo pipefail
+        for file in scanner.py scan_runtime.py requirements.txt docs/index.html; do
+          test -f "$file" || { echo "::error::Brak pliku: $file"; exit 1; }
+        done
+        if [ -z "$SITE_PASSWORD" ]; then
+          echo "::error::Brak sekretu SITE_PASSWORD. Uzupełnij go w Settings > Secrets and variables > Actions."
+          exit 1
+        fi
+        python - <<'CHECK'
+        import os
+        from pathlib import Path
+        p = Path("docs/data/latest.json")
+        Path(os.environ["RUNNER_TEMP"], "arbi-before.json").write_bytes(p.read_bytes() if p.exists() else b"")
+        CHECK
+    - name: Ustaw Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: pip
+    - name: Zainstaluj biblioteki
+      timeout-minutes: 2
+      run: python -m pip install --disable-pip-version-check -r requirements.txt
+    - name: Sprawdź przeglądarkę
+      shell: bash
+      run: |
+        if command -v google-chrome >/dev/null 2>&1; then
+          echo "Systemowy Google Chrome jest dostępny."
+          google-chrome --version
+        else
+          echo "Brak systemowego Chrome - instaluję Chromium dla Playwright."
+          python -m playwright install --with-deps chromium
+        fi
+      timeout-minutes: 2
+    - name: Skan z limitem czasu i zapisem statusu
+      id: scanner
+      shell: bash
+      run: python -u scan_runtime.py
+    - name: Sprawdź zapis próby skanowania
+      id: validate
+      shell: bash
+      run: |-
+        python - <<'CHECK'
+        import json, os, time
+        from pathlib import Path
+        p = Path("docs/data/latest.json")
+        data = json.loads(p.read_text("utf-8"))
+        runtime = data.get("runtime", {})
+        if runtime.get("version") != 28 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
+            raise SystemExit("Brak nowego statusu skanowania v28.")
+        print("Stan skanera:", runtime.get("state"))
+        print("Komunikat:", runtime.get("message"))
+        print("Ostatni udany skan:", data.get("last_scan"))
+        CHECK
+    - name: Zapisz dane i stan alertów do main
+      id: save
+      shell: bash
+      run: |-
+        set -euo pipefail
+        git config user.name "surebet-bot"
+        git config user.email "surebet-bot@users.noreply.github.com"
+        writeback_dir="$RUNNER_TEMP/arbi-writeback-$GITHUB_RUN_ID"
+        git fetch --no-tags origin main
+        git worktree add --detach "$writeback_dir" origin/main
+        for attempt in 1 2 3; do
+          git fetch --no-tags origin main
+          git -C "$writeback_dir" reset --hard origin/main
+          mkdir -p "$writeback_dir/docs/data" "$writeback_dir/data"
+          for file in docs/data/latest.json docs/data/status.json data/state.json data/market_cache.json; do
+            if [ -f "$file" ]; then
+              cp "$file" "$writeback_dir/$file"
+              git -C "$writeback_dir" add -f -- "$file"
+            fi
+          done
+          if git -C "$writeback_dir" diff --cached --quiet; then
+            echo "Dane już znajdują się na main."
+            exit 0
+          fi
+          git -C "$writeback_dir" commit -m "data: refresh odds [skip ci]"
+          if git -C "$writeback_dir" push origin HEAD:main; then
+            echo "OK: dane i stan alertów zapisane."
+            exit 0
+          fi
+          echo "Ponawiam zapis po równoczesnej zmianie main ($attempt/3)."
+          sleep 2
+        done
+        echo "::error::Nie udało się zapisać danych do main. Sprawdź uprawnienia Actions i ochronę gałęzi."
+        exit 1
+    - name: Wygeneruj blokadę hasłem
+      shell: bash
+      run: |
+        python - <<'PY'
+        import hashlib
+        import os
+        from pathlib import Path
+
+        password = os.getenv("SITE_PASSWORD", "")
+        if not password:
+            raise SystemExit("STOP: brak sekretu SITE_PASSWORD. Strona nie zostanie opublikowana bez hasła.")
+        from datetime import datetime, timezone
+
+        digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        generated_at = datetime.now(timezone.utc).isoformat()
+        Path("docs/auth-config.js").write_text(
+            f'window.ARBI_AUTH_HASH = "{digest}";\n'
+            f'window.ARBI_AUTH_GENERATED_AT = "{generated_at}";\n',
+            encoding="utf-8",
+        )
+        print("Blokada hasłem: włączona; konfiguracja odświeżona")
+        PY
+    - name: Wygeneruj konfigurację aplikacji push
+      shell: bash
+      run: |
+        python - <<'PY'
+        import json
+        import os
+        from pathlib import Path
+
+        app_id = os.getenv("ONESIGNAL_APP_ID", "").strip()
+        public_url = os.getenv("APP_PUBLIC_URL", "https://xlvlcl.github.io/arbi/").strip()
+        Path("docs/push-config.js").write_text(
+            "window.ARBI_ONESIGNAL_APP_ID = " + json.dumps(app_id) + ";\n"
+            "window.ARBI_PUBLIC_URL = " + json.dumps(public_url) + ";\n",
+            encoding="utf-8",
+        )
+        print("OneSignal Web Push:", "włączony" if app_id else "nie skonfigurowany")
+        if not app_id:
+            print("Dodaj sekret ONESIGNAL_APP_ID, aby włączyć powiadomienia z aplikacji.")
+        PY
+    - name: Skonfiguruj GitHub Pages
+      uses: actions/configure-pages@v5
+    - name: Przygotuj stronę
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./docs
+    - name: Opublikuj nowy wynik na stronie
+      id: deployment
+      timeout-minutes: 3
+      uses: actions/deploy-pages@v4
+    - name: Zapisz log i diagnostykę
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: scanner-debug-${{ github.run_id }}
+        path: |-
+          scanner.log
+          debug/
+        if-no-files-found: ignore
+        retention-days: 3
+    - name: Podsumowanie skanu i publikacji
+      if: always()
+      shell: bash
+      env:
+        SCAN_RESULT: ${{ steps.scanner.outcome }}
+        VALIDATION_RESULT: ${{ steps.validate.outcome }}
+        SAVE_RESULT: ${{ steps.save.outcome }}
+        DEPLOY_RESULT: ${{ steps.deployment.outcome }}
+      run: |-
+        python - <<'SUMMARY'
+        import os
+        from pathlib import Path
+        rows = [
+            ("Skaner", "SCAN_RESULT"),
+            ("Nowy wynik JSON", "VALIDATION_RESULT"),
+            ("Zapis danych i alertów", "SAVE_RESULT"),
+            ("Publikacja strony", "DEPLOY_RESULT"),
+        ]
+        lines = ["## Arbi v28", "", "| Etap | Wynik |", "| --- | --- |"]
+        lines += [f"| {label} | {os.getenv(key) or 'nie uruchomiono'} |" for label, key in rows]
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+        if os.getenv("SCAN_RESULT") != "success" or os.getenv("VALIDATION_RESULT") != "success":
+            p = Path("scanner.log")
+            if p.exists():
+                print("Ostatnie 100 linii skanera:")
+                print("\n".join(p.read_text(errors="replace").splitlines()[-100:]))
+        SUMMARY
+    - name: Zgłoś błąd skanera po publikacji diagnostyki
+      if: steps.scanner.outcome == 'success' && steps.scanner.outputs.scanner_state != 'ok'
+      run: |-
+        python - <<'CHECK'
+        import json
+        from pathlib import Path
+        runtime=json.loads(Path("docs/data/status.json").read_text("utf-8"))
+        print("::error::" + runtime.get("message", "Skan nie zakończył się poprawnie."))
+        raise SystemExit(1)
+        CHECK
