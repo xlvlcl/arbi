@@ -1,37 +1,817 @@
 {
-  "generated_at": 0,
-  "last_scan": 0,
-  "latest": [],
-  "stats": {
-    "events": 0,
-    "detail_events_scanned": 0,
-    "detail_events_total": 0,
-    "markets": 0,
-    "markets_scanned": 0,
-    "exhaustive_complete": false,
-    "candidates": 0,
-    "surebets": 0,
-    "alerts_sent": 0,
-    "elapsed_seconds": 0,
-    "scanner": "playwright-all-event-markets-v11"
-  },
-  "errors": [],
-  "source": "DobryBuk public comparison",
-  "market_scan_note": "Oczekiwanie na pierwszy skan v11.",
-  "data_fresh": false,
-  "data_status": "error",
+  "generated_at": 1791405006.4159815,
+  "last_scan": 1791405006.4159815,
+  "last_attempt": 1791405006.829009,
+  "data_fresh": true,
+  "data_status": "fresh",
+  "latest": [
+    {
+      "event": "Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
+      "sport": "Koszykówka",
+      "market": "Winner",
+      "profit_pct": 6874.0,
+      "bankroll": 50.0,
+      "guaranteed_payout": 3487.0,
+      "guaranteed_profit": 3437.0,
+      "legs": [
+        {
+          "selection": "1",
+          "bookmaker": "TotalBet",
+          "odds": 158.5,
+          "stake": 25.0,
+          "payout": 3487.0,
+          "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "source_name": "",
+          "link_exact": false,
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "TotalBet",
+          "odds": 158.5,
+          "stake": 25.0,
+          "payout": 3487.0,
+          "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "source_name": "",
+          "link_exact": false,
+          "alternatives": []
+        }
+      ],
+      "detected_at": 1791405005.9107518,
+      "source": "Multi-source odds monitor",
+      "confidence": "strict",
+      "event_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events"
+    },
+    {
+      "event": "C69D01A3 3133 4563 8C2D 9B3F40Dc104A",
+      "sport": "Inne",
+      "market": "Winner",
+      "profit_pct": 6874.0,
+      "bankroll": 50.0,
+      "guaranteed_payout": 3487.0,
+      "guaranteed_profit": 3437.0,
+      "legs": [
+        {
+          "selection": "1",
+          "bookmaker": "TotalBet",
+          "odds": 158.5,
+          "stake": 25.0,
+          "payout": 3487.0,
+          "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "source_name": "",
+          "link_exact": false,
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "TotalBet",
+          "odds": 158.5,
+          "stake": 25.0,
+          "payout": 3487.0,
+          "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "source_name": "",
+          "link_exact": false,
+          "alternatives": []
+        }
+      ],
+      "detected_at": 1791405005.9108922,
+      "source": "Multi-source odds monitor",
+      "confidence": "strict",
+      "event_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a"
+    }
+  ],
   "valuebets": [],
   "near_arbs": [],
-  "runtime": {
-    "version": 28,
-    "state": "error",
-    "message": "Skaner zakończył się błędem (kod 1). Sprawdź log skanera w Actions.",
-    "attempt_started_at": 1791404466.7469065,
-    "attempt_finished_at": 1791404557.3890786,
-    "duration_seconds": 90.64,
-    "last_success_at": 0,
-    "scanner_exit_code": 1,
-    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37681224306"
+  "scan_preview": [
+    {
+      "event": "Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
+      "sport": "Koszykówka",
+      "market": "Winner",
+      "event_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "TotalBet",
+          "odds": 159.5,
+          "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "exact_bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "bookmaker_link_exact": true,
+          "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "source_name": "TotalBet direct",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "TotalBet",
+          "odds": 159.5,
+          "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "exact_bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "bookmaker_link_exact": true,
+          "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+          "source_name": "TotalBet direct",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "TotalBet direct"
+      ]
+    },
+    {
+      "event": "C69D01A3 3133 4563 8C2D 9B3F40Dc104A",
+      "sport": "",
+      "market": "Winner",
+      "event_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+      "best": [
+        {
+          "selection": "1",
+          "bookmaker": "TotalBet",
+          "odds": 159.5,
+          "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "exact_bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "bookmaker_link_exact": true,
+          "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "source_name": "TotalBet direct",
+          "alternatives": []
+        },
+        {
+          "selection": "2",
+          "bookmaker": "TotalBet",
+          "odds": 159.5,
+          "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "exact_bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "bookmaker_link_exact": true,
+          "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+          "source_name": "TotalBet direct",
+          "alternatives": []
+        }
+      ],
+      "sources": [
+        "TotalBet direct"
+      ]
+    }
+  ],
+  "coupon_catalog": [
+    {
+      "id": "9d687f9837fa5d",
+      "event": "Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
+      "sport": "Koszykówka",
+      "market": "Winner",
+      "event_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+      "sources": [
+        "TotalBet direct"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 159.5,
+          "best_bookmaker": "TotalBet",
+          "offers": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 159.5,
+              "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+              "exact_bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+              "bookmaker_link_exact": true,
+              "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+              "source_name": "TotalBet direct"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 159.5,
+          "best_bookmaker": "TotalBet",
+          "offers": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 159.5,
+              "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+              "exact_bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+              "bookmaker_link_exact": true,
+              "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
+              "source_name": "TotalBet direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d095e6d9d91435",
+      "event": "C69D01A3 3133 4563 8C2D 9B3F40Dc104A",
+      "sport": "",
+      "market": "Winner",
+      "event_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+      "sources": [
+        "TotalBet direct"
+      ],
+      "selections": [
+        {
+          "selection": "1",
+          "best_odds": 159.5,
+          "best_bookmaker": "TotalBet",
+          "offers": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 159.5,
+              "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+              "exact_bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+              "bookmaker_link_exact": true,
+              "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+              "source_name": "TotalBet direct"
+            }
+          ]
+        },
+        {
+          "selection": "2",
+          "best_odds": 159.5,
+          "best_bookmaker": "TotalBet",
+          "offers": [
+            {
+              "bookmaker": "TotalBet",
+              "odds": 159.5,
+              "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+              "exact_bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+              "bookmaker_link_exact": true,
+              "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
+              "source_name": "TotalBet direct"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "events": 0,
+    "sports_scanned": 28,
+    "sports": [
+      "Piłka nożna",
+      "Tenis",
+      "Koszykówka",
+      "Siatkówka",
+      "Hokej",
+      "Piłka ręczna",
+      "MMA",
+      "Boks",
+      "Dart",
+      "Żużel",
+      "Baseball",
+      "Futbol amerykański",
+      "Tenis stołowy",
+      "Snooker",
+      "Rugby",
+      "Futsal",
+      "Badminton",
+      "Golf",
+      "Kolarstwo",
+      "Formuła 1",
+      "Motorsport",
+      "Esport",
+      "Biathlon",
+      "Narciarstwo",
+      "Skoki narciarskie",
+      "Hokej na trawie",
+      "Piłka wodna",
+      "Krykiet"
+    ],
+    "detail_events_scanned": 0,
+    "detail_events_total": 0,
+    "markets": 2,
+    "markets_scanned": 2,
+    "markets_scanned_current": 2,
+    "active_markets_5m": 2,
+    "active_markets_30m": 2,
+    "active_events_30m": 2,
+    "dobrybuk_markets": 0,
+    "direct_markets": 3,
+    "direct_http_markets": 0,
+    "direct_browser_markets": 3,
+    "broad_candidate_markets": 0,
+    "broad_listing_pairs": 14,
+    "priority_events": 0,
+    "signal_events": 0,
+    "watch_targets": 0,
+    "watch_rows": 0,
+    "catalog_events": 0,
+    "rotation_offset": 0,
+    "near_arbs": 0,
+    "exhaustive_complete": false,
+    "candidates": 2,
+    "surebets": 2,
+    "value_candidates": 0,
+    "value_confirmed": 0,
+    "valuebets": 0,
+    "alerts_sent": 2,
+    "push_alerts_sent": 2,
+    "value_push_alerts_sent": 0,
+    "telegram_alerts_sent": 0,
+    "push_configured": true,
+    "elapsed_seconds": 111.28,
+    "scanner": "multi-source-v29-direct-fallback",
+    "scan_mode": "stable-fast+fallback",
+    "scan_sequence": 16,
+    "deep_every": 4,
+    "next_deep_in": 0,
+    "quality": {
+      "events": 2,
+      "markets": 2,
+      "selections": 4,
+      "offers": 4,
+      "bookmakers": 1,
+      "sources": 1,
+      "offers_per_market": 2.0,
+      "markets_per_event": 1.0
+    },
+    "current_quality": {
+      "events": 2,
+      "markets": 2,
+      "selections": 4,
+      "offers": 4,
+      "bookmakers": 1,
+      "sources": 1,
+      "offers_per_market": 2.0,
+      "markets_per_event": 1.0
+    },
+    "display_quality_30m": {
+      "events": 2,
+      "markets": 2,
+      "selections": 4,
+      "offers": 4,
+      "bookmakers": 1,
+      "sources": 1,
+      "offers_per_market": 2.0,
+      "markets_per_event": 1.0
+    },
+    "sources": {
+      "DobryBuk": {
+        "markets": 0,
+        "broad_candidate_markets": 0,
+        "events": 2,
+        "mode": "detail + all-date candidate sweep"
+      },
+      "LVBet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Betters": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "TotalBet": {
+        "markets": 3,
+        "http_markets": 0,
+        "browser_markets": 3,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Betclic": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "STS": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "Betfan": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "BetSport": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "LeBull": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "Fuksiarz": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Superbet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "PZBuk": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Forbet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "AdmiralBet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "ComeOn": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "ETOTO": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Fortuna": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      }
+    }
   },
-  "last_attempt": 1791404557.3890786
+  "coverage": {
+    "full_bookmaker_inventory_guaranteed": false,
+    "scope": "Kursy i zdarzenia widoczne w aktualnie skanowanym zakresie DobryBuk + konserwatywne dane bezpośrednie. To nie jest gwarancja 100% pełnej oferty każdego bukmachera.",
+    "comparison_bookmakers": 16,
+    "discovered_events": 0,
+    "detail_events_scanned": 0,
+    "detail_completion_pct": 0.0,
+    "books": {
+      "AdmiralBet": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "BetSport": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "Betclic": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "Betfan": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "Betters": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "ComeOn": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "ETOTO": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "Forbet": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "Fortuna": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "Fuksiarz": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "LVBet": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "LeBull": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "PZBuk": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "STS": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "blocked-or-failed"
+      },
+      "Superbet": {
+        "events": 0,
+        "markets": 0,
+        "offers": 0,
+        "direct_status": "reachable-no-markets"
+      },
+      "TotalBet": {
+        "events": 2,
+        "markets": 2,
+        "offers": 4,
+        "direct_status": "working"
+      }
+    }
+  },
+  "intelligence": {
+    "scan_plan": {
+      "sequence": 16,
+      "mode": "fast",
+      "deep_every": 4,
+      "next_deep_in": 0
+    },
+    "quality": {
+      "events": 2,
+      "markets": 2,
+      "selections": 4,
+      "offers": 4,
+      "bookmakers": 1,
+      "sources": 1,
+      "offers_per_market": 2.0,
+      "markets_per_event": 1.0
+    },
+    "current_quality": {
+      "events": 2,
+      "markets": 2,
+      "selections": 4,
+      "offers": 4,
+      "bookmakers": 1,
+      "sources": 1,
+      "offers_per_market": 2.0,
+      "markets_per_event": 1.0
+    },
+    "display_quality_30m": {
+      "events": 2,
+      "markets": 2,
+      "selections": 4,
+      "offers": 4,
+      "bookmakers": 1,
+      "sources": 1,
+      "offers_per_market": 2.0,
+      "markets_per_event": 1.0
+    },
+    "source_health": {
+      "DobryBuk": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "LVBet": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "Betters": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "TotalBet": {
+        "ok": true,
+        "markets": 3,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "Betclic": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "STS": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "Betfan": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "BetSport": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "LeBull": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "Fuksiarz": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "Superbet": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "PZBuk": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "Forbet": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "AdmiralBet": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "ComeOn": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      },
+      "ETOTO": {
+        "ok": true,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 1,
+        "consecutive_failures": 0,
+        "last_success": 1791405006.4162374
+      },
+      "Fortuna": {
+        "ok": false,
+        "markets": 0,
+        "last_checked": 1791405006.4162374,
+        "consecutive_success": 0,
+        "consecutive_failures": 1,
+        "last_success": 0.0
+      }
+    },
+    "watchlist_size": 0,
+    "stable_valuebets": 0,
+    "confirmed_value_candidates": 0,
+    "near_arb_limit_pct": 1.5
+  },
+  "errors": [
+    "Formuła 1: TimeoutError: ",
+    "Motorsport: TimeoutError: ",
+    "Esport: TimeoutError: ",
+    "Biathlon: TimeoutError: ",
+    "Narciarstwo: TimeoutError: ",
+    "Discovery: budżet czasu wyczerpany; pozostałe sporty wrócą w kolejnych cyklach.",
+    "Fallback tabeli: TimeoutError: ",
+    "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Direct: Fortuna: https://www.efortuna.pl/zaklady-bukmacherskie: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/zaklady-bukmacherskie'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Direct: STS: https://www.sts.pl/zaklady-bukmacherskie: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/zaklady-bukmacherskie'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Direct: Forbet: https://www.iforbet.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.iforbet.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Direct: Betters: https://betters.pl/: HTTPStatusError: Server error '520 <none>' for url 'https://www.betters.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520",
+    "Direct: LeBull: https://lebull.pl/: HTTPStatusError: Server error '520 <none>' for url 'https://www.lebull.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520",
+    "Direct: BetSport: https://betsport.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://betsport.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Direct: ComeOn: https://comeon.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.comeon.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Direct browser: Betclic: https://www.betclic.pl/: HTTP 403",
+    "Direct browser: Fortuna: https://www.efortuna.pl/zaklady-bukmacherskie: HTTP 403",
+    "Direct browser: STS: https://www.sts.pl/zaklady-bukmacherskie: HTTP 403",
+    "Direct browser: Forbet: https://www.iforbet.pl/: HTTP 403",
+    "Direct browser: Betters: https://betters.pl/: HTTP 520",
+    "Direct browser: LeBull: https://lebull.pl/: HTTP 520",
+    "Direct browser: BetSport: https://betsport.pl/: HTTP 403",
+    "Direct browser: ComeOn: https://comeon.pl/: HTTP 403",
+    "Potwierdzenie: Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej / Winner: nie znaleziono rynku przy potwierdzeniu",
+    "Potwierdzenie: C69D01A3 3133 4563 8C2D 9B3F40Dc104A / Winner: nie znaleziono rynku przy potwierdzeniu",
+    "Potwierdzenie direct HTTP: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Potwierdzenie direct HTTP: Fortuna: https://www.efortuna.pl/zaklady-bukmacherskie: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/zaklady-bukmacherskie'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Potwierdzenie direct HTTP: STS: https://www.sts.pl/zaklady-bukmacherskie: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.sts.pl/zaklady-bukmacherskie'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Potwierdzenie direct HTTP: Forbet: https://www.iforbet.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.iforbet.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Potwierdzenie direct HTTP: Betters: https://betters.pl/: HTTPStatusError: Server error '520 <none>' for url 'https://www.betters.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520",
+    "Potwierdzenie direct HTTP: LeBull: https://lebull.pl/: HTTPStatusError: Server error '520 <none>' for url 'https://www.lebull.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520",
+    "Potwierdzenie direct HTTP: BetSport: https://betsport.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://betsport.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Potwierdzenie direct HTTP: ComeOn: https://comeon.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.comeon.com/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "Potwierdzenie direct browser: Betclic: https://www.betclic.pl/: HTTP 403",
+    "Potwierdzenie direct browser: Fortuna: https://www.efortuna.pl/zaklady-bukmacherskie: HTTP 403",
+    "Potwierdzenie direct browser: STS: https://www.sts.pl/zaklady-bukmacherskie: HTTP 403",
+    "Potwierdzenie direct browser: Forbet: https://www.iforbet.pl/: HTTP 403",
+    "Potwierdzenie direct browser: Betters: https://betters.pl/: HTTP 520",
+    "Potwierdzenie direct browser: LeBull: https://lebull.pl/: HTTP 520",
+    "Potwierdzenie direct browser: BetSport: https://betsport.pl/: HTTP 403",
+    "Potwierdzenie direct browser: ComeOn: https://comeon.pl/: HTTP 403",
+    "OneSignal odpowiedź: ['All included players are not subscribed']",
+    "OneSignal odpowiedź: ['All included players are not subscribed']"
+  ],
+  "source": "multi-source: comparison + direct public bookmaker pages",
+  "coupon_catalog_info": {
+    "items": 2,
+    "mode": "bookmaker-first"
+  },
+  "market_scan_note": "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, a co kilka cykli wykonywany jest pełny deep scan. Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej 5 innych kompletnych bukmacherów, edge >= 5.0% po uwzględnieniu współczynnika wypłaty oraz niskiej rozbieżności konsensusu. Pokrycie nie oznacza 100% pełnej oferty każdego bukmachera.",
+  "runtime": {
+    "version": 29,
+    "state": "ok",
+    "message": "Nowy skan zakończony.",
+    "attempt_started_at": 1791404894.5501072,
+    "attempt_finished_at": 1791405006.829009,
+    "duration_seconds": 112.28,
+    "last_success_at": 1791405006.4159815,
+    "scanner_exit_code": 0,
+    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37682077579"
+  }
 }

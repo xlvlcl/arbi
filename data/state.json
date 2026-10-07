@@ -1,7 +1,157 @@
 {
-  "sent": {},
-  "scan_seq": 15,
+  "sent": {
+    "koszykówka|koszykówka islandia 1. liga (k) przerwa + 27 zakł. fjolnir reykjavik umf tindastoll (k) 15 35 10 30 14 17 39 82 suma punktów (wł. z ew. dogrywką) poniżej|winner|1@totalbet|2@totalbet": {
+      "alerted_at": 1791405005.9111755,
+      "last_seen": 1791405005.9111755,
+      "alert_profit": 6874.0,
+      "last_profit": 6874.0
+    },
+    "inne|c69d01a3 3133 4563 8c2d 9b3f40dc104a|winner|1@totalbet|2@totalbet": {
+      "alerted_at": 1791405006.1792917,
+      "last_seen": 1791405006.1792917,
+      "alert_profit": 6874.0,
+      "last_profit": 6874.0
+    }
+  },
+  "scan_seq": 16,
   "watchlist": {},
   "value_memory": {},
-  "source_health": {}
+  "source_health": {
+    "DobryBuk": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "LVBet": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "Betters": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "TotalBet": {
+      "ok": true,
+      "markets": 3,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "Betclic": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "STS": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "Betfan": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "BetSport": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "LeBull": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "Fuksiarz": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "Superbet": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "PZBuk": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "Forbet": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "AdmiralBet": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "ComeOn": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "ETOTO": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791405006.4162374
+    },
+    "Fortuna": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791405006.4162374,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    }
+  }
 }
