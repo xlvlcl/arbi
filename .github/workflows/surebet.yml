@@ -1,6 +1,6 @@
-# v30: zewnętrzny trigger wywołuje repository_dispatch; watchdog jest awaryjnym fallbackiem.
+# v31: zewnętrzny trigger wywołuje repository_dispatch; watchdog jest awaryjnym fallbackiem.
 name: Surebet Scanner
-run-name: Arbi v30 — ${{ github.event_name }} — ${{ github.run_number }}
+run-name: Arbi v31 — ${{ github.event_name }} — ${{ github.run_number }}
 'on':
   workflow_dispatch: null
   repository_dispatch:
@@ -11,16 +11,24 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: arbi-runtime-v30-${{ github.ref }}
+  group: arbi-runtime-v31-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   scan_publish:
-    name: Skan, status i publikacja — v30
+    name: Skan, status i publikacja — v31
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      # v31: documented feeds. Configure either one or both in GitHub Secrets.
+      ARBISCAN_API_KEY: ${{ secrets.ARBISCAN_API_KEY }}
+      ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+      EXTERNAL_FEEDS_TIMEOUT: '18'
+      # 1 page = up to 500 ArbiScan events and about 720 requests/day at a 2-minute cadence.
+      ARBISCAN_MAX_PAGES: '1'
+      ODDS_API_IO_MAX_EVENTS: '80'
+      ODDS_API_IO_SPORTS: 'football,basketball,tennis,ice-hockey,volleyball,handball'
       BANKROLL_PLN: '50'
       MIN_PROFIT_PCT: '0.35'
       DEDUPE_MINUTES: '120'
@@ -119,8 +127,8 @@ jobs:
         p = Path("docs/data/latest.json")
         data = json.loads(p.read_text("utf-8"))
         runtime = data.get("runtime", {})
-        if runtime.get("version") != 30 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
-            raise SystemExit("Brak nowego statusu skanowania v30.")
+        if runtime.get("version") != 31 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
+            raise SystemExit("Brak nowego statusu skanowania v31.")
         print("Stan skanera:", runtime.get("state"))
         print("Komunikat:", runtime.get("message"))
         print("Ostatni udany skan:", data.get("last_scan"))
@@ -178,15 +186,27 @@ jobs:
         SAVE_RESULT: ${{ steps.save.outcome }}
       run: |-
         python - <<'SUMMARY'
-        import os
+        import json, os
         from pathlib import Path
         rows = [
             ("Skaner", "SCAN_RESULT"),
             ("Nowy wynik JSON", "VALIDATION_RESULT"),
             ("Zapis danych i alertów", "SAVE_RESULT"),
         ]
-        lines = ["## Arbi v30", "", "| Etap | Wynik |", "| --- | --- |"]
+        lines = ["## Arbi v31", "", "| Etap | Wynik |", "| --- | --- |"]
         lines += [f"| {label} | {os.getenv(key) or 'nie uruchomiono'} |" for label, key in rows]
+        try:
+            data = json.loads(Path("docs/data/latest.json").read_text("utf-8"))
+            sources = ((data.get("stats") or {}).get("sources") or {})
+            lines += ["", "### Feed kursów", "", "| Źródło | Klucz | Rynki | Stan |", "| --- | --- | ---: | --- |"]
+            for name in ("ArbiScan API", "Odds-API.io"):
+                info = sources.get(name, {})
+                configured = "TAK" if info.get("configured") else "NIE"
+                markets = int(info.get("markets", 0) or 0)
+                ok = "OK" if info.get("ok") else ("brak danych" if info.get("configured") else "brak klucza")
+                lines.append(f"| {name} | {configured} | {markets} | {ok} |")
+        except Exception as exc:
+            lines += ["", f"Nie udało się odczytać diagnostyki feedu: {type(exc).__name__}"]
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
         if os.getenv("SCAN_RESULT") != "success" or os.getenv("VALIDATION_RESULT") != "success":
