@@ -735,7 +735,7 @@ async def scan_once() -> dict:
             market_cache.update(merged_rows)
             market_cache.prune(keep_seconds=6 * 3600)
             analysis_rows = market_cache.snapshot(settings.max_quote_age_seconds)
-            display_rows = market_cache.snapshot(30 * 60)
+            display_rows = market_cache.snapshot(2 * 3600)
         except Exception as exc:
             errors.append(f"Market cache fallback: {type(exc).__name__}: {exc}")
             analysis_rows = merged_rows
@@ -789,14 +789,20 @@ async def scan_once() -> dict:
             if settings.value_bets_enabled
             else []
         )
+        # Radar uses the longer display cache so it does not collapse to zero when a
+        # single fast cycle sees only a small slice of the catalogue. Older entries and
+        # one-book markets are labelled explicitly by detect_near_arbs and are never
+        # promoted to confirmed surebets.
+        radar_rows = display_rows or analysis_rows
         near_arbs = detect_near_arbs(
-            analysis_rows,
+            radar_rows,
             payout_factors(),
             max_gap_pct=settings.near_arb_gap_pct,
-            fallback_gap_pct=max(15.0, settings.near_arb_gap_pct),
+            fallback_gap_pct=max(35.0, settings.near_arb_gap_pct),
             min_results=24,
-            max_age_seconds=settings.max_quote_age_seconds,
-        ) if analysis_rows else []
+            max_age_seconds=2 * 3600,
+            fresh_age_seconds=settings.max_quote_age_seconds,
+        ) if radar_rows else []
 
         confirmed = []
         confirmed_values = []
@@ -1070,8 +1076,8 @@ async def scan_once() -> dict:
                 "markets_scanned": len(merged_rows),
                 "markets_scanned_current": len(merged_rows),
                 "active_markets_5m": len(analysis_rows),
-                "active_markets_30m": len(display_rows),
-                "active_events_30m": display_quality.get("events", 0),
+                "active_markets_2h": len(display_rows),
+                "active_events_2h": display_quality.get("events", 0),
                 "dobrybuk_markets": len(dobrybuk_rows),
                 "direct_markets": len(all_direct_rows),
                 "direct_http_markets": len(direct_rows),
@@ -1097,14 +1103,14 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v29-direct-fallback",
+                "scanner": "multi-source-v30-sane-arbs-radar",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],
                 "next_deep_in": plan["next_deep_in"],
                 "quality": quality,
                 "current_quality": current_quality,
-                "display_quality_30m": display_quality,
+                "display_quality_2h": display_quality,
                 "sources": sources,
             },
             "coverage": coverage,
@@ -1112,7 +1118,7 @@ async def scan_once() -> dict:
                 "scan_plan": plan,
                 "quality": quality,
                 "current_quality": current_quality,
-                "display_quality_30m": display_quality,
+                "display_quality_2h": display_quality,
                 "source_health": source_health,
                 "watchlist_size": len(state.watchlist),
                 "stable_valuebets": len(stable_values),
@@ -1127,7 +1133,7 @@ async def scan_once() -> dict:
             },
             "market_scan_note": (
                 "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, "
-                "a co kilka cykli wykonywany jest pełny deep scan. "
+                "a katalog/radar korzysta z rolling cache do 2 godzin (starsze pozycje są oznaczone). "
                 "Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków "
                 "bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej "
                 f"{settings.value_min_reference_books} innych kompletnych bukmacherów, "

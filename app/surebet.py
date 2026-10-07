@@ -11,6 +11,21 @@ def normalize_name(value: str) -> str:
     return value.replace("–", "-").replace("—", "-").replace("↑", "").replace("↓", "").strip()
 
 
+def _book_family(value: str) -> str:
+    key = re.sub(r"[^a-z0-9]+", "", normalize_name(value))
+    aliases = {
+        "efortuna": "fortuna",
+        "totalbet": "totalbet",
+        "totalbetpl": "totalbet",
+        "etoto": "etoto",
+        "betsport": "betsport",
+    }
+    return aliases.get(key, key)
+
+
+MAX_REASONABLE_SUREBET_PROFIT_PCT = 40.0
+
+
 def effective_odds(quote: Quote, payout_factor: float) -> float:
     return quote.odds * payout_factor
 
@@ -389,13 +404,41 @@ def detect(
         if any(selection not in best for selection in group):
             continue
         chosen = [best[selection] for selection in group]
-        result = allocation(chosen, bankroll, factors, alternatives)
-        if not result:
-            continue
+        # A normal cross-book arbitrage must use at least two independent bookmakers.
+        # If the raw best prices all happen to come from one book, try the next-best quote
+        # on one leg before rejecting the market. This blocks same-page parser glitches while
+        # still keeping legitimate cross-book opportunities that need the #2 price on a leg.
+        if len({_book_family(q.bookmaker) for q in chosen if q.bookmaker}) < 2:
+            rescue = None
+            rescue_profit = float("-inf")
+            for idx, selection in enumerate(group):
+                for alt in alternatives.get(selection, [])[1:7]:
+                    candidate = list(chosen)
+                    candidate[idx] = alt
+                    if len({_book_family(q.bookmaker) for q in candidate if q.bookmaker}) < 2:
+                        continue
+                    test = allocation(candidate, bankroll, factors, alternatives)
+                    if not test:
+                        continue
+                    _, _, test_profit, _ = test
+                    if test_profit > rescue_profit:
+                        rescue_profit = test_profit
+                        rescue = (candidate, test)
+            if rescue is None:
+                continue
+            chosen, result = rescue
+        else:
+            result = allocation(chosen, bankroll, factors, alternatives)
+            if not result:
+                continue
 
         _, payout, profit, legs = result
         profit_pct = profit / bankroll * 100 if bankroll else 0.0
         if profit_pct + 1e-9 < min_profit_pct:
+            continue
+        # Extremely large "arbitrages" are overwhelmingly DOM/parser mistakes. Keep a
+        # generous ceiling so real single-digit opportunities are unaffected.
+        if profit_pct > MAX_REASONABLE_SUREBET_PROFIT_PCT:
             continue
 
         event_url = chosen[0].source_url if chosen else ""

@@ -52,3 +52,23 @@ def test_rotation_changes_catalog_order():
     assert off1 == 0
     assert off2 == 3
     assert first[0]["event"] != second[0]["event"]
+
+
+def test_radar_can_show_single_book_complete_market_as_monitor_only():
+    market = {
+        "event": "A - B",
+        "sport": "Tenis",
+        "market": "Winner",
+        "event_url": "https://example.test/e",
+        "quotes": {
+            "1": [q("1", 1.90, "Betclic")],
+            "2": [q("2", 1.90, "Betclic")],
+        },
+        "source_names": ["Betclic direct"],
+    }
+    rows = detect_near_arbs(
+        [market], {"Betclic": 1.0}, fallback_gap_pct=35.0, min_results=24,
+    )
+    assert rows
+    assert rows[0]["radar_tier"] == "market"
+    assert rows[0]["bookmakers"] == 1

@@ -82,3 +82,26 @@ def test_cloudflare_block_page_is_ignored():
     html = '<html><title>Attention Required! | Cloudflare</title><body>Sorry, you have been blocked</body></html>'
     src = DirectSource("Betclic", ("https://www.betclic.pl/",), "https://www.betclic.pl/")
     assert parse_direct_listing(html, src) == []
+
+
+def test_direct_parser_rejects_ui_numbers_that_look_like_huge_odds():
+    html = '''
+    <div class="event-card">
+      <a href="/koszykowka/islandia/fjolnir-reykjavik-umf-tindastoll-m123456789">
+        Fjolnir Reykjavik UMF Tindastoll Przerwa + 27 zakł. Suma punktów poniżej
+      </a>
+      <button>158.50</button><button>158.50</button>
+    </div>
+    '''
+    src = DirectSource("TotalBet", ("https://totalbet.pl/",), "https://totalbet.pl/")
+    assert parse_direct_listing(html, src) == []
+
+
+def test_direct_parser_rejects_polluted_event_name_from_generic_link():
+    html = '''
+    <div>
+      <a href="/sport/oferta">Przerwa + 27 zakł. Najlepszy kurs Suma punktów 2.10 2.10</a>
+    </div>
+    '''
+    src = DirectSource("TotalBet", ("https://totalbet.pl/",), "https://totalbet.pl/")
+    assert parse_direct_listing(html, src) == []

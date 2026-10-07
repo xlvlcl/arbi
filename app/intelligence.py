@@ -38,22 +38,26 @@ def detect_near_arbs(
     payout_factors: dict[str, float],
     *,
     max_gap_pct: float = 1.50,
-    fallback_gap_pct: float = 15.0,
+    fallback_gap_pct: float = 35.0,
     min_results: int = 24,
-    max_age_seconds: int = 300,
+    max_age_seconds: int = 7200,
+    fresh_age_seconds: int = 300,
 ) -> list[dict]:
-    """Return strict near-arbs plus nearest complete markets as a WATCH tier."""
+    """Return useful radar candidates, including clearly-labelled older/one-book markets.
+
+    `near` is reserved for fresh complete markets close to the arb boundary and visible at
+    multiple bookmakers. `watch` is a wider fresh band. `history` is a complete market from
+    the rolling cache, and `market` means only one bookmaker is currently visible. The last
+    two tiers are monitoring aids only; the UI never presents them as ready surebets.
+    """
     candidates: list[dict] = []
+    now = time.time()
 
     for market in markets:
-        quotes = _fresh_best(market.get("quotes") or {}, max_age_seconds)
-        if len(quotes) < 2:
-            continue
-
         groups = outcome_groups(
             str(market.get("sport", "")),
             str(market.get("market", "")),
-            list(quotes),
+            list((market.get("quotes") or {}).keys()),
         )
         if not groups:
             continue
@@ -61,8 +65,10 @@ def detect_near_arbs(
         for group in groups:
             legs = []
             inv_sum = 0.0
-            books = set()
+            selected_books = set()
+            available_books = set()
             complete = True
+            observed_times: list[float] = []
 
             for selection in group:
                 choices = []
@@ -72,19 +78,23 @@ def detect_near_arbs(
                     observed = float(q.get("observed_at", market.get("observed_at", 0)) or 0)
                     if not book or odds <= 1.0:
                         continue
-                    if observed and time.time() - observed > max_age_seconds:
+                    age = now - observed if observed else 0
+                    if observed and age > max_age_seconds:
                         continue
                     effective = odds * _factor(book, payout_factors)
                     if effective > 1.0:
-                        choices.append((effective, q))
+                        choices.append((effective, q, observed))
+                        available_books.add(book)
 
                 if not choices:
                     complete = False
                     break
 
-                effective, best = max(choices, key=lambda x: x[0])
+                effective, best, observed = max(choices, key=lambda x: x[0])
                 inv_sum += 1.0 / effective
-                books.add(str(best.get("bookmaker", "")))
+                selected_books.add(str(best.get("bookmaker", "")))
+                if observed:
+                    observed_times.append(observed)
                 legs.append(
                     {
                         "selection": str(selection),
@@ -94,10 +104,12 @@ def detect_near_arbs(
                         "bookmaker_url": best.get("bookmaker_url", "")
                         or best.get("source_url", ""),
                         "source_url": best.get("source_url", ""),
+                        "observed_at": observed,
                     }
                 )
 
             if not complete or inv_sum <= 1.0:
+                # Actual arbs belong to the surebet view, not the "almost" radar.
                 continue
 
             gap_pct = (inv_sum - 1.0) * 100.0
@@ -112,15 +124,28 @@ def detect_near_arbs(
             )
             key = hashlib.sha1(raw_key.encode("utf-8")).hexdigest()[:20]
             source_count = len(set(market.get("source_names") or []))
-            diversity = len(books)
-            tier = "near" if gap_pct <= max_gap_pct else "watch"
+            available_diversity = len(available_books)
+            selected_diversity = len(selected_books)
+            quote_age = max(0.0, now - min(observed_times)) if observed_times else 0.0
+            is_fresh = quote_age <= max(1, int(fresh_age_seconds))
+
+            if available_diversity < 2:
+                tier = "market"
+            elif not is_fresh:
+                tier = "history"
+            else:
+                tier = "near" if gap_pct <= max_gap_pct else "watch"
 
             score = max(
                 0.0,
                 (fallback_gap_pct - gap_pct) / max(fallback_gap_pct, 0.01),
             ) * 100.0
-            score += min(20.0, diversity * 2.0)
+            score += min(24.0, available_diversity * 3.0)
             score += min(10.0, source_count * 2.0)
+            if not is_fresh:
+                score *= 0.75
+            if available_diversity < 2:
+                score *= 0.65
 
             candidates.append(
                 {
@@ -132,10 +157,13 @@ def detect_near_arbs(
                     "gap_pct": round(gap_pct, 4),
                     "inverse_sum": round(inv_sum, 6),
                     "score": round(score, 2),
-                    "bookmakers": diversity,
+                    "bookmakers": available_diversity,
+                    "selected_bookmakers": selected_diversity,
                     "sources": market.get("source_names", []),
                     "legs": legs,
                     "radar_tier": tier,
+                    "fresh": is_fresh,
+                    "quote_age_seconds": round(quote_age, 1),
                 }
             )
 
@@ -145,9 +173,15 @@ def detect_near_arbs(
         if old is None or item["gap_pct"] < old["gap_pct"]:
             unique[item["key"]] = item
 
+    tier_rank = {"near": 0, "watch": 1, "history": 2, "market": 3}
     ordered = sorted(
         unique.values(),
-        key=lambda x: (x["gap_pct"], -x["bookmakers"], -x["score"]),
+        key=lambda x: (
+            tier_rank.get(x.get("radar_tier"), 9),
+            x["gap_pct"],
+            -x["bookmakers"],
+            -x["score"],
+        ),
     )
     strict = [x for x in ordered if x["radar_tier"] == "near"]
     if len(strict) >= min_results:

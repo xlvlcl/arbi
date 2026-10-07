@@ -760,3 +760,18 @@ body:before{
 .status-pill.stale{border-color:#ffb347;background:rgba(255,179,71,.10)}
 .status-pill.stale .dot{background:#ffb347}
 .stale-warning{margin:10px 0 0;border-color:rgba(255,179,71,.35)}
+
+/* v30: prominent per-leg "what exactly do I bet?" help */
+.pick-value-help{display:flex;align-items:center;gap:9px;white-space:normal;overflow:visible}
+.pick-value-help>span{min-width:0;line-height:1.35}
+.bet-help-i{
+  width:30px;height:30px;flex:0 0 30px;display:inline-grid;place-items:center;
+  border-radius:50%;border:1px solid rgba(82,226,255,.42);
+  background:linear-gradient(145deg,rgba(82,226,255,.19),rgba(104,130,255,.27),rgba(159,114,255,.20));
+  color:#f1fbff;font-family:Georgia,serif;font-size:17px;font-weight:950;font-style:italic;
+  cursor:pointer;box-shadow:0 0 0 4px rgba(82,226,255,.035),0 7px 20px rgba(0,0,0,.24);
+  transition:.16s ease;
+}
+.bet-help-i:hover,.bet-help-i:focus-visible{transform:scale(1.08);outline:none;border-color:rgba(82,226,255,.75);box-shadow:0 0 0 5px rgba(82,226,255,.07),0 8px 24px rgba(0,0,0,.28)}
+.info-modal-body{white-space:pre-line}
+@media(max-width:720px){.bet-help-i{width:34px;height:34px;flex-basis:34px;font-size:18px}}

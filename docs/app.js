@@ -23,7 +23,7 @@ const DATA_ENDPOINTS=[
   "https://raw.githubusercontent.com/xlvlcl/arbi/main/docs/data/latest.json"
 ];
 
-const UI_PREF_KEY="arbi_ui_prefs_v24";
+const UI_PREF_KEY="arbi_ui_prefs_v30";
 
 const INFO_COPY={
   scanner:{
@@ -50,7 +50,7 @@ const INFO_COPY={
   },
   eventMarkets:{
     title:"Zdarzenia / rynki",
-    body:"Pierwsza liczba to liczba aktywnych wydarzeń, druga to liczba aktywnych rynków widzianych w rolling cache z ostatnich 30 minut. Dzięki temu FAST/DEEP nie powoduje sztucznego spadku licznika. Surebet/value nadal używa tylko bardzo świeżych kursów.",
+    body:"Pierwsza liczba to liczba aktywnych wydarzeń, druga to liczba aktywnych rynków widzianych w rolling cache z ostatnich 2 godzin. Dzięki temu FAST/DEEP nie powoduje sztucznego spadku licznika. Surebet/value nadal używa tylko bardzo świeżych kursów.",
     example:"Jeden przebieg może sprawdzić 80 rynków, drugi 50, ale jeżeli oba zestawy są nadal aktywne, licznik może pokazać np. 120 aktywnych rynków."
   },
   lastScan:{
@@ -106,8 +106,8 @@ const INFO_COPY={
   },
   radar:{
     title:"Radar",
-    body:"Radar pokazuje kompletne rynki, które są najbliżej matematycznego arbitrażu. To watchlista, a nie gotowe surebety.",
-    note:"Pozycja w Radarze nie oznacza, że należy ją obstawić."
+    body:"Radar pokazuje kompletne rynki do obserwacji. Świeże pozycje z wielu buków mogą być blisko arbitrażu; starsze odczyty i rynki widoczne tylko u jednego buka są oznaczone osobno.",
+    note:"Pozycja w Radarze nie oznacza, że należy ją obstawić. Tylko zakładka Surebety pokazuje pozycje, które przeszły pełną walidację i recheck."
   },
   radarGap:{
     title:"Brak do arbitrażu",
@@ -281,6 +281,44 @@ function humanPick(selection,market){
   if(s==="2")return "Wygrana drugiej drużyny / zawodnika (2)";
   return s;
 }
+function eventSides(event){
+  const text=String(event||"").replace(/\s+/g," ").trim();
+  const parts=text.split(/\s+(?:-|–|—|vs\.?|v)\s+/i).map(x=>x.trim()).filter(Boolean);
+  return parts.length>=2?[parts[0],parts[1]]:[];
+}
+function specificPick(selection,market,event){
+  const s=String(selection||"").trim(), sides=eventSides(event);
+  if(s==="1"&&sides[0])return `Wygrana: ${sides[0]} (1)`;
+  if(/^x$/i.test(s))return "Remis (X)";
+  if(s==="2"&&sides[1])return `Wygrana: ${sides[1]} (2)`;
+  return humanPick(s,market);
+}
+function betHelpIcon(a,l,stake){
+  const payload={event:String(a?.event||""),market:String(a?.market||"Rynek"),selection:String(l?.selection||""),bookmaker:String(l?.bookmaker||""),odds:Number(l?.odds||0),stake:Number(stake||0)};
+  const encoded=encodeURIComponent(JSON.stringify(payload));
+  return `<button type="button" class="bet-help-i" data-bet-help="${esc(encoded)}" aria-label="Pokaż dokładnie co postawić" title="Kliknij: dokładna instrukcja co postawić">I</button>`;
+}
+function openBetHelp(encoded){
+  let x={};
+  try{x=JSON.parse(decodeURIComponent(String(encoded||"")))}catch{return}
+  const pick=specificPick(x.selection,x.market,x.event);
+  document.getElementById("infoModalTitle").textContent="Co dokładnie postawić?";
+  document.getElementById("infoModalBody").textContent=
+`1. Otwórz bukmachera: ${x.bookmaker || "wskazany bukmacher"}.
+2. Znajdź wydarzenie: ${x.event || "to wydarzenie"}.
+3. Wejdź dokładnie w rynek: ${x.market || "wskazany rynek"}.
+4. Wybierz: ${pick || x.selection}.
+5. Ustaw stawkę około ${fmt(x.stake)} zł.
+6. Sprawdź, czy kurs jest nadal około ${Number(x.odds||0).toFixed(2)}.
+
+Jeżeli nazwa rynku, linia (np. 2.5), drużyna albo kurs się nie zgadza — NIE stawiaj tej nogi i odśwież stronę.`;
+  setOptionalText("infoModalFormula","");
+  setOptionalText("infoModalExample",`Masz kliknąć dokładnie: ${pick || x.selection}. Nie wybieraj podobnie nazwanej opcji z innego rynku.`);
+  setOptionalText("infoModalNote","Najpierw otwórz i sprawdź wszystkie nogi surebeta. Kursy mogą zmienić się między skanem a kliknięciem u bukmachera.");
+  document.getElementById("infoModal").hidden=false;
+  document.body.classList.add("modal-open");
+}
+
 function exactBookUrl(v){return String(v?.exact_bookmaker_url||"").trim()}
 function comparisonUrl(v){
   const u=String(v?.event_url||v?.source_url||"").trim();
@@ -541,7 +579,7 @@ function legsHtml(a,bankroll){
     const m=meta(l.bookmaker),link=linkFor(l),exact=Boolean(l.link_exact||l.bookmaker_link_exact);
     return `<div class="leg"><div class="leg-main">
       <div class="book"><div class="book-logo">${esc(m.abbr)}</div><div class="book-info"><div class="book-name">${esc(l.bookmaker)}</div><div class="book-sub">najlepszy kurs</div></div></div>
-      <div class="pick"><div class="pick-label">Wybór ${infoIcon("selection")}</div><div class="pick-value">${esc(l.selection)}</div></div>
+      <div class="pick"><div class="pick-label">CO POSTAWIĆ ${infoIcon("selection")}</div><div class="pick-value pick-value-help"><span>${esc(specificPick(l.selection,a.market,a.event))}</span>${betHelpIcon(a,l,l.stake)}</div></div>
       <div class="odds-badge"><div class="odds-stack"><div class="odds">${Number(l.odds).toFixed(2)}</div><div class="stake">${fmt(l.stake)} zł</div></div>${exact&&link&&link!=="#"?`<a class="btn btn-small open-btn" href="${esc(link)}" target="_blank" rel="noopener">Otwórz wydarzenie ↗</a>`:""}</div>
       </div>${alternativesHtml(l)}</div>`;
   }).join("");
@@ -553,7 +591,7 @@ function card(a,bankroll){
     : `<div class="status-pill status-compact"><span class="dot"></span> potwierdzony ${infoIcon("recheck")}</div>`;
   const staleWarning=stale?`<div class="warning stale-warning">Ten surebet pochodzi z ostatniego poprawnego skanu. Źródła są teraz niedostępne — NIE traktuj tych kursów jako aktualnych.</div>`:"";
   return `<article class="arb glass ${stale?"arb-stale":""}"><div class="arb-top"><div class="arb-left"><div class="arb-line"><span class="sport-tag">${esc(a.sport)}</span><span class="profit">+${Number(a.profit_pct||0).toFixed(2)}% ${infoIcon("surebetProfit")}</span><span class="market">${esc(a.market||"Rynek")} ${infoIcon("market")}</span></div><h2 class="event">${esc(a.event)}</h2></div>${state}</div>
-  ${staleWarning}<div class="arb-body"><div class="legs">${legsHtml(a,bankroll)}</div><aside class="calc"><div class="calc-title">Budżet ${infoIcon("bankroll")}</div><div class="calc-input"><input class="budget" type="number" min="1" step="1" value="${Number(bankroll)}"><span>PLN</span></div><div class="calc-grid"><div class="calc-stat"><span>Wkład ${infoIcon("bankroll")}</span><strong>${fmt(bankroll)} zł</strong></div><div class="calc-stat"><span>Wypłata min. ${infoIcon("guaranteedPayout")}</span><strong>${fmt(s.payout)} zł</strong></div><div class="calc-stat full"><span>Zysk min. ${infoIcon("guaranteedProfit")}</span><strong class="green">+${fmt(s.profit)} zł</strong></div></div>${s.legs.map(l=>`<div class="leg-mini"><span>${esc(l.bookmaker)} · ${esc(l.selection)}</span><strong>${fmt(l.stake)} zł</strong></div>`).join("")}<div class="warning">Sprawdź kursy bezpośrednio przed postawieniem obu stron.</div></aside></div></article>`;
+  ${staleWarning}<div class="arb-body"><div class="legs">${legsHtml(a,bankroll)}</div><aside class="calc"><div class="calc-title">Budżet ${infoIcon("bankroll")}</div><div class="calc-input"><input class="budget" type="number" min="1" step="1" value="${Number(bankroll)}"><span>PLN</span></div><div class="calc-grid"><div class="calc-stat"><span>Wkład ${infoIcon("bankroll")}</span><strong>${fmt(bankroll)} zł</strong></div><div class="calc-stat"><span>Wypłata min. ${infoIcon("guaranteedPayout")}</span><strong>${fmt(s.payout)} zł</strong></div><div class="calc-stat full"><span>Zysk min. ${infoIcon("guaranteedProfit")}</span><strong class="green">+${fmt(s.profit)} zł</strong></div></div>${s.legs.map(l=>`<div class="leg-mini"><span>${esc(l.bookmaker)} · ${esc(specificPick(l.selection,a.market,a.event))}</span><strong>${fmt(l.stake)} zł</strong></div>`).join("")}<div class="warning">Sprawdź kursy bezpośrednio przed postawieniem obu stron.</div></aside></div></article>`;
 }
 function cleanPreviewEvent(value){
   return String(value||"")
@@ -671,8 +709,8 @@ function repaintSurebets(){
   const items=(data.latest||[]).filter(a=>(Number(a.profit_pct)||0)>=min&&(!sport||a.sport===sport)).sort((a,b)=>(Number(b.profit_pct)||0)-(Number(a.profit_pct)||0));
   document.getElementById("count").textContent=items.length;
   document.getElementById("best").textContent=items.length?`+${Number(items[0].profit_pct).toFixed(2)}%`:"—";
-  const ev=Number(data.stats?.active_events_30m??data.stats?.events??0);
-  const mk=Number(data.stats?.active_markets_30m??data.stats?.markets??0);
+  const ev=Number(data.stats?.active_events_2h??data.stats?.active_events_30m??data.stats?.events??0);
+  const mk=Number(data.stats?.active_markets_2h??data.stats?.active_markets_30m??data.stats?.markets??0);
   const currentMk=Number(data.stats?.markets_scanned_current??data.stats?.markets_scanned??0);
   document.getElementById("markets").textContent=`${ev} / ${mk}`;
   document.getElementById("markets").title=`Aktywne z 30 min: ${mk} rynków • ostatni przebieg: ${currentMk}`;
@@ -724,14 +762,14 @@ function radarCard(x){
   return `<article class="radar-card glass">
     <div class="radar-card-head">
       <div>
-        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">${x.radar_tier==="near"?"BLISKO ARBU":"OBSERWUJ"} · brakuje ${Number(x.gap_pct||0).toFixed(2)}% ${infoIcon("radarGap")}</span><span class="market">${esc(x.market)}</span></div>
+        <div class="arb-line"><span class="sport-tag">${esc(x.sport)}</span><span class="radar-gap">${({near:"BLISKO ARBU",watch:"OBSERWUJ",history:"STARSZY ODCZYT",market:"1 BUK — DO PORÓWNANIA"}[x.radar_tier]||"OBSERWUJ")} · ${x.radar_tier==="market"?"odstęp":"brakuje"} ${Number(x.gap_pct||0).toFixed(2)}% ${infoIcon("radarGap")}</span><span class="market">${esc(x.market)}</span></div>
         <h3>${esc(x.event)}</h3>
       </div>
       <div class="radar-seen">${Number(x.seen_scans||1)}× obserwowany ${infoIcon("watchlist")}</div>
     </div>
     <div class="radar-legs">${(x.legs||[]).map(l=>`<div class="radar-leg"><span>${esc(l.selection)}</span><b>${Number(l.odds||0).toFixed(2)}</b><small>${esc(l.bookmaker)}</small></div>`).join("")}</div>
     <div class="radar-foot">
-      <span>${Number(x.bookmakers||0)} buków • najlepszy historyczny brak ${Number(x.best_gap_pct??x.gap_pct??0).toFixed(2)}%</span>
+      <span>${Number(x.bookmakers||0)} buków • najlepszy historyczny brak ${Number(x.best_gap_pct??x.gap_pct??0).toFixed(2)}%${Number(x.quote_age_seconds||0)>300?` • odczyt ~${Math.max(1,Math.round(Number(x.quote_age_seconds)/60))} min temu`:""}</span>
       ${link&&link!=="#"?`<a class="btn btn-small" href="${esc(link)}" target="_blank" rel="noopener">Otwórz rynek ↗</a>`:""}
     </div>
   </article>`;
@@ -756,7 +794,7 @@ function renderRadar(){
     sel.value=sports.includes(prev)?prev:"";
   }
   const sport=sel?.value||"";
-  const maxGap=Number(document.getElementById("radarGap")?.value||8);
+  const maxGap=Number(document.getElementById("radarGap")?.value||30);
   let items=all.filter(x=>(!sport||x.sport===sport)&&Number(x.gap_pct||99)<=maxGap);
   const fallbackUsed=!items.length&&all.length>0;
   if(fallbackUsed){
@@ -768,7 +806,7 @@ function renderRadar(){
   document.getElementById("radarWatch").textContent=Number(data.intelligence?.watchlist_size||0);
   document.getElementById("radarBest").textContent=items.length?`${Number(items[0].gap_pct).toFixed(2)}%`:"—";
   const list=document.getElementById("radarList");
-  if(list)list.innerHTML=items.length?items.map(radarCard).join(""):`<div class="empty glass"><div class="icon">📡</div><h3>Brak rynków bardzo blisko arbitrażu</h3><p>Radar nadal je śledzi. Zwiększ próg, jeśli chcesz zobaczyć dalsze kandydaty.</p></div>`;
+  if(list)list.innerHTML=items.length?items.map(radarCard).join(""):`<div class="empty glass"><div class="icon">📡</div><h3>Brak kompletnych rynków do pokazania</h3><p>To zwykle znaczy, że źródła zwróciły za mało kursów w tym cyklu. Radar automatycznie używa też rolling cache i wróci, gdy pojawi się kompletny rynek.</p></div>`;
   const q=data.intelligence?.quality||data.stats?.quality||{};
   const quality=document.getElementById("intelQuality");
   if(quality)quality.innerHTML=`<b>${Number(q.markets||0)} rynków</b><span>${Number(q.bookmakers||0)} buków • ${Number(q.offers_per_market||0).toFixed(1)} kursów/rynek</span>`;
@@ -1225,6 +1263,12 @@ document.addEventListener("input",e=>{
 
 document.addEventListener("click",e=>{
   const target=e.target instanceof Element?e.target:null;
+  const betBtn=target?.closest("[data-bet-help]");
+  if(betBtn){
+    e.preventDefault();e.stopPropagation();e.stopImmediatePropagation?.();
+    openBetHelp(betBtn.dataset.betHelp);
+    return;
+  }
   const btn=target?.closest("[data-info]");
   if(!btn)return;
   e.preventDefault();

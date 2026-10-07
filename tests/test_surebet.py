@@ -68,3 +68,38 @@ def test_double_chance_is_rejected():
 def test_tax_can_kill_small_edge():
     qs = [q("A", "Superbet", 2.10), q("B", "STS", 2.10)]
     assert allocation(qs, 50, {"Superbet": 0.88, "STS": 0.88}) is None
+
+
+def test_same_bookmaker_false_arb_is_rejected():
+    quotes = {
+        "1": [q("1", "TotalBet", 20.0)],
+        "2": [q("2", "TotalBet", 20.0)],
+    }
+    assert detect(
+        "A-B", "Tenis", "Winner", quotes, 100,
+        {"TotalBet": 1.0}, 0, 180,
+    ) == []
+
+
+def test_absurd_cross_book_profit_is_rejected_as_parser_outlier():
+    quotes = {
+        "1": [q("1", "Betclic", 10.0)],
+        "2": [q("2", "Fortuna", 10.0)],
+    }
+    assert detect(
+        "A-B", "Tenis", "Winner", quotes, 100,
+        {"Betclic": 1.0, "Fortuna": 1.0}, 0, 180,
+    ) == []
+
+
+def test_same_book_best_prices_can_rescue_with_second_book_quote():
+    quotes = {
+        "1": [q("1", "A", 2.20), q("1", "B", 2.15)],
+        "2": [q("2", "A", 2.20), q("2", "C", 2.15)],
+    }
+    arbs = detect(
+        "A-B", "Tenis", "Winner", quotes, 100,
+        {"A": 1.0, "B": 1.0, "C": 1.0}, 0, 180,
+    )
+    assert arbs
+    assert len({leg.bookmaker for leg in arbs[0].legs}) >= 2

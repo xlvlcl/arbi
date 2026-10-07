@@ -46,6 +46,7 @@ DIRECT_SOURCES: tuple[DirectSource, ...] = (
 # Deliberately conservative. Direct parsers only emit rows that look complete enough
 # for a safe 1X2 / two-way winner interpretation. Ambiguous DOM fragments are skipped.
 DECIMAL_ODDS_RE = re.compile(r"(?<!\d)(\d{1,3}[\.,]\d{1,2})(?!\d)")
+MAX_DIRECT_ODDS = 50.0
 TIME_RE = re.compile(r"\b\d{1,2}:\d{2}\b")
 DATE_RE = re.compile(r"\b\d{1,2}[./-]\d{1,2}(?:[./-]\d{2,4})?\b")
 SCORE_RE = re.compile(r"\b\d{1,2}\s*[-:]\s*\d{1,2}\b")
@@ -114,7 +115,10 @@ def _odds(text: str) -> list[float]:
             number = float(token.replace(",", "."))
         except ValueError:
             continue
-        if 1.01 <= number <= 1000:
+        # Direct-page parsing is intentionally capped. Very large decimals on sportsbook
+        # pages are commonly balances, counters or UI numbers rather than actual prices.
+        # Long-shot markets above this limit are left to the comparison/provider parsers.
+        if 1.01 <= number <= MAX_DIRECT_ODDS:
             out.append(number)
     return out
 
@@ -200,6 +204,61 @@ def _market_from_text(text: str) -> tuple[str, list[str], list[float]] | None:
     return None
 
 
+EVENT_NOISE_MARKERS = (
+    "zakl", "zakład", "zaklady", "przerwa +", "suma punkt", "wybór", "wybor",
+    "najlepszy kurs", "pokaż więcej", "pokaz wiecej", "load more", "kupon", "saldo",
+)
+LISTING_PATH_HINTS = tuple(sorted(set(SPORT_HINTS) | {
+    "sport", "sports", "zaklady", "zaklady-bukmacherskie", "oferta", "mecze", "events"
+}))
+
+
+def _event_name_is_sane(value: str) -> bool:
+    text = clean(value)
+    low = _ascii(text)
+    if len(text) < 5 or len(text) > 150 or not any(ch.isalpha() for ch in text):
+        return False
+    noise_hits = sum(marker in low for marker in EVENT_NOISE_MARKERS)
+    # A single word such as "przerwa" may be a legitimate team name fragment, but a
+    # long UI sentence containing several sportsbook controls is not an event name.
+    if noise_hits >= 2 or (noise_hits >= 1 and len(text) > 85):
+        return False
+    return True
+
+
+def _discover_listing_links(html: str, source: DirectSource, limit: int = 3) -> list[str]:
+    """Discover a few same-domain sport/listing pages without crawling event details.
+
+    This widens public-page coverage while keeping the scan bounded. No login, CAPTCHA or
+    anti-bot bypass is attempted.
+    """
+    if source.priority > 6 or _blocked_text(html):
+        return []
+    soup = BeautifulSoup(html, "html.parser")
+    base_host = urlparse(source.base_url).netloc.lower().removeprefix("www.")
+    out: list[str] = []
+    seen: set[str] = set()
+    for a in soup.find_all("a", href=True):
+        href = urljoin(source.base_url, a.get("href", ""))
+        parsed = urlparse(href)
+        host = parsed.netloc.lower().removeprefix("www.")
+        if not href.startswith(("http://", "https://")) or host != base_host:
+            continue
+        if _eventish_href(href):
+            continue
+        path = _ascii(parsed.path).strip("/")
+        if not path or not any(hint in path for hint in LISTING_PATH_HINTS):
+            continue
+        href = href.split("#", 1)[0]
+        if href in seen or href in source.urls:
+            continue
+        seen.add(href)
+        out.append(href)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def parse_direct_listing(html: str, source: DirectSource) -> list[dict]:
     """Parse safe 1X2 / two-way markets from a public bookmaker page.
 
@@ -241,7 +300,7 @@ def parse_direct_listing(html: str, source: DirectSource) -> list[dict]:
 
         market, selections, odds_values = parsed
         event = _event_name_from_href(href, chosen_text)
-        if len(event) < 5 or not any(ch.isalpha() for ch in event):
+        if not _event_name_is_sane(event):
             continue
 
         key = (_ascii(event), market.lower(), href)
@@ -311,7 +370,15 @@ async def scan_direct_books_browser(
                 if time.monotonic() - started >= max_seconds:
                     return source, [], ["budget exhausted"], False, False
                 page = await context.new_page()
-                for url in source.urls:
+                urls = list(source.urls)
+                visited: set[str] = set()
+                i = 0
+                while i < len(urls):
+                    url = urls[i]
+                    i += 1
+                    if url in visited:
+                        continue
+                    visited.add(url)
                     if time.monotonic() - started >= max_seconds:
                         break
                     try:
@@ -338,12 +405,23 @@ async def scan_direct_books_browser(
                             except Exception:
                                 pass
 
-                        for _ in range(5):
+                        for _ in range(8):
                             try:
                                 await page.evaluate("() => window.scrollBy(0, Math.max(innerHeight*1.6,900))")
                             except Exception:
                                 pass
-                            await page.wait_for_timeout(320)
+                            await page.wait_for_timeout(250)
+
+                        # Some public lists paginate behind an ordinary "show more" control.
+                        for label in ("Pokaż więcej", "Pokaz więcej", "Więcej", "Load more", "More"):
+                            try:
+                                btn = page.get_by_role("button", name=re.compile(label, re.I))
+                                if await btn.count():
+                                    await btn.first.click(timeout=900)
+                                    await page.wait_for_timeout(350)
+                                    break
+                            except Exception:
+                                pass
 
                         html = await page.content()
                         if _blocked_text(html):
@@ -351,6 +429,9 @@ async def scan_direct_books_browser(
                             local_errors.append(f"{url}: strona zablokowała runner GitHub")
                             continue
                         rows.extend(parse_direct_listing(html, source))
+                        for extra in _discover_listing_links(html, source, limit=3):
+                            if extra not in visited and extra not in urls:
+                                urls.append(extra)
                     except Exception as exc:
                         local_errors.append(f"{url}: {type(exc).__name__}: {exc}")
         finally:
@@ -376,7 +457,7 @@ async def scan_direct_books_browser(
             "loaded": bool(loaded),
             "blocked": bool(blocked),
             "ok": bool(rows) or (loaded and not local_errors),
-            "mode": "public-browser-v29",
+            "mode": "public-browser-v30",
         }
 
     return all_rows, errors, {
@@ -451,7 +532,7 @@ async def scan_direct_books(
             "html_bytes": bytes_total,
             "blocked": bool(blocked),
             "ok": bool(rows) or (bytes_total > 0 and not source_errors),
-            "mode": "public-http-v29",
+            "mode": "public-http-v30",
         }
 
     return all_rows, errors, {"enabled": True, "sources": stats, "markets": len(all_rows)}
