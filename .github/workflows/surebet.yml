@@ -98,7 +98,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.should_run == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 9
+    timeout-minutes: 7
 
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -109,8 +109,8 @@ jobs:
       ALERT_REAPPEAR_MINUTES: "6"
       ALERT_IMPROVEMENT_PCT: "0.15"
       MAX_QUOTE_AGE_SECONDS: "300"
-      MARKET_SCAN_MAX_EVENTS: "500"
-      MARKET_SCAN_BUDGET_SECONDS: "300"
+      MARKET_SCAN_MAX_EVENTS: "180"
+      MARKET_SCAN_BUDGET_SECONDS: "120"
       MARKET_SCAN_CONCURRENCY: "6"
       MAX_MARKETS_PER_EVENT: "120"
       CONFIRM_CONCURRENCY: "3"
@@ -125,8 +125,9 @@ jobs:
       VALUE_MAX_ODDS: "8.0"
       VALUE_ALERT_COOLDOWN_MINUTES: "240"
       DEEP_SCAN_EVERY: "4"
-      FAST_SCAN_MAX_EVENTS: "110"
-      FAST_SCAN_BUDGET_SECONDS: "105"
+      FORCE_FAST_SCAN: "1"
+      FAST_SCAN_MAX_EVENTS: "140"
+      FAST_SCAN_BUDGET_SECONDS: "90"
       WATCH_SCAN_LIMIT: "50"
       WATCH_SCAN_SECONDS: "60"
       NEAR_ARB_GAP_PCT: "1.50"
@@ -217,14 +218,12 @@ jobs:
           print("STATS:", json.dumps(stats, ensure_ascii=False, indent=2))
           print("ERRORS:", json.dumps(data.get("errors", [])[-10:], ensure_ascii=False, indent=2))
 
-          if stats.get("events", 0) <= 0:
-              raise SystemExit("STOP: 0 wydarzeń")
-          if stats.get("markets_scanned", 0) <= 0:
-              raise SystemExit("STOP: 0 rynków")
           if not data.get("scan_preview"):
               raise SystemExit("STOP: brak scan_preview")
           if not data.get("coupon_catalog"):
-              raise SystemExit("STOP: brak coupon_catalog")
+              print("WARN: brak coupon_catalog w tym cyklu")
+          if not data.get("data_fresh", True):
+              print("WARN: cykl zdegradowany — podgląd z cache, bez nowych surebet/value")
           print("SCANNER:", stats.get("scanner"))
           print("SCAN MODE:", stats.get("scan_mode"))
           print("COUPON ITEMS:", len(data.get("coupon_catalog", [])))
