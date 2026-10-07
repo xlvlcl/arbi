@@ -1,7 +1,7 @@
 {
   "generated_at": 1791412732.399553,
   "last_scan": 1791405596.9912076,
-  "last_attempt": 1791412732.6999776,
+  "last_attempt": 1791412810.695344,
   "data_fresh": false,
   "data_status": "stale-last-good",
   "latest": [],
@@ -759,13 +759,13 @@
   "market_scan_note": "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, a katalog/radar korzysta z rolling cache do 2 godzin (starsze pozycje są oznaczone). Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków bez push/half-win i ponownie potwierdzane przed alertem. Value bet wymaga co najmniej 5 innych kompletnych bukmacherów, edge >= 5.0% po uwzględnieniu współczynnika wypłaty oraz niskiej rozbieżności konsensusu. Pokrycie nie oznacza 100% pełnej oferty każdego bukmachera.",
   "runtime": {
     "version": 34,
-    "state": "no_data",
-    "message": "Brak świeżych kursów z dostępnych źródeł. Ostatni poprawny wynik pozostaje widoczny jako STARY.",
-    "attempt_started_at": 1791412638.3031201,
-    "attempt_finished_at": 1791412732.6999776,
-    "duration_seconds": 94.4,
+    "state": "error",
+    "message": "Skaner zakończył się błędem (kod 1). Sprawdź log skanera w Actions.",
+    "attempt_started_at": 1791412779.19221,
+    "attempt_finished_at": 1791412810.695344,
+    "duration_seconds": 31.5,
     "last_success_at": 1791405596.9912076,
-    "scanner_exit_code": 0,
-    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37697218179"
+    "scanner_exit_code": 1,
+    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37697422809"
   }
 }
