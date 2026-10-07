@@ -1,23 +1,21 @@
-# Heartbeat wywołuje repository_dispatch co ok. 2 min; cron GitHuba jest fallbackiem co 5 min.
+# v29: zewnętrzny trigger wywołuje repository_dispatch; watchdog jest awaryjnym fallbackiem.
 name: Surebet Scanner
-run-name: Arbi v28 — ${{ github.event_name }} — ${{ github.run_number }}
+run-name: Arbi v29 — ${{ github.event_name }} — ${{ github.run_number }}
 'on':
   workflow_dispatch: null
   repository_dispatch:
     types:
     - surebet_scan
-  schedule:
-  - cron: '*/5 * * * *'
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
-  group: arbi-runtime-v28-${{ github.ref }}
+  group: arbi-runtime-v29-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   scan_publish:
-    name: Skan, status i publikacja — v28
+    name: Skan, status i publikacja — v29
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     env:
@@ -36,6 +34,9 @@ jobs:
       CONFIRM_CONCURRENCY: '3'
       DIRECT_SOURCES_TIMEOUT: '12'
       DIRECT_SOURCES_CONCURRENCY: '5'
+      DIRECT_BROWSER_SECONDS: '75'
+      DIRECT_BROWSER_CONCURRENCY: '4'
+      DIRECT_CONFIRM_BROWSER_SECONDS: '35'
       COUPON_CATALOG_LIMIT: '1600'
       VALUE_MIN_EDGE_PCT: '5.0'
       VALUE_MIN_REFERENCE_BOOKS: '5'
@@ -57,7 +58,7 @@ jobs:
       ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
       ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
       APP_PUBLIC_URL: https://xlvlcl.github.io/arbi/
-      SCAN_DEADLINE_SECONDS: '240'
+      SCAN_DEADLINE_SECONDS: '300'
       DISCOVERY_BUDGET_SECONDS: '45'
     defaults:
       run:
@@ -118,8 +119,8 @@ jobs:
         p = Path("docs/data/latest.json")
         data = json.loads(p.read_text("utf-8"))
         runtime = data.get("runtime", {})
-        if runtime.get("version") != 28 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
-            raise SystemExit("Brak nowego statusu skanowania v28.")
+        if runtime.get("version") != 29 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
+            raise SystemExit("Brak nowego statusu skanowania v29.")
         print("Stan skanera:", runtime.get("state"))
         print("Komunikat:", runtime.get("message"))
         print("Ostatni udany skan:", data.get("last_scan"))
@@ -184,7 +185,7 @@ jobs:
             ("Nowy wynik JSON", "VALIDATION_RESULT"),
             ("Zapis danych i alertów", "SAVE_RESULT"),
         ]
-        lines = ["## Arbi v28", "", "| Etap | Wynik |", "| --- | --- |"]
+        lines = ["## Arbi v29", "", "| Etap | Wynik |", "| --- | --- |"]
         lines += [f"| {label} | {os.getenv(key) or 'nie uruchomiono'} |" for label, key in rows]
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
@@ -194,15 +195,21 @@ jobs:
                 print("Ostatnie 100 linii skanera:")
                 print("\n".join(p.read_text(errors="replace").splitlines()[-100:]))
         SUMMARY
-    - name: Zgłoś błąd skanera po publikacji diagnostyki
+    - name: Oceń stan skanera po publikacji diagnostyki
       if: steps.scanner.outcome == 'success' && steps.scanner.outputs.scanner_state != 'ok'
       run: |-
         python - <<'CHECK'
         import json
         from pathlib import Path
         runtime=json.loads(Path("docs/data/status.json").read_text("utf-8"))
-        print("::error::" + runtime.get("message", "Skan nie zakończył się poprawnie."))
-        raise SystemExit(1)
+        state=runtime.get("state")
+        message=runtime.get("message", "Skan nie zakończył się poprawnie.")
+        if state == "no_data":
+            print("::warning::" + message)
+            print("Brak świeżych danych nie zatrzymuje workflow; strona zachowuje ostatni poprawny wynik oznaczony jako STARY.")
+        else:
+            print("::error::" + message)
+            raise SystemExit(1)
         CHECK
   deploy_pages:
     name: Publikacja GitHub Pages — tylko ręczne uruchomienie
