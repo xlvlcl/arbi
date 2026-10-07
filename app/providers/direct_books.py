@@ -457,7 +457,7 @@ async def scan_direct_books_browser(
             "loaded": bool(loaded),
             "blocked": bool(blocked),
             "ok": bool(rows) or (loaded and not local_errors),
-            "mode": "public-browser-v30",
+            "mode": "public-browser-v31",
         }
 
     return all_rows, errors, {
@@ -532,7 +532,7 @@ async def scan_direct_books(
             "html_bytes": bytes_total,
             "blocked": bool(blocked),
             "ok": bool(rows) or (bytes_total > 0 and not source_errors),
-            "mode": "public-http-v30",
+            "mode": "public-http-v31",
         }
 
     return all_rows, errors, {"enabled": True, "sources": stats, "markets": len(all_rows)}
