@@ -1,11 +1,11 @@
 {
   "version": 29,
-  "state": "ok",
-  "message": "Nowy skan zakończony.",
-  "attempt_started_at": 1791405487.9141867,
-  "attempt_finished_at": 1791405597.4025538,
-  "duration_seconds": 109.49,
+  "state": "no_data",
+  "message": "Brak świeżych kursów z dostępnych źródeł. Ostatni poprawny wynik pozostaje widoczny jako STARY.",
+  "attempt_started_at": 1791405636.1270497,
+  "attempt_finished_at": 1791405741.2841904,
+  "duration_seconds": 105.16,
   "last_success_at": 1791405596.9912076,
   "scanner_exit_code": 0,
-  "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37683244936"
+  "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37683782082"
 }
