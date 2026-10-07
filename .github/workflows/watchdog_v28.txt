@@ -2,7 +2,7 @@ name: Surebet Freshness Watchdog
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -37,7 +37,7 @@ jobs:
                   last_scan = float(data.get("last_scan", 0) or 0)
                   age = max(0.0, time.time() - last_scan)
                   attempt = float(data.get("last_attempt", 0) or 0)
-                  stale = time.time() - max(last_scan, attempt) > 10 * 60
+                  stale = time.time() - max(last_scan, attempt) > 6 * 60
               except Exception as exc:
                   print("latest.json:", exc)
 
