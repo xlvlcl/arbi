@@ -19,7 +19,7 @@ permissions:
 # Przy wywołaniu co ~2 min zawieszony run nie zablokuje kolejnych.
 concurrency:
   group: surebet-scanner
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   scan:
