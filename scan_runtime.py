@@ -1,6 +1,6 @@
 """Run the scanner in a bounded process and always publish an honest status.
 
-v31 keeps the last successful opportunities visible when a provider is temporarily
+v34 keeps the last successful opportunities visible when a provider is temporarily
 blocked, but explicitly marks them as stale. This prevents one Cloudflare incident from
 blanking the whole site while avoiding the dangerous impression that old odds are fresh.
 """
@@ -141,7 +141,7 @@ def run(root=ROOT, command=None, timeout=None):
         payload["data_status"] = "stale-last-good" if previous.get("last_scan") else state
 
     runtime = {
-        "version": 31,
+        "version": 34,
         "state": state,
         "message": message,
         "attempt_started_at": started,

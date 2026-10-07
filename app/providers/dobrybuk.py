@@ -70,6 +70,8 @@ BOOKS = {
     "Betsport",
     "ComeOn",
     "PZBuk",
+    "Traf",
+    "WettArena",
 }
 
 ALIASES = {
@@ -80,6 +82,9 @@ ALIASES = {
     "efortuna": "Fortuna",
     "fortuna": "Fortuna",
     "betfan": "Betfan",
+    "traf": "Traf",
+    "trafonline": "Traf",
+    "wettarena": "WettArena",
 }
 
 PCT_RE = re.compile(r"(?<!\d)\d{1,3}(?:[\.,]\d+)?\s*%")

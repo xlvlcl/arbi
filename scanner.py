@@ -14,13 +14,13 @@ from app.models import Quote
 from app.intelligence import detect_near_arbs, scan_quality
 from app.market_cache import MarketCache
 from app.providers.direct_books import scan_direct_books, scan_direct_books_browser
-from app.providers.external_feeds import scan_external_feeds, confirm_external_feeds
 from app.providers.dobrybuk import DobryBukProvider
 from app.state import State
 from app.surebet import detect
 from app.telegram import send
 from app.valuebets import detect_valuebets
 from app.onesignal_push import send_push, send_value_push
+from dobrybuk_import import parse_one as parse_dobrybuk_snapshot
 
 DOCS_DATA = ROOT / "docs" / "data"
 ALERT_STATE = ROOT / "data" / "state.json"
@@ -48,6 +48,8 @@ DEFAULT_FACTORS = {
     "Betsport": 0.88,
     "ComeOn": 0.88,
     "PZBuk": 0.88,
+    "Traf": 0.88,
+    "WettArena": 0.88,
 }
 
 
@@ -90,7 +92,7 @@ def event_to_quotes(event: dict) -> dict[str, list[Quote]]:
                     source_url=item.get("source_url", event.get("event_url", "")),
                     bookmaker_url=item.get("bookmaker_url", ""),
                     source_name=item.get("source_name", ""),
-                    link_exact=bool(item.get("link_exact")) or bool(
+                    link_exact=bool(
                         item.get("bookmaker_url")
                         and "direct" in str(item.get("source_name", "")).lower()
                     ),
@@ -153,8 +155,7 @@ def dedupe_surebets(items):
 def _public_offer(item: dict) -> dict:
     source_name = str(item.get("source_name", "DobryBuk"))
     bookmaker_url = item.get("bookmaker_url", "") or ""
-    link_exact = bool(item.get("link_exact")) or bool(bookmaker_url and "direct" in source_name.lower())
-    exact_url = bookmaker_url if bookmaker_url and link_exact else ""
+    exact_url = bookmaker_url if bookmaker_url and "direct" in source_name.lower() else ""
     return {
         "bookmaker": str(item.get("bookmaker", "")),
         "odds": round(_safe_float(item.get("odds", 0), 0.0), 3),
@@ -379,7 +380,7 @@ def _rotate_event_catalog(
 KNOWN_COMPARISON_BOOKS = [
     "Superbet", "STS", "Fortuna", "Betclic", "Forbet", "LVBet", "ETOTO",
     "Betfan", "Fuksiarz", "TotalBet", "Betters", "LeBull", "AdmiralBet",
-    "BetSport", "ComeOn", "PZBuk",
+    "BetSport", "ComeOn", "PZBuk", "Traf", "WettArena",
 ]
 
 
@@ -410,26 +411,6 @@ def find_confirmation_targets_from_values(values: list[dict], dobrybuk_rows: lis
             }
         )
     return targets
-
-
-def _book_stats_from_rows(rows: list[dict]) -> dict[str, dict]:
-    """Summarize API feed rows per bookmaker for health/coverage UI."""
-    per_book: dict[str, dict] = {}
-    seen_markets: dict[str, set[str]] = {}
-    for row in rows or []:
-        ekey = event_key(str(row.get("event", "")))
-        mkey = market_key(str(row.get("market", "")))
-        for quotes in (row.get("quotes") or {}).values():
-            for q in quotes or []:
-                book = str(q.get("bookmaker", "") or "").strip()
-                if not book:
-                    continue
-                info = per_book.setdefault(book, {"markets": 0, "offers": 0, "ok": True, "mode": "documented-api"})
-                info["offers"] += 1
-                seen_markets.setdefault(book, set()).add(f"{ekey}|{mkey}")
-    for book, keys in seen_markets.items():
-        per_book[book]["markets"] = len(keys)
-    return per_book
 
 
 def build_coverage(markets: list[dict], direct_stats: dict, discovered_events: int, scanned_events: int) -> dict:
@@ -500,16 +481,39 @@ def build_coverage(markets: list[dict], direct_stats: dict, discovered_events: i
     return {
         "full_bookmaker_inventory_guaranteed": False,
         "scope": (
-            "Kursy i zdarzenia widoczne w aktualnie skanowanym zakresie DobryBuk "
-            "+ konserwatywne dane bezpośrednie. To nie jest gwarancja 100% pełnej "
-            "oferty każdego bukmachera."
+            "DobryBuk + zwykłe publiczne strony wszystkich domen z aktualnego wykazu MF "
+            "(18 domen / 17 podmiotów) + opcjonalne ręczne snapshoty DobryBuk. "
+            "Bez omijania CAPTCHA/Cloudflare; część stron może czasowo zwracać 0 rynków."
         ),
-        "comparison_bookmakers": 16,
+        "comparison_bookmakers": 18,
+        "licensed_entities": 17,
         "discovered_events": int(discovered_events),
         "detail_events_scanned": int(scanned_events),
         "detail_completion_pct": completion,
         "books": result,
     }
+
+
+def load_manual_dobrybuk_snapshots() -> tuple[list[dict], list[str]]:
+    """Read user-saved DobryBuk HTML files from imports/ as a legal fallback.
+
+    No network access happens here; files are parsed only if the user placed them in the repo.
+    """
+    folder = ROOT / "imports"
+    if not folder.exists():
+        return [], []
+    rows: list[dict] = []
+    errors: list[str] = []
+    for path in sorted([*folder.glob("*.html"), *folder.glob("*.htm")]):
+        try:
+            parsed, errs = parse_dobrybuk_snapshot(
+                path, sport=None, market="1X2", source_url="https://dobrybuk.pl/kursy"
+            )
+            rows.extend(parsed)
+            errors.extend([f"Manual {path.name}: {x}" for x in errs])
+        except Exception as exc:
+            errors.append(f"Manual {path.name}: {type(exc).__name__}: {exc}")
+    return rows, errors
 
 
 async def scan_once() -> dict:
@@ -545,17 +549,12 @@ async def scan_once() -> dict:
             concurrency=int(getattr(settings, "direct_sources_concurrency", 5)),
         )
     )
-    # v31: documented server-side feeds are the reliable path when public bookmaker
-    # pages or the comparison site block GitHub runners. They run in parallel so they
-    # do not make the old browser fallbacks slower.
-    external_task = asyncio.create_task(scan_external_feeds())
 
     print("ETAP: start przeglądarki", flush=True)
     try:
         await asyncio.wait_for(provider.start(), timeout=30)
     except BaseException:
         direct_task.cancel()
-        external_task.cancel()
         try:
             await asyncio.wait_for(provider.stop(), timeout=8)
         except Exception:
@@ -741,17 +740,13 @@ async def scan_once() -> dict:
             except Exception as exc:
                 errors.append(f"Direct browser: {type(exc).__name__}: {exc}")
 
-        try:
-            external_rows, external_errors, external_stats = await external_task
-        except Exception as exc:
-            external_rows, external_errors, external_stats = [], [f"external: {exc}"], {
-                "enabled": False, "configured_count": 0, "markets": 0, "providers": {}
-            }
-        errors.extend([f"API feed: {x}" for x in external_errors])
-
         all_direct_rows = direct_rows + browser_direct_rows
+        manual_rows, manual_errors = load_manual_dobrybuk_snapshots()
+        errors.extend(manual_errors)
+        if manual_rows:
+            scan_mode += "+manual-dobrybuk"
         merged_rows = merge_markets(
-            watch_rows + dobrybuk_rows + broad_rows + all_direct_rows + external_rows
+            watch_rows + dobrybuk_rows + broad_rows + all_direct_rows + manual_rows
         )
         merged_rows = _enrich_market_metadata(merged_rows, events)
 
@@ -885,19 +880,8 @@ async def scan_once() -> dict:
             except Exception as exc:
                 errors.append(f"Potwierdzenie direct browser: {type(exc).__name__}: {exc}")
 
-            # Re-check candidates from documented API feeds as well. The alert is only
-            # confirmed from a fresh second read when the candidate came from an API.
-            external_confirm_rows = []
-            try:
-                external_confirm_rows, external_confirm_errors, _external_confirm_stats = await confirm_external_feeds(
-                    list(candidates) + list(value_candidates)
-                )
-                errors.extend([f"Potwierdzenie API: {x}" for x in external_confirm_errors])
-            except Exception as exc:
-                errors.append(f"Potwierdzenie API: {type(exc).__name__}: {exc}")
-
             confirmation_merged = merge_markets(
-                confirm_rows + direct_confirm_rows + direct_confirm_browser_rows + external_confirm_rows
+                confirm_rows + direct_confirm_rows + direct_confirm_browser_rows
             )
 
             confirmed = detect_from_markets(confirmation_merged)
@@ -1057,28 +1041,15 @@ async def scan_once() -> dict:
                 "mode": "http + public-browser",
             }
 
-        api_book_summary = _book_stats_from_rows(external_rows)
-        combined_book_summary = dict(direct_source_summary)
-        for book, api_info in api_book_summary.items():
-            old = combined_book_summary.get(book, {})
-            combined_book_summary[book] = {
-                "markets": int(old.get("markets", 0) or 0) + int(api_info.get("markets", 0) or 0),
-                "http_markets": int(old.get("http_markets", 0) or 0),
-                "browser_markets": int(old.get("browser_markets", 0) or 0),
-                "api_markets": int(api_info.get("markets", 0) or 0),
-                "ok": bool(old.get("ok") or api_info.get("ok")),
-                "mode": "documented-api + public fallbacks" if old else "documented-api",
-            }
-
         merged_direct_stats = {
             "enabled": True,
-            "sources": combined_book_summary,
-            "markets": len(all_direct_rows) + len(external_rows),
+            "sources": direct_source_summary,
+            "markets": len(all_direct_rows),
         }
 
         source_health = state.update_source_health(
             merged_direct_stats,
-            dobrybuk_ok=bool(dobrybuk_rows or broad_rows),
+            dobrybuk_ok=bool(dobrybuk_rows or broad_rows or manual_rows),
         )
         coverage = build_coverage(
             analysis_rows,
@@ -1088,25 +1059,18 @@ async def scan_once() -> dict:
         )
         sources = {
             "DobryBuk": {
-                "markets": len(dobrybuk_rows),
+                "markets": len(dobrybuk_rows) + len(manual_rows),
+                "network_markets": len(dobrybuk_rows),
+                "manual_snapshot_markets": len(manual_rows),
                 "broad_candidate_markets": len(broad_rows),
                 "events": len({
                     (event_key(str(r.get("event", ""))), str(r.get("sport", "")).lower())
                     for r in merged_rows
                 }),
-                "mode": "detail + all-date candidate sweep",
+                "mode": "network when available + manual snapshot fallback + all-date candidate sweep",
             },
-            **combined_book_summary,
+            **direct_source_summary,
         }
-        for provider_name, provider_info in (external_stats.get("providers", {}) or {}).items():
-            sources[provider_name] = {
-                "markets": int(provider_info.get("markets", 0) or 0),
-                "events": int(provider_info.get("events", 0) or 0),
-                "requests": int(provider_info.get("requests", 0) or 0),
-                "configured": bool(provider_info.get("configured")),
-                "ok": bool(provider_info.get("ok")),
-                "mode": "documented-server-api",
-            }
         try:
             coupon_catalog = build_coupon_catalog(
                 display_rows,
@@ -1146,12 +1110,12 @@ async def scan_once() -> dict:
                 "active_markets_5m": len(analysis_rows),
                 "active_markets_2h": len(display_rows),
                 "active_events_2h": display_quality.get("events", 0),
-                "dobrybuk_markets": len(dobrybuk_rows),
+                "dobrybuk_markets": len(dobrybuk_rows) + len(manual_rows),
+                "dobrybuk_network_markets": len(dobrybuk_rows),
+                "dobrybuk_manual_markets": len(manual_rows),
                 "direct_markets": len(all_direct_rows),
                 "direct_http_markets": len(direct_rows),
                 "direct_browser_markets": len(browser_direct_rows),
-                "external_api_markets": len(external_rows),
-                "external_api_configured": int(external_stats.get("configured_count", 0) or 0),
                 "broad_candidate_markets": len(broad_rows),
                 "broad_listing_pairs": broad_stats.get("broad_listing_pairs", 0),
                 "priority_events": len(priority_events),
@@ -1173,7 +1137,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v31-api-first",
+                "scanner": "pl-all-books-v34-dobrybuk-hybrid",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],
@@ -1196,13 +1160,12 @@ async def scan_once() -> dict:
                 "near_arb_limit_pct": settings.near_arb_gap_pct,
             },
             "errors": errors[-100:],
-            "source": "multi-source: documented odds APIs + comparison + direct public bookmaker pages",
+            "source": "multi-source: comparison + direct public bookmaker pages",
             "coupon_catalog_info": {
                 "items": len(coupon_catalog),
                 "mode": "bookmaker-first",
             },
             "market_scan_note": (
-                "v31: dokumentowane API (jeśli skonfigurowane) są źródłem priorytetowym, a publiczne strony pozostają fallbackiem. "
                 "Skan adaptacyjny: szybkie cykle śledzą watchlistę, ruchy kursów i szeroki all-date sweep, "
                 "a katalog/radar korzysta z rolling cache do 2 godzin (starsze pozycje są oznaczone). "
                 "Arbitraże są liczone wyłącznie z kompletnych, wzajemnie wykluczających się rynków "
@@ -1237,8 +1200,6 @@ async def scan_once() -> dict:
     finally:
         if not direct_task.done():
             direct_task.cancel()
-        if not external_task.done():
-            external_task.cancel()
         if browser_direct_task is not None and not browser_direct_task.done():
             browser_direct_task.cancel()
         try:

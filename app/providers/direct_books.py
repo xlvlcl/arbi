@@ -41,6 +41,8 @@ DIRECT_SOURCES: tuple[DirectSource, ...] = (
     DirectSource("BetSport", ("https://betsport.pl/",), "https://betsport.pl/", 27),
     DirectSource("ComeOn", ("https://comeon.pl/",), "https://comeon.pl/", 28),
     DirectSource("PZBuk", ("https://pzbuk.pl/",), "https://pzbuk.pl/", 29),
+    DirectSource("Traf", ("https://trafonline.pl/",), "https://trafonline.pl/", 30),
+    DirectSource("WettArena", ("https://wettarena.pl/",), "https://wettarena.pl/", 31),
 )
 
 # Deliberately conservative. Direct parsers only emit rows that look complete enough
@@ -457,7 +459,7 @@ async def scan_direct_books_browser(
             "loaded": bool(loaded),
             "blocked": bool(blocked),
             "ok": bool(rows) or (loaded and not local_errors),
-            "mode": "public-browser-v31",
+            "mode": "public-browser-v34",
         }
 
     return all_rows, errors, {
@@ -532,7 +534,7 @@ async def scan_direct_books(
             "html_bytes": bytes_total,
             "blocked": bool(blocked),
             "ok": bool(rows) or (bytes_total > 0 and not source_errors),
-            "mode": "public-http-v31",
+            "mode": "public-http-v34",
         }
 
     return all_rows, errors, {"enabled": True, "sources": stats, "markets": len(all_rows)}
