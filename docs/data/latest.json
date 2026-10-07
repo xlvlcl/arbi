@@ -26,12 +26,12 @@
     "version": 28,
     "state": "error",
     "message": "Skaner zakończył się błędem (kod 1). Sprawdź log skanera w Actions.",
-    "attempt_started_at": 1791402864.1466212,
-    "attempt_finished_at": 1791402941.3584983,
-    "duration_seconds": 77.21,
+    "attempt_started_at": 1791402997.1748912,
+    "attempt_finished_at": 1791403075.7210898,
+    "duration_seconds": 78.55,
     "last_success_at": 0,
     "scanner_exit_code": 1,
-    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37677980473"
+    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37678227550"
   },
-  "last_attempt": 1791402941.3584983
+  "last_attempt": 1791403075.7210898
 }
