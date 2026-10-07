@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import json
+import os
 import time
 from pathlib import Path
 
@@ -46,6 +47,13 @@ DEFAULT_FACTORS = {
     "ComeOn": 0.88,
     "PZBuk": 0.88,
 }
+
+
+def _safe_float(value, default: float = 0.0) -> float:
+    try:
+        return float(value or default)
+    except (TypeError, ValueError):
+        return float(default)
 
 
 def payout_factors() -> dict[str, float]:
@@ -146,7 +154,7 @@ def _public_offer(item: dict) -> dict:
     exact_url = bookmaker_url if bookmaker_url and "direct" in source_name.lower() else ""
     return {
         "bookmaker": str(item.get("bookmaker", "")),
-        "odds": round(float(item.get("odds", 0) or 0), 3),
+        "odds": round(_safe_float(item.get("odds", 0), 0.0), 3),
         "bookmaker_url": bookmaker_url or item.get("source_url", ""),
         "exact_bookmaker_url": exact_url,
         "bookmaker_link_exact": bool(exact_url),
@@ -176,10 +184,17 @@ def build_scan_preview(markets: list[dict], limit: int = 100) -> list[dict]:
 
         best = []
         for selection, quotes in (item.get("quotes") or {}).items():
-            valid = [q for q in quotes if q.get("bookmaker") and q.get("odds")]
+            valid = [
+                q for q in quotes
+                if q.get("bookmaker") and _safe_float(q.get("odds", 0), 0.0) > 1.0
+            ]
             if not valid:
                 continue
-            valid = sorted(valid, key=lambda x: float(x.get("odds", 0)), reverse=True)
+            valid = sorted(
+                valid,
+                key=lambda x: _safe_float(x.get("odds", 0), 0.0),
+                reverse=True,
+            )
             q = valid[0]
             best.append(
                 {
@@ -220,11 +235,11 @@ def build_coupon_catalog(markets: list[dict], limit: int = 350) -> list[dict]:
             per_book = {}
             for quote in quotes:
                 book = str(quote.get("bookmaker", "")).strip()
-                odd = float(quote.get("odds", 0) or 0)
+                odd = _safe_float(quote.get("odds", 0), 0.0)
                 if not book or odd <= 1:
                     continue
                 old = per_book.get(book)
-                if old is None or odd > float(old.get("odds", 0)):
+                if old is None or odd > _safe_float(old.get("odds", 0), 0.0):
                     per_book[book] = quote
             offers = [_public_offer(q) for q in per_book.values()]
             offers.sort(key=lambda x: x["odds"], reverse=True)
@@ -480,7 +495,11 @@ async def scan_once() -> dict:
     state = State(ALERT_STATE)
     market_cache = MarketCache(MARKET_CACHE)
     plan = state.next_scan_plan(settings.deep_scan_every)
-    scan_mode = f"adaptive-{plan['mode']}"
+    force_fast = str(os.getenv("FORCE_FAST_SCAN", "1")).strip().lower() not in {"0", "false", "no"}
+    if force_fast:
+        plan["mode"] = "fast"
+        plan["next_deep_in"] = 0
+    scan_mode = "stable-fast" if force_fast else f"adaptive-{plan['mode']}"
     errors: list[str] = []
     watch_targets = state.priority_targets(settings.watch_scan_limit)
 
@@ -679,6 +698,14 @@ async def scan_once() -> dict:
         )
         merged_rows = _enrich_market_metadata(merged_rows, events)
 
+        static_fallback_rows = []
+        if not merged_rows:
+            static_fallback_rows, static_fallback_errors = await provider.scan_static_http_fallback()
+            errors.extend([f"Static fallback: {x}" for x in static_fallback_errors])
+            if static_fallback_rows:
+                merged_rows = merge_markets(static_fallback_rows)
+                scan_mode += "+static-http"
+
         # Rolling cache prevents FAST/DEEP rotation from making the UI look as if
         # hundreds of markets suddenly disappeared. Opportunity math still uses
         # only quotes younger than MAX_QUOTE_AGE_SECONDS.
@@ -693,11 +720,31 @@ async def scan_once() -> dict:
             display_rows = merged_rows
 
         if not analysis_rows:
-            raise RuntimeError(
-                "Żadne źródło nie zwróciło kursów. Nie nadpisuję poprawnych danych pustym skanem."
-            )
+            static_rows, static_errors = await provider.scan_static_http_fallback()
+            errors.extend([f"Static recovery: {x}" for x in static_errors])
+            if static_rows:
+                analysis_rows = merge_markets(static_rows)
+                display_rows = analysis_rows
+                merged_rows = analysis_rows
+                scan_mode += "+recovered"
+            else:
+                # Don't destroy the site because one provider cycle was empty.
+                # Use recent rolling cache for display, but do NOT create surebet/value
+                # candidates from old quotes.
+                stale_display = market_cache.snapshot(7 * 24 * 3600)
+                if stale_display:
+                    display_rows = stale_display
+                    analysis_rows = []
+                    errors.append(
+                        "Brak świeżych kursów: opublikowano wyłącznie stary podgląd; "
+                        "surebet/value wyłączone dla tego cyklu."
+                    )
+                else:
+                    raise RuntimeError(
+                        "Żadne źródło nie zwróciło kursów i brak cache do bezpiecznego podglądu."
+                    )
 
-        candidates = detect_from_markets(analysis_rows)
+        candidates = detect_from_markets(analysis_rows) if analysis_rows else []
         value_candidates = (
             detect_valuebets(
                 analysis_rows,
@@ -720,7 +767,7 @@ async def scan_once() -> dict:
             fallback_gap_pct=max(15.0, settings.near_arb_gap_pct),
             min_results=24,
             max_age_seconds=settings.max_quote_age_seconds,
-        )
+        ) if analysis_rows else []
 
         confirmed = []
         confirmed_values = []
@@ -741,7 +788,7 @@ async def scan_once() -> dict:
                 confirm_rows, confirm_errors = await provider.scan_specific_markets(
                     list(target_map.values()),
                     concurrency=settings.confirm_concurrency,
-                    max_seconds=120,
+                    max_seconds=45,
                 )
                 errors.extend([f"Potwierdzenie: {x}" for x in confirm_errors])
 
@@ -875,9 +922,21 @@ async def scan_once() -> dict:
                     errors.append(f"OneSignal value: {exc}")
 
         now = time.time()
-        quality = scan_quality(analysis_rows)
-        current_quality = scan_quality(merged_rows)
-        display_quality = scan_quality(display_rows)
+        try:
+            quality = scan_quality(analysis_rows)
+        except Exception as exc:
+            errors.append(f"Quality fresh: {type(exc).__name__}: {exc}")
+            quality = {}
+        try:
+            current_quality = scan_quality(merged_rows)
+        except Exception as exc:
+            errors.append(f"Quality current: {type(exc).__name__}: {exc}")
+            current_quality = {}
+        try:
+            display_quality = scan_quality(display_rows)
+        except Exception as exc:
+            errors.append(f"Quality display: {type(exc).__name__}: {exc}")
+            display_quality = {}
 
         direct_source_summary = {}
         http_sources = direct_stats.get("sources", {}) if isinstance(direct_stats, dict) else {}
@@ -922,17 +981,31 @@ async def scan_once() -> dict:
             },
             **direct_source_summary,
         }
-        coupon_catalog = build_coupon_catalog(
-            display_rows,
-            int(getattr(settings, "coupon_catalog_limit", 1600)),
-        )
+        try:
+            coupon_catalog = build_coupon_catalog(
+                display_rows,
+                int(getattr(settings, "coupon_catalog_limit", 1600)),
+            )
+        except Exception as exc:
+            errors.append(f"Coupon catalog: {type(exc).__name__}: {exc}")
+            coupon_catalog = []
+
+        try:
+            scan_preview = build_scan_preview(display_rows, 1200)
+        except Exception as exc:
+            errors.append(f"Scan preview: {type(exc).__name__}: {exc}")
+            scan_preview = []
+
+        fresh_data = bool(analysis_rows)
         payload = {
             "generated_at": now,
             "last_scan": now,
+            "data_fresh": fresh_data,
+            "data_status": "fresh" if fresh_data else "degraded-cache",
             "latest": [arb.to_dict() for arb in confirmed[:200]],
             "valuebets": stable_values[:150],
             "near_arbs": near_arbs[:120],
-            "scan_preview": build_scan_preview(display_rows, 1200),
+            "scan_preview": scan_preview,
             "coupon_catalog": coupon_catalog,
             "stats": {
                 "events": len(events),
@@ -971,7 +1044,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v25.1-cache-hotfix",
+                "scanner": "multi-source-v27-stable-refresh",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],

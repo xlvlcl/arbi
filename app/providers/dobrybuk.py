@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 import time
+import urllib.request
 from pathlib import Path
 from collections import defaultdict
 from urllib.parse import urljoin
@@ -714,9 +715,6 @@ class DobryBukProvider:
             ),
             extra_http_headers={"Accept-Language": "pl-PL,pl;q=0.9,en;q=0.6"},
         )
-        await self.context.add_init_script(
-            "Object.defineProperty(navigator,'webdriver',{get:()=>undefined});"
-        )
 
         # Images/fonts/media are irrelevant for parsing and are the biggest cost on hundreds of pages.
         async def route_handler(route):
@@ -1006,6 +1004,43 @@ class DobryBukProvider:
                 errors.append(f"Debug: {type(exc).__name__}: {exc}")
 
         return list(discovered.values()), errors
+
+    async def scan_static_http_fallback(self) -> tuple[list[dict], list[str]]:
+        """Very small, robust fallback using public server-rendered HTML only.
+
+        It does not solve CAPTCHAs or bypass access controls. It simply downloads the
+        public comparison page as ordinary HTML and parses currently rendered 1X2 rows.
+        """
+        errors: list[str] = []
+
+        def fetch() -> str:
+            req = urllib.request.Request(
+                self.settings.source_url,
+                headers={
+                    "User-Agent": (
+                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 (KHTML, like Gecko) "
+                        "Chrome/154.0.0.0 Safari/537.36"
+                    ),
+                    "Accept-Language": "pl-PL,pl;q=0.9,en;q=0.6",
+                    "Accept": "text/html,application/xhtml+xml",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=20) as response:
+                return response.read().decode("utf-8", errors="replace")
+
+        try:
+            html = await asyncio.to_thread(fetch)
+            rows = extract_listing_tables(
+                html,
+                "Piłka nożna",
+                self.settings.source_url,
+            )
+            if not rows:
+                errors.append("HTTP fallback: publiczny HTML nie zawierał parsowalnych kursów")
+            return rows, errors
+        except Exception as exc:
+            return [], [f"HTTP fallback: {type(exc).__name__}: {exc}"]
 
     async def scan_listing_fallback(
         self,
