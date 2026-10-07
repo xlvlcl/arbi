@@ -1,6 +1,6 @@
-# v29: zewnętrzny trigger wywołuje repository_dispatch; watchdog jest awaryjnym fallbackiem.
+# v30: zewnętrzny trigger wywołuje repository_dispatch; watchdog jest awaryjnym fallbackiem.
 name: Surebet Scanner
-run-name: Arbi v29 — ${{ github.event_name }} — ${{ github.run_number }}
+run-name: Arbi v30 — ${{ github.event_name }} — ${{ github.run_number }}
 'on':
   workflow_dispatch: null
   repository_dispatch:
@@ -11,11 +11,11 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: arbi-runtime-v29-${{ github.ref }}
+  group: arbi-runtime-v30-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   scan_publish:
-    name: Skan, status i publikacja — v29
+    name: Skan, status i publikacja — v30
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     env:
@@ -119,8 +119,8 @@ jobs:
         p = Path("docs/data/latest.json")
         data = json.loads(p.read_text("utf-8"))
         runtime = data.get("runtime", {})
-        if runtime.get("version") != 29 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
-            raise SystemExit("Brak nowego statusu skanowania v29.")
+        if runtime.get("version") != 30 or time.time() - float(runtime.get("attempt_finished_at", 0)) > 120:
+            raise SystemExit("Brak nowego statusu skanowania v30.")
         print("Stan skanera:", runtime.get("state"))
         print("Komunikat:", runtime.get("message"))
         print("Ostatni udany skan:", data.get("last_scan"))
@@ -185,7 +185,7 @@ jobs:
             ("Nowy wynik JSON", "VALIDATION_RESULT"),
             ("Zapis danych i alertów", "SAVE_RESULT"),
         ]
-        lines = ["## Arbi v29", "", "| Etap | Wynik |", "| --- | --- |"]
+        lines = ["## Arbi v30", "", "| Etap | Wynik |", "| --- | --- |"]
         lines += [f"| {label} | {os.getenv(key) or 'nie uruchomiono'} |" for label, key in rows]
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
