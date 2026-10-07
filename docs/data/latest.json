@@ -1,25 +1,25 @@
 {
-  "generated_at": 1791405006.4159815,
-  "last_scan": 1791405006.4159815,
-  "last_attempt": 1791405006.829009,
+  "generated_at": 1791405145.6863039,
+  "last_scan": 1791405145.6863039,
+  "last_attempt": 1791405146.085162,
   "data_fresh": true,
   "data_status": "fresh",
   "latest": [
     {
-      "event": "Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
+      "event": "zykówka Islandia 1. Liga (K) 30' 4. kwarta + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 0 5 39 87 Suma punktów (wł. z ew. dogrywką) poniżej",
       "sport": "Koszykówka",
       "market": "Winner",
-      "profit_pct": 6874.0,
+      "profit_pct": 6962.0,
       "bankroll": 50.0,
-      "guaranteed_payout": 3487.0,
-      "guaranteed_profit": 3437.0,
+      "guaranteed_payout": 3531.0,
+      "guaranteed_profit": 3481.0,
       "legs": [
         {
           "selection": "1",
           "bookmaker": "TotalBet",
-          "odds": 158.5,
+          "odds": 160.5,
           "stake": 25.0,
-          "payout": 3487.0,
+          "payout": 3531.0,
           "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
           "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
           "source_name": "",
@@ -29,9 +29,9 @@
         {
           "selection": "2",
           "bookmaker": "TotalBet",
-          "odds": 158.5,
+          "odds": 160.5,
           "stake": 25.0,
-          "payout": 3487.0,
+          "payout": 3531.0,
           "source_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
           "bookmaker_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
           "source_name": "",
@@ -39,7 +39,7 @@
           "alternatives": []
         }
       ],
-      "detected_at": 1791405005.9107518,
+      "detected_at": 1791405145.159729,
       "source": "Multi-source odds monitor",
       "confidence": "strict",
       "event_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events"
@@ -48,17 +48,17 @@
       "event": "C69D01A3 3133 4563 8C2D 9B3F40Dc104A",
       "sport": "Inne",
       "market": "Winner",
-      "profit_pct": 6874.0,
+      "profit_pct": 6962.0,
       "bankroll": 50.0,
-      "guaranteed_payout": 3487.0,
-      "guaranteed_profit": 3437.0,
+      "guaranteed_payout": 3531.0,
+      "guaranteed_profit": 3481.0,
       "legs": [
         {
           "selection": "1",
           "bookmaker": "TotalBet",
-          "odds": 158.5,
+          "odds": 160.5,
           "stake": 25.0,
-          "payout": 3487.0,
+          "payout": 3531.0,
           "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
           "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
           "source_name": "",
@@ -68,9 +68,9 @@
         {
           "selection": "2",
           "bookmaker": "TotalBet",
-          "odds": 158.5,
+          "odds": 160.5,
           "stake": 25.0,
-          "payout": 3487.0,
+          "payout": 3531.0,
           "source_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
           "bookmaker_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a",
           "source_name": "",
@@ -78,7 +78,7 @@
           "alternatives": []
         }
       ],
-      "detected_at": 1791405005.9108922,
+      "detected_at": 1791405145.1598241,
       "source": "Multi-source odds monitor",
       "confidence": "strict",
       "event_url": "https://totalbet.pl/event-details/c69d01a3-3133-4563-8c2d-9b3f40dc104a"
@@ -88,7 +88,7 @@
   "near_arbs": [],
   "scan_preview": [
     {
-      "event": "Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
+      "event": "zykówka Islandia 1. Liga (K) 30' 4. kwarta + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 0 0 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
       "sport": "Koszykówka",
       "market": "Winner",
       "event_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
@@ -157,7 +157,7 @@
   "coupon_catalog": [
     {
       "id": "9d687f9837fa5d",
-      "event": "Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
+      "event": "zykówka Islandia 1. Liga (K) 30' 4. kwarta + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 0 0 39 82 Suma punktów (wł. z ew. dogrywką) poniżej",
       "sport": "Koszykówka",
       "market": "Winner",
       "event_url": "https://totalbet.pl/league/79811c46-d901-495c-81c9-c845a6d6887c/events",
@@ -290,7 +290,7 @@
     "direct_http_markets": 0,
     "direct_browser_markets": 3,
     "broad_candidate_markets": 0,
-    "broad_listing_pairs": 14,
+    "broad_listing_pairs": 15,
     "priority_events": 0,
     "signal_events": 0,
     "watch_targets": 0,
@@ -309,10 +309,10 @@
     "value_push_alerts_sent": 0,
     "telegram_alerts_sent": 0,
     "push_configured": true,
-    "elapsed_seconds": 111.28,
+    "elapsed_seconds": 99.42,
     "scanner": "multi-source-v29-direct-fallback",
     "scan_mode": "stable-fast+fallback",
-    "scan_sequence": 16,
+    "scan_sequence": 17,
     "deep_every": 4,
     "next_deep_in": 0,
     "quality": {
@@ -352,6 +352,13 @@
         "events": 2,
         "mode": "detail + all-date candidate sweep"
       },
+      "Forbet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
       "LVBet": {
         "markets": 0,
         "http_markets": 0,
@@ -359,32 +366,11 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "Betters": {
+      "Fuksiarz": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "TotalBet": {
-        "markets": 3,
-        "http_markets": 0,
-        "browser_markets": 3,
         "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Betclic": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "STS": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
         "mode": "http + public-browser"
       },
       "Betfan": {
@@ -394,7 +380,21 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "BetSport": {
+      "Fortuna": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "ETOTO": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Betclic": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -408,11 +408,18 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Fuksiarz": {
+      "BetSport": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
-        "ok": true,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
+      "ComeOn": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
         "mode": "http + public-browser"
       },
       "Superbet": {
@@ -429,7 +436,7 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "Forbet": {
+      "Betters": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -443,25 +450,18 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "ComeOn": {
+      "STS": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
         "mode": "http + public-browser"
       },
-      "ETOTO": {
-        "markets": 0,
+      "TotalBet": {
+        "markets": 3,
         "http_markets": 0,
-        "browser_markets": 0,
+        "browser_markets": 3,
         "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Fortuna": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
         "mode": "http + public-browser"
       }
     }
@@ -574,7 +574,7 @@
   },
   "intelligence": {
     "scan_plan": {
-      "sequence": 16,
+      "sequence": 17,
       "mode": "fast",
       "deep_every": 4,
       "next_deep_in": 0
@@ -613,137 +613,137 @@
       "DobryBuk": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "LVBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "Betters": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "TotalBet": {
         "ok": true,
         "markets": 3,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "Betclic": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "STS": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "Betfan": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "BetSport": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "LeBull": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "Fuksiarz": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "Superbet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "PZBuk": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "Forbet": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "AdmiralBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "ComeOn": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       },
       "ETOTO": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
-        "consecutive_success": 1,
+        "last_checked": 1791405145.6865017,
+        "consecutive_success": 2,
         "consecutive_failures": 0,
-        "last_success": 1791405006.4162374
+        "last_success": 1791405145.6865017
       },
       "Fortuna": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791405006.4162374,
+        "last_checked": 1791405145.6865017,
         "consecutive_success": 0,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_success": 0.0
       }
     },
@@ -753,11 +753,11 @@
     "near_arb_limit_pct": 1.5
   },
   "errors": [
-    "Formuła 1: TimeoutError: ",
-    "Motorsport: TimeoutError: ",
-    "Esport: TimeoutError: ",
-    "Biathlon: TimeoutError: ",
-    "Narciarstwo: TimeoutError: ",
+    "Skoki narciarskie: TimeoutError: ",
+    "Hokej na trawie: TimeoutError: ",
+    "Piłka wodna: TimeoutError: ",
+    "Krykiet: TimeoutError: ",
+    "Piłka nożna: TimeoutError: ",
     "Discovery: budżet czasu wyczerpany; pozostałe sporty wrócą w kolejnych cyklach.",
     "Fallback tabeli: TimeoutError: ",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -776,7 +776,7 @@
     "Direct browser: LeBull: https://lebull.pl/: HTTP 520",
     "Direct browser: BetSport: https://betsport.pl/: HTTP 403",
     "Direct browser: ComeOn: https://comeon.pl/: HTTP 403",
-    "Potwierdzenie: Koszykówka Islandia 1. Liga (K) Przerwa + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 39 82 Suma punktów (wł. z ew. dogrywką) poniżej / Winner: nie znaleziono rynku przy potwierdzeniu",
+    "Potwierdzenie: zykówka Islandia 1. Liga (K) 30' 4. kwarta + 27 zakł. Fjolnir Reykjavik UMF Tindastoll (K) 15 35 10 30 14 17 0 0 39 82 Suma punktów (wł. z ew. dogrywką) poniżej / Winner: nie znaleziono rynku przy potwierdzeniu",
     "Potwierdzenie: C69D01A3 3133 4563 8C2D 9B3F40Dc104A / Winner: nie znaleziono rynku przy potwierdzeniu",
     "Potwierdzenie direct HTTP: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Potwierdzenie direct HTTP: Fortuna: https://www.efortuna.pl/zaklady-bukmacherskie: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.efortuna.pl/zaklady-bukmacherskie'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -807,11 +807,11 @@
     "version": 29,
     "state": "ok",
     "message": "Nowy skan zakończony.",
-    "attempt_started_at": 1791404894.5501072,
-    "attempt_finished_at": 1791405006.829009,
-    "duration_seconds": 112.28,
-    "last_success_at": 1791405006.4159815,
+    "attempt_started_at": 1791405046.0017807,
+    "attempt_finished_at": 1791405146.085162,
+    "duration_seconds": 100.08,
+    "last_success_at": 1791405145.6863039,
     "scanner_exit_code": 0,
-    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37682077579"
+    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37682207877"
   }
 }
