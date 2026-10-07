@@ -67,6 +67,9 @@ DEFAULT = {
     "direct_sources_enabled": True,
     "direct_sources_timeout": 12,
     "direct_sources_concurrency": 5,
+    "direct_browser_seconds": 75,
+    "direct_browser_concurrency": 4,
+    "direct_confirm_browser_seconds": 35,
     "coupon_catalog_limit": 1600,
     "value_bets_enabled": True,
     "value_min_edge_pct": 5.0,
@@ -121,6 +124,9 @@ class Settings:
             "alert_improvement_pct": ("ALERT_IMPROVEMENT_PCT", float),
             "direct_sources_timeout": ("DIRECT_SOURCES_TIMEOUT", int),
             "direct_sources_concurrency": ("DIRECT_SOURCES_CONCURRENCY", int),
+            "direct_browser_seconds": ("DIRECT_BROWSER_SECONDS", int),
+            "direct_browser_concurrency": ("DIRECT_BROWSER_CONCURRENCY", int),
+            "direct_confirm_browser_seconds": ("DIRECT_CONFIRM_BROWSER_SECONDS", int),
             "coupon_catalog_limit": ("COUPON_CATALOG_LIMIT", int),
             "value_min_edge_pct": ("VALUE_MIN_EDGE_PCT", float),
             "value_min_reference_books": ("VALUE_MIN_REFERENCE_BOOKS", int),
@@ -154,6 +160,9 @@ class Settings:
         self.data["alert_improvement_pct"] = max(0.01, float(self.data["alert_improvement_pct"]))
         self.data["direct_sources_timeout"] = min(30, max(5, int(self.data["direct_sources_timeout"])))
         self.data["direct_sources_concurrency"] = min(8, max(1, int(self.data["direct_sources_concurrency"])))
+        self.data["direct_browser_seconds"] = min(120, max(25, int(self.data["direct_browser_seconds"])))
+        self.data["direct_browser_concurrency"] = min(6, max(1, int(self.data["direct_browser_concurrency"])))
+        self.data["direct_confirm_browser_seconds"] = min(60, max(15, int(self.data["direct_confirm_browser_seconds"])))
         self.data["coupon_catalog_limit"] = min(2500, max(100, int(self.data["coupon_catalog_limit"])))
         self.data["value_min_edge_pct"] = max(1.0, float(self.data["value_min_edge_pct"]))
         self.data["value_min_reference_books"] = min(12, max(3, int(self.data["value_min_reference_books"])))

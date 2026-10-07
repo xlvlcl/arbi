@@ -38,13 +38,14 @@ Path("docs/data/latest.json").write_text(json.dumps({"last_scan":200,"data_fresh
     assert read_json(tmp_path / 'docs/data/status.json')['state'] == 'ok'
 
 
-def test_crash_preserves_last_success_and_clears_opportunities(tmp_path):
+def test_crash_preserves_last_success_and_marks_opportunities_stale(tmp_path):
     prepare(tmp_path)
     result = run(tmp_path, child(tmp_path, 'raise RuntimeError("provider unavailable")'), 3)
     data = read_json(tmp_path / 'docs/data/latest.json')
     assert result['state'] == 'error'
     assert data['last_scan'] == 100
-    assert data['latest'] == [] and data['valuebets'] == []
+    assert data['latest'][0]['id'] == 'old' and data['latest'][0]['stale'] is True
+    assert data['valuebets'][0]['id'] == 'old' and data['valuebets'][0]['stale'] is True
     assert data['scan_preview'] == [{'id': 'old'}]
     assert data['last_attempt'] > 100
 
@@ -74,6 +75,7 @@ Path("docs/data/latest.json").write_text(json.dumps({"last_scan":999,"data_fresh
     assert result['state'] == 'no_data'
     assert data['last_scan'] == 100
     assert data['scan_preview'] == [{'id': 'cache'}]
+    assert data['latest'][0]['id'] == 'old' and data['latest'][0]['stale'] is True
 
 
 class Page:

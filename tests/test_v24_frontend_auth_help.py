@@ -30,5 +30,5 @@ def test_help_dictionary_is_broad():
 def test_assets_have_cache_busting():
     html = (ROOT / "docs/index.html").read_text("utf-8")
     assert re.search(r"\./app\.js\?v=\d+", html)
-    assert "./app.css?v=24" in html
+    assert re.search(r"\./app\.css\?v=\d+", html)
     assert "./auth-config.js?v=24" in html

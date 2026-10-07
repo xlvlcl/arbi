@@ -11,9 +11,11 @@ def test_frontend_polls_every_three_seconds_and_refreshes_on_focus():
     assert "Date.now()" in js
 
 
-def test_heartbeat_dispatches_scanner_every_two_minutes():
+def test_heartbeat_is_manual_when_external_trigger_is_active():
     wf = (ROOT / ".github/workflows/heartbeat.yml").read_text("utf-8")
-    assert "sleep 120" in wf
+    assert "workflow_dispatch" in wf
+    assert "sleep 120" not in wf
+    assert "schedule:" not in wf
     assert "https://api.github.com/repos/${REPOSITORY}/dispatches" in wf
     assert '"event_type":"surebet_scan"' in wf
     assert "contents: write" in wf

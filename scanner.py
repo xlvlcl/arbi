@@ -534,19 +534,21 @@ async def scan_once() -> dict:
         except Exception:
             pass
         raise
+    # v29: direct bookmaker browser fallback runs on EVERY cycle. v28 accidentally
+    # disabled it whenever FORCE_FAST_SCAN=1, which is exactly how GitHub Actions is
+    # configured. That made Betclic/Fortuna/STS effectively unreachable as fallbacks.
     browser_direct_task = None
-    if plan["mode"] == "deep":
-        try:
-            browser_direct_task = asyncio.create_task(
-                scan_direct_books_browser(
-                    provider.context,
-                    enabled=bool(getattr(settings, "direct_sources_enabled", True)),
-                    max_seconds=55,
-                    concurrency=3,
-                )
+    try:
+        browser_direct_task = asyncio.create_task(
+            scan_direct_books_browser(
+                provider.context,
+                enabled=bool(getattr(settings, "direct_sources_enabled", True)),
+                max_seconds=int(getattr(settings, "direct_browser_seconds", 75)),
+                concurrency=int(getattr(settings, "direct_browser_concurrency", 4)),
             )
-        except Exception as exc:
-            errors.append(f"Direct browser init: {type(exc).__name__}: {exc}")
+        )
+    except Exception as exc:
+        errors.append(f"Direct browser init: {type(exc).__name__}: {exc}")
 
     try:
         # Discovery jobs run in parallel:
@@ -760,8 +762,15 @@ async def scan_once() -> dict:
                         "surebet/value wyłączone dla tego cyklu."
                     )
                 else:
-                    raise RuntimeError(
-                        "Żadne źródło nie zwróciło kursów i brak cache do bezpiecznego podglądu."
+                    # v29: one blocked comparison source must never crash the whole run.
+                    # Publish an honest no-data status; scan_runtime will preserve the last
+                    # successful opportunities (clearly marked stale in the UI) if present.
+                    display_rows = []
+                    analysis_rows = []
+                    scan_mode += "+no-fresh-data"
+                    errors.append(
+                        "Żadne źródło nie zwróciło świeżych kursów w tym cyklu. "
+                        "Nie nadpisuję ostatniego poprawnego wyniku pustymi danymi."
                     )
 
         candidates = detect_from_markets(analysis_rows) if analysis_rows else []
@@ -818,9 +827,25 @@ async def scan_once() -> dict:
                 timeout=float(getattr(settings, "direct_sources_timeout", 12)),
                 concurrency=int(getattr(settings, "direct_sources_concurrency", 5)),
             )
-            errors.extend([f"Potwierdzenie direct: {x}" for x in direct_confirm_errors])
+            errors.extend([f"Potwierdzenie direct HTTP: {x}" for x in direct_confirm_errors])
+
+            # v29: candidates found on rendered Betclic/Fortuna/STS pages must also be
+            # confirmable. v28 confirmed direct candidates only with plain HTTP, so a
+            # browser-only quote could never become a surebet alert.
+            direct_confirm_browser_rows = []
+            try:
+                direct_confirm_browser_rows, direct_confirm_browser_errors, _ = await scan_direct_books_browser(
+                    provider.context,
+                    enabled=bool(getattr(settings, "direct_sources_enabled", True)),
+                    max_seconds=int(getattr(settings, "direct_confirm_browser_seconds", 35)),
+                    concurrency=int(getattr(settings, "direct_browser_concurrency", 4)),
+                )
+                errors.extend([f"Potwierdzenie direct browser: {x}" for x in direct_confirm_browser_errors])
+            except Exception as exc:
+                errors.append(f"Potwierdzenie direct browser: {type(exc).__name__}: {exc}")
+
             confirmation_merged = merge_markets(
-                confirm_rows + direct_confirm_rows
+                confirm_rows + direct_confirm_rows + direct_confirm_browser_rows
             )
 
             confirmed = detect_from_markets(confirmation_merged)
@@ -1072,7 +1097,7 @@ async def scan_once() -> dict:
                 "telegram_alerts_sent": telegram_alerts_sent,
                 "push_configured": push_configured,
                 "elapsed_seconds": round(time.time() - started, 2),
-                "scanner": "multi-source-v27-stable-refresh",
+                "scanner": "multi-source-v29-direct-fallback",
                 "scan_mode": scan_mode,
                 "scan_sequence": plan["sequence"],
                 "deep_every": plan["deep_every"],
@@ -1095,7 +1120,7 @@ async def scan_once() -> dict:
                 "near_arb_limit_pct": settings.near_arb_gap_pct,
             },
             "errors": errors[-100:],
-            "source": "DobryBuk comparison + best-effort direct bookmaker pages",
+            "source": "multi-source: comparison + direct public bookmaker pages",
             "coupon_catalog_info": {
                 "items": len(coupon_catalog),
                 "mode": "bookmaker-first",

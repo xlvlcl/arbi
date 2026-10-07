@@ -754,3 +754,9 @@ body:before{
   .auth-submit{width:100%}
   .auth-state-row{align-items:flex-start;flex-direction:column}
 }
+
+/* v29 degraded-source safety */
+.arb-stale{opacity:.78}
+.status-pill.stale{border-color:#ffb347;background:rgba(255,179,71,.10)}
+.status-pill.stale .dot{background:#ffb347}
+.stale-warning{margin:10px 0 0;border-color:rgba(255,179,71,.35)}

@@ -60,3 +60,25 @@ def test_merge_preserves_direct_event_link_for_same_bookmaker():
     assert merged[0]["quotes"]["1"][0]["bookmaker_url"] == "https://www.betclic.pl/event"
     assert event_key("Portugalia - Norwegia") == event_key("Portugalia Norwegia")
     assert market_key("1X2") == "1x2"
+
+
+def test_event_card_with_odds_in_sibling_buttons_parses():
+    html = """
+    <div class="event-card">
+      <a href="/pilka-nozna-sfootball/la-liga-c7/barcelona-getafe-m1228048091340800">Barcelona - Getafe</a>
+      <button>Barcelona 1,07</button><button>Remis 10,50</button><button>Getafe 21,00</button>
+    </div>
+    """
+    src = DirectSource("Betclic", ("https://www.betclic.pl/",), "https://www.betclic.pl/")
+    rows = parse_direct_listing(html, src)
+    assert len(rows) == 1
+    assert rows[0]["market"] == "1X2"
+    assert rows[0]["quotes"]["1"][0]["odds"] == 1.07
+    assert rows[0]["quotes"]["X"][0]["odds"] == 10.50
+    assert rows[0]["quotes"]["2"][0]["odds"] == 21.00
+
+
+def test_cloudflare_block_page_is_ignored():
+    html = '<html><title>Attention Required! | Cloudflare</title><body>Sorry, you have been blocked</body></html>'
+    src = DirectSource("Betclic", ("https://www.betclic.pl/",), "https://www.betclic.pl/")
+    assert parse_direct_listing(html, src) == []
