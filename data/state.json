@@ -38,7 +38,7 @@
     "DobryBuk": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
@@ -46,15 +46,15 @@
     "LVBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 34,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "Betters": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
@@ -62,15 +62,15 @@
     "TotalBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 47,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "Betclic": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
@@ -78,7 +78,7 @@
     "STS": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
@@ -86,15 +86,15 @@
     "Betfan": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 47,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "BetSport": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 34,
       "last_success": 1791406575.4129565
@@ -102,7 +102,7 @@
     "LeBull": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 34,
       "last_success": 1791406575.4129565
@@ -110,31 +110,31 @@
     "Fuksiarz": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 47,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "Superbet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 47,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "PZBuk": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 34,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "Forbet": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
@@ -142,15 +142,15 @@
     "AdmiralBet": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 47,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "ComeOn": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
@@ -158,18 +158,34 @@
     "ETOTO": {
       "ok": true,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 34,
       "consecutive_failures": 0,
-      "last_success": 1791410898.7698376
+      "last_success": 1791411007.5438113
     },
     "Fortuna": {
       "ok": false,
       "markets": 0,
-      "last_checked": 1791410898.7698376,
+      "last_checked": 1791411007.5438113,
       "consecutive_success": 0,
       "consecutive_failures": 47,
       "last_success": 0.0
+    },
+    "WettArena": {
+      "ok": false,
+      "markets": 0,
+      "last_checked": 1791411007.5438113,
+      "consecutive_success": 0,
+      "consecutive_failures": 1,
+      "last_success": 0.0
+    },
+    "Traf": {
+      "ok": true,
+      "markets": 0,
+      "last_checked": 1791411007.5438113,
+      "consecutive_success": 1,
+      "consecutive_failures": 0,
+      "last_success": 1791411007.5438113
     }
   }
 }
