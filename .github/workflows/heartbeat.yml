@@ -1,6 +1,6 @@
 name: Surebet 2-Minute Heartbeat
 
-# v31: użytkownik ma własny zewnętrzny trigger co ~2 minuty.
+# v34: użytkownik ma własny zewnętrzny trigger co ~2 minuty.
 # Ten workflow zostaje WYŁĄCZNIE do ręcznego testu, żeby nie dublować skanów.
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: arbi-heartbeat-v31
+  group: arbi-heartbeat-v34
   cancel-in-progress: true
 
 jobs:
