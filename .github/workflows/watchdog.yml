@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     concurrency:
-      group: arbi-watchdog-v29
+      group: arbi-watchdog-v30
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
