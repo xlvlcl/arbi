@@ -8,6 +8,7 @@ ARBI V28 — PODMIANA CAŁEGO KODU
 5. Kliknij Commit changes. Dane i historia powiadomień nie są dołączone do paczki, więc zachowasz obecne data/state.json i docs/data/latest.json.
 6. Workflow podmień OSOBNO: otwórz .github/workflows/surebet.yml > Edit; usuń cały kod i wklej treść surebet_v28.txt.
 7. Podmień tak samo .github/workflows/watchdog.yml treścią watchdog_v28.txt. Jeśli pliku nie ma, utwórz go przez Add file > Create new file.
+7a. DODAJ też .github/workflows/heartbeat.yml (jest już w paczce). To on sam wyzwala Surebet Scanner co około 2 minuty. Nie potrzebuje cron-job.org ani włączonego komputera.
 8. Settings > Pages > Build and deployment > Source: GitHub Actions.
 9. Zachowaj dotychczasowe sekrety SITE_PASSWORD, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID oraz OneSignal. Nie wklejaj ich do kodu.
 10. Actions: anuluj uruchomienia starej wersji, które nadal trwają. Następnie Surebet Scanner > Run workflow > main, tylko raz.
@@ -23,8 +24,10 @@ CO SIĘ ZMIENIŁO
 - Brak świeżych danych kończy run błędem dopiero PO opublikowaniu statusu diagnostycznego.
 
 WYWOŁANIA CO 2 MINUTY
-Pozostaw istniejący zewnętrzny trigger kierujący na surebet.yml / main lub repository_dispatch surebet_scan. Cron GitHuba pozostaje awaryjny co 5 min.
-Wywołanie co 2 min nie gwarantuje zakończenia skanu i deployu dokładnie co 2 min. Trwający skan może skończyć się później; następny czeka.
+Nowy workflow heartbeat.yml uruchamia okno wywołań i wysyła repository_dispatch `surebet_scan` do surebet.yml co 120 sekund. GitHubowy cron samego skanera pozostaje awaryjny.
+Automatyczne skany zapisują świeży docs/data/latest.json bezpośrednio do main, a strona sprawdza go co 3 sekundy. Dzięki temu nie trzeba czekać na pełny deploy Pages po każdym skanie.
+Pełny deploy GitHub Pages jest wykonywany przy ręcznym Run workflow — zrób go raz po wgraniu tej paczki.
+Jeśli skan trwa dłużej niż 2 minuty, GitHub nie uruchomi dwóch kopii równocześnie; następne wywołanie poczeka. Dlatego nie da się obiecać nowego kompletu kursów dokładnie co 120 sekund.
 Ta paczka nie zapewnia dostępu do wszystkich bukmacherów. Działanie źródeł musi zostać potwierdzone w Twoich Actions.
 
 JEŚLI RUN JEST CZERWONY

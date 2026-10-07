@@ -1246,7 +1246,16 @@ load().catch(()=>{
   document.getElementById("statusText").textContent="brak danych";
   document.getElementById("statusDot").style.background="#ff6b8b";
 });
-setInterval(()=>load().catch(()=>{
-  document.getElementById("statusText").textContent="nie można pobrać danych";
-  document.getElementById("statusDot").style.background="#ff6b8b";
-}),10000);
+const AUTO_REFRESH_MS=3000;
+function refreshSilently(){
+  load().catch(()=>{
+    document.getElementById("statusText").textContent="nie można pobrać danych";
+    document.getElementById("statusDot").style.background="#ff6b8b";
+  });
+}
+setInterval(refreshSilently,AUTO_REFRESH_MS);
+window.addEventListener("focus",refreshSilently);
+window.addEventListener("online",refreshSilently);
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==="visible")refreshSilently();
+});

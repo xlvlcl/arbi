@@ -1,4 +1,4 @@
-# Wywołania co 2 min z zewnętrznego triggera; cron GitHuba co 5 min.
+# Heartbeat wywołuje repository_dispatch co ok. 2 min; cron GitHuba jest fallbackiem co 5 min.
 name: Surebet Scanner
 run-name: Arbi v28 — ${{ github.event_name }} — ${{ github.run_number }}
 'on':
@@ -20,9 +20,6 @@ jobs:
     name: Skan, status i publikacja — v28
     runs-on: ubuntu-24.04
     timeout-minutes: 12
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -161,57 +158,6 @@ jobs:
         done
         echo "::error::Nie udało się zapisać danych do main. Sprawdź uprawnienia Actions i ochronę gałęzi."
         exit 1
-    - name: Wygeneruj blokadę hasłem
-      shell: bash
-      run: |
-        python - <<'PY'
-        import hashlib
-        import os
-        from pathlib import Path
-
-        password = os.getenv("SITE_PASSWORD", "")
-        if not password:
-            raise SystemExit("STOP: brak sekretu SITE_PASSWORD. Strona nie zostanie opublikowana bez hasła.")
-        from datetime import datetime, timezone
-
-        digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
-        generated_at = datetime.now(timezone.utc).isoformat()
-        Path("docs/auth-config.js").write_text(
-            f'window.ARBI_AUTH_HASH = "{digest}";\n'
-            f'window.ARBI_AUTH_GENERATED_AT = "{generated_at}";\n',
-            encoding="utf-8",
-        )
-        print("Blokada hasłem: włączona; konfiguracja odświeżona")
-        PY
-    - name: Wygeneruj konfigurację aplikacji push
-      shell: bash
-      run: |
-        python - <<'PY'
-        import json
-        import os
-        from pathlib import Path
-
-        app_id = os.getenv("ONESIGNAL_APP_ID", "").strip()
-        public_url = os.getenv("APP_PUBLIC_URL", "https://xlvlcl.github.io/arbi/").strip()
-        Path("docs/push-config.js").write_text(
-            "window.ARBI_ONESIGNAL_APP_ID = " + json.dumps(app_id) + ";\n"
-            "window.ARBI_PUBLIC_URL = " + json.dumps(public_url) + ";\n",
-            encoding="utf-8",
-        )
-        print("OneSignal Web Push:", "włączony" if app_id else "nie skonfigurowany")
-        if not app_id:
-            print("Dodaj sekret ONESIGNAL_APP_ID, aby włączyć powiadomienia z aplikacji.")
-        PY
-    - name: Skonfiguruj GitHub Pages
-      uses: actions/configure-pages@v5
-    - name: Przygotuj stronę
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./docs
-    - name: Opublikuj nowy wynik na stronie
-      id: deployment
-      timeout-minutes: 3
-      uses: actions/deploy-pages@v4
     - name: Zapisz log i diagnostykę
       if: always()
       uses: actions/upload-artifact@v4
@@ -229,7 +175,6 @@ jobs:
         SCAN_RESULT: ${{ steps.scanner.outcome }}
         VALIDATION_RESULT: ${{ steps.validate.outcome }}
         SAVE_RESULT: ${{ steps.save.outcome }}
-        DEPLOY_RESULT: ${{ steps.deployment.outcome }}
       run: |-
         python - <<'SUMMARY'
         import os
@@ -238,7 +183,6 @@ jobs:
             ("Skaner", "SCAN_RESULT"),
             ("Nowy wynik JSON", "VALIDATION_RESULT"),
             ("Zapis danych i alertów", "SAVE_RESULT"),
-            ("Publikacja strony", "DEPLOY_RESULT"),
         ]
         lines = ["## Arbi v28", "", "| Etap | Wynik |", "| --- | --- |"]
         lines += [f"| {label} | {os.getenv(key) or 'nie uruchomiono'} |" for label, key in rows]
@@ -260,3 +204,73 @@ jobs:
         print("::error::" + runtime.get("message", "Skan nie zakończył się poprawnie."))
         raise SystemExit(1)
         CHECK
+  deploy_pages:
+    name: Publikacja GitHub Pages — tylko ręczne uruchomienie
+    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    needs: scan_publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+      ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+      APP_PUBLIC_URL: https://xlvlcl.github.io/arbi/
+    steps:
+    - name: Pobierz najnowszy kod i dane
+      uses: actions/checkout@v4
+      with:
+        ref: main
+        fetch-depth: 1
+    - name: Sprawdź hasło strony
+      shell: bash
+      run: |
+        if [ -z "$SITE_PASSWORD" ]; then
+          echo "::error::Brak sekretu SITE_PASSWORD. Uzupełnij go w Settings > Secrets and variables > Actions."
+          exit 1
+        fi
+    - name: Wygeneruj blokadę hasłem
+      shell: bash
+      run: |
+        python - <<'PY'
+        import hashlib
+        import os
+        from datetime import datetime, timezone
+        from pathlib import Path
+
+        password = os.environ["SITE_PASSWORD"]
+        digest = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        generated_at = datetime.now(timezone.utc).isoformat()
+        Path("docs/auth-config.js").write_text(
+            f'window.ARBI_AUTH_HASH = "{digest}";\n'
+            f'window.ARBI_AUTH_GENERATED_AT = "{generated_at}";\n',
+            encoding="utf-8",
+        )
+        PY
+    - name: Wygeneruj konfigurację aplikacji push
+      shell: bash
+      run: |
+        python - <<'PY'
+        import json
+        import os
+        from pathlib import Path
+
+        app_id = os.getenv("ONESIGNAL_APP_ID", "").strip()
+        public_url = os.getenv("APP_PUBLIC_URL", "https://xlvlcl.github.io/arbi/").strip()
+        Path("docs/push-config.js").write_text(
+            "window.ARBI_ONESIGNAL_APP_ID = " + json.dumps(app_id) + ";\n"
+            "window.ARBI_PUBLIC_URL = " + json.dumps(public_url) + ";\n",
+            encoding="utf-8",
+        )
+        PY
+    - name: Skonfiguruj GitHub Pages
+      uses: actions/configure-pages@v5
+    - name: Przygotuj stronę
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./docs
+    - name: Opublikuj stronę
+      id: deployment
+      uses: actions/deploy-pages@v4
+
