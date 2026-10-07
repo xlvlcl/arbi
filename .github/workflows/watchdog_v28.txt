@@ -1,0 +1,61 @@
+name: Surebet Freshness Watchdog
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    concurrency:
+      group: arbi-watchdog-v28
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sprawdź świeżość latest.json
+        id: stale
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, time, os
+          from pathlib import Path
+
+          path = Path("docs/data/latest.json")
+          stale = True
+          age = 999999.0
+
+          if path.exists():
+              try:
+                  data = json.loads(path.read_text("utf-8"))
+                  last_scan = float(data.get("last_scan", 0) or 0)
+                  age = max(0.0, time.time() - last_scan)
+                  attempt = float(data.get("last_attempt", 0) or 0)
+                  stale = time.time() - max(last_scan, attempt) > 10 * 60
+              except Exception as exc:
+                  print("latest.json:", exc)
+
+          print(f"latest age={age:.0f}s stale={stale}")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write(f"stale={'true' if stale else 'false'}\n")
+          PY
+
+      - name: Uruchom Surebet Scanner gdy dane są stare
+        if: steps.stale.outputs.stale == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          curl -fsSL -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${REPOSITORY}/actions/workflows/surebet.yml/dispatches" \
+            -d '{"ref":"main"}'
