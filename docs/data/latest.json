@@ -17,5 +17,21 @@
   },
   "errors": [],
   "source": "DobryBuk public comparison",
-  "market_scan_note": "Oczekiwanie na pierwszy skan v11."
+  "market_scan_note": "Oczekiwanie na pierwszy skan v11.",
+  "data_fresh": false,
+  "data_status": "error",
+  "valuebets": [],
+  "near_arbs": [],
+  "runtime": {
+    "version": 28,
+    "state": "error",
+    "message": "Skaner zakończył się błędem (kod 1). Sprawdź log skanera w Actions.",
+    "attempt_started_at": 1791402631.3947568,
+    "attempt_finished_at": 1791402703.4662063,
+    "duration_seconds": 72.07,
+    "last_success_at": 0,
+    "scanner_exit_code": 1,
+    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37677493612"
+  },
+  "last_attempt": 1791402703.4662063
 }
