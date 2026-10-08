@@ -12,6 +12,7 @@ from scan import run, read, write, valid_config
 from build import build
 from notify import due, send_alerts
 from source import details
+from insights import radar, valuebets
 
 CONFIG={'tax_rate':.12,'winning_tax_threshold':2280,'winning_tax_rate':.1}
 
@@ -24,6 +25,61 @@ def fake_fetch(path,timeout):
     raise AssertionError(path)
 
 def fake_notify(ops,state,**kwargs):return {'accepted':0,'channels':{'telegram':False,'push':False},'errors':[]}
+
+def value_event(tax=0):
+    e=event(tax)
+    e['all_odds']=[{'bookmaker':{'slug':'target','name':'Target','custom_tax_rate':tax},'odds':{'1':2.15,'2':1.7}}]
+    for i in range(5):e['all_odds'].append({'bookmaker':{'slug':f'ref{i}','name':f'Ref {i}','custom_tax_rate':0},'odds':{'1':1.8,'2':1.8}})
+    return e
+
+class Insights(unittest.TestCase):
+    def test_value_excludes_target_from_reference(self):
+        value=valuebets(value_event(),50,CONFIG)[0]
+        self.assertEqual(value['reference_books'],5)
+        self.assertEqual(value['probability'],.5)
+        self.assertAlmostEqual(value['edge_pct'],7.5)
+        self.assertEqual(value['leg']['slug'],'target')
+    def test_value_requires_five_complete_other_books(self):
+        e=value_event();e['all_odds'][1]['odds'].pop('2')
+        self.assertFalse(valuebets(e,50,CONFIG))
+    def test_value_applies_tax(self):self.assertFalse(valuebets(value_event(.12),50,CONFIG))
+    def test_value_rejects_extreme_price(self):
+        e=value_event();e['all_odds'][0]['odds']['1']=2.8
+        self.assertFalse(valuebets(e,50,CONFIG))
+    def test_value_accounts_for_winning_fee(self):
+        self.assertTrue(valuebets(value_event(),50,CONFIG))
+        self.assertFalse(valuebets(value_event(),2500,CONFIG))
+    def test_radar_is_complete_and_distinct_from_surebet(self):
+        rows=radar(value_event(),50,CONFIG)
+        self.assertEqual(len(rows),1)
+        self.assertGreater(rows[0]['gap_pct'],0)
+        self.assertEqual(rows[0]['bookmakers'],6)
+        self.assertLess(rows[0]['profit'],0)
+        self.assertFalse(radar(event(),50,CONFIG))
+    def test_radar_rejects_mismatched_lines(self):
+        e=event();e['all_odds'][0]['odds']={'over15':2};e['all_odds'][1]['odds']={'under25':2}
+        self.assertFalse(radar(e,50,CONFIG))
+    def test_value_is_rechecked_and_changed_price_removed(self):
+        with tempfile.TemporaryDirectory() as directory,patch('scan.time.sleep'):
+            calls=[]
+            def reader(events,deadline,**kwargs):
+                calls.append(1);e=value_event()
+                if len(calls)>1:e['all_odds'][0]['odds']['1']=1.8
+                return {1:e},[]
+            data=run(directory,fake_fetch,reader,fake_notify,env={})
+            self.assertEqual(len(calls),2);self.assertFalse(data['valuebets'])
+            self.assertTrue(data['radar'])
+    def test_value_and_radar_survive_complete_scan(self):
+        with tempfile.TemporaryDirectory() as directory,patch('scan.time.sleep'):
+            data=run(directory,fake_fetch,lambda *args,**kwargs:({1:value_event()},[]),fake_notify,env={})
+            self.assertEqual(len(data['valuebets']),1);self.assertTrue(data['valuebets'][0]['confirmed_at'])
+            self.assertTrue(data['radar'])
+    def test_failure_clears_value_and_radar(self):
+        with tempfile.TemporaryDirectory() as directory:
+            write(Path(directory)/'web/data/latest.json',{'status':{'last_success_at':100},'radar':[{'id':'old'}],'valuebets':[{'id':'old'}]})
+            def broken(*args):raise RuntimeError('HTTP Error 403: Forbidden')
+            data=run(directory,broken,env={})
+            self.assertFalse(data['radar']);self.assertFalse(data['valuebets'])
 
 class Markets(unittest.TestCase):
     def test_football_requires_draw(self):self.assertFalse(market_groups(['1','2'],'football'))

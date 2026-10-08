@@ -9,6 +9,7 @@ from pathlib import Path
 from engine import SPORTS, candidate_events, future_event, market_groups, opportunities, number
 from source import fetch_json, details
 from notify import send_alerts
+from insights import radar, valuebets
 
 ROOT=Path(__file__).resolve().parent
 
@@ -52,6 +53,8 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
         near=candidate_events(eligible,now)
         strong_ids={e['id'] for e in strong}
         extras=[e for e in near if e['id'] not in strong_ids]
+        near_ids={e['id'] for e in near}
+        extras += [e for e in eligible if e['id'] not in strong_ids and e['id'] not in near_ids]
         sequence=int(state.get('sequence',0))+1
         if extras:
             offset=(sequence-1)*12%len(extras);extras=extras[offset:]+extras[:offset]
@@ -67,12 +70,14 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
             errors=[error for error in errors if not any(error.startswith(f"Zdarzenie {event_id}:") for event_id in retry)]
             errors+=retry_errors
         status['errors']+=errors
-        candidates=[]
+        candidates=[];value_candidates=[]
         for detail in first.values():
-            if future_event(detail,time.time()):candidates+=opportunities(detail,budget,minimum,config,overrides)
-        targets={op['event_id'] for op in candidates}
-        print(f'3/5 Ponowny odczyt: {len(targets)} zdarzeń z możliwym surebetem.',flush=True)
-        confirmed=[]
+            if future_event(detail,time.time()):
+                candidates+=opportunities(detail,budget,minimum,config,overrides)
+                value_candidates+=valuebets(detail,budget,config,overrides)
+        targets={op['event_id'] for op in candidates+value_candidates}
+        print(f'3/5 Ponowny odczyt: {len(targets)} zdarzeń z możliwym surebetem lub valuebetem.',flush=True)
+        confirmed=[];confirmed_values=[];latest_details=dict(first)
         confirmation_complete=not targets
         if targets and time.monotonic()<deadline-10:
             time.sleep(1)
@@ -80,11 +85,21 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
             status['errors']+=errors
             confirmation_complete=all(event_id in second for event_id in targets)
             first_ids={op['id'] for op in candidates}
+            value_ids={op['id'] for op in value_candidates}
+            latest_details.update(second)
             for detail in second.values():
                 if future_event(detail,time.time()):
                     confirmed += [op for op in opportunities(detail,budget,minimum,config,overrides) if op['id'] in first_ids]
+                    confirmed_values += [op for op in valuebets(detail,budget,config,overrides) if op['id'] in value_ids]
         confirmed.sort(key=lambda x:x['profit_pct'],reverse=True)
         for opportunity in confirmed:opportunity['confirmed_at']=time.time()
+        confirmed_values.sort(key=lambda x:x['edge_pct'],reverse=True)
+        for value in confirmed_values:value['confirmed_at']=time.time()
+        watch=[]
+        for detail in latest_details.values():
+            if future_event(detail,time.time()):watch+=radar(detail,budget,config,overrides)
+        watch=sorted(watch,key=lambda x:x['gap_pct'])[:160]
+        for row in watch:row['observed_at']=time.time()
         # Failed mandatory candidate reads are visible as partial coverage, never silent full success.
         missing=len([e for e in selected if e['id'] not in first])
         if selected and not first:raise RuntimeError('Nie udało się odczytać szczegółów żadnego wytypowanego wydarzenia.')
@@ -107,11 +122,14 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
             market_count+=len(groups)
             items.append({'id':event['id'],'name':event.get('name'),'sport':SPORTS.get(event.get('sport'),event.get('sport')),'sport_code':event.get('sport'),'starts_at':event.get('event_date'),'league':(event.get('league') or {}).get('name'),'url':'https://dobrybuk.pl/kursy/mecz/'+event.get('slug',''),'market_count':len(groups),'odds':[{'code':x.get('market_type'),'value':number(x.get('odds_value')),'bookmaker':(x.get('bookmaker') or {}).get('name'),'slug':(x.get('bookmaker') or {}).get('slug')} for x in event.get('best_odds',[])]})
         payload={'version':'NEW-1','status':status,'opportunities':confirmed,'events':items,'bookmakers':books,'config':config,'notifications':notices,'stats':{'source_events':len(catalogue),'upcoming_events':len(eligible),'market_groups':market_count,'detail_reads':len(first),'candidate_events':len(strong),'detail_limit':cap,'candidate_coverage_complete':confirmation_complete and len(strong)<=cap and all(e['id'] in first for e in strong[:cap]),'sports':sorted({e.get('sport') for e in eligible}),'bookmakers':len(books),'confirmed':len(confirmed)},'source_note':'Kursy z publicznej porównywarki. Potwierdzenie oznacza ponowny odczyt źródła; źródło nie podaje czasu aktualizacji każdego kursu. Dostępne rynki zależą od oferty źródła.'}
+        payload['radar']=watch
+        payload['valuebets']=confirmed_values
+        payload['stats'].update(radar=len(watch),valuebets=len(confirmed_values))
         write(state_path,state)
     except Exception as exc:
         print('BŁĄD:',type(exc).__name__,str(exc),flush=True)
         status['message']=str(exc)
-        payload={**previous,'version':'NEW-1','status':status,'opportunities':[]}
+        payload={**previous,'version':'NEW-1','status':status,'opportunities':[],'radar':[],'valuebets':[]}
         payload.setdefault('events',[]);payload.setdefault('stats',{})
     status['duration_seconds']=round(time.monotonic()-started,2)
     print('5/5 Zapisuję wynik i status:',status['state'],flush=True)
@@ -123,7 +141,7 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
 def record_failure(root=ROOT):
     path=Path(root)/'web/data/latest.json';previous=read(path)
     old=previous.get('status',{})
-    previous.update(version='NEW-1',opportunities=[],status={'version':'NEW-1','state':'error','attempt_at':time.time(),'last_success_at':old.get('last_success_at'),'message':'Proces skanera przekroczył limit lub został przerwany. Sprawdź log uruchomienia.','errors':[]})
+    previous.update(version='NEW-1',opportunities=[],radar=[],valuebets=[],status={'version':'NEW-1','state':'error','attempt_at':time.time(),'last_success_at':old.get('last_success_at'),'message':'Proces skanera przekroczył limit lub został przerwany. Sprawdź log uruchomienia.','errors':[]})
     previous.setdefault('events',[]);previous.setdefault('stats',{})
     write(path,previous)
 if __name__=='__main__':
