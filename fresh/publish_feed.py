@@ -36,6 +36,7 @@ def publish(root=ROOT,env=None,open_request=None,now=None):
     if len(raw)>8*1024*1024:raise ValueError('Wynik skanera przekracza limit publikacji.')
     request=urllib.request.Request(reader.rstrip('/')+'/feed/latest',data=raw,method='PUT',headers={
         'Content-Type':'application/json','Content-Length':str(len(raw)),
+        'User-Agent':'Mozilla/5.0','Accept':'application/json',
         'Authorization':'Bearer '+token,'X-Arbi-Attempt':str(data['status']['attempt_at'])})
     opening=open_request or urllib.request.build_opener(NoRedirect()).open
     with opening(request,timeout=20) as response:

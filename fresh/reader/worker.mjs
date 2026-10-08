@@ -63,6 +63,11 @@ export default {
       const response = await upstream(url.pathname);
       if (response.status !== 200) {
         await response.body?.cancel();
+        if (response.status === 429) {
+          const limited = json({error: 'Źródło ograniczyło zapytania.', upstream_status: 429}, 429);
+          limited.headers.set('Retry-After', response.headers.get('Retry-After') || '900');
+          return limited;
+        }
         return json({error: 'Źródło odrzuciło odczyt.', upstream_status: response.status}, response.status === 403 ? 403 : 502);
       }
       if (!(response.headers.get('Content-Type') || '').toLowerCase().includes('application/json')) {

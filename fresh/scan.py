@@ -7,7 +7,8 @@ import time
 from pathlib import Path
 
 from engine import SPORTS, candidate_events, future_event, market_groups, opportunities, number
-from source import fetch_json, details
+from source import fetch_json, details, error_text, RateLimited
+import urllib.error
 from notify import send_alerts
 from insights import radar, valuebets
 
@@ -39,6 +40,10 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
     run_url=f"https://github.com/{env.get('GITHUB_REPOSITORY','xlvlcl/arbi')}/actions/runs/{env.get('GITHUB_RUN_ID','')}"
     status={'version':'NEW-1','state':'error','attempt_at':now,'last_success_at':previous.get('status',{}).get('last_success_at'),'message':'','run_url':run_url,'errors':[]}
     try:
+        resume_at=number(state.get('source_resume_at',0))
+        if now<resume_at:
+            status['source_resume_at']=resume_at
+            raise RuntimeError('Przerwa po limicie źródła (HTTP 429). Kolejna próba za '+str(max(1,int((resume_at-now+59)//60)))+' min.')
         budget=max(3,number(env.get('BANKROLL_PLN',50)))
         minimum=max(0,number(env.get('MIN_PROFIT_PCT',.35)))
         overrides=json.loads(env.get('BOOKMAKER_TAX_OVERRIDES','{}'))
@@ -127,8 +132,13 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
         payload['stats'].update(radar=len(watch),valuebets=len(confirmed_values))
         write(state_path,state)
     except Exception as exc:
-        print('BŁĄD:',type(exc).__name__,str(exc),flush=True)
-        status['message']=str(exc)
+        if isinstance(exc,RateLimited):
+            state['source_resume_at']=time.time()+exc.retry_after
+            status['source_resume_at']=state['source_resume_at']
+            write(state_path,state)
+        message=error_text(exc) if isinstance(exc,(urllib.error.HTTPError,urllib.error.URLError,TimeoutError)) else str(exc)
+        print('BŁĄD:',type(exc).__name__,message,flush=True)
+        status['message']=message
         payload={**previous,'version':'NEW-1','status':status,'opportunities':[],'radar':[],'valuebets':[]}
         payload.setdefault('events',[]);payload.setdefault('stats',{})
     status['duration_seconds']=round(time.monotonic()-started,2)

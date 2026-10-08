@@ -6,6 +6,15 @@ const env = {READER_TOKEN: token};
 const request = (path, auth = true, method = 'GET') => new Request('https://reader.example' + path, {
   method, headers: auth ? {Authorization: 'Bearer ' + token} : {},
 });
+test('rate limiting preserves status and Retry-After for scanner backoff', async () => {
+  const old=globalThis.fetch;
+  globalThis.fetch=async()=>new Response('',{status:429,headers:{'Retry-After':'600'}});
+  try {
+    const response=await worker.fetch(request('/api/odds/config/'),env);
+    assert.equal(response.status,429);assert.equal(response.headers.get('Retry-After'),'600');
+    assert.equal((await response.json()).upstream_status,429);
+  } finally {globalThis.fetch=old;}
+});
 test('fixed routes and authentication gate all source reads', async () => {
   const old = globalThis.fetch;
   let calls = 0;

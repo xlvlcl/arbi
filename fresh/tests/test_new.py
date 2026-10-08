@@ -16,7 +16,7 @@ from engine import allocate, candidate_events, flatten_detail, future_event, mar
 from scan import run, read, write, valid_config
 from build import build
 from notify import due, send_alerts
-from source import details, fetch_json, NoRedirect
+from source import details, fetch_json, NoRedirect, RateLimited, open_source, error_text
 from insights import radar, valuebets
 from publish_feed import publish, compact
 
@@ -58,6 +58,27 @@ class FeedPublisher(unittest.TestCase):
             self.assertNotIn('private-token',json.dumps(config))
 
 class SourceReader(unittest.TestCase):
+    def test_rate_limit_through_bridge_retains_provider_cooldown(self):
+        def opening(*args,**kwargs):
+            raise urllib.error.HTTPError('https://reader.example',502,'',{'Retry-After':'600'},io.BytesIO(b'{"upstream_status":429}'))
+        with self.assertRaises(RateLimited) as caught:open_source(opening,None,10)
+        self.assertEqual(caught.exception.retry_after,600)
+    def test_error_reports_upstream_status_without_arbitrary_body_or_url(self):
+        error=urllib.error.HTTPError('https://reader.example/?token=secret',502,'',{},io.BytesIO(b'{"error":"private-secret","upstream_status":503}'))
+        self.assertEqual(error_text(error),'HTTP 502 (źródło: HTTP 503)')
+    def test_saved_rate_limit_prevents_source_reads_until_cooldown_ends(self):
+        with tempfile.TemporaryDirectory() as root:
+            def limited(*args,**kwargs):raise RateLimited(600)
+            payload=run(root,fetch=limited,env={})
+            self.assertIn('429',payload['status']['message'])
+            self.assertGreater(read(Path(root)/'state.json')['source_resume_at'],time.time()+590)
+            def forbidden(*args,**kwargs):self.fail('Źródło odczytane podczas przerwy')
+            payload=run(root,fetch=forbidden,env={})
+            self.assertIn('Przerwa',payload['status']['message'])
+            self.assertEqual(payload['opportunities'],[])
+    def test_details_do_not_swallow_rate_limit_or_start_second_pass(self):
+        def limited(*args,**kwargs):raise RateLimited(600)
+        with self.assertRaises(RateLimited):details([{'id':1},{'id':2}],time.monotonic()+2,fetch=limited,workers=1)
     @contextmanager
     def response(self, *args, **kwargs):
         value=io.BytesIO(b'{"ok":true}');value.status=200

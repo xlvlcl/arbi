@@ -1,6 +1,7 @@
 """Anonymous JSON reads from the same public endpoints used by the comparison site."""
 from __future__ import annotations
 import json
+import io
 import os
 import re
 import time
@@ -10,6 +11,44 @@ from urllib.parse import urlsplit
 from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 
 BASE='https://dobrybuk.pl/api/odds/'
+
+class RateLimited(RuntimeError):
+    def __init__(self,retry_after=900):
+        self.retry_after=max(60,min(86400,retry_after))
+        super().__init__('Źródło ograniczyło zapytania (HTTP 429). Skan zostanie ponowiony po przerwie.')
+
+def open_source(opening,request,timeout):
+    try:return opening(request,timeout=timeout)
+    except urllib.error.HTTPError as exc:
+        raw=exc.read(4096);exc.fp=io.BytesIO(raw)
+        try:body=json.loads(raw)
+        except (ValueError,TypeError):body={}
+        if exc.code==429 or isinstance(body,dict) and body.get('upstream_status')==429:
+            try:delay=int(exc.headers.get('Retry-After','900'))
+            except (ValueError,TypeError,AttributeError):delay=900
+            raise RateLimited(delay) from None
+        raise
+
+def error_text(exc):
+    """Report HTTP status and known reader errors without URLs or credentials."""
+    if isinstance(exc,urllib.error.HTTPError):
+        message=f'HTTP {exc.code}'
+        try:
+            body=json.loads(exc.read(4096))
+            known={'Nie udało się połączyć ze źródłem w limicie czasu.': 'źródło nie odpowiedziało w limicie czasu',
+                   'Źródło odrzuciło odczyt.': 'źródło odrzuciło odczyt',
+                   'Źródło nie zwróciło JSON.': 'źródło zwróciło niepoprawną odpowiedź',
+                   'Brak dostępu.': 'niezgodny token czytnika'}
+            if isinstance(body,dict):
+                detail=known.get(body.get('error'))
+                if detail:message+=' — '+detail
+                upstream=body.get('upstream_status')
+                if isinstance(upstream,int) and 100<=upstream<=599:message+=f' (źródło: HTTP {upstream})'
+        except (ValueError,OSError,AttributeError,TypeError):pass
+        return message
+    if isinstance(exc,(TimeoutError,urllib.error.URLError)):
+        return 'Brak odpowiedzi źródła lub błąd połączenia.'
+    return type(exc).__name__
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,req,fp,code,msg,headers,newurl):
@@ -33,7 +72,7 @@ def fetch_json(path,timeout=10,base=BASE):
         opener=urllib.request.build_opener(NoRedirect()).open
     url=base+path
     request=urllib.request.Request(url,headers=headers)
-    with opener(request,timeout=timeout) as response:
+    with open_source(opener,request,timeout) as response:
         if response.status!=200:raise RuntimeError(f'HTTP {response.status}')
         raw=response.read(24*1024*1024+1)
         if len(raw)>24*1024*1024:raise ValueError('Odpowiedź źródła przekroczyła limit rozmiaru.')
@@ -51,7 +90,11 @@ def details(events,deadline,fetch=fetch_json,workers=5):
                 if not isinstance(data,dict) or data.get('id')!=event_id or not isinstance(data.get('all_odds'),list):
                     raise ValueError('Nieprawidłowy format szczegółów wydarzenia.')
                 results[event_id]=data
-            except Exception as exc:errors.append(f'Zdarzenie {event_id}: {type(exc).__name__}')
+            except RateLimited:
+                # Stop queued requests; don't retry during the provider's cooldown.
+                for pending in jobs:pending.cancel()
+                raise
+            except Exception as exc:errors.append(f'Zdarzenie {event_id}: {error_text(exc)}')
     except TimeoutError:
         errors.append('Limit czasu szczegółów: pozostałe wydarzenia wrócą w kolejnym skanie.')
     finally:
