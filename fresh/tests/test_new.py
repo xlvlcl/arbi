@@ -6,15 +6,54 @@ import time
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+import io
+import os
+import urllib.error
+import urllib.request
+from contextlib import contextmanager
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from engine import allocate, candidate_events, flatten_detail, future_event, market_groups, opportunities, payout
 from scan import run, read, write, valid_config
 from build import build
 from notify import due, send_alerts
-from source import details
+from source import details, fetch_json, NoRedirect
 from insights import radar, valuebets
 
 CONFIG={'tax_rate':.12,'winning_tax_threshold':2280,'winning_tax_rate':.1}
+
+class SourceReader(unittest.TestCase):
+    @contextmanager
+    def response(self, *args, **kwargs):
+        value=io.BytesIO(b'{"ok":true}');value.status=200
+        yield value
+    def test_default_fetch_has_no_reader_token(self):
+        with patch.dict(os.environ,{},clear=True),patch('source.urllib.request.urlopen',side_effect=self.response) as opening:
+            self.assertEqual(fetch_json('config/'),{'ok':True})
+            request=opening.call_args.args[0]
+            self.assertEqual(request.full_url,'https://dobrybuk.pl/api/odds/config/')
+            self.assertIsNone(request.get_header('Authorization'))
+    def test_reader_uses_auth_and_blocks_redirects(self):
+        env={'SOURCE_READER_URL':'https://test.workers.dev/','SOURCE_READER_TOKEN':'t'*32}
+        with patch.dict(os.environ,env,clear=True),patch('source.urllib.request.build_opener') as opening:
+            opening.return_value.open.side_effect=self.response
+            self.assertEqual(fetch_json('events/123/'),{'ok':True})
+            self.assertIsInstance(opening.call_args.args[0],NoRedirect)
+            request=opening.return_value.open.call_args.args[0]
+            self.assertEqual(request.full_url,'https://test.workers.dev/api/odds/events/123/')
+            self.assertEqual(request.get_header('Authorization'),'Bearer '+'t'*32)
+    def test_reader_rejects_invalid_url_or_token_before_request(self):
+        for url in ['http://test.workers.dev','https://user:test@test.workers.dev','https://test.workers.dev/path','https://test.workers.dev/?token=x','https://test.workers.dev/#x']:
+            with self.subTest(url=url),patch.dict(os.environ,{'SOURCE_READER_URL':url,'SOURCE_READER_TOKEN':'t'*32},clear=True),patch('source.urllib.request.urlopen') as opening:
+                with self.assertRaises(ValueError):fetch_json('config/')
+                opening.assert_not_called()
+        with patch.dict(os.environ,{'SOURCE_READER_URL':'https://test.workers.dev','SOURCE_READER_TOKEN':'short'},clear=True):
+            with self.assertRaises(ValueError):fetch_json('config/')
+    def test_untrusted_paths_rejected(self):
+        for path in ['../config/','events/1/?url=x','https://example.com/','events/1/../../x']:
+            with self.subTest(path=path),self.assertRaises(ValueError):fetch_json(path)
+    def test_redirect_cannot_forward_auth(self):
+        with self.assertRaises(urllib.error.HTTPError):
+            NoRedirect().redirect_request(urllib.request.Request('https://reader.example'),None,302,'',{},'https://elsewhere.example')
 
 def event(tax=0):
     return {'id':1,'name':'A - B','slug':'a-b-1','sport':'tennis','event_date':'2099-01-01T20:00:00+02:00','league':{'name':'Test'},'best_odds':[{'market_type':'1','odds_value':2.2,'bookmaker':{'slug':'a','name':'A'}},{'market_type':'2','odds_value':2.2,'bookmaker':{'slug':'b','name':'B'}}],'all_odds':[{'bookmaker':{'slug':'a','name':'A','custom_tax_rate':tax},'odds':{'1':'2.20','2':'1.80'},'event_url':'https://a.example/'},{'bookmaker':{'slug':'b','name':'B','custom_tax_rate':tax},'odds':{'1':'1.80','2':'2.20'},'event_url':'https://b.example/'}]}

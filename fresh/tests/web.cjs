@@ -38,7 +38,7 @@ vm.createContext(context);vm.runInContext(source,context);
  assert(ids.get('diagnostic').textContent.includes('Source unavailable'));assert.equal(ids.get('radarCount').textContent,0);assert.equal(ids.get('valueCount').textContent,0);
  assert.equal(ids.get('last').textContent,new TestDate(2000000000000).toLocaleString('pl-PL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}));
  current.status.attempt_at=2000000025;current.status.message='HTTP Error 403: Forbidden';await vm.runInContext('load()',context);
- assert(ids.get('diagnostic').textContent.includes('Cloudflare'));assert(ids.get('radarList').innerHTML.includes('Cloudflare'));assert(ids.get('valueList').innerHTML.includes('Cloudflare'));
+ assert(ids.get('diagnostic').textContent.includes('HTTP 403'));assert(ids.get('radarList').innerHTML.includes('HTTP 403'));assert(ids.get('valueList').innerHTML.includes('HTTP 403'));
  current=structuredClone(sample);current.status.attempt_at=2000000030;
  vm.runInContext('config.repository="test/repo"',context);
  context.fetch=(url,{signal})=>new Promise((resolve,reject)=>{

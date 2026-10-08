@@ -34,6 +34,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+      SOURCE_READER_URL: ${{ secrets.SOURCE_READER_URL }}
+      SOURCE_READER_TOKEN: ${{ secrets.SOURCE_READER_TOKEN }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
@@ -63,6 +65,7 @@ jobs:
           node --check fresh/web/app.js
           node fresh/tests/calculator.cjs
           node fresh/tests/web.cjs
+          node --test fresh/reader/worker.test.mjs
       - name: Przygotuj konfigurację dostępu
         run: python fresh/build.py
       - name: Pobierz kursy, potwierdź okazje i wyślij alerty
