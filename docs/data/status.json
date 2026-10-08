@@ -1,11 +1,11 @@
 {
   "version": 34,
-  "state": "error",
-  "message": "Skaner zakończył się błędem (kod 1). Sprawdź log skanera w Actions.",
-  "attempt_started_at": 1791472215.8672152,
-  "attempt_finished_at": 1791472252.3622372,
-  "duration_seconds": 36.5,
+  "state": "no_data",
+  "message": "Brak świeżych kursów z dostępnych źródeł. Ostatni poprawny wynik pozostaje widoczny jako STARY.",
+  "attempt_started_at": 1791472680.280731,
+  "attempt_finished_at": 1791472759.4661815,
+  "duration_seconds": 79.19,
   "last_success_at": 1791405596.9912076,
-  "scanner_exit_code": 1,
-  "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37798218293"
+  "scanner_exit_code": 0,
+  "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37799320977"
 }
