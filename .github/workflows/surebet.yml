@@ -7,6 +7,12 @@ on:
       - 'fresh/**'
       - '.github/workflows/surebet.yml'
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Opublikuj zmiany interfejsu lub konfiguracji strony
+        type: boolean
+        default: false
+        required: false
   repository_dispatch:
     types: [surebet_scan]
   schedule:
@@ -22,7 +28,7 @@ jobs:
   scanner:
     name: Nowy skaner i publikacja
     runs-on: ubuntu-24.04
-    timeout-minutes: 8
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -97,14 +103,17 @@ jobs:
           echo '::error::Nie udało się zapisać wyniku. Sprawdź prawa zapisu Actions do main.'
           exit 1
       - name: Skonfiguruj Pages
+        if: github.event_name == 'push' || inputs.publish == true
         uses: actions/configure-pages@v5
       - name: Przygotuj nową stronę
+        if: github.event_name == 'push' || inputs.publish == true
         uses: actions/upload-pages-artifact@v3
         with:
           path: fresh/web
       - name: Opublikuj nową stronę
+        if: github.event_name == 'push' || inputs.publish == true
         id: deployment
-        timeout-minutes: 2
+        timeout-minutes: 5
         uses: actions/deploy-pages@v4
       - name: Zapisz log
         if: always()
