@@ -1,7 +1,7 @@
 {
-  "generated_at": 1791424932.3790781,
+  "generated_at": 1791425055.7221444,
   "last_scan": 1791405596.9912076,
-  "last_attempt": 1791424932.7400794,
+  "last_attempt": 1791425055.9974682,
   "data_fresh": false,
   "data_status": "stale-last-good",
   "latest": [],
@@ -213,7 +213,7 @@
     "direct_http_markets": 0,
     "direct_browser_markets": 0,
     "broad_candidate_markets": 0,
-    "broad_listing_pairs": 15,
+    "broad_listing_pairs": 14,
     "priority_events": 0,
     "signal_events": 0,
     "watch_targets": 0,
@@ -232,10 +232,10 @@
     "value_push_alerts_sent": 0,
     "telegram_alerts_sent": 0,
     "push_configured": true,
-    "elapsed_seconds": 74.34,
+    "elapsed_seconds": 71.2,
     "scanner": "pl-all-books-v34-dobrybuk-hybrid",
     "scan_mode": "stable-fast+fallback",
-    "scan_sequence": 170,
+    "scan_sequence": 171,
     "deep_every": 4,
     "next_deep_in": 0,
     "quality": {
@@ -277,21 +277,7 @@
         "events": 0,
         "mode": "network when available + manual snapshot fallback + all-date candidate sweep"
       },
-      "ETOTO": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Betfan": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "WettArena": {
+      "ComeOn": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -305,14 +291,28 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Forbet": {
+      "Traf": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "PZBuk": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "Betters": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Traf": {
+      "AdmiralBet": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -326,14 +326,14 @@
         "ok": true,
         "mode": "http + public-browser"
       },
-      "AdmiralBet": {
+      "LeBull": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
-        "ok": true,
+        "ok": false,
         "mode": "http + public-browser"
       },
-      "LeBull": {
+      "Forbet": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -347,6 +347,20 @@
         "ok": true,
         "mode": "http + public-browser"
       },
+      "Fuksiarz": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
+        "mode": "http + public-browser"
+      },
+      "WettArena": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": false,
+        "mode": "http + public-browser"
+      },
       "STS": {
         "markets": 0,
         "http_markets": 0,
@@ -354,21 +368,7 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "ComeOn": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "PZBuk": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": true,
-        "mode": "http + public-browser"
-      },
-      "Fuksiarz": {
+      "ETOTO": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -382,14 +382,7 @@
         "ok": false,
         "mode": "http + public-browser"
       },
-      "Betters": {
-        "markets": 0,
-        "http_markets": 0,
-        "browser_markets": 0,
-        "ok": false,
-        "mode": "http + public-browser"
-      },
-      "LVBet": {
+      "Betfan": {
         "markets": 0,
         "http_markets": 0,
         "browser_markets": 0,
@@ -401,6 +394,13 @@
         "http_markets": 0,
         "browser_markets": 0,
         "ok": false,
+        "mode": "http + public-browser"
+      },
+      "LVBet": {
+        "markets": 0,
+        "http_markets": 0,
+        "browser_markets": 0,
+        "ok": true,
         "mode": "http + public-browser"
       }
     }
@@ -526,7 +526,7 @@
   },
   "intelligence": {
     "scan_plan": {
-      "sequence": 170,
+      "sequence": 171,
       "mode": "fast",
       "deep_every": 4,
       "next_deep_in": 0
@@ -565,154 +565,154 @@
       "DobryBuk": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 154,
+        "consecutive_failures": 155,
         "last_success": 0.0
       },
       "LVBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 141,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 142,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "Betters": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 154,
+        "consecutive_failures": 155,
         "last_success": 0.0
       },
       "TotalBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 154,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 155,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "Betclic": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 154,
+        "consecutive_failures": 155,
         "last_success": 0.0
       },
       "STS": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 154,
+        "consecutive_failures": 155,
         "last_success": 0.0
       },
       "Betfan": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 154,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 155,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "BetSport": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 12,
+        "consecutive_failures": 13,
         "last_success": 1791422856.6160386
       },
       "LeBull": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 12,
+        "consecutive_failures": 13,
         "last_success": 1791422856.6160386
       },
       "Fuksiarz": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 154,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 155,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "Superbet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 154,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 155,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "PZBuk": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 12,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 13,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "Forbet": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 154,
+        "consecutive_failures": 155,
         "last_success": 0.0
       },
       "AdmiralBet": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 154,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 155,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "ComeOn": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 12,
+        "consecutive_failures": 13,
         "last_success": 1791422856.6160386
       },
       "ETOTO": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 12,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 13,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       },
       "Fortuna": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 154,
+        "consecutive_failures": 155,
         "last_success": 0.0
       },
       "WettArena": {
         "ok": false,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
+        "last_checked": 1791425055.7222612,
         "consecutive_success": 0,
-        "consecutive_failures": 108,
+        "consecutive_failures": 109,
         "last_success": 0.0
       },
       "Traf": {
         "ok": true,
         "markets": 0,
-        "last_checked": 1791424932.3791864,
-        "consecutive_success": 108,
+        "last_checked": 1791425055.7222612,
+        "consecutive_success": 109,
         "consecutive_failures": 0,
-        "last_success": 1791424932.3791864
+        "last_success": 1791425055.7222612
       }
     },
     "watchlist_size": 0,
@@ -721,11 +721,11 @@
     "near_arb_limit_pct": 1.5
   },
   "errors": [
-    "Piłka ręczna: TimeoutError: ",
-    "MMA: TimeoutError: ",
-    "Boks: TimeoutError: ",
-    "Dart: TimeoutError: ",
-    "Żużel: TimeoutError: ",
+    "Baseball: TimeoutError: ",
+    "Futbol amerykański: TimeoutError: ",
+    "Tenis stołowy: TimeoutError: ",
+    "Snooker: TimeoutError: ",
+    "Rugby: TimeoutError: ",
     "Discovery: budżet czasu wyczerpany; pozostałe sporty wrócą w kolejnych cyklach.",
     "Fallback tabeli: TimeoutError: ",
     "Direct: Betclic: https://www.betclic.pl/: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.betclic.pl/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
@@ -761,11 +761,11 @@
     "version": 34,
     "state": "no_data",
     "message": "Brak świeżych kursów z dostępnych źródeł. Ostatni poprawny wynik pozostaje widoczny jako STARY.",
-    "attempt_started_at": 1791424857.811609,
-    "attempt_finished_at": 1791424932.7400794,
-    "duration_seconds": 74.93,
+    "attempt_started_at": 1791424984.221829,
+    "attempt_finished_at": 1791425055.9974682,
+    "duration_seconds": 71.78,
     "last_success_at": 1791405596.9912076,
     "scanner_exit_code": 0,
-    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37715747344"
+    "run_url": "https://github.com/xlvlcl/arbi/actions/runs/37715865974"
   }
 }
