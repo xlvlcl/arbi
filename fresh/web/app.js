@@ -84,7 +84,9 @@ function initPush(){
  window.OneSignalDeferred=window.OneSignalDeferred||[];
  window.OneSignalDeferred.push(async OneSignal=>{
   try{
-   await OneSignal.init({appId:config.onesignal_app_id,serviceWorkerPath:'OneSignalSDKWorker.js',serviceWorkerParam:{scope:new URL(config.public_url||location.href).pathname}});
+   const site=new URL(config.public_url||'./',location.href);
+   const workerPath=new URL('OneSignalSDKWorker.js',site).pathname.replace(/^\//,'');
+   await OneSignal.init({appId:config.onesignal_app_id,serviceWorkerPath:workerPath,serviceWorkerParam:{scope:site.pathname}});
    clearTimeout(timer);
    if(!OneSignal.Notifications.isPushSupported()){pushPhase='unsupported';pushStatus('Ta przeglądarka nie obsługuje powiadomień push. Na iPhonie wymagany jest iOS 16.4 lub nowszy i otwarcie strony z ikony na ekranie początkowym.');return}
    pushReady=OneSignal;pushPhase='ready';

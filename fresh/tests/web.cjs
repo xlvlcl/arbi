@@ -74,7 +74,7 @@ vm.createContext(context);vm.runInContext(source,context);
  vm.runInContext('pushStarted=false;initPush()',context);
  assert.equal(ids.get('push').disabled,true,'Permission button stays disabled until SDK is ready');
  let changeListener;
- const sdk={init:async()=>{},Notifications:{permission:true,isPushSupported:()=>true,addEventListener(){}},User:{PushSubscription:{id:null,optedIn:false,addEventListener(type,fn){changeListener=fn},optIn:async()=>{}}}};
+ const sdk={init:async options=>{assert.equal(options.serviceWorkerPath,'arbi/OneSignalSDKWorker.js');assert.equal(options.serviceWorkerParam.scope,'/arbi/')},Notifications:{permission:true,isPushSupported:()=>true,addEventListener(){}},User:{PushSubscription:{id:null,optedIn:false,addEventListener(type,fn){changeListener=fn},optIn:async()=>{}}}};
  await context.window.OneSignalDeferred[0](sdk);
  assert(ids.get('pushStatus').textContent.includes('Czekam na rejestrację'),'Permission alone is not a registered push device');
  sdk.User.PushSubscription.id='subscription';sdk.User.PushSubscription.optedIn=true;changeListener();
