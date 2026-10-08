@@ -1,0 +1,42 @@
+const fs=require('node:fs');const vm=require('node:vm');const assert=require('node:assert/strict');const path=require('node:path');const {webcrypto}=require('node:crypto');
+const html=fs.readFileSync(path.join(__dirname,'../web/index.html'),'utf8');
+const source=fs.readFileSync(path.join(__dirname,'../web/app.js'),'utf8');
+const sample=JSON.parse(fs.readFileSync(path.join(__dirname,'web_fixture.json'),'utf8'));
+let current=structuredClone(sample);let clock=2000000010000;
+class TestDate extends Date{static now(){return clock}}
+class Element{constructor(){this.hidden=false;this.style={};this.value='';this.dataset={};this.handlers={};this.classList={toggle(){}}}addEventListener(type,handler){this.handlers[type]=handler}showModal(){}close(){}}
+const ids=new Map([...html.matchAll(/id="([^"]+)"/g)].map(x=>[x[1],new Element()]));
+ids.get('app').hidden=true;ids.get('gate').hidden=false;
+const views=['surebets','catalogue','notifications'].map(name=>{const e=new Element();e.dataset.view=name;return e});
+const help=['calculation','coverage','tax'].map(name=>{const e=new Element();e.dataset.help=name;return e});
+const storage=new Map([['arbi_new_access','hash']]);
+const document={getElementById:id=>{assert(ids.has(id),'Missing real element '+id);return ids.get(id)},querySelectorAll:selector=>selector==='[data-view]'?views:help,createElement:()=>new Element(),head:{appendChild(){}}};
+const context={document,window:{},crypto:webcrypto,TextEncoder,URL,Intl,Date:TestDate,console,Math,JSON,Number,String,Boolean,Array,Promise,Error,AbortController,location:{href:'https://example.com/arbi/',reload(){}},setTimeout:(fn,delay)=>setTimeout(fn,Math.min(delay,40)),clearTimeout,setInterval(){},localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value)},ArbiMath:require('../web/calculator.js')};
+context.fetch=async(url)=>({ok:true,json:async()=>url.startsWith('config.json')?{password_hash:'hash',repository:'',onesignal_app_id:''}:structuredClone(current)});
+vm.createContext(context);vm.runInContext(source,context);
+(async()=>{
+ await new Promise(r=>setTimeout(r,10));
+ assert.equal(ids.get('app').hidden,false);
+ assert.equal(ids.get('count').textContent,1);
+ assert(ids.get('opportunities').innerHTML.includes('A - B'));
+ assert.equal(ids.get('coverage').textContent,'1 / 1');
+ ids.get('minimum').value='15';ids.get('minimum').handlers.input();assert.equal(ids.get('count').textContent,0);
+ ids.get('minimum').value='.35';ids.get('minimum').handlers.input();assert.equal(ids.get('count').textContent,1);
+ ids.get('search').value='Missing team';ids.get('search').handlers.input();assert.equal(ids.get('count').textContent,0);
+ ids.get('search').value='';ids.get('search').handlers.input();
+ current.status={...current.status,state:'error',attempt_at:2000000020,message:'Source unavailable'};
+ await vm.runInContext('load()',context);
+ assert.equal(ids.get('status').textContent,'Błąd odczytu');assert.equal(ids.get('count').textContent,0);
+ assert(ids.get('diagnostic').textContent.includes('Source unavailable'));
+ assert.equal(ids.get('last').textContent,new TestDate(2000000000000).toLocaleString('pl-PL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}));
+ current=structuredClone(sample);current.status.attempt_at=2000000030;
+ vm.runInContext('config.repository="test/repo"',context);
+ context.fetch=(url,{signal})=>new Promise((resolve,reject)=>{
+  if(url.startsWith('https://raw'))signal.addEventListener('abort',()=>reject(new Error('timed out')));
+  else resolve({ok:true,json:async()=>structuredClone(current)});
+ });
+ const pending=vm.runInContext('load()',context);
+ await new Promise(r=>setTimeout(r,5));assert.equal(ids.get('count').textContent,1,'First working source must render immediately');
+ assert.strictEqual(vm.runInContext('load()',context),pending,'One polling cycle at a time');await pending;
+ console.log('Interfejs: logowanie zapamiętane, katalog, filtry, błąd źródła i zawieszony odczyt: OK.');
+})().catch(error=>{console.error(error);process.exitCode=1});
