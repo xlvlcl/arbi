@@ -1,38 +1,61 @@
-name: Diagnostyka konfiguracji push
+name: Test powiadomien Arbi
 on:
-  push:
-    branches: [main]
-    paths: ['.github/workflows/notification-test.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  inspect:
-    if: >-
-      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'diagnose: compare push configuration'
+  test:
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     environment: github-pages
     env:
       ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
       ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      SOURCE_READER_URL: ${{ secrets.SOURCE_READER_URL }}
+      SOURCE_READER_TOKEN: ${{ secrets.SOURCE_READER_TOKEN }}
     steps:
-      - name: Porownaj konfiguracje bez wysylania powiadomien
+      - name: Wyslij jeden oznaczony test i sprawdz dostarczenie
         run: |
           python -u - <<'PY'
-          import json, os, time, urllib.request, urllib.error
-          app=os.environ['ONESIGNAL_APP_ID'].strip();key=os.environ['ONESIGNAL_API_KEY'].strip()
-          def get(url,auth=False):
-              headers={'User-Agent':'Mozilla/5.0','Accept':'application/json'}
-              if auth:headers['Authorization']='Key '+key
-              with urllib.request.urlopen(urllib.request.Request(url,headers=headers),timeout=20) as r:return json.load(r)
-          try:
-              web=get('https://xlvlcl.github.io/arbi/config.json?t='+str(int(time.time())))
-              print('PUSH_DIAG_APP_ID_MATCH',web.get('onesignal_app_id')==app)
-          except Exception as exc:print('PUSH_DIAG_WEB_ERROR',type(exc).__name__)
-          try:
-              data=get('https://api.onesignal.com/apps/'+app+'/segments',True)
-              print('PUSH_DIAG_SEGMENT',json.dumps([{k:s.get(k) for k in ('name','is_active')} for s in data.get('segments',[]) if s.get('name')=='Subscribed Users']))
-          except urllib.error.HTTPError as exc:print('PUSH_DIAG_SEGMENTS_HTTP',exc.code)
-          except Exception as exc:print('PUSH_DIAG_SEGMENTS_ERROR',type(exc).__name__)
+          import os, json, time, uuid, hashlib, urllib.request, urllib.error
+          secrets=[os.environ.get(k,'') for k in ('ONESIGNAL_API_KEY','TELEGRAM_BOT_TOKEN','SOURCE_READER_TOKEN','TELEGRAM_CHAT_ID')]
+          def safe(value):
+              text=json.dumps(value,ensure_ascii=False)
+              for secret in secrets:
+                  if secret:text=text.replace(secret,'***')
+              return text[:1200]
+          def call(url,payload=None,headers=None):
+              data=None if payload is None else json.dumps(payload).encode()
+              request=urllib.request.Request(url,data=data,headers={'Content-Type':'application/json','User-Agent':'Mozilla/5.0','Accept':'application/json',**(headers or {})})
+              with urllib.request.urlopen(request,timeout=15) as response:return json.load(response)
+          app=os.environ.get('ONESIGNAL_APP_ID','').strip();key=os.environ.get('ONESIGNAL_API_KEY','').strip()
+          if app and key:
+              payload={'app_id':app,'target_channel':'push','included_segments':['Subscribed Users'],
+                  'headings':{'en':'TEST — Surebet Alert','pl':'TEST — Surebet Alert'},
+                  'contents':{'en':'Test powiadomien Arbi. To tylko test, nie okazja do obstawienia.','pl':'Test powiadomień Arbi. To tylko test, nie okazja do obstawienia.'},
+                  'url':'https://xlvlcl.github.io/arbi/',
+                  'idempotency_key':str(uuid.UUID(bytes=hashlib.sha256(('arbi-test-'+os.environ['GITHUB_RUN_ID']).encode()).digest()[:16],version=4))}
+              try:
+                  result=call('https://api.onesignal.com/notifications',payload,{'Authorization':'Key '+key})
+                  message=result.get('id')
+                  print('PUSH_TEST_CREATE',safe({k:result[k] for k in ('id','recipients','errors','warnings') if k in result}))
+                  if message:
+                      time.sleep(12)
+                      report=call('https://api.onesignal.com/notifications/'+message+'?app_id='+app,headers={'Authorization':'Key '+key})
+                      print('PUSH_TEST_DELIVERY',safe({k:report[k] for k in ('successful','received','failed','errored','remaining','completed_at','platform_delivery_stats') if k in report}))
+                  else:print('PUSH_TEST_NOT_CREATED')
+              except urllib.error.HTTPError as exc:
+                  print('PUSH_TEST_HTTP',exc.code,safe(exc.read(2048).decode(errors='replace')))
+              except Exception as exc:print('PUSH_TEST_ERROR',type(exc).__name__)
+          else:print('PUSH_TEST_MISSING_CONFIGURATION')
+          token=os.environ.get('TELEGRAM_BOT_TOKEN','').strip();chat=os.environ.get('TELEGRAM_CHAT_ID','').strip()
+          if token and chat:
+              try:
+                  result=call('https://api.telegram.org/bot'+token+'/sendMessage',{'chat_id':chat,'text':'TEST — Surebet Alert. Test powiadomień Arbi. To tylko test, nie okazja.'})
+                  print('TELEGRAM_TEST_ACCEPTED',result.get('ok') is True)
+              except urllib.error.HTTPError as exc:print('TELEGRAM_TEST_HTTP',exc.code)
+              except Exception as exc:print('TELEGRAM_TEST_ERROR',type(exc).__name__)
+          else:print('TELEGRAM_TEST_MISSING_CONFIGURATION')
           PY
