@@ -1,0 +1,43 @@
+name: Sprawdzenie dostępu do źródła
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/source-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Odczytaj publiczne API
+        shell: python
+        run: |
+          import json, urllib.request, urllib.error, time
+          urls=['https://dobrybuk.pl/api/odds/config/','https://dobrybuk.pl/api/odds/events/']
+          results=[]
+          for url in urls:
+              started=time.monotonic()
+              req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'application/json'})
+              try:
+                  with urllib.request.urlopen(req,timeout=15) as r:
+                      d=json.loads(r.read(24000000))
+                      item={'url':url,'status':r.status,'type':type(d).__name__,'count':len(d) if isinstance(d,list) else None}
+                      if isinstance(d,dict):item['config']=d
+              except urllib.error.HTTPError as exc:
+                  item={'url':url,'status':exc.code,'body':exc.read(500).decode('utf-8','replace'),'server':exc.headers.get('Server')}
+              except Exception as exc:item={'url':url,'error':type(exc).__name__+': '+str(exc)}
+              item['seconds']=round(time.monotonic()-started,2)
+              results.append(item)
+              print(json.dumps(item,ensure_ascii=False),flush=True)
+          import os
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+              f.write('Publiczny odczyt źródła:\n\n'+json.dumps(results,ensure_ascii=False,indent=2)+'\n')
