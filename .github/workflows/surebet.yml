@@ -76,6 +76,8 @@ jobs:
             python fresh/scan.py --record-failure
             echo 'scan_state=error' >> "$GITHUB_OUTPUT"
           fi
+      - name: Opublikuj świeży wynik w Cloudflare
+        run: python fresh/publish_feed.py
       - name: Zachowaj wynik i historię alertów
         run: |
           set -euo pipefail

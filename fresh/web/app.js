@@ -5,18 +5,37 @@ const money=n=>new Intl.NumberFormat('pl-PL',{minimumFractionDigits:2,maximumFra
 const date=n=>n?new Date(typeof n==='number'?n*1000:n).toLocaleString('pl-PL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';
 const safeURL=value=>{try{const url=new URL(value,location.href);return url.protocol==='https:'||url.protocol==='http:'?url.href:'#'}catch{return '#'}};
 let config={},payload={status:{},opportunities:[],events:[],stats:{}},view='surebets',page=0,inFlight=null,pushReady=null;
+const responseCache=new Map();
 function pref(key,fallback){try{return localStorage.getItem('arbi_new_'+key)??fallback}catch{return fallback}}
 function save(key,value){try{localStorage.setItem('arbi_new_'+key,String(value))}catch{}}
 $('budget').value=pref('budget',50);$('minimum').value=pref('minimum',.35);
 function budget(){return Math.min(100000,Math.max(3,Number($('budget').value)||50))}
-async function getJSON(url){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),9000);try{const response=await fetch(url+(url.includes('?')?'&':'?')+'t='+Date.now(),{cache:'no-store',signal:controller.signal});if(!response.ok)throw new Error('HTTP '+response.status);return await response.json()}finally{clearTimeout(timer)}}
+async function getJSON(url,conditional=false){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),conditional?6000:20000);const saved=responseCache.get(url);try{const response=await fetch(url+(url.includes('?')?'&':'?')+'t='+Date.now(),{cache:'no-store',signal:controller.signal,headers:conditional&&saved?.etag?{'If-None-Match':saved.etag}:{}});if(response.status===304&&saved)return saved.data;if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(conditional)responseCache.set(url,{data,etag:response.headers?.get('ETag')||''});return data}finally{clearTimeout(timer)}}
 async function digest(value){const buffer=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));return [...new Uint8Array(buffer)].map(n=>n.toString(16).padStart(2,'0')).join('')}
 function unlock(){ $('gate').hidden=true;$('app').hidden=false;load().catch(showLoadError);initPush() }
 $('login').addEventListener('submit',async event=>{event.preventDefault();if(!config.password_hash){$('authError').textContent='Brak konfiguracji dostępu. Sprawdź publikację strony.';return}try{if(await digest($('password').value)!==config.password_hash){$('authError').textContent='Nieprawidłowe hasło.';return}save('access',config.password_hash);$('password').value='';unlock()}catch{$('authError').textContent='Nie udało się sprawdzić hasła. Otwórz stronę przez HTTPS.'}});
 $('lock').addEventListener('click',()=>{save('access','');location.reload()});
 async function boot(){try{config=await getJSON('config.json');if(!config.password_hash)throw new Error('config');if(pref('access','')===config.password_hash)unlock()}catch{$('authError').textContent='Nie można pobrać konfiguracji strony. Odśwież za chwilę.'}}
 function showLoadError(){ $('status').textContent='Nie można pobrać danych';$('statusDot').style.background='var(--red)';$('diagnostic').hidden=false;$('diagnostic').textContent='Nie udało się odczytać wyniku. Ostatnie dane mogą być nieaktualne.';renderCards();renderInsights() }
-function load(){if(inFlight)return inFlight;const urls=['data/latest.json'];if(config.repository)urls.push('https://raw.githubusercontent.com/'+config.repository+'/main/fresh/web/data/latest.json');inFlight=(async()=>{let successes=0;await Promise.allSettled(urls.map(async url=>{const data=await getJSON(url);if(data.version!=='NEW-1'||!data.status||!Array.isArray(data.events)||!Array.isArray(data.opportunities))throw new Error('format');successes++;if(Number(data.status.attempt_at||0)<Number(payload.status.attempt_at||0))return;payload=data;render()}));if(!successes)throw new Error('data')})().finally(()=>{inFlight=null});return inFlight}
+function validData(data){return data?.version==='NEW-1'&&data.status&&Array.isArray(data.events)&&Array.isArray(data.opportunities)}
+function applyData(data){if(!validData(data))throw new Error('format');if(Number(data.status.attempt_at||0)<Number(payload.status.attempt_at||0))return;payload=data;render()}
+function load(){
+ if(inFlight)return inFlight;
+ inFlight=(async()=>{
+  let successes=0;
+  if(config.data_url){
+   try{
+    const data=await getJSON(config.data_url,true);applyData(data);successes++;
+    const stamp=data.status.state==='error'?data.status.attempt_at:data.status.last_success_at;
+    if(Date.now()/1000-Number(stamp||0)<=300&&Number(data.status.attempt_at||0)>=Number(payload.status.attempt_at||0))return;
+   }catch{}
+  }
+  const urls=['data/latest.json'];if(config.repository)urls.push('https://raw.githubusercontent.com/'+config.repository+'/main/fresh/web/data/latest.json');
+  await Promise.allSettled(urls.map(async url=>{const data=await getJSON(url);applyData(data);successes++}));
+  if(!successes)throw new Error('data');
+ })().finally(()=>{inFlight=null});
+ return inFlight;
+}
 function filteredEvents(){const sport=$('sport').value,search=$('search').value.trim().toLocaleLowerCase('pl');return (payload.events||[]).filter(e=>(!sport||e.sport===sport)&&(!search||(e.name+' '+e.league).toLocaleLowerCase('pl').includes(search)))}
 function currentOpportunities(){if(['error'].includes(payload.status.state)||Date.now()/1000-Number(payload.status.last_success_at||0)>300)return [];return (payload.opportunities||[]).map(op=>{const calculation=ArbiMath.allocate(op.legs,budget(),op.config||payload.config);return calculation?{...op,...calculation}:null}).filter(Boolean).filter(op=>new Date(op.starts_at).getTime()>Date.now()).filter(op=>op.profit_pct>=Math.max(0,Number($('minimum').value)||0)&&(!$('sport').value||op.sport===$('sport').value)&&(!$('search').value||op.event.toLocaleLowerCase('pl').includes($('search').value.toLocaleLowerCase('pl')))).sort((a,b)=>b.profit_pct-a.profit_pct)}
 function render(){const s=payload.status,stats=payload.stats||{},old=$('sport').value;const sports=[...new Set((payload.events||[]).map(e=>e.sport))].sort((a,b)=>a.localeCompare(b,'pl'));$('sport').innerHTML='<option value="">Wszystkie sporty</option>'+sports.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');$('sport').value=sports.includes(old)?old:'';const age=Date.now()/1000-Number(s.last_success_at||0);const good=s.state==='ok'&&age<300;const partial=s.state==='partial'&&age<300;$('status').textContent=good?'Monitoring aktywny':partial?'Skan częściowy':s.state==='error'?'Błąd odczytu':'Dane opóźnione';$('statusDot').style.background=good?'var(--green)':partial?'#e7bd6a':'var(--red)';$('diagnostic').hidden=good&&!(s.errors||[]).length;$('diagnostic').textContent=`Ostatnia próba: ${date(s.attempt_at)} · ${sourceMessage(s.message)} ${(s.errors||[]).slice(0,2).join(' ')}`;$('coverage').textContent=`${stats.upcoming_events??'—'} / ${stats.market_groups??'—'}`;$('last').textContent=date(s.last_success_at);$('sourceNote').textContent=payload.source_note||'Dane oczekują na pierwszy skan.';$('runLink').href=safeURL(s.run_url);$('telegramStatus').textContent=payload.notifications?.channels?.telegram?'Telegram skonfigurowany. Alerty są wysyłane po potwierdzeniu okazji.':'Telegram nie jest skonfigurowany w skanerze.';$('alertsCount').textContent='Usługi przyjęły alerty w ostatnim skanie: '+Number(payload.notifications?.accepted||0);renderCards();renderEvents();renderInsights()}

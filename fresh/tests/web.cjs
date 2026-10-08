@@ -48,5 +48,23 @@ vm.createContext(context);vm.runInContext(source,context);
  const pending=vm.runInContext('load()',context);
  await new Promise(r=>setTimeout(r,5));assert.equal(ids.get('count').textContent,1,'First working source must render immediately');
  assert.strictEqual(vm.runInContext('load()',context),pending,'One polling cycle at a time');await pending;
+ vm.runInContext('config.data_url="https://reader.example/feed/latest"',context);
+ current=structuredClone(sample);current.status.attempt_at=2000000040;
+ let feedCalls=[];
+ context.fetch=async(url,options)=>{
+  feedCalls.push({url,options});assert(url.startsWith('https://reader.example'),'A fresh feed must not download GitHub snapshots');
+  return {ok:true,status:200,headers:{get:()=> '"2000000040"'},json:async()=>structuredClone(current)};
+ };
+ await vm.runInContext('load()',context);assert.equal(feedCalls.length,1);assert.equal(ids.get('count').textContent,1);
+ context.fetch=async(url,options)=>{
+  assert.equal(options.headers['If-None-Match'],'"2000000040"');return {ok:false,status:304};
+ };
+ await vm.runInContext('load()',context);assert.equal(ids.get('count').textContent,1,'304 keeps previously fetched data');
+ const newer=structuredClone(sample);newer.status.attempt_at=2000000050;
+ const stale=structuredClone(sample);stale.status.attempt_at=1999999000;stale.status.last_success_at=1999999000;
+ context.fetch=async url=>({ok:true,status:200,headers:{get:()=>''},json:async()=>structuredClone(url.startsWith('https://reader.example')?stale:newer)});
+ await vm.runInContext('load()',context);assert.equal(vm.runInContext('payload.status.attempt_at',context),2000000050,'Stale feed must fall back to newer GitHub data');
+ context.fetch=async url=>url.startsWith('https://reader.example')?{ok:false,status:503}:{ok:true,status:200,json:async()=>structuredClone(newer)};
+ await vm.runInContext('load()',context);assert.equal(ids.get('count').textContent,1,'An unconfigured feed must preserve working fallbacks');
  console.log('Interfejs: Radar, Valuebet, nawigacja, filtry, brak starych okazji przy 403 i zawieszony odczyt: OK.');
 })().catch(error=>{console.error(error);process.exitCode=1});

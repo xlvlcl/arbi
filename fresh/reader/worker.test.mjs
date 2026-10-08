@@ -59,3 +59,34 @@ test('root confirms only configuration and does not request source', async () =>
     assert.equal(data.source_available, undefined);
   } finally {globalThis.fetch = old;}
 });
+test('feed is public with CORS, ETag and no HTTP cache; unchanged values return 304', async () => {
+  let cancelled=false;
+  const data={getWithMetadata:async(key,options)=>{
+    assert.equal(key,'latest');assert.equal(options.type,'stream');assert.equal(options.cacheTtl,30);
+    return {value:new ReadableStream({start(c){c.enqueue(new TextEncoder().encode('{"version":"NEW-1"}'));c.close();},cancel(){cancelled=true;}}),metadata:{attempt_at:123}};
+  }};
+  const response=await worker.fetch(request('/feed/latest?t=123',false),{...env,DATA:data});
+  assert.equal(response.status,200);assert.equal(response.headers.get('Access-Control-Allow-Origin'),'https://xlvlcl.github.io');
+  assert.equal(response.headers.get('Cache-Control'),'no-store');assert.equal(response.headers.get('ETag'),'"123"');
+  assert.deepEqual(await response.json(),{version:'NEW-1'});
+  const conditional=new Request('https://reader.example/feed/latest',{headers:{'If-None-Match':'"123"'}});
+  assert.equal((await worker.fetch(conditional,{...env,DATA:data})).status,304);assert(cancelled);
+  assert.equal((await worker.fetch(new Request('https://reader.example/feed/latest',{method:'OPTIONS'}),env)).status,204);
+});
+test('feed upload requires token, a bounded JSON stream and KV binding', async () => {
+  let body='',metadata;
+  const data={put:async(key,value,options)=>{assert.equal(key,'latest');body=await new Response(value).text();metadata=options.metadata;}};
+  const upload=(auth=token,headers={})=>new Request('https://reader.example/feed/latest',{method:'PUT',body:'{}',headers:{
+    Authorization:'Bearer '+auth,'Content-Type':'application/json','Content-Length':'2','X-Arbi-Attempt':'123',...headers}});
+  assert.equal((await worker.fetch(upload('wrong'),{...env,DATA:data})).status,401);
+  assert.equal((await worker.fetch(upload(),env)).status,503);
+  assert.equal((await worker.fetch(upload(token,{'Content-Length':String(9*1024*1024)}),{...env,DATA:data})).status,400);
+  assert.equal((await worker.fetch(upload(token,{'X-Arbi-Attempt':'NaN'}),{...env,DATA:data})).status,400);
+  const response=await worker.fetch(upload(),{...env,DATA:data});
+  assert.equal(response.status,200);assert.deepEqual(await response.json(),{ok:true});assert.equal(body,'{}');assert.equal(metadata.attempt_at,123);
+});
+test('missing feed and KV failures remain visible errors', async () => {
+  assert.equal((await worker.fetch(request('/feed/latest',false),env)).status,503);
+  assert.equal((await worker.fetch(request('/feed/latest',false),{...env,DATA:{getWithMetadata:async()=>({value:null})}})).status,404);
+  assert.equal((await worker.fetch(request('/feed/latest',false),{...env,DATA:{getWithMetadata:async()=>{throw Error('quota');}}})).status,503);
+});

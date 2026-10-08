@@ -18,8 +18,44 @@ from build import build
 from notify import due, send_alerts
 from source import details, fetch_json, NoRedirect
 from insights import radar, valuebets
+from publish_feed import publish, compact
 
 CONFIG={'tax_rate':.12,'winning_tax_threshold':2280,'winning_tax_rate':.1}
+
+class FeedPublisher(unittest.TestCase):
+    def test_compact_keeps_all_insights_and_only_visible_catalogue_odds(self):
+        data={'events':[{'odds':[{'code':'1'},{'code':'over15'}]}],'opportunities':[{'market':'over15'}],'radar':[{'id':1}],'valuebets':[{'id':2}]}
+        result=compact(data)
+        self.assertEqual(result['events'][0]['odds'],[{'code':'1'}]);self.assertEqual(len(data['events'][0]['odds']),2)
+        for key in ['opportunities','radar','valuebets']:self.assertEqual(result[key],data[key])
+    def test_publishes_with_private_token_and_persists_write_throttle(self):
+        env={'SOURCE_READER_URL':'https://reader.workers.dev','SOURCE_READER_TOKEN':'t'*32}
+        with tempfile.TemporaryDirectory() as root:
+            write(Path(root)/'state.json',{'sent':{'abc':{'last_sent':9}}})
+            write(Path(root)/'web/data/latest.json',{'version':'NEW-1','status':{'attempt_at':123},'events':[]})
+            calls=[]
+            @contextmanager
+            def opening(request,timeout):
+                calls.append(request);yield io.BytesIO(b'{"ok":true}')
+            self.assertEqual(publish(root,env,opening,now=1000),'published')
+            self.assertEqual(calls[0].full_url,'https://reader.workers.dev/feed/latest')
+            self.assertEqual(calls[0].get_header('Authorization'),'Bearer '+'t'*32)
+            self.assertEqual(read(Path(root)/'state.json')['sent']['abc']['last_sent'],9)
+            self.assertEqual(publish(root,env,opening,now=1089),'throttled');self.assertEqual(len(calls),1)
+            self.assertEqual(publish(root,env,opening,now=1090),'published');self.assertEqual(len(calls),2)
+    def test_failed_upload_does_not_mark_published_or_suppress_retry(self):
+        env={'SOURCE_READER_URL':'https://reader.workers.dev','SOURCE_READER_TOKEN':'t'*32}
+        with tempfile.TemporaryDirectory() as root:
+            write(Path(root)/'state.json',{})
+            write(Path(root)/'web/data/latest.json',{'version':'NEW-1','status':{'attempt_at':123},'events':[]})
+            def failing(*args,**kwargs):raise urllib.error.HTTPError('https://reader.workers.dev',503,'',{},None)
+            with self.assertRaises(urllib.error.HTTPError):publish(root,env,failing,now=1000)
+            self.assertNotIn('feed_published_at',read(Path(root)/'state.json'))
+    def test_build_exposes_feed_url_and_never_exposes_token(self):
+        with tempfile.TemporaryDirectory() as root:
+            config=build(root,{'SITE_PASSWORD':'test','SOURCE_READER_URL':'https://reader.workers.dev/','SOURCE_READER_TOKEN':'private-token'})
+            self.assertEqual(config['data_url'],'https://reader.workers.dev/feed/latest')
+            self.assertNotIn('private-token',json.dumps(config))
 
 class SourceReader(unittest.TestCase):
     @contextmanager
