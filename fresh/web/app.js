@@ -62,7 +62,49 @@ for(const id of ['budget','minimum','sport','search','radarGap','valueMinimum'])
 $('previous').addEventListener('click',()=>{page=Math.max(0,page-1);renderEvents()});$('next').addEventListener('click',()=>{page++;renderEvents()});$('refresh').addEventListener('click',async()=>{$('refresh').disabled=true;try{await load()}catch{showLoadError()}finally{$('refresh').disabled=false}});
 const help={radar:['Jak działa radar?','Łączymy najlepsze kursy po podatku dla rozłącznych stron tego samego rynku. Brak do arbitrażu to nadwyżka sumy odwrotności kursów po kosztach ponad 1, wyrażona w procentach. Radar pokazuje ostatni odczyt źródła; pozycje z jednym widocznym bukmacherem są oznaczone. To nie są potwierdzone surebety.'],value:['Jak szacujemy value?','Z kompletnych ofert co najmniej 5 innych bukmacherów wyliczamy prawdopodobieństwa po proporcjonalnym usunięciu marży, a następnie ich medianę. Wykluczamy porównywanego bukmachera z grupy odniesienia i filtrujemy rozbieżne lub skrajne kursy. Szacowana przewaga uwzględnia koszty i zaokrąglenia dla podanego budżetu. To oszacowanie rynku, a nie pewność wygranej. Valuebet musi przejść drugi odczyt źródła. Alerty skanera dotyczą surebetów.'],calculation:['Jak liczymy zysk?','Wybieramy najlepszy kurs po kosztach dla każdej strony tego samego rynku. Rozdzielamy budżet tak, aby najniższa wyliczona wypłata była możliwie równa. Stawki są zaokrąglone do groszy. Okazja trafia do panelu po drugim odczycie porównywarki. Przed postawieniem sprawdź dostępny kurs i zasady rozliczenia u bukmachera.'],coverage:['Co oznacza pokrycie?','Pierwsza liczba to nadchodzące wydarzenia odczytane ze źródła. Druga to rozpoznane, kompletne grupy rynków. Skaner pobiera pełne oferty dla wydarzeń z możliwą okazją, a następnie ponownie odczytuje kursy kandydatów. Nie wszystkie rynki i bukmacherzy są dostępni w źródle.'],tax:['Podatki i obliczenia','Koszty pochodzą z konfiguracji źródła i danych bukmachera. Na każdej stronie rynku widzisz zastosowany podatek. Promocja bez podatku musi być dostępna na Twoim koncie. Jeżeli korzystasz z takiej promocji, jej stawkę można ustawić w BOOKMAKER_TAX_OVERRIDES w workflow.']};
 document.querySelectorAll('[data-help]').forEach(b=>b.addEventListener('click',()=>{const [title,text]=help[b.dataset.help];$('helpTitle').textContent=title;$('helpText').textContent=text;$('helpDialog').showModal()}));$('closeHelp').addEventListener('click',()=>$('helpDialog').close());
-function initPush(){if(!config.onesignal_app_id){$('pushStatus').textContent='Push nie jest skonfigurowany. Telegram może działać niezależnie.';$('push').disabled=true;return}window.OneSignalDeferred=window.OneSignalDeferred||[];window.OneSignalDeferred.push(async OneSignal=>{try{await OneSignal.init({appId:config.onesignal_app_id,serviceWorkerPath:'OneSignalSDKWorker.js',serviceWorkerParam:{scope:new URL(config.public_url||location.href).pathname}});pushReady=OneSignal;$('pushStatus').textContent='Push gotowy. Włącz powiadomienia na tym urządzeniu.'}catch{$('pushStatus').textContent='Nie udało się uruchomić push. Sprawdź konfigurację OneSignal.'}});const script=document.createElement('script');script.src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';script.defer=true;script.onerror=()=>{$('pushStatus').textContent='Nie udało się pobrać obsługi powiadomień.'};document.head.appendChild(script)}
-$('push').addEventListener('click',async()=>{if(!pushReady){$('pushStatus').textContent='Obsługa push jeszcze nie jest gotowa. Spróbuj za chwilę.';return}try{await pushReady.Notifications.requestPermission();await pushReady.User.PushSubscription.optIn();$('pushStatus').textContent=pushReady.Notifications.permission?'Powiadomienia włączone.':'Przeglądarka nie przyznała zgody na powiadomienia.'}catch{$('pushStatus').textContent='Nie udało się włączyć push na tym urządzeniu.'}});
+let pushStarted=false,pushPhase='idle';
+function pushStatus(text,disabled=true,label='Włącz powiadomienia'){$('pushStatus').textContent=text;$('push').disabled=disabled;$('push').textContent=label}
+function pushError(text){pushPhase='error';pushStatus(text,false,'Odśwież obsługę push')}
+function updatePushSubscription(){
+ if(!pushReady)return;
+ const subscription=pushReady.User.PushSubscription;
+ if(pushReady.Notifications.permission&&subscription.optedIn&&subscription.id){pushStatus('Powiadomienia włączone. To urządzenie jest zarejestrowane do odbierania alertów.',true,'Powiadomienia włączone');return}
+ if(typeof Notification!=='undefined'&&Notification.permission==='denied'){pushStatus('Powiadomienia są zablokowane. Zmień zgodę w ustawieniach tej aplikacji lub witryny, potem otwórz ją ponownie.');return}
+ pushStatus(pushReady.Notifications.permission?'Zgoda przyznana. Czekam na rejestrację urządzenia w OneSignal.':'Push gotowy. Włącz powiadomienia na tym urządzeniu.',false);
+}
+function initPush(){
+ if(pushStarted)return;pushStarted=true;
+ if(!config.onesignal_app_id){pushStatus('Push nie jest skonfigurowany. Telegram może działać niezależnie.');return}
+ const device=typeof navigator==='undefined'?{}:navigator;
+ const ios=/iPad|iPhone|iPod/.test(device.userAgent||'')||(device.platform==='MacIntel'&&device.maxTouchPoints>1);
+ const installed=device.standalone===true||window.matchMedia?.('(display-mode: standalone)').matches===true;
+ if(ios&&!installed){pushPhase='install';pushStatus('Na iPhonie: Safari → Udostępnij → Dodaj do ekranu początkowego. Następnie otwórz stronę z dodanej ikony i tutaj włącz powiadomienia.',true,'Otwórz z ikony na ekranie');return}
+ pushPhase='loading';pushStatus('Ładuję obsługę powiadomień…',true,'Ładowanie…');
+ const timer=setTimeout(()=>{if(pushPhase==='loading')pushError('Obsługa powiadomień nie uruchomiła się. Sprawdź połączenie i czy przeglądarka nie blokuje OneSignal, następnie odśwież obsługę.')},25000);
+ window.OneSignalDeferred=window.OneSignalDeferred||[];
+ window.OneSignalDeferred.push(async OneSignal=>{
+  try{
+   await OneSignal.init({appId:config.onesignal_app_id,serviceWorkerPath:'OneSignalSDKWorker.js',serviceWorkerParam:{scope:new URL(config.public_url||location.href).pathname}});
+   clearTimeout(timer);
+   if(!OneSignal.Notifications.isPushSupported()){pushPhase='unsupported';pushStatus('Ta przeglądarka nie obsługuje powiadomień push. Na iPhonie wymagany jest iOS 16.4 lub nowszy i otwarcie strony z ikony na ekranie początkowym.');return}
+   pushReady=OneSignal;pushPhase='ready';
+   OneSignal.User.PushSubscription.addEventListener('change',updatePushSubscription);
+   OneSignal.Notifications.addEventListener('permissionChange',updatePushSubscription);
+   updatePushSubscription();
+  }catch(error){clearTimeout(timer);pushError('Nie udało się uruchomić push: '+String(error?.message||'błąd konfiguracji OneSignal').slice(0,220))}
+ });
+ const script=document.createElement('script');script.src='https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';script.defer=true;
+ script.onerror=()=>{clearTimeout(timer);pushError('Nie udało się pobrać OneSignal. Sprawdź połączenie i blokowanie skryptów, następnie odśwież obsługę.')};document.head.appendChild(script);
+}
+$('push').addEventListener('click',async()=>{
+ if(pushPhase==='error'){location.reload();return}
+ if(!pushReady)return;
+ try{
+  pushStatus('Czekam na zgodę na powiadomienia…',true,'Włączanie…');
+  await pushReady.Notifications.requestPermission();
+  if(pushReady.Notifications.permission)await pushReady.User.PushSubscription.optIn();
+  updatePushSubscription();
+ }catch(error){pushStatus('Nie udało się włączyć push: '+String(error?.message||'sprawdź zgodę na powiadomienia').slice(0,220),false)}
+});
 setInterval(()=>{if(!$('app').hidden)load().catch(showLoadError)},10000);
 boot();
