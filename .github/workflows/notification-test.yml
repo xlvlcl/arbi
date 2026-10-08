@@ -1,10 +1,15 @@
 name: Test powiadomien Arbi
 on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/notification-test.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   test:
+    if: >-
+      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'test: verify enabled phone push'
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     environment: github-pages
@@ -58,16 +63,4 @@ jobs:
               except urllib.error.HTTPError as exc:print('TELEGRAM_TEST_HTTP',exc.code)
               except Exception as exc:print('TELEGRAM_TEST_ERROR',type(exc).__name__)
           else:print('TELEGRAM_TEST_MISSING_CONFIGURATION')
-          reader=os.environ.get('SOURCE_READER_URL','').strip().rstrip('/')
-          token=os.environ.get('SOURCE_READER_TOKEN','').strip()
-          if reader and token:
-              for path in ('/api/odds/config/','/api/odds/events/57816/','/feed/latest'):
-                  try:
-                      data=call(reader+path,headers={'Authorization':'Bearer '+token})
-                      print('READER_PROBE',path,'HTTP 200',safe({k:data[k] for k in ('error','upstream_status') if isinstance(data,dict) and k in data}))
-                  except urllib.error.HTTPError as exc:
-                      try:detail=json.loads(exc.read(2048))
-                      except Exception:detail={}
-                      print('READER_PROBE',path,'HTTP',exc.code,safe({k:detail[k] for k in ('error','upstream_status') if k in detail}))
-                  except Exception as exc:print('READER_PROBE',path,type(exc).__name__)
           PY
