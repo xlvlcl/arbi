@@ -8,7 +8,8 @@ permissions:
   contents: read
 jobs:
   test:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'test: send requested notification'
+    if: >-
+      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'test: send requested notification'
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     environment: github-pages
