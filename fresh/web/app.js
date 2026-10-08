@@ -68,7 +68,8 @@ function pushError(text){pushPhase='error';pushStatus(text,false,'Odśwież obs�
 function updatePushSubscription(){
  if(!pushReady)return;
  const subscription=pushReady.User.PushSubscription;
- if(pushReady.Notifications.permission&&subscription.optedIn&&subscription.id){pushStatus('Powiadomienia włączone. To urządzenie jest zarejestrowane do odbierania alertów.',true,'Powiadomienia włączone');return}
+ $('pushDiagnostic').textContent=['Wersja: push-check-2','Aplikacja: '+config.onesignal_app_id,'Urządzenie: '+(subscription.id||'brak'),'Zgoda: '+Boolean(pushReady.Notifications.permission),'Subskrypcja: '+Boolean(subscription.optedIn),'Token dostępny: '+Boolean(subscription.token)].join('\n');
+ if(pushReady.Notifications.permission&&subscription.optedIn&&subscription.id&&subscription.token){pushStatus('Telefon ma aktywną subskrypcję push. Dostarczenie powiadomień potwierdzi test.',true,'Subskrypcja aktywna');return}
  if(typeof Notification!=='undefined'&&Notification.permission==='denied'){pushStatus('Powiadomienia są zablokowane. Zmień zgodę w ustawieniach tej aplikacji lub witryny, potem otwórz ją ponownie.');return}
  pushStatus(pushReady.Notifications.permission?'Zgoda przyznana. Czekam na rejestrację urządzenia w OneSignal.':'Push gotowy. Włącz powiadomienia na tym urządzeniu.',false);
 }

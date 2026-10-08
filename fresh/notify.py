@@ -47,7 +47,7 @@ def send_alerts(opportunities,state,send=post_json,env=None,now=None):
             except Exception:errors.append('Telegram nie przyjął alertu. Sprawdź konfigurację bota i chat ID.')
         if channels['push'] and time.monotonic()<deadline:
             try:
-                response=send('https://api.onesignal.com/notifications',{'app_id':app_id,'included_segments':['Subscribed Users'],'target_channel':'push','headings':{'en':'Surebet Alert'},'contents':{'en':title+' · '+opportunity['market']},'url':url},{'Authorization':'Key '+key})
+                response=send('https://api.onesignal.com/notifications',{'app_id':app_id,'included_segments':['Total Subscriptions'],'target_channel':'push','headings':{'en':'Surebet Alert'},'contents':{'en':title+' · '+opportunity['market']},'url':url},{'Authorization':'Key '+key})
                 if not response.get('id'):
                     errors.append('Push: brak aktywnych odbiorców lub usługa odrzuciła wiadomość. Włącz powiadomienia na telefonie i sprawdź OneSignal.')
                 else:success=True

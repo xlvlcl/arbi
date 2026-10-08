@@ -286,6 +286,17 @@ class Flow(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory,self.assertRaises(RuntimeError):build(directory,{})
 
 class Alerts(unittest.TestCase):
+    def test_push_targets_existing_segment_and_requires_message_id(self):
+        op=opportunities(event(),config=CONFIG)[0]
+        for message_id,expected in [('',0),('accepted-message',1)]:
+            state={}
+            def service(url,payload,headers):
+                self.assertEqual(payload['included_segments'],['Total Subscriptions'])
+                self.assertEqual(payload['target_channel'],'push')
+                return {'id':message_id}
+            result=send_alerts([op],state,send=service,env={'ONESIGNAL_APP_ID':'test','ONESIGNAL_API_KEY':'test'},now=100)
+            self.assertEqual(result['accepted'],expected)
+            self.assertEqual(bool(state['sent'][op['id']].get('last_sent')),bool(expected))
     def test_failure_is_not_marked_sent(self):
         state={};op=opportunities(event(),config=CONFIG)[0]
         result=send_alerts([op],state,send=lambda *args:{'ok':False},env={'TELEGRAM_BOT_TOKEN':'test','TELEGRAM_CHAT_ID':'1'},now=100)
