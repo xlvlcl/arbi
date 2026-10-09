@@ -12,7 +12,7 @@ $('budget').value=pref('budget',50);$('minimum').value=pref('minimum',.35);
 function budget(){return Math.min(100000,Math.max(3,Number($('budget').value)||50))}
 async function getJSON(url,conditional=false){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),conditional?6000:20000);const saved=responseCache.get(url);try{const response=await fetch(url+(url.includes('?')?'&':'?')+'t='+Date.now(),{cache:'no-store',signal:controller.signal,headers:conditional&&saved?.etag?{'If-None-Match':saved.etag}:{}});if(response.status===304&&saved)return saved.data;if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(conditional)responseCache.set(url,{data,etag:response.headers?.get('ETag')||''});return data}finally{clearTimeout(timer)}}
 async function digest(value){const buffer=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));return [...new Uint8Array(buffer)].map(n=>n.toString(16).padStart(2,'0')).join('')}
-function unlock(){ $('gate').hidden=true;$('app').hidden=false;load().catch(showLoadError);initPush() }
+function unlock(){ $('gate').hidden=true;$('app').hidden=false;if(location.hash==='#notifications')document.querySelector('[data-view="notifications"]')?.click();load().catch(showLoadError);initPush() }
 $('login').addEventListener('submit',async event=>{event.preventDefault();if(!config.password_hash){$('authError').textContent='Brak konfiguracji dostępu. Sprawdź publikację strony.';return}try{if(await digest($('password').value)!==config.password_hash){$('authError').textContent='Nieprawidłowe hasło.';return}save('access',config.password_hash);$('password').value='';unlock()}catch{$('authError').textContent='Nie udało się sprawdzić hasła. Otwórz stronę przez HTTPS.'}});
 $('lock').addEventListener('click',()=>{save('access','');location.reload()});
 async function boot(){try{config=await getJSON('config.json');if(!config.password_hash)throw new Error('config');if(pref('access','')===config.password_hash)unlock()}catch{$('authError').textContent='Nie można pobrać konfiguracji strony. Odśwież za chwilę.'}}
@@ -50,7 +50,7 @@ function renderHistory(){
  const holder=$('alertHistory'); if(!holder)return;
  const rows=(Array.isArray(payload.alert_history)?payload.alert_history:[]).slice().sort((a,b)=>Number(b.last_seen_at||0)-Number(a.last_seen_at||0)).slice(0,60);
  holder.innerHTML=rows.length?rows.map(item=>{
-  const stale=Date.now()/1000-Number(item.last_seen_at||0)>300 || new Date(item.starts_at).getTime()<=Date.now();
+  const stale=payload.status.state==='error' || Date.now()/1000-Number(item.last_seen_at||0)>300 || new Date(item.starts_at).getTime()<=Date.now();
   const legs=Array.isArray(item.legs)?item.legs:[];
   return '<article class="card"><div class="card-top"><span class="sport-tag">'+esc(item.sport)+'</span><span class="'+(stale?'watch-tag':'profit-tag')+'">'+(stale?'ARCHIWUM':'ODCZYT < 5 MIN')+' · +'+money(item.profit_pct)+'%</span></div>'+
     '<h2>'+esc(item.event)+'</h2><div class="market">'+esc(item.market)+' · '+date(item.starts_at)+'</div>'+
