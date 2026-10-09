@@ -16,7 +16,7 @@ on:
   repository_dispatch:
     types: [surebet_scan]
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/15 * * * *'
 permissions:
   contents: write
   pages: write
@@ -44,7 +44,7 @@ jobs:
       BANKROLL_PLN: '50'
       MIN_PROFIT_PCT: '0.35'
       SCAN_BUDGET_SECONDS: '85'
-      DETAIL_LIMIT: '40'
+      DETAIL_LIMIT: '12'
       BOOKMAKER_TAX_OVERRIDES: '{}'
     defaults:
       run:
@@ -68,7 +68,7 @@ jobs:
           node --test fresh/reader/worker.test.mjs
       - name: Przygotuj konfigurację dostępu
         run: python fresh/build.py
-      - name: Pobierz kursy, potwierdź okazje i wyślij alerty
+      - name: Pobierz kursy i zapisz wynik bez wysyłania alertów
         id: scan
         run: |
           set -euo pipefail
@@ -120,6 +120,32 @@ jobs:
         id: deployment
         timeout-minutes: 5
         uses: actions/deploy-pages@v4
+      - name: Wyślij alerty po publikacji wyniku
+        run: python fresh/dispatch_alerts.py
+      - name: Zachowaj stan wysłanych powiadomień
+        run: |
+          set -euo pipefail
+          git config user.name surebet-bot
+          git config user.email surebet-bot@users.noreply.github.com
+          worktree_dir="$RUNNER_TEMP/arbi-alert-state-$GITHUB_RUN_ID"
+          git fetch --no-tags origin main
+          git worktree add --detach "$worktree_dir" origin/main
+          for attempt in 1 2 3; do
+            git fetch --no-tags origin main
+            git -C "$worktree_dir" reset --hard origin/main
+            cp fresh/state.json "$worktree_dir/fresh/state.json"
+            git -C "$worktree_dir" add -f -- fresh/state.json
+            if git -C "$worktree_dir" diff --cached --quiet; then
+              exit 0
+            fi
+            git -C "$worktree_dir" commit -m 'data: notification receipt [skip ci]'
+            if git -C "$worktree_dir" push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo '::error::Nie zapisano historii wysyłek; istnieje ryzyko ponownego alertu.'
+          exit 1
       - name: Zapisz log
         if: always()
         uses: actions/upload-artifact@v4
