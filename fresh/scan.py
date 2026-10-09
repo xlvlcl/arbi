@@ -37,6 +37,8 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
     root=Path(root);now=time.time();started=time.monotonic()
     output=root/'web/data/latest.json'; state_path=root/'state.json'
     previous=read(output);state=read(state_path)
+    history=state.get('alert_history',previous.get('alert_history',[]))
+    history=[row for row in history if isinstance(row,dict) and row.get('id')] if isinstance(history,list) else []
     run_url=f"https://github.com/{env.get('GITHUB_REPOSITORY','xlvlcl/arbi')}/actions/runs/{env.get('GITHUB_RUN_ID','')}"
     status={'version':'NEW-1','state':'error','attempt_at':now,'last_success_at':previous.get('status',{}).get('last_success_at'),'message':'','run_url':run_url,'errors':[]}
     try:
@@ -66,11 +68,11 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
         cap=max(10,min(100,int(number(env.get('DETAIL_LIMIT',40)))))
         selected=strong[:cap]+extras[:max(0,cap-len(strong))]
         print(f'2/5 Katalog: {len(catalogue)} zdarzeń, nadchodzące: {len(eligible)}, szczegóły: {len(selected)}.',flush=True)
-        first,errors=read_details(selected,deadline,fetch=fetch,workers=5)
+        first,errors=read_details(selected,deadline,fetch=fetch,workers=2)
         missing_events=[e for e in selected if e['id'] not in first]
         if missing_events and time.monotonic()<deadline-10:
             print(f"Ponawiam {len(missing_events)} nieudanych odczytów.",flush=True)
-            retry,retry_errors=read_details(missing_events,deadline,fetch=fetch,workers=3)
+            retry,retry_errors=read_details(missing_events,deadline,fetch=fetch,workers=1)
             first.update(retry)
             errors=[error for error in errors if not any(error.startswith(f"Zdarzenie {event_id}:") for event_id in retry)]
             errors+=retry_errors
@@ -86,7 +88,7 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
         confirmation_complete=not targets
         if targets and time.monotonic()<deadline-10:
             time.sleep(1)
-            second,errors=read_details([{'id':i} for i in targets],deadline,fetch=fetch,workers=4)
+            second,errors=read_details([{'id':i} for i in targets],deadline,fetch=fetch,workers=2)
             status['errors']+=errors
             confirmation_complete=all(event_id in second for event_id in targets)
             first_ids={op['id'] for op in candidates}
@@ -100,6 +102,19 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
         for opportunity in confirmed:opportunity['confirmed_at']=time.time()
         confirmed_values.sort(key=lambda x:x['edge_pct'],reverse=True)
         for value in confirmed_values:value['confirmed_at']=time.time()
+        # Keep a safe record of every detected opportunity before sending anything.
+        for opportunity in confirmed:
+            old=next((row for row in history if row.get('id')==opportunity['id']),{})
+            snapshot={'id':opportunity['id'],'event':opportunity['event'],'sport':opportunity['sport'],
+                'market':opportunity['market'],'starts_at':opportunity['starts_at'],
+                'confirmed_at':opportunity['confirmed_at'],'first_seen_at':old.get('first_seen_at',now),
+                'last_seen_at':opportunity['confirmed_at'],'profit_pct':opportunity['profit_pct'],
+                'source_url':opportunity['source_url'],
+                'legs':[{key:leg.get(key) for key in ('bookmaker','selection','odds','stake','tax_rate','url')} for leg in opportunity['legs']]}
+            history=[row for row in history if row.get('id')!=opportunity['id']]
+            history.insert(0,snapshot)
+        history=sorted(history,key=lambda row:row.get('last_seen_at',0),reverse=True)[:100]
+        state['alert_history']=history
         watch=[]
         for detail in latest_details.values():
             if future_event(detail,time.time()):watch+=radar(detail,budget,config,overrides)
@@ -109,8 +124,8 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
         missing=len([e for e in selected if e['id'] not in first])
         if selected and not first:raise RuntimeError('Nie udało się odczytać szczegółów żadnego wytypowanego wydarzenia.')
         print(f'4/5 Potwierdzone okazje: {len(confirmed)}. Powiadomienia.',flush=True)
-        notices=notify(confirmed,state,env=env)
-        status['errors']+=notices['errors']
+        # Alerts are dispatched only after the snapshot has been published.
+        notices={'accepted':0,'channels':{'telegram':bool(env.get('TELEGRAM_BOT_TOKEN') and env.get('TELEGRAM_CHAT_ID')),'push':bool(env.get('ONESIGNAL_APP_ID') and env.get('ONESIGNAL_API_KEY'))},'errors':[]}
         state['sequence']=sequence
         limited=len(strong)>cap
         status.update(state='partial' if missing or not confirmation_complete or limited else 'ok',last_success_at=time.time(),message=(f'Odczytano katalog; {missing} szczegółów wymaga ponownej próby.' if missing else 'Nie ukończono potwierdzania wszystkich kandydatów.' if not confirmation_complete else f'Limit szczegółów: sprawdzono {cap} z {len(strong)} kandydatów.' if limited else 'Skan zakończony.'))
@@ -126,20 +141,25 @@ def run(root=ROOT,fetch=fetch_json,read_details=details,notify=send_alerts,env=N
             groups=market_groups([x.get('market_type') for x in event.get('best_odds',[])],event.get('sport',''))
             market_count+=len(groups)
             items.append({'id':event['id'],'name':event.get('name'),'sport':SPORTS.get(event.get('sport'),event.get('sport')),'sport_code':event.get('sport'),'starts_at':event.get('event_date'),'league':(event.get('league') or {}).get('name'),'url':'https://dobrybuk.pl/kursy/mecz/'+event.get('slug',''),'market_count':len(groups),'odds':[{'code':x.get('market_type'),'value':number(x.get('odds_value')),'bookmaker':(x.get('bookmaker') or {}).get('name'),'slug':(x.get('bookmaker') or {}).get('slug')} for x in event.get('best_odds',[])]})
-        payload={'version':'NEW-1','status':status,'opportunities':confirmed,'events':items,'bookmakers':books,'config':config,'notifications':notices,'stats':{'source_events':len(catalogue),'upcoming_events':len(eligible),'market_groups':market_count,'detail_reads':len(first),'candidate_events':len(strong),'detail_limit':cap,'candidate_coverage_complete':confirmation_complete and len(strong)<=cap and all(e['id'] in first for e in strong[:cap]),'sports':sorted({e.get('sport') for e in eligible}),'bookmakers':len(books),'confirmed':len(confirmed)},'source_note':'Kursy z publicznej porównywarki. Potwierdzenie oznacza ponowny odczyt źródła; źródło nie podaje czasu aktualizacji każdego kursu. Dostępne rynki zależą od oferty źródła.'}
+        payload={'version':'NEW-1','status':status,'opportunities':confirmed,'alert_history':history,'events':items,'bookmakers':books,'config':config,'notifications':notices,'stats':{'source_events':len(catalogue),'upcoming_events':len(eligible),'market_groups':market_count,'detail_reads':len(first),'candidate_events':len(strong),'detail_limit':cap,'candidate_coverage_complete':confirmation_complete and len(strong)<=cap and all(e['id'] in first for e in strong[:cap]),'sports':sorted({e.get('sport') for e in eligible}),'bookmakers':len(books),'confirmed':len(confirmed)},'source_note':'Kursy z publicznej porównywarki; dwa odczyty nie potwierdzają dostępności u bukmacherów. Alerty powyżej 12% nie są automatycznie wysyłane z uwagi na anomalie. Dostępne rynki zależą od źródła.'}
         payload['radar']=watch
         payload['valuebets']=confirmed_values
         payload['stats'].update(radar=len(watch),valuebets=len(confirmed_values))
+        state['rate_limit_failures']=0
+        state.pop('source_resume_at',None)
         write(state_path,state)
     except Exception as exc:
         if isinstance(exc,RateLimited):
-            state['source_resume_at']=time.time()+exc.retry_after
+            failures=min(10,int(number(state.get('rate_limit_failures',0)))+1)
+            state['rate_limit_failures']=failures
+            cooldown=max(exc.retry_after,min(3600,300*2**min(failures-1,5)))
+            state['source_resume_at']=time.time()+cooldown
             status['source_resume_at']=state['source_resume_at']
             write(state_path,state)
         message=error_text(exc) if isinstance(exc,(urllib.error.HTTPError,urllib.error.URLError,TimeoutError)) else str(exc)
         print('BŁĄD:',type(exc).__name__,message,flush=True)
         status['message']=message
-        payload={**previous,'version':'NEW-1','status':status,'opportunities':[],'radar':[],'valuebets':[]}
+        payload={**previous,'version':'NEW-1','status':status,'opportunities':[],'alert_history':history[:100],'radar':[],'valuebets':[]}
         payload.setdefault('events',[]);payload.setdefault('stats',{})
     status['duration_seconds']=round(time.monotonic()-started,2)
     print('5/5 Zapisuję wynik i status:',status['state'],flush=True)
