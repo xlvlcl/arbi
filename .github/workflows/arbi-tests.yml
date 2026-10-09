@@ -1,0 +1,26 @@
+name: ARBI Tests
+on:
+  pull_request:
+    paths:
+      - 'fresh/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python scanner and history tests
+        run: python -m unittest discover -s fresh/tests -p 'test_new.py' -v
+      - name: JavaScript and worker tests
+        run: |
+          node --check fresh/web/app.js
+          node fresh/tests/calculator.cjs
+          node fresh/tests/web.cjs
+          node --test fresh/reader/worker.test.mjs
