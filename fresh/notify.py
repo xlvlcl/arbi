@@ -23,7 +23,7 @@ def send_alerts(opportunities,state,send=post_json,env=None,now=None):
     deadline=time.monotonic()+20
     token=env.get('TELEGRAM_BOT_TOKEN','');chat=env.get('TELEGRAM_CHAT_ID','')
     app_id=env.get('ONESIGNAL_APP_ID','');key=env.get('ONESIGNAL_API_KEY','')
-    url=env.get('APP_PUBLIC_URL','https://xlvlcl.github.io/arbi/')
+    url=env.get('APP_PUBLIC_URL','https://xlvlcl.github.io/arbi/').rstrip('/')+'/#notifications'
     sent=state.setdefault('sent',{}); accepted=0;errors=[]
     channels={'telegram':bool(token and chat),'push':bool(app_id and key)}
     for opportunity in opportunities:
