@@ -9,6 +9,8 @@ from datetime import datetime, timezone
 
 SPORTS = {'football':'Piłka nożna','tennis':'Tenis','basketball':'Koszykówka','volleyball':'Siatkówka','hockey':'Hokej','handball':'Piłka ręczna','mma':'MMA','boxing':'Boks','esport':'Esport','darts':'Dart','speedway':'Żużel','baseball':'Baseball','american_football':'Futbol amerykański','table_tennis':'Tenis stołowy'}
 TWO_WAY = {'tennis','table_tennis','volleyball','basketball','baseball','esport','darts'}
+# Extraordinary prices from one comparison source require manual confirmation, not push.
+MAX_AUTO_PROFIT_PCT = 12.0
 
 def number(value):
     try:
@@ -113,7 +115,7 @@ def opportunities(event,budget=50,min_profit=.35,config=None,overrides=None):
         if len({x['slug'] for x in legs})<2:continue
         if sum(1/x['effective_odds'] for x in legs)>=1:continue
         allocation=allocate(legs,budget,config)
-        if not allocation or allocation['profit_pct']<min_profit:continue
+        if not allocation or allocation['profit_pct']<min_profit or allocation['profit_pct']>MAX_AUTO_PROFIT_PCT:continue
         identity=f"{event['id']}|{group['key']}"
         result.append({'id':hashlib.sha256(identity.encode()).hexdigest()[:20],'event_id':event['id'],'event':event.get('name',''),'sport':SPORTS.get(event.get('sport'),event.get('sport','')),'sport_code':event.get('sport',''),'starts_at':event.get('event_date'),'market':group['name'],'market_key':group['key'],'source_url':'https://dobrybuk.pl/kursy/mecz/'+event.get('slug',''),'config':config,**allocation})
     return result

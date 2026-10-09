@@ -23,7 +23,7 @@ def send_alerts(opportunities,state,send=post_json,env=None,now=None):
     deadline=time.monotonic()+20
     token=env.get('TELEGRAM_BOT_TOKEN','');chat=env.get('TELEGRAM_CHAT_ID','')
     app_id=env.get('ONESIGNAL_APP_ID','');key=env.get('ONESIGNAL_API_KEY','')
-    url=env.get('APP_PUBLIC_URL','https://xlvlcl.github.io/arbi/')
+    url=env.get('APP_PUBLIC_URL','https://xlvlcl.github.io/arbi/').rstrip('/')+'/#notifications'
     sent=state.setdefault('sent',{}); accepted=0;errors=[]
     channels={'telegram':bool(token and chat),'push':bool(app_id and key)}
     for opportunity in opportunities:
@@ -35,9 +35,9 @@ def send_alerts(opportunities,state,send=post_json,env=None,now=None):
             errors.append('Limit czasu powiadomień — pozostałe alerty spróbują ponownie w następnym skanie.')
             break
         title=f"{opportunity['event']} · +{opportunity['profit_pct']:.2f}%"
-        lines=[f"Surebet · {opportunity['sport']}",title,opportunity['market']]
+        lines=[f"Kandydat surebeta · {opportunity['sport']}",title,opportunity['market']]
         lines += [f"{leg['bookmaker']}: {leg['selection']} @ {leg['odds']:g} — {leg['stake']:.2f} zł" for leg in opportunity['legs']]
-        lines += [f"Wyliczony zysk: {opportunity['profit']:.2f} zł / {opportunity['budget']:.2f} zł",'Kursy potwierdzono ponownym odczytem porównywarki. Sprawdź kursy i zasady przed postawieniem.',url]
+        lines += [f"Wyliczony zysk: {opportunity['profit']:.2f} zł / {opportunity['budget']:.2f} zł",'Dwa odczyty porównywarki nie potwierdzają dostępności u bukmacherów. Zweryfikuj kursy, podatki i zasady.',url]
         success=False
         if channels['telegram']:
             try:
@@ -47,7 +47,7 @@ def send_alerts(opportunities,state,send=post_json,env=None,now=None):
             except Exception:errors.append('Telegram nie przyjął alertu. Sprawdź konfigurację bota i chat ID.')
         if channels['push'] and time.monotonic()<deadline:
             try:
-                response=send('https://api.onesignal.com/notifications',{'app_id':app_id,'included_segments':['Total Subscriptions'],'target_channel':'push','headings':{'en':'Surebet Alert'},'contents':{'en':title+' · '+opportunity['market']},'url':url},{'Authorization':'Key '+key})
+                response=send('https://api.onesignal.com/notifications',{'app_id':app_id,'included_segments':['Total Subscriptions'],'target_channel':'push','headings':{'en':'Kandydat surebeta – sprawdź kursy'},'contents':{'en':title+' · '+opportunity['market']},'url':url},{'Authorization':'Key '+key})
                 if not response.get('id'):
                     errors.append('Push: brak aktywnych odbiorców lub usługa odrzuciła wiadomość. Włącz powiadomienia na telefonie i sprawdź OneSignal.')
                 else:success=True

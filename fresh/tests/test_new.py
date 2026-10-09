@@ -19,6 +19,7 @@ from notify import due, send_alerts
 from source import details, fetch_json, NoRedirect, RateLimited, open_source, error_text
 from insights import radar, valuebets
 from publish_feed import publish, compact
+from dispatch_alerts import dispatch
 
 CONFIG={'tax_rate':.12,'winning_tax_threshold':2280,'winning_tax_rate':.1}
 
@@ -313,5 +314,37 @@ class Alerts(unittest.TestCase):
         state={};op=opportunities(event(),config=CONFIG)[0]
         send_alerts([op],state,env={},now=100)
         self.assertTrue(due(state['sent'][op['id']],op['profit_pct'],110))
+
+class HistoryAndSafety(unittest.TestCase):
+    def test_extreme_profit_filtered_before_alert(self):
+        example=event()
+        example['all_odds'][0]['odds']['1']='3.00'
+        example['all_odds'][1]['odds']['2']='3.00'
+        self.assertFalse(opportunities(example,config=CONFIG))
+    def test_history_survives_rate_limited_scan(self):
+        with tempfile.TemporaryDirectory() as directory,patch('scan.time.sleep'):
+            reader=lambda events,deadline,**kwargs:({1:event()},[])
+            success=run(directory,fake_fetch,reader,fake_notify,env={})
+            self.assertEqual(len(success['alert_history']),1)
+            def blocked(*args):raise RateLimited(900)
+            failure=run(directory,blocked,env={})
+            self.assertEqual(len(failure['alert_history']),1)
+            self.assertEqual(failure['opportunities'],[])
+            self.assertGreater(read(Path(directory)/'state.json')['source_resume_at'],time.time())
+    def test_dispatch_waits_for_published_snapshot(self):
+        with tempfile.TemporaryDirectory() as directory:
+            sent=[]
+            def dispatch_stub(ops,state,**kwargs):
+                sent.extend(ops)
+                return {'accepted':len(ops),'errors':[]}
+            now=time.time()
+            write(Path(directory)/'web/data/latest.json',{'status':{'state':'error','last_success_at':now},'opportunities':[{'id':'example'}]})
+            self.assertEqual(dispatch(directory,{},now,dispatch_stub)['accepted'],0)
+            self.assertEqual(sent,[])
+            op=opportunities(event(),config=CONFIG)[0]
+            op['confirmed_at']=now
+            write(Path(directory)/'web/data/latest.json',{'status':{'state':'ok','last_success_at':now},'opportunities':[op]})
+            self.assertEqual(dispatch(directory,{},now,dispatch_stub)['accepted'],1)
+            self.assertEqual(len(sent),1)
 
 if __name__=='__main__':unittest.main()
