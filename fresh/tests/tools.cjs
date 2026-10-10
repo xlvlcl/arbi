@@ -1,0 +1,8 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const {analyze,totals,csv}=require('../web/tools-math.js');
+const leg=(event='A',p=80)=>({event,market:'Gole ponad 0.5',selection:'Tak',odds:2,probability:p});
+test('coupon probability is a product, not the highest individual chance',()=>{const r=analyze([leg(),leg('B')],50,12,10,2280);assert.equal(r.payout,176);assert(Math.abs(r.probability-.64)<1e-12);assert.equal(r.breakEven,50/176)});
+test('dependent legs and missing probabilities suppress probability and EV',()=>{for(const legs of [[leg(),leg(' a ')],[leg(),leg('B','')],[leg('A',100)]]){const r=analyze(legs,50,0,10,2280);assert.equal(r.probability,null);assert.equal(r.ev,null)}});
+test('invalid and excessive inputs do not produce financial outputs',()=>{for(const odds of ['',0,-2,'NaN',Infinity,1001])assert.equal(analyze([{...leg(),odds}],50,0,10,2280),null);assert.equal(analyze([leg()],0,0,10,2280),null);assert.equal(analyze([leg()],50,-1,10,2280),null);assert.equal(analyze([],50,0,10,2280),null)});
+test('payout rounding and threshold are applied',()=>{assert.equal(analyze([leg()],1300,0,10,2280).payout,2340);assert.equal(analyze([leg()],1140,0,10,2280).payout,2280);assert.equal(analyze([leg()],.01,99,0,0).breakEven,null)});
+test('journal keeps open exposure separate from realized results',()=>{assert.deepEqual(totals([{stake:50,state:'open'},{stake:20,payout:38,state:'won'},{stake:10,state:'lost'},{stake:15,state:'void'}]),{exposure:50,settled:45,profit:8})});
+test('CSV quotes values and neutralizes spreadsheet formulas',()=>{const s=csv([{name:'=SUM(1;2)',created:'today',stake:5,payout:10,state:'open'}]);assert(s.includes("'=SUM(1;2)"));assert(!s.includes('"=SUM'));});
