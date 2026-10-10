@@ -67,6 +67,8 @@ jobs:
           node fresh/tests/web.cjs
           node --check fresh/web/tools.js
           node --test fresh/tests/tools.cjs
+          node --check fresh/web/ai-coupons.js
+          node --test fresh/tests/ai-coupons.cjs
           node --test fresh/reader/worker.test.mjs
       - name: Przygotuj konfigurację dostępu
         run: python fresh/build.py
