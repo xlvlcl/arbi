@@ -44,5 +44,8 @@
   if(url.protocol!=='https:'||url.username||url.password)throw new Error('Wymagany jest poprawny link HTTPS bez danych logowania.');
   return {...coupon,state,evidence:url.href,settled_at:now,settlement_method:'manual',corrections:[...(coupon.corrections||[]),...(coupon.state!=='open'?[{state:coupon.state,evidence:coupon.evidence,settled_at:coupon.settled_at}]:[])]};
  }
- const api={generate,counters,settle};if(typeof module==='object'&&module.exports)module.exports=api;else root.AiCoupons=api;
+ function copyText(coupon){
+  return ['KUPON • '+coupon.bookmaker,'Kurs łączny: '+Number(coupon.odds).toFixed(2),...coupon.legs.map((l,i)=>(i+1)+'. '+l.event+' | '+l.market+' | '+l.leg.selection+' | kurs '+Number(l.leg.odds).toFixed(2)+' | '+new Date(l.starts_at).toLocaleString('pl-PL',{timeZone:'Europe/Warsaw'})+'\n'+(l.source_url||'')),'Szacunek rynku: '+(Number(coupon.probability)*100).toFixed(2)+'%'+(coupon.legs.length>1?' przy założeniu niezależności.':'.'),'To nie gwarancja ani prognoza AI. Sprawdź aktualne kursy i możliwość połączenia typów u bukmachera.'].join('\n');
+ }
+ const api={generate,counters,settle,copyText};if(typeof module==='object'&&module.exports)module.exports=api;else root.AiCoupons=api;
 })(typeof window!=='undefined'?window:globalThis);
