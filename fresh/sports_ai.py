@@ -21,7 +21,7 @@ def request_json(url,body=None,key=None):
     if body is not None:headers['Content-Type']='application/json'
     if key:headers['x-goog-api-key']=key
     req=urllib.request.Request(url,data=None if body is None else json.dumps(body).encode(),headers=headers)
-    with urllib.request.build_opener(NoRedirect()).open(req,timeout=35 if body else 12) as response:
+    with urllib.request.build_opener(NoRedirect()).open(req,timeout=90 if body else 12) as response:
         raw=response.read(5_000_001)
     if len(raw)>5_000_000:raise ValueError('response too large')
     return json.loads(raw)
@@ -117,9 +117,10 @@ def analyze_ai(contexts,key,model,fetch=request_json):
             'Podaj subiektywną, nieskalibrowaną ocenę prawdopodobieństwa od 0.01 do 0.95, rzeczową analizę po polsku, ryzyka i evidence_ids z podanej historii. '
             'Nie obiecuj pewności. W analizie porównaj ostatnie wyniki obu drużyn, gole, dom/wyjazd i wielkość próby. '
             'Zwróć JSON {"picks":[{"match_id":123,"market":"over25","probability":0.6,"analysis":"...","risks":"...","evidence_ids":[1,2]}]}. '
+            'Analizę podziel na krótkie akapity: Forma gospodarzy; Forma gości; Argumenty za typem; Argumenty przeciw; Ograniczenia danych. Przy liczbach podaj wielkość próby. Wyjaśnij także, dlaczego Twoja ocena procentowa jest niepewna. Nie traktuj opisowej pewności jako sprawdzonej skuteczności. '
             'Nie dopisuj żadnych statystyk, których nie zawierają dane. Dane:\n'+json.dumps(contexts,ensure_ascii=False))
     schema={'type':'OBJECT','properties':{'picks':{'type':'ARRAY','items':{'type':'OBJECT','properties':{'match_id':{'type':'INTEGER'},'market':{'type':'STRING','enum':list(MARKETS)},'probability':{'type':'NUMBER'},'analysis':{'type':'STRING'},'risks':{'type':'STRING'},'evidence_ids':{'type':'ARRAY','items':{'type':'INTEGER'}}},'required':['match_id','market','probability','analysis','risks','evidence_ids']}}},'required':['picks']}
-    body={'contents':[{'role':'user','parts':[{'text':prompt}]}],'generationConfig':{'temperature':0.2,'maxOutputTokens':4096,'responseMimeType':'application/json','responseSchema':schema}}
+    body={'contents':[{'role':'user','parts':[{'text':prompt}]}],'generationConfig':{'temperature':0.2,'maxOutputTokens':16384,'responseMimeType':'application/json','responseSchema':schema}}
     result=fetch('https://generativelanguage.googleapis.com/v1beta/models/'+model+':generateContent',body,key)
     candidate=result.get('candidates',[{}])[0]
     if candidate.get('finishReason')!='STOP':raise ValueError('incomplete AI response')
@@ -195,25 +196,26 @@ def make_coupons(picks,events,matches,now,existing):
 def run(root=ROOT,env=None,fetch=request_json,now=None):
     root=Path(root);env=os.environ if env is None else env;now=time.time() if now is None else now
     state=read(root/'sports-state.json');payload=read(root/'web/data/latest.json');archive=read(root/'web/data/ai-coupons.json')
-    coupons=archive.get('coupons',[]);errors=[];matches=[];key=env.get('GEMINI_API_KEY','').strip();model=env.get('GEMINI_MODEL','gemini-3.5-flash-lite')
+    coupons=archive.get('coupons',[]);errors=[];matches=[];key=env.get('GEMINI_API_KEY','').strip();model=env.get('GEMINI_MODEL','gemini-3.8-flash')
     status={'checked_at':now,'ai':'not_configured' if not key else 'ready','model':model,'results':'waiting','message':'','supported_leagues':list(LEAGUES),'supported_markets':list(MARKETS),'missing_data':MISSING}
     try:
         matches,cache,errors=fetch_matches(state.get('cache',{}),now,fetch);state['cache']=cache
         status.update(results='error' if not matches else 'partial' if errors else 'ok',matches=len(matches),source_errors=errors)
         settle(coupons,matches,now)
         contexts=[];event_ids=set();eligible=[]
+        archived_ids={leg['match_id'] for coupon in coupons for leg in coupon['legs']}
         scan_age=now-float(payload.get('status',{}).get('last_success_at',0))
         fresh=payload.get('status',{}).get('state') in ('ok','partial') and 0<=scan_age<=300
         if fresh:
             for e in payload.get('events',[]):
                 m=match_event(e,matches)
-                if not m or not 0<=now-m.get('fetched_at',0)<=1800 or m['id'] in event_ids or m.get('finished') or not now+900<m['start']<now+7*86400:continue
+                if not m or m['id'] in archived_ids or not 0<=now-m.get('fetched_at',0)<=1800 or m['id'] in event_ids or m.get('finished') or not now+900<m['start']<now+7*86400:continue
                 c=evidence(m,matches,now)
                 if c:event_ids.add(m['id']);eligible.append((m['start'],c))
         eligible.sort(key=lambda x:x[0]);contexts=[c for _,c in eligible[:6]]
         status['matched_events']=len(eligible)
         predictions=state.setdefault('predictions',{})
-        missing=[c for c in contexts if str(c['match_id']) not in predictions or predictions[str(c['match_id'])]['context']['starts_at']!=c['starts_at']]
+        missing=[c for c in contexts if str(c['match_id']) not in predictions or predictions[str(c['match_id'])]['context']['starts_at']!=c['starts_at'] or predictions[str(c['match_id'])].get('model')!=model]
         # One bounded batch per hour, max six matches, no paid retries or hidden fallback.
         if key and missing and now-state.get('last_ai_attempt',0)>=3600:
             state['last_ai_attempt']=now
@@ -223,7 +225,7 @@ def run(root=ROOT,env=None,fetch=request_json,now=None):
             except Exception as exc:status['ai']='error';status['ai_error']=type(exc).__name__
         elif key and missing:status['ai']='cooldown'
         if key and fresh and status['ai']!='error' and len(coupons)<1000:
-            picks=[predictions[str(c['match_id'])] for c in contexts if str(c['match_id']) in predictions and predictions[str(c['match_id'])]['context']['starts_at']==c['starts_at']]
+            picks=[predictions[str(c['match_id'])] for c in contexts if str(c['match_id']) in predictions and predictions[str(c['match_id'])]['context']['starts_at']==c['starts_at'] and predictions[str(c['match_id'])].get('model')==model]
             coupons.extend(make_coupons(picks,payload.get('events',[]),matches,now,coupons)[:1000-len(coupons)])
         status['message']='Brak klucza GEMINI_API_KEY — analiza AI nie jest uruchomiona.' if not key else 'Błąd usługi AI; nie utworzono typów zastępczych.' if status['ai']=='error' else 'Brak świeżych kursów do złożenia kuponu; wyniki sprawdzane niezależnie.' if not fresh else 'Brak jednoznacznie dopasowanych meczów z wystarczającą historią.' if not contexts else 'Analiza i rozliczanie wykonywane na serwerze.'
         if len(coupons)>=1000:status['message']='Archiwum ma 1000 kuponów. Nowe kupony są wstrzymane; rozliczanie istniejących pozostaje aktywne.'

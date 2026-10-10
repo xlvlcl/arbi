@@ -7,7 +7,7 @@
 1. Utwórz klucz w https://aistudio.google.com/api-keys w projekcie korzystającym z bezpłatnego poziomu Gemini API. Dostępność i limity zależą od konta: https://ai.google.dev/gemini-api/docs/pricing . Nie trzeba włączać płatnego rozliczania dla tej integracji.
 2. GitHub → repozytorium `xlvlcl/arbi` → Settings → Secrets and variables → Actions → New repository secret.
 3. Nazwa: `GEMINI_API_KEY`. Wartość: klucz Gemini. Nie umieszczaj klucza w plikach ani kodzie strony.
-4. Kolejne uruchomienie skanera wykryje sekret. Domyślny model: `gemini-3.5-flash-lite`. Bez sekretu widoczny jest stan `not_configured` i nie są tworzone pozorne analizy.
+4. Kolejne uruchomienie skanera wykryje sekret. Domyślny model: `gemini-3.8-flash`. Bez sekretu widoczny jest stan `not_configured` i nie są tworzone pozorne analizy.
 
 Model otrzymuje wyłącznie dane historycznych meczów: maksymalnie 12 dla każdej drużyny, minimum 6, nazwy rywali, daty i gole. Nie otrzymuje kursów, bookmakerów ani procentów z rynku. Jedno wywołanie obsługuje najwyżej sześć meczów; najwyżej jedna próba na godzinę. Błąd lub wyczerpanie limitu nie uruchamiają innego, płatnego modelu. Jeśli projekt Google ma włączony billing, obowiązuje konfiguracja tego projektu — kod nie przełącza jego planu.
 
@@ -28,3 +28,7 @@ Stare kupony lokalne i ręczne wyniki nie są zaliczane do nowej historii serwer
 `python -m unittest discover -s fresh/tests -p test_sports_ai.py -v`
 
 Testy obejmują brak kursów w wejściu modelu, walidację odwołań do historii, brak klucza, awarie źródła, dopasowanie meczu, AKO i brak duplikatów, wynik końcowy, oczekiwanie i korekty rozliczeń. Wywołania AI w testach są symulowane. Rzeczywista odpowiedź modelu wymaga poprawnego sekretu i uprawnień dostawcy.
+
+## Wybór modelu
+
+Zmienna repozytorium Actions `GEMINI_MODEL` pozwala zmienić domyślny model. Zmiana nie aktywuje płatnego planu ani automatycznego fallbacku. Starsze kupony zachowują swoją analizę i model. Lepszy model nie rozszerza zakresu danych sportowych.
