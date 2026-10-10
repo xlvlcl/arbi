@@ -33,6 +33,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: gemini-3.5-flash-lite
       SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
       SOURCE_READER_URL: ${{ secrets.SOURCE_READER_URL }}
       SOURCE_READER_TOKEN: ${{ secrets.SOURCE_READER_TOKEN }}
@@ -62,6 +64,7 @@ jobs:
       - name: Sprawdź obliczenia i cały przepływ
         run: |
           python -m unittest discover -s fresh/tests -p 'test_new.py' -v
+          python -m unittest discover -s fresh/tests -p 'test_sports_ai.py' -v
           node --check fresh/web/app.js
           node fresh/tests/calculator.cjs
           node fresh/tests/web.cjs
@@ -80,6 +83,8 @@ jobs:
             python fresh/scan.py --record-failure
             echo 'scan_state=error' >> "$GITHUB_OUTPUT"
           fi
+      - name: Analizuj mecze AI i rozlicz zapisane kupony
+        run: python -u fresh/sports_ai.py
       - name: Opublikuj świeży wynik w Cloudflare
         run: python fresh/publish_feed.py
       - name: Zachowaj wynik i historię alertów
@@ -94,7 +99,7 @@ jobs:
             git fetch --no-tags origin main
             git -C "$worktree_dir" reset --hard origin/main
             mkdir -p "$worktree_dir/fresh/web/data"
-            for file in fresh/web/data/latest.json fresh/state.json; do
+            for file in fresh/web/data/latest.json fresh/state.json fresh/sports-state.json fresh/web/data/ai-coupons.json; do
               if [ -f "$file" ]; then
                 cp "$file" "$worktree_dir/$file"
                 git -C "$worktree_dir" add -f -- "$file"
