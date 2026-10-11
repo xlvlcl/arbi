@@ -32,3 +32,18 @@ Testy obejmują brak kursów w wejściu modelu, walidację odwołań do historii
 ## Wybór modelu
 
 Zmienna repozytorium Actions `GEMINI_MODEL` pozwala zmienić domyślny model. Zmiana nie aktywuje płatnego planu ani automatycznego fallbacku. Starsze kupony zachowują swoją analizę i model. Lepszy model nie rozszerza zakresu danych sportowych.
+
+
+## Wiele źródeł (MULTISPORT_ENABLED=1)
+
+Nowy kolektor `sports_sources.py` łączy OpenFootball (CC0), SportScore (wymagane przypisanie autorstwa), TheSportsDB (oficjalne darmowe API) i dotychczasowe OpenLigaDB. Nie wymaga nowych kluczy ani płatnych planów. Aktualną dostępność pokazuje tabela 18 kategorii w Kuponach AI. Kategoria w tabeli oznacza sprawdzanie danych, nie gwarancję pełnego pokrycia ani generowania kuponów.
+
+OpenFootball rozszerza piłkę o Anglię (2 ligi), Hiszpanię, Francję, Włochy, Holandię i Portugalię, sezon bieżący i poprzedni. Źródło społecznościowe ma opóźnienia; odpytujemy bieżący sezon co godzinę, starszy raz dziennie. Brak godziny pozwala użyć meczu wyłącznie jako historii. SportScore i TheSportsDB dostarczają kolejne dyscypliny; darmowe odpowiedzi mogą być ucięte. Brak danych nigdy nie oznacza przegranej.
+
+Historia źródeł przechowywana jest w GitHub Actions cache (45 dni wpisów), bez publikowania całego cache w repozytorium lub witrynie. Może zostać usunięta przez dostawcę cache; wtedy zbiera się ponownie. Zachowujemy datę faktycznego odczytu. Publiczne są tylko raporty liczności i dane użyte w zapisanych analizach. Źródła nie dostają klucza Gemini.
+
+AI wymaga minimum 6 wyników dla każdego uczestnika, tej samej dyscypliny, jednostki wyniku i tego samego źródła. W piłce obsługujemy wyłącznie regulaminowy wynik. Wybrane sporty punktowe i setowe mają tylko rynek zwycięzcy. Hokej, rugby, sporty walki, krykiet i turnieje bez dwóch uczestników pozostają w raporcie danych; nie tworzymy kuponów, jeśli brak jednoznacznego parsera wyniku i zasad rynku. Nie przedstawiamy nieobsługiwanych statystyk zawodników, rożnych czy fauli jako przeanalizowanych.
+
+Przy kolizji nazw wymagamy jednoznacznego dopasowania uczestników, dyscypliny i terminu. Nie łączymy niejednoznacznych rekordów, nie zgadujemy wyników dogrywki. Przełożony mecz z nowym identyfikatorem u źródła może pozostać oczekujący. Pula do analizy wybierana jest na przemian między dyscyplinami, maksymalnie 6 meczów na próbę.
+
+Dalsze bezpłatne źródła rozpoznane, ale niepodłączone: FIVB VIS (siatkówka, publiczne dane; identyfikator aplikacji od FIVB), OpenDota (Dota 2), Jolpica (F1), API-Sports (100 zapytań/dzień/API, wymagany klucz), BALLDONTLIE (ograniczony plan z kluczem), PulseScore (500 zapytań/miesiąc z kluczem). Te nazwy nie oznaczają wdrożonych integracji.

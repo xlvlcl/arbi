@@ -33,6 +33,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     env:
+      MULTISPORT_ENABLED: '1'
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-3.8-flash' }}
       SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
@@ -65,6 +66,7 @@ jobs:
         run: |
           python -m unittest discover -s fresh/tests -p 'test_new.py' -v
           python -m unittest discover -s fresh/tests -p 'test_sports_ai.py' -v
+          python -m unittest discover -s fresh/tests -p 'test_sports_sources.py' -v
           node --check fresh/web/app.js
           node fresh/tests/calculator.cjs
           node fresh/tests/web.cjs
@@ -83,8 +85,20 @@ jobs:
             python fresh/scan.py --record-failure
             echo 'scan_state=error' >> "$GITHUB_OUTPUT"
           fi
+      - name: Przywróć pamięć źródeł sportowych
+        uses: actions/cache/restore@v4
+        with:
+          path: fresh/multisport-cache.json
+          key: multisport-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: multisport-v1-
       - name: Analizuj mecze AI i rozlicz zapisane kupony
         run: python -u fresh/sports_ai.py
+      - name: Zachowaj pamięć źródeł sportowych
+        if: always() && hashFiles('fresh/multisport-cache.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: fresh/multisport-cache.json
+          key: multisport-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Opublikuj świeży wynik w Cloudflare
         run: python fresh/publish_feed.py
       - name: Zachowaj wynik i historię alertów
